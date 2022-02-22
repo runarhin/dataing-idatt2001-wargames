@@ -2,10 +2,10 @@ package edu.idatt2001.A2;
 
 public abstract class Unit {
 
-    private String name;
-    private int health;     // Health points to indicate the warrior's health. Can not be below zero.
-    private int attack;
-    private int armor;
+    protected String name;
+    protected int health;     // Health points to indicate the warrior's health. Can not be below zero.
+    protected int attack;
+    protected int armor;
 
     /**
      * Constructor to the class Unit.
@@ -26,6 +26,23 @@ public abstract class Unit {
         }
         this.attack = attack + getAttackBonus();
         this.armor = armor + getResistBonus();
+    }
+
+    /**
+     * Second constructor to class Unit.
+     * Abstract class which will not be used for instantiation.
+     * Unit functions as a superclass for more specialised classes of warriors.
+     * @param name      Description of the type of warrior; Archer, Swordsman, etc.
+     * @param health    Number of remaining health points for the warrior. Value is decreased when taking damage.
+     */
+    public Unit(String name, int health) {
+        this.name = name;
+        if (health <= 0) {
+            throw new IllegalArgumentException("Health points for a warrior must be above zero.");
+        }
+        else {
+            this.health = health;
+        }
     }
 
     /**
