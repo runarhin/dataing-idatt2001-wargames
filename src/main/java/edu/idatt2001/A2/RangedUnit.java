@@ -40,7 +40,7 @@ public class RangedUnit extends Unit {
         if (this.health < lastHealth) {
             attacked++;
             lastHealth = this.health;
-        } //TODO: Can this be simplified to just attacked++ as in CavalryUnit? Test this code
+        }
 
         if (attacked == 0) {
             return 6;
@@ -51,6 +51,9 @@ public class RangedUnit extends Unit {
         else {
             return 2;
         }
+        //TODO: Reset attacked if opponent dies?
+        // Alternative feature:
+        // getResistBonus(Unit someAttackingUnit) {if (someAttackingUnit.getHealth == 0) {attacked = 0;}}
     }
 
     /**

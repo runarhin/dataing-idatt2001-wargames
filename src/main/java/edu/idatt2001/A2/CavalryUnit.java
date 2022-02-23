@@ -47,9 +47,9 @@ public class CavalryUnit extends Unit {
         else {
             return attackBonus;
         }
-
-        //TODO: Calculate code for attack bonus. Is it enough to only use attacks++?
-        //TODO: Test class CavalryUnit.
+        //TODO: Is it ok if this only applies to the first attack so that the cavalryUnit only have one charge?
+        // Alternative feature:
+        // getAttackBonus(Unit someAttackedUnit) {if (someAttackedUnit.getHealth == 0) {attacks = 0;}}
     }
 
     /**

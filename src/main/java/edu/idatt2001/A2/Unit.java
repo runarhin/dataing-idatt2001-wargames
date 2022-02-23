@@ -3,7 +3,7 @@ package edu.idatt2001.A2;
 public abstract class Unit {
 
     protected String name;
-    protected int health;     // Health points to indicate the warrior's health. Can not be below zero.
+    protected int health;     // Health points to indicate the warrior's health. Cannot be below zero.
     protected int attack;
     protected int armor;
 
@@ -17,15 +17,30 @@ public abstract class Unit {
      * @param armor     Armor points which decreases the damage taken from an opponent.
      */
     public Unit(String name, int health, int attack, int armor) {
-        this.name = name;
+        if (name.isEmpty()) {
+            throw new IllegalArgumentException("Name of the warrior cannot be empty.");
+        }
+        else {
+            this.name = name;
+        }
         if (health <= 0) {
-            throw new IllegalArgumentException("Health points for a warrior must be above zero.");
+            throw new IllegalArgumentException("Health points of the warrior must be above zero.");
         }
         else {
             this.health = health;
         }
-        this.attack = attack + getAttackBonus();
-        this.armor = armor + getResistBonus();
+        if (attack < 0) {
+            throw new IllegalArgumentException("Attack power of the warrior cannot be below zero.");
+        }
+        else {
+            this.attack = attack;
+        }
+        if (armor < 0) {
+            throw new IllegalArgumentException("Armor points of the warrior cannot be below zero.");
+        }
+        else {
+            this.armor = armor;
+        }
     }
 
     /**
@@ -36,9 +51,14 @@ public abstract class Unit {
      * @param health    Number of remaining health points for the warrior. Value is decreased when taking damage.
      */
     public Unit(String name, int health) {
-        this.name = name;
+        if (name.isBlank() || name.isEmpty()) {
+            throw new IllegalArgumentException("Name of the warrior cannot be empty.");
+        }
+        else {
+            this.name = name;
+        }
         if (health <= 0) {
-            throw new IllegalArgumentException("Health points for a warrior must be above zero.");
+            throw new IllegalArgumentException("Health points of the warrior must be above zero.");
         }
         else {
             this.health = health;
@@ -111,8 +131,12 @@ public abstract class Unit {
      */
     @Override
     public String toString() {
-        return "Unit: " + name + " | HP = " + health + " | Attack power = " + attack
-                + " | Armor points = " + armor + " |";
+        return "" + name +
+                "\n | Health Points = " + health +
+                "\n | Attack Power  = " + attack +
+                "\n | Armor Points  = " + armor;
+        /*return "" + name + " | HP = " + health + " | Attack power = " + attack
+                + " | Armor points = " + armor + "";*/
     }
 
     /**

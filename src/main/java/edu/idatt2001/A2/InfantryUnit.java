@@ -11,10 +11,6 @@ public class InfantryUnit extends Unit {
      */
     public InfantryUnit(String name, int health, int attack, int armor) {
         super(name, health, attack, armor);
-        //super.name = name;
-        //super.health = health;
-        //super.attack = attack;
-        //super.armor = armor;
     }
 
     /**
@@ -24,8 +20,6 @@ public class InfantryUnit extends Unit {
      */
     public InfantryUnit(String name, int health) {
         super(name, health);
-        //super.name = name;
-        //super.health = health;
         super.attack = 15;
         super.armor = 10;
     }

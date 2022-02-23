@@ -2,7 +2,6 @@ package edu.idatt2001.A2;
 
 public class CommanderUnit extends CavalryUnit {
 
-
     /**
      * Constructor for instantiation of the CommanderUnit class.
      * @param name      Description of the type of warrior; Archer, Swordsman, etc.
