@@ -1,43 +1,55 @@
 package edu.idatt2001.A2;
 
-public class InfantryUnit extends Unit {
+public class CavalryUnit extends Unit {
 
     /**
-     * Constructor for instantiation of the InfantryUnit class.
+     * attacks is used to determine how many times the warrior have attacked a target.
+     * This to calculate the attack bonus.
+     */
+    private int attacks = 0;
+
+    /**
+     * Constructor for instantiation of the CavalryUnit class.
      * @param name      Description of the type of warrior; Archer, Swordsman, etc.
      * @param health    Number of remaining health points for the warrior. Value is decreased when taking damage.
      * @param attack    Attack points the warrior inflicts to an opponent (weapon damage).
      * @param armor     Armor points which decreases the damage taken from an opponent.
      */
-    public InfantryUnit(String name, int health, int attack, int armor) {
+    public CavalryUnit(String name, int health, int attack, int armor) {
         super(name, health, attack, armor);
-        //super.name = name;
-        //super.health = health;
-        //super.attack = attack;
-        //super.armor = armor;
     }
 
     /**
-     * Second constructor for instantiation of the InfantryUnit class.
+     * Second constructor for instantiation of the CavalryUnit class.
      * @param name      Description of the type of warrior; Archer, Swordsman, etc.
      * @param health    Number of remaining health points for the warrior. Value is decreased when taking damage.
      */
-    public InfantryUnit(String name, int health) {
+    public CavalryUnit(String name, int health) {
         super(name, health);
-        //super.name = name;
-        //super.health = health;
-        super.attack = 15;
-        super.armor = 10;
+        super.attack = 20;
+        super.armor = 12;
     }
 
     /**
      * Method that returns the attack bonus value.
+     * The attack bonus will change as the cavalry unit excessively attacks.
      * This value is used in the parent class method attack(Unit opponent).
      * @return  int value of the attack bonus for an infantry unit.
      */
     @Override
     public int getAttackBonus() {
-        return 2;
+        int attackBonus = 2;
+
+        if (attacks < 1){
+            attacks++;
+            return attackBonus + 4;
+        }
+        else {
+            return attackBonus;
+        }
+
+        //TODO: Calculate code for attack bonus. Is it enough to only use attacks++?
+        //TODO: Test class CavalryUnit.
     }
 
     /**
@@ -49,5 +61,4 @@ public class InfantryUnit extends Unit {
     public int getResistBonus() {
         return 1;
     }
-
 }

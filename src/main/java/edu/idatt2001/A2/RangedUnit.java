@@ -8,7 +8,6 @@ public class RangedUnit extends Unit {
      */
     private int lastHealth = this.health;
     private int attacked = 0;
-
     /**
      * Constructor for instantiation of the RangedUnit class.
      * @param name      Description of the type of warrior; Archer, Swordsman, etc.
@@ -18,12 +17,7 @@ public class RangedUnit extends Unit {
      */
     public RangedUnit(String name, int health, int attack, int armor) {
         super(name, health, attack, armor);
-        super.name = name;
-        super.health = health;
-        super.attack = attack;
-        super.armor = armor;
     }
-
     /**
      * Second constructor for instantiation of the RangedUnit class.
      * @param name      Description of the type of warrior; Archer, Swordsman, etc.
@@ -31,22 +25,9 @@ public class RangedUnit extends Unit {
      */
     public RangedUnit(String name, int health) {
         super(name, health);
-        super.name = name;
-        super.health = health;
         super.attack = 15;
         super.armor = 8;
     }
-
-    /**
-     * Method that returns the attack bonus value.
-     * This value is used in the parent class method attack(Unit opponent).
-     * @return  int value of the attack bonus for an infantry unit.
-     */
-    @Override
-    public int getAttackBonus() {
-        return 3;
-    }
-
     /**
      * Method that returns the resist bonus value.
      * The resist bonus will change as the range between the attacking and the attacked unit decreases.
@@ -59,7 +40,7 @@ public class RangedUnit extends Unit {
         if (this.health < lastHealth) {
             attacked++;
             lastHealth = this.health;
-        }
+        } //TODO: Can this be simplified to just attacked++ as in CavalryUnit? Test this code
 
         if (attacked == 0) {
             return 6;
@@ -70,8 +51,16 @@ public class RangedUnit extends Unit {
         else {
             return 2;
         }
-
-        //TODO: Test this code
-
     }
+
+    /**
+     * Method that returns the attack bonus value.
+     * This value is used in the parent class method attack(Unit opponent).
+     * @return  int value of the attack bonus for an infantry unit.
+     */
+    @Override
+    public int getAttackBonus() {
+        return 3;
+    }
+
 }
