@@ -131,12 +131,12 @@ public abstract class Unit {
      */
     @Override
     public String toString() {
-        return "" + name +
+        /*return "\n" + name +
                 "\n | Health Points = " + health +
                 "\n | Attack Power  = " + attack +
-                "\n | Armor Points  = " + armor;
-        /*return "" + name + " | HP = " + health + " | Attack power = " + attack
-                + " | Armor points = " + armor + "";*/
+                "\n | Armor Points  = " + armor + "\n";*/
+        return "| " + name + " | HP = " + health + " | Attack power = " + attack
+                + " | Armor points = " + armor + " |";
     }
 
     /**

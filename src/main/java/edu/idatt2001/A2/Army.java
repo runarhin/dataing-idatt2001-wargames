@@ -42,8 +42,8 @@ public class Army {
      * @param unit  Single unit to be added to the army.
      */
     public boolean add(Unit unit) throws Exception {
-        if (unit.getHealth() == 0) {
-            throw new Exception("Cannot add dead unit to army.");
+        if (unit.getHealth() <= 5) {
+            throw new Exception("Cannot add half dead unit to army.");
         }
         else if (unit.getAttack() <= 2) {
             throw new Exception("Applicants level is to low to enlist to this army. Come back at another time.");
@@ -75,6 +75,7 @@ public class Army {
             }
             return true;
             //TODO: Could use the addAll-method in ArrayList. Use this if its not important to check all units?
+            //TODO: for-loop stops when Exception is thrown. Find another solution!
         }else {
             return false;
         }
@@ -143,6 +144,11 @@ public class Army {
         return "The mighty army of " + name + " consists of " + units.size() + " units.";
     }
 
+    /**
+     * Method that checks if an army-object is the same object another army-object.
+     * @param o     Object to be compared to.
+     * @return      True if the two objects are the same. False if not.
+     */
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -151,6 +157,10 @@ public class Army {
         return Objects.equals(name, army.name) && Objects.equals(units, army.units);
     }
 
+    /**
+     * Method that returns the HashCode of an object.
+     * @return      Int value of the HashCode.
+     */
     @Override
     public int hashCode() {
         return Objects.hash(name, units);
