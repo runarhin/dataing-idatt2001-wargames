@@ -68,6 +68,40 @@ public class ArmyTest {
     }
 
     @Test
+    void testToSeeReturnOfHasUnitsMethodWhenUnitsHaveBeenRemoved() {
+        try {
+            Army horde = new Army("The Alliance");   // Simplified constructor.
+
+            System.out.println("Expect false: " + horde.hasUnits());    // Expects false.
+
+            // Adds x number of grunt units to the  horde army.
+            for (int i = 0; i < 2; i++) {
+                horde.add(new InfantryUnit("Grunt",100));
+            }
+
+            System.out.println("\n2 units in the army:");
+            System.out.println("Expect true:  " + horde.hasUnits());    // Expects true.
+            System.out.println(horde.getAllUnits().toString());
+            System.out.println("Expect true:  " + horde.hasUnits());    // Expects true.
+
+            System.out.println("\n1 unit in the army:");
+            horde.remove(horde.getRandom());
+            System.out.println(horde.getAllUnits().toString());
+            System.out.println("Expect true:  " + horde.hasUnits());    // Expects true.
+
+            System.out.println("\n0 units in the army:");
+            horde.remove(horde.getRandom());
+            System.out.println(horde.getAllUnits().toString());
+            System.out.println("Expect false:  " + horde.hasUnits());    // Expects false.
+
+
+
+        } catch (Exception e) {
+            System.out.println("Error:  " + e);
+        }
+    }
+
+    @Test
     void accessMethodsTestingReturns() {
         try {
             Army horde = new Army("The Horde");

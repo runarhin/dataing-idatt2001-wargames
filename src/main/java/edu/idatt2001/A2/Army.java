@@ -88,26 +88,21 @@ public class Army {
      */
     public boolean remove(Unit unit) {
         if (!units.isEmpty()) {
-            for (Unit u : units) {
-                if (u.getName().equals(unit.getName())) {
-                    units.remove(u);
-                    return true;
-                }
-            }
+            units.remove(unit);
         }
         return false;
-        //TODO: Could this be done better by searching for a units name instead of the whole object Unit unit?
     }
 
     /**
      * Method that gives an indication whether the units-list contains units or not.
-     * @return      true if the army list contains units. false if the list is empty.
+     * @return      false if the list is empty. true if the army list contains units.
      */
     public boolean hasUnits() {
-        if (!units.isEmpty()) {
-            return true;
-        }else{
+        if (units.isEmpty()) {
             return false;
+        }
+        else{
+            return true;
         }
     }
 
@@ -141,7 +136,7 @@ public class Army {
      */
     @Override
     public String toString() {
-        return "The mighty army of " + name + " consists of " + units.size() + " units.";
+        return "" + name + ", with " + units.size() + " unit(s),";
     }
 
     /**

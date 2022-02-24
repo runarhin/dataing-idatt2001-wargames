@@ -1,5 +1,7 @@
 package edu.idatt2001.A2;
 
+import java.util.Random;
+
 public class Battle {
 
     private Army armyOne;
@@ -16,36 +18,72 @@ public class Battle {
     }
 
     /**
-     *
-     * @return
+     * Method which simulates a battle between two armies.
+     * The method randomises which warrior to attack first, to remove the advantage
+     * of being the first army. When a warrior dies, it is removed from the armies ArrayList.
+     * @return      The winning army.
      */
     public Army simulate() {
-        while (armyOne.hasUnits() || armyTwo.hasUnits()) {
 
-            Unit warriorArmyOne = armyOne.getRandom();
-            Unit warriorArmyTwo = armyTwo.getRandom();
+        int roundCount = 0;
+        int randomiseAttack;
+        Random rand = new Random();
 
-            while ((warriorArmyOne.getHealth() == 0) || (warriorArmyTwo.getHealth() == 0)) {
-                warriorArmyOne.attack(warriorArmyTwo);
-                warriorArmyTwo.attack(warriorArmyOne);
+        Unit warriorArmyOne = armyOne.getRandom();
+        Unit warriorArmyTwo = armyTwo.getRandom();
 
-                System.out.println("warriorArmyOne.getHealth: " + warriorArmyOne.getHealth());
-                System.out.println("warriorArmyTwo.getHealth: " + warriorArmyTwo.getHealth());
+        // Run as long as there is units left in both armies.
+        while (armyOne.hasUnits() & armyTwo.hasUnits()) {
 
-                if (warriorArmyOne.getHealth() == 0) {
-                    armyOne.remove(warriorArmyOne);
+            // Print for test purposes.
+            roundCount++;
+            System.out.println("\nRound " + roundCount);
+            System.out.println("ArmyOne: " + warriorArmyOne.getName()
+                    + " have " + warriorArmyOne.getHealth() + " HP");
+            System.out.println("ArmyTwo: " + warriorArmyTwo.getName()
+                    + " have " + warriorArmyTwo.getHealth() + " HP");
+
+            // Randomises who attack first.
+            randomiseAttack = rand.nextInt(0,2);
+            if (randomiseAttack == 0) {
+                if (warriorArmyOne.getHealth() > 0) {
+                    warriorArmyOne.attack(warriorArmyTwo);
                 }
-                else if (warriorArmyTwo.getHealth() == 0) {
-                    armyOne.remove(warriorArmyTwo);
+                if (warriorArmyTwo.getHealth() > 0) {
+                    warriorArmyTwo.attack(warriorArmyOne);
+                }
+            }
+            else {
+                if (warriorArmyTwo.getHealth() > 0) {
+                    warriorArmyTwo.attack(warriorArmyOne);
+                }
+                if (warriorArmyOne.getHealth() > 0){
+                    warriorArmyOne.attack(warriorArmyTwo);
+                }
+            }
+            // Cleans up the mess and see if a warrior died or not. If a warrior died, it is replaced.
+            if (warriorArmyTwo.getHealth() == 0) {
+                System.out.println(warriorArmyTwo.getName() + " died of fatal blow from "
+                        + warriorArmyOne.getName() + "");
+                armyTwo.remove(warriorArmyTwo);
+                if (armyTwo.hasUnits()) {
+                    warriorArmyTwo = armyTwo.getRandom();
+                }
+            }
+            if (warriorArmyOne.getHealth() == 0) {
+                System.out.println(warriorArmyOne.getName() + " died of fatal blow from "
+                        + warriorArmyTwo.getName() + "");
+                armyOne.remove(warriorArmyOne);
+                if (armyOne.hasUnits()) {
+                    warriorArmyOne = armyOne.getRandom();
                 }
             }
         }
-
-        if (!armyTwo.hasUnits()) {
-            return armyOne;
+        if (!armyOne.hasUnits()) {
+            return armyTwo;
         }
         else {
-            return armyTwo;
+            return armyOne;
         }
     }
 
@@ -55,6 +93,6 @@ public class Battle {
      */
     @Override
     public String toString() {
-        return "Battle between " + armyOne + " and " + armyTwo + "!";
+        return "Battle between " + armyOne + " and " + armyTwo + "";
     }
 }

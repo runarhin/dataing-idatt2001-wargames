@@ -119,7 +119,7 @@ public abstract class Unit {
      * @param newHealth    Number of health points to be reduced for the warrior.
      */
     public void setHealth(int newHealth) {
-        if (newHealth < 0) {
+        if (newHealth <= 0) {
             newHealth = 0;
         }
         this.health = newHealth;
@@ -135,7 +135,7 @@ public abstract class Unit {
                 "\n | Health Points = " + health +
                 "\n | Attack Power  = " + attack +
                 "\n | Armor Points  = " + armor + "\n";*/
-        return "| " + name + " | HP = " + health + " | Attack power = " + attack
+        return "\n| " + name + " | HP = " + health + " | Attack power = " + attack
                 + " | Armor points = " + armor + " |";
     }
 
