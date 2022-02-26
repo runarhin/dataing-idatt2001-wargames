@@ -10,13 +10,13 @@ public class UnitTest {
         try {
             Unit someTestUnit = new InfantryUnit("",1,1,1);
         }catch (Exception e) {
-            System.out.println("Error:  " + e);
+            e.printStackTrace();
         }
         System.out.println("\nThe nameless warrior test, simplified constructor:");
         try {
             Unit someTestUnit = new InfantryUnit("",1);
         }catch(Exception e) {
-            System.out.println("Error:  " + e);
+            e.printStackTrace();
         }
     }
 
@@ -26,13 +26,13 @@ public class UnitTest {
         try {
             Unit someTestUnit = new InfantryUnit("Knight",0,1,1);
         }catch(Exception e) {
-            System.out.println("Error:  " + e);
+            e.printStackTrace();
         }
         System.out.println("\nThe dead knight test, simplified constructor:");
         try {
             Unit someTestUnit = new InfantryUnit("Knight",0);
         }catch(Exception e) {
-            System.out.println("Error:  " + e);
+            e.printStackTrace();
         }
     }
 
@@ -42,7 +42,7 @@ public class UnitTest {
         try {
             Unit someTestUnit = new InfantryUnit("Knight",1,-1,1);
         }catch(Exception e) {
-            System.out.println("Error:  " + e);
+            e.printStackTrace();
         }
     }
 
@@ -52,7 +52,7 @@ public class UnitTest {
         try {
             Unit someTestUnit = new InfantryUnit("Knight",1,1,-1);
         }catch(Exception e) {
-            System.out.println("Error:  " + e);
+            e.printStackTrace();
         }
     }
 
@@ -65,7 +65,7 @@ public class UnitTest {
             someTestFootman.attack(someTestGrunt);
             System.out.println("Grunts health after being attacked: " + someTestGrunt.getHealth() + " HP");
         }catch (Exception e) {
-            System.out.println("Error:  " + e);
+            e.printStackTrace();
         }
     }
 
@@ -81,7 +81,7 @@ public class UnitTest {
             System.out.println(someTestUnit.getResistBonus());
             System.out.println(someTestUnit.getClass());
         }catch (Exception e){
-            System.out.println("Error:  " + e);
+            e.printStackTrace();
         }
     }
 
@@ -93,9 +93,8 @@ public class UnitTest {
             someTestUnit.setHealth(77);
             System.out.println("Health after change:  " + someTestUnit.getHealth() + " HP");
         }catch (Exception e){
-            System.out.println("Error:  " + e);
+            e.printStackTrace();
         }
-
     }
 
     @Test
@@ -106,7 +105,7 @@ public class UnitTest {
             System.out.println("\n" + someTestUnit1.toString());
             System.out.println("\n" + someTestUnit2.toString());
         }catch (Exception e) {
-            System.out.println("Error:  " + e);
+            e.printStackTrace();
         }
     }
 }

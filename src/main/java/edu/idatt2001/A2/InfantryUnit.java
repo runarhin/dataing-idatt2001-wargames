@@ -1,5 +1,9 @@
 package edu.idatt2001.A2;
 
+/**
+ * A class for an infantry unit.
+ * This is a basic melee unit with normal attack power and armor resistance.
+ */
 public class InfantryUnit extends Unit {
 
     /**

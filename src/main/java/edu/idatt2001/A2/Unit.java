@@ -1,5 +1,9 @@
 package edu.idatt2001.A2;
 
+/**
+ * An abstract class Unit.
+ * The class gives a general description of capabilities inherited by its subclasses.
+ */
 public abstract class Unit {
 
     protected String name;
@@ -9,7 +13,6 @@ public abstract class Unit {
 
     /**
      * Constructor to the class Unit.
-     * Abstract class which will not be used for instantiation.
      * Unit functions as a superclass for more specialised classes of warriors.
      * @param name      Description of the type of warrior; Archer, Swordsman, etc.
      * @param health    Number of remaining health points for the warrior. Value is decreased when taking damage.
@@ -17,7 +20,7 @@ public abstract class Unit {
      * @param armor     Armor points which decreases the damage taken from an opponent.
      */
     public Unit(String name, int health, int attack, int armor) {
-        if (name.isEmpty()) {
+        if (name.isEmpty() || name.isBlank()) {
             throw new IllegalArgumentException("Name of the warrior cannot be empty.");
         }
         else {
@@ -29,8 +32,8 @@ public abstract class Unit {
         else {
             this.health = health;
         }
-        if (attack < 0) {
-            throw new IllegalArgumentException("Attack power of the warrior cannot be below zero.");
+        if (attack <= 0) {
+            throw new IllegalArgumentException("Attack power of the warrior must be above zero.");
         }
         else {
             this.attack = attack;
@@ -45,13 +48,12 @@ public abstract class Unit {
 
     /**
      * Second constructor to class Unit.
-     * Abstract class which will not be used for instantiation.
      * Unit functions as a superclass for more specialised classes of warriors.
      * @param name      Description of the type of warrior; Archer, Swordsman, etc.
      * @param health    Number of remaining health points for the warrior. Value is decreased when taking damage.
      */
     public Unit(String name, int health) {
-        if (name.isBlank() || name.isEmpty()) {
+        if (name.isEmpty() || name.isBlank()) {
             throw new IllegalArgumentException("Name of the warrior cannot be empty.");
         }
         else {
@@ -131,10 +133,6 @@ public abstract class Unit {
      */
     @Override
     public String toString() {
-        /*return "\n" + name +
-                "\n | Health Points = " + health +
-                "\n | Attack Power  = " + attack +
-                "\n | Armor Points  = " + armor + "\n";*/
         return "\n| " + name + " | HP = " + health + " | Attack power = " + attack
                 + " | Armor points = " + armor + " |";
     }

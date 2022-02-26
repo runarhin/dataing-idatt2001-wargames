@@ -20,7 +20,7 @@ public class RangedUnitTest {
             System.out.println("\n" + testUnit4.toString());
 
         }catch (Exception e) {
-            System.out.println("Error:  " + e);
+            e.printStackTrace();
         }
     }
 
@@ -72,18 +72,7 @@ public class RangedUnitTest {
             System.out.println("\n----------------------------------------------------------");
 
         }catch (Exception e) {
-            System.out.println("Error:  " + e);
+            e.printStackTrace();
         }
     }
-
-
-    @Test
-    void someTest() {
-        try {
-
-        }catch (Exception e) {
-            System.out.println("Error:  " + e);
-        }
-    }
-
 }

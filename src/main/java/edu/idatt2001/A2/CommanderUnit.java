@@ -1,5 +1,10 @@
 package edu.idatt2001.A2;
 
+/**
+ * A class for a commander unit.
+ * This is a commander unit with high attack power and also comes a charge ability.
+ * Inherited by CavalryUnit class.
+ */
 public class CommanderUnit extends CavalryUnit {
 
     /**

@@ -26,7 +26,7 @@ public class ArmyTest {
             System.out.println("List of units in the ArrayList: " + testArmy.getAllUnits());
 
         } catch (Exception e) {
-            System.out.println("Error:  " + e);
+            e.printStackTrace();
         }
     }
 
@@ -49,7 +49,7 @@ public class ArmyTest {
             System.out.println("List of units in the ArrayList: " + horde.getAllUnits());
 
         }catch (Exception e) {
-            System.out.println("Error:  " + e);
+            e.printStackTrace();
         }
     }
 
@@ -63,7 +63,7 @@ public class ArmyTest {
             System.out.println(alliance.hasUnits());    // Expects true.
 
         } catch (Exception e) {
-            System.out.println("Error:  " + e);
+            e.printStackTrace();
         }
     }
 
@@ -97,7 +97,7 @@ public class ArmyTest {
 
 
         } catch (Exception e) {
-            System.out.println("Error:  " + e);
+            e.printStackTrace();
         }
     }
 
@@ -108,7 +108,7 @@ public class ArmyTest {
             System.out.println("Name of the army is:    " + horde.getName());
 
         } catch (Exception e) {
-            System.out.println("Error:  " + e);
+            e.printStackTrace();
         }
     }
 
@@ -134,7 +134,7 @@ public class ArmyTest {
             System.out.println("Number of units in the list:    " + alliance.getAllUnits().size());
 
         } catch (Exception e) {
-            System.out.println("Error:  " + e);
+            e.printStackTrace();
         }
     }
 
@@ -164,7 +164,7 @@ public class ArmyTest {
             System.out.println("List of units in the ArrayList: " + horde.getAllUnits());
 
         } catch (Exception e) {
-            System.out.println("Error:  " + e);
+            e.printStackTrace();
         }
     }
 
@@ -188,7 +188,7 @@ public class ArmyTest {
             }
 
         } catch (Exception e) {
-            System.out.println("Error:  " + e);
+            e.printStackTrace();
         }
     }
 
@@ -210,7 +210,7 @@ public class ArmyTest {
             System.out.println(horde.toString());
 
         } catch (Exception e) {
-            System.out.println("Error:  " + e);
+            e.printStackTrace();
         }
     }
 
@@ -231,7 +231,7 @@ public class ArmyTest {
             System.out.println(army1.equals(army2));
 
         } catch (Exception e) {
-            System.out.println("Error:  " + e);
+            e.printStackTrace();
         }
     }
 
@@ -265,10 +265,7 @@ public class ArmyTest {
             System.out.println(testUnit6.hashCode());
 
         } catch (Exception e) {
-            System.out.println("Error:  " + e);
+            e.printStackTrace();
         }
     }
-
-
-
 }

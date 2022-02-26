@@ -21,7 +21,7 @@ public class BattleTest {
             System.out.println(army1.equals(army2));
 
         } catch (Exception e) {
-            System.out.println("Error:  " + e);
+            e.printStackTrace();
         }
     }
 
@@ -45,7 +45,7 @@ public class BattleTest {
             System.out.println(grandWar.toString());
 
         } catch (Exception e) {
-            System.out.println("Error:  " + e);
+            e.printStackTrace();
         }
     }
 
@@ -70,7 +70,7 @@ public class BattleTest {
 
 
         } catch (Exception e) {
-            System.out.println("Error:  " + e);
+            e.printStackTrace();
         }
     }
 
@@ -106,7 +106,7 @@ public class BattleTest {
             System.out.println("\n" + grandWar.simulate() + " won the battle!");
 
         } catch (Exception e) {
-            System.out.println("Error:  " + e);
+            e.printStackTrace();
         }
     }
 
@@ -121,7 +121,7 @@ public class BattleTest {
             // This is some test.
 
         } catch (Exception e) {
-            System.out.println("Error:  " + e);
+            System.out.println(e);
         }
     }
      */

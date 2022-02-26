@@ -2,6 +2,10 @@ package edu.idatt2001.A2;
 
 import java.util.Random;
 
+/**
+ * A class Battle.
+ * This class represents a battle between two armies.
+ */
 public class Battle {
 
     private Army armyOne;
@@ -21,7 +25,7 @@ public class Battle {
      * Method which simulates a battle between two armies.
      * The method randomises which warrior to attack first, to remove the advantage
      * of being the first army. When a warrior dies, it is removed from the armies ArrayList.
-     * @return      The winning army.
+     * @return      The winning army by toString.
      */
     public Army simulate() {
 
@@ -88,8 +92,8 @@ public class Battle {
     }
 
     /**
-     *
-     * @return
+     * toString-method which return the names of the two clashing armies.
+     * @return      Names of the battling armies.
      */
     @Override
     public String toString() {

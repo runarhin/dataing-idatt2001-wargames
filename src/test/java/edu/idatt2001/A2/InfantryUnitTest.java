@@ -20,7 +20,7 @@ public class InfantryUnitTest {
             System.out.println("\n" + infantryTestUnit4.toString());
 
         }catch (Exception e) {
-            System.out.println("Error:  " + e);
+            e.printStackTrace();
         }
     }
 
@@ -57,18 +57,7 @@ public class InfantryUnitTest {
             System.out.println("\n----------------------------------------------------------");
 
         }catch (Exception e) {
-            System.out.println("Error:  " + e);
-        }
-    }
-
-
-
-    @Test
-    void someTest() {
-        try {
-
-        }catch (Exception e) {
-            System.out.println("Error:  " + e);
+            e.printStackTrace();
         }
     }
 }

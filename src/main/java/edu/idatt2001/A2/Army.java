@@ -4,6 +4,10 @@ import java.util.ArrayList;
 import java.util.Objects;
 import java.util.Random;
 
+/**
+ * A class Army.
+ * This class represents an army with a name and a list of warrior units.
+ */
 public class Army {
 
     private String name;
@@ -15,6 +19,9 @@ public class Army {
      * @param units     Units in the army; Footmen, raiders, knights, etc.
      */
     public Army(String name, ArrayList<Unit> units) {
+        if (name.isEmpty() || name.isBlank()) {
+            throw new IllegalArgumentException("Army name cannot be empty");
+        }
         this.name = name;
         this.units = units;
     }
@@ -25,6 +32,9 @@ public class Army {
      * @param name      Name of the faction army.
      */
     public Army(String name) {
+        if (name.isEmpty() || name.isBlank()) {
+            throw new IllegalArgumentException("Army name cannot be empty");
+        }
         this.name = name;
         this.units = new ArrayList<>();
     }
@@ -46,10 +56,10 @@ public class Army {
             throw new Exception("Cannot add half dead unit to army.");
         }
         else if (unit.getAttack() <= 2) {
-            throw new Exception("Applicants level is to low to enlist to this army. Come back at another time.");
+            throw new Exception("Units level is to low to enlist to this army. Come back at another time.");
         }
         else if (unit.getArmor() <= 2) {
-            throw new Exception("Forgot your armor? Come back at another time.");
+            throw new Exception("Unit forgot its armor? Come back at another time.");
         }
         units.add(unit);
         return true;

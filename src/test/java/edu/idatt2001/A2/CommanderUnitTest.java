@@ -12,7 +12,7 @@ public class CommanderUnitTest {
             System.out.println("\n" + commanderTestUnit1.toString());
             System.out.println("\n" + commanderTestUnit2.toString());
         }catch (Exception e) {
-            System.out.println("Error:  " + e);
+            e.printStackTrace();
         }
     }
 
@@ -56,7 +56,7 @@ public class CommanderUnitTest {
             System.out.println("\n----------------------------------------------------------");
 
         }catch (Exception e) {
-            System.out.println("Error:  " + e);
+            e.printStackTrace();
         }
     }
 }

@@ -20,7 +20,7 @@ public class CavalryUnitTest {
             System.out.println("\n" + cavalryTestUnit4.toString());
 
         }catch (Exception e) {
-            System.out.println("Error:  " + e);
+            e.printStackTrace();
         }
     }
 
@@ -64,7 +64,7 @@ public class CavalryUnitTest {
             System.out.println("\n----------------------------------------------------------");
 
         }catch (Exception e) {
-            System.out.println("Error:  " + e);
+            e.printStackTrace();
         }
     }
 }

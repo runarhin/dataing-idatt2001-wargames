@@ -1,5 +1,9 @@
 package edu.idatt2001.A2;
 
+/**
+ * A class for a cavalry unit.
+ * This is a unit with relatively high attack power and also comes with a charge ability.
+ */
 public class CavalryUnit extends Unit {
 
     /**
@@ -47,9 +51,6 @@ public class CavalryUnit extends Unit {
         else {
             return attackBonus;
         }
-        //TODO: Is it ok if this only applies to the first attack so that the cavalryUnit only have one charge?
-        // Alternative feature:
-        // getAttackBonus(Unit someAttackedUnit) {if (someAttackedUnit.getHealth == 0) {attacks = 0;}}
     }
 
     /**
