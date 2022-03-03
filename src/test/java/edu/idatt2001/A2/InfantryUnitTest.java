@@ -7,19 +7,18 @@ public class InfantryUnitTest {
     @Test
     void createSomeUnitsAndReturnToString() {
         try {
-            Unit infantryTestUnit1 = new InfantryUnit("Footman",100);
+            Unit infantryTestUnit1 = new InfantryUnit("Footman", 100);
             System.out.println("\n" + infantryTestUnit1.toString());
 
-            Unit infantryTestUnit2 = new InfantryUnit("Grunt",100);
+            Unit infantryTestUnit2 = new InfantryUnit("Grunt", 100);
             System.out.println("\n" + infantryTestUnit2.toString());
 
-            InfantryUnit infantryTestUnit3 = new InfantryUnit("Epic Knight",150,17,12);
+            InfantryUnit infantryTestUnit3 = new InfantryUnit("Epic Knight", 150, 17, 12);
             System.out.println("\n" + infantryTestUnit3.toString());
 
-            InfantryUnit infantryTestUnit4 = new InfantryUnit("Epic Grunt",150,17,12);
+            InfantryUnit infantryTestUnit4 = new InfantryUnit("Epic Grunt", 150, 17, 12);
             System.out.println("\n" + infantryTestUnit4.toString());
-
-        }catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
@@ -55,8 +54,7 @@ public class InfantryUnitTest {
             System.out.println("\n" + footman.toString());
             System.out.println("\n" + grunt.toString());
             System.out.println("\n----------------------------------------------------------");
-
-        }catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }

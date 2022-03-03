@@ -13,6 +13,7 @@ public class RangedUnit extends Unit {
      */
     private int lastHealth = this.health;
     private int attacked = 0;
+
     /**
      * Constructor for instantiation of the RangedUnit class.
      * @param name      Description of the type of warrior; Archer, Swordsman, etc.
@@ -23,6 +24,7 @@ public class RangedUnit extends Unit {
     public RangedUnit(String name, int health, int attack, int armor) {
         super(name, health, attack, armor);
     }
+
     /**
      * Second constructor for instantiation of the RangedUnit class.
      * @param name      Description of the type of warrior; Archer, Swordsman, etc.
@@ -33,6 +35,7 @@ public class RangedUnit extends Unit {
         super.attack = 15;
         super.armor = 8;
     }
+
     /**
      * Method that returns the resist bonus value.
      * The resist bonus will change as the range between the attacking and the attacked unit decreases.
@@ -41,7 +44,6 @@ public class RangedUnit extends Unit {
      */
     @Override
     public int getResistBonus() {
-
         if (this.health < lastHealth) {
             attacked++;
             lastHealth = this.health;
@@ -49,11 +51,9 @@ public class RangedUnit extends Unit {
 
         if (attacked == 0) {
             return 6;
-        }
-        else if (attacked == 1) {
+        } else if (attacked == 1) {
             return 4;
-        }
-        else {
+        } else {
             return 2;
         }
         //TODO: Reset attacked if opponent dies?
@@ -70,5 +70,4 @@ public class RangedUnit extends Unit {
     public int getAttackBonus() {
         return 3;
     }
-
 }

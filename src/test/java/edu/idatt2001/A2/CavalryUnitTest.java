@@ -18,8 +18,7 @@ public class CavalryUnitTest {
 
             CavalryUnit cavalryTestUnit4 = new CavalryUnit("Epic Knight", 150, 22, 14);
             System.out.println("\n" + cavalryTestUnit4.toString());
-
-        }catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
@@ -62,8 +61,7 @@ public class CavalryUnitTest {
             System.out.println("\n" + knight.toString());
             System.out.println("\n" + raider.toString());
             System.out.println("\n----------------------------------------------------------");
-
-        }catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }

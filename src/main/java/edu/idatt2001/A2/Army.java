@@ -54,11 +54,9 @@ public class Army {
     public boolean add(Unit unit) throws Exception {
         if (unit.getHealth() <= 5) {
             throw new Exception("Cannot add half dead unit to army.");
-        }
-        else if (unit.getAttack() <= 2) {
+        } else if (unit.getAttack() <= 2) {
             throw new Exception("Units level is to low to enlist to this army. Come back at another time.");
-        }
-        else if (unit.getArmor() <= 2) {
+        } else if (unit.getArmor() <= 2) {
             throw new Exception("Unit forgot its armor? Come back at another time.");
         }
         units.add(unit);
@@ -74,11 +72,11 @@ public class Army {
             for (Unit u : unitsInput) {
                 if (u.getHealth() < 1) {
                     throw new Exception("Cannot add dead unit to army.");
-                }
-                else if (u.getAttack() <= 2) {
-                    throw new Exception("Applicants level is to low to enlist to this army. Come back at another time.");
-                }
-                else if (u.getArmor() <= 2) {
+                } else if (u.getAttack() <= 2) {
+                    throw new Exception(
+                        "Applicants level is to low to enlist to this army. Come back at another time."
+                    );
+                } else if (u.getArmor() <= 2) {
                     throw new Exception("Forgot your armor? Come back at another time.");
                 }
                 units.add(u);
@@ -86,7 +84,7 @@ public class Army {
             return true;
             //TODO: Could use the addAll-method in ArrayList. Use this if its not important to check all units?
             //TODO: for-loop stops when Exception is thrown. Find another solution!
-        }else {
+        } else {
             return false;
         }
     }
@@ -110,8 +108,7 @@ public class Army {
     public boolean hasUnits() {
         if (units.isEmpty()) {
             return false;
-        }
-        else{
+        } else {
             return true;
         }
     }

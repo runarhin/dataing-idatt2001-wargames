@@ -7,19 +7,18 @@ public class RangedUnitTest {
     @Test
     void createSomeUnitsAndReturnToString() {
         try {
-            Unit testUnit1 = new RangedUnit("Archer",100);
+            Unit testUnit1 = new RangedUnit("Archer", 100);
             System.out.println("\n" + testUnit1.toString());
 
-            Unit testUnit2 = new RangedUnit("Spearman",100);
+            Unit testUnit2 = new RangedUnit("Spearman", 100);
             System.out.println("\n" + testUnit2.toString());
 
-            RangedUnit testUnit3 = new RangedUnit("Epic Archer",150,17,10);
+            RangedUnit testUnit3 = new RangedUnit("Epic Archer", 150, 17, 10);
             System.out.println("\n" + testUnit3.toString());
 
-            RangedUnit testUnit4 = new RangedUnit("Epic Spearman",150,17,10);
+            RangedUnit testUnit4 = new RangedUnit("Epic Spearman", 150, 17, 10);
             System.out.println("\n" + testUnit4.toString());
-
-        }catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
@@ -30,8 +29,10 @@ public class RangedUnitTest {
             System.out.println("\nNotes, RangedUnit have: ");
             System.out.println("    - Base attack of 15.");
             System.out.println("    - Base armor of 8.");
-            System.out.println("    - Resist bonus depends on the range between units. 6 when far away, " +
-                    "4 when closer and 2 when up close.");
+            System.out.println(
+                "    - Resist bonus depends on the range between units. 6 when far away, " +
+                "4 when closer and 2 when up close."
+            );
             System.out.println("    - Attack bonus of 3.");
 
             System.out.println("\n----------------------------------------------------------");
@@ -70,8 +71,7 @@ public class RangedUnitTest {
             System.out.println("\n" + archer.toString());
             System.out.println("\n" + spearman.toString());
             System.out.println("\n----------------------------------------------------------");
-
-        }catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
