@@ -44,11 +44,10 @@ public class CavalryUnit extends Unit {
     public int getAttackBonus() {
         int attackBonus = 2;
 
-        if (attacks < 1){
+        if (attacks < 1) {
             attacks++;
             return attackBonus + 4;
-        }
-        else {
+        } else {
             return attackBonus;
         }
     }

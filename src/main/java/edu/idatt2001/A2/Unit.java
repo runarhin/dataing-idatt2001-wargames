@@ -7,7 +7,7 @@ package edu.idatt2001.A2;
 public abstract class Unit {
 
     protected String name;
-    protected int health;     // Health points to indicate the warrior's health. Cannot be below zero.
+    protected int health; // Health points to indicate the warrior's health. Cannot be below zero.
     protected int attack;
     protected int armor;
 
@@ -22,26 +22,22 @@ public abstract class Unit {
     public Unit(String name, int health, int attack, int armor) {
         if (name.isEmpty() || name.isBlank()) {
             throw new IllegalArgumentException("Name of the warrior cannot be empty.");
-        }
-        else {
+        } else {
             this.name = name;
         }
         if (health <= 0) {
             throw new IllegalArgumentException("Health points of the warrior must be above zero.");
-        }
-        else {
+        } else {
             this.health = health;
         }
         if (attack <= 0) {
             throw new IllegalArgumentException("Attack power of the warrior must be above zero.");
-        }
-        else {
+        } else {
             this.attack = attack;
         }
         if (armor < 0) {
             throw new IllegalArgumentException("Armor points of the warrior cannot be below zero.");
-        }
-        else {
+        } else {
             this.armor = armor;
         }
     }
@@ -55,14 +51,12 @@ public abstract class Unit {
     public Unit(String name, int health) {
         if (name.isEmpty() || name.isBlank()) {
             throw new IllegalArgumentException("Name of the warrior cannot be empty.");
-        }
-        else {
+        } else {
             this.name = name;
         }
         if (health <= 0) {
             throw new IllegalArgumentException("Health points of the warrior must be above zero.");
-        }
-        else {
+        } else {
             this.health = health;
         }
     }
@@ -76,8 +70,10 @@ public abstract class Unit {
         int healthOpponent = opponent.getHealth();
         int newHealth;
         if (healthOpponent > 0) {
-            newHealth = opponent.getHealth()
-                    - (this.attack + this.getAttackBonus()) + (opponent.getArmor() + opponent.getResistBonus());
+            newHealth =
+                opponent.getHealth() -
+                (this.attack + this.getAttackBonus()) +
+                (opponent.getArmor() + opponent.getResistBonus());
 
             opponent.setHealth(newHealth);
         }
@@ -133,8 +129,9 @@ public abstract class Unit {
      */
     @Override
     public String toString() {
-        return "\n| " + name + " | HP = " + health + " | Attack power = " + attack
-                + " | Armor points = " + armor + " |";
+        return (
+            "\n| " + name + " | HP = " + health + " | Attack power = " + attack + " | Armor points = " + armor + " |"
+        );
     }
 
     /**

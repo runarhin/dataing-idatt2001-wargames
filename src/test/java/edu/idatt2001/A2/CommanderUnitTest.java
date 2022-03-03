@@ -8,10 +8,10 @@ public class CommanderUnitTest {
     void createSomeCommanderUnitAndReturnToString() {
         try {
             Unit commanderTestUnit1 = new CommanderUnit("Gul'dan", 180);
-            Unit commanderTestUnit2 = new CommanderUnit("Mountain King", 180,23,17);
+            Unit commanderTestUnit2 = new CommanderUnit("Mountain King", 180, 23, 17);
             System.out.println("\n" + commanderTestUnit1.toString());
             System.out.println("\n" + commanderTestUnit2.toString());
-        }catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
@@ -54,8 +54,7 @@ public class CommanderUnitTest {
             System.out.println("\n" + hordeCommander.toString());
             System.out.println("\n" + allianceCommander.toString());
             System.out.println("\n----------------------------------------------------------");
-
-        }catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
