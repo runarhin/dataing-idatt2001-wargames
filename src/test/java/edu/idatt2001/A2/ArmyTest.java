@@ -6,7 +6,37 @@ import org.junit.jupiter.api.Test;
 public class ArmyTest {
 
     @Test
-    void constructorInputParameterTestInputArrayList() {
+    void addAListOfUnitsToAnArmyByAddingAListOfUnitsInTheConstructorAndCheckIfTheyAreRegistered() {
+        try {
+            ArrayList<Unit> testArrayList = new ArrayList<>();
+
+            Unit testUnit1 = new CommanderUnit("Mountain King", 180);
+            Unit testUnit2 = new InfantryUnit("Footman", 100);
+            Unit testUnit3 = new CavalryUnit("Knight", 100);
+
+            testArrayList.add(testUnit1);
+            testArrayList.add(testUnit2);
+
+            Army testArmy = new Army("The Alliance", testArrayList);
+
+            // The list contain units:  Expect true.
+            assert(testArmy.hasUnits());
+
+            // Number of units in the list:  Expects 2 units to be added.
+            assert(testArmy.getAllUnits().size() == 2);
+
+            // List of units in the ArrayList contains testUnit1 and 2, but not 3.
+            assert(testArmy.getAllUnits().contains(testUnit1));
+            assert(testArmy.getAllUnits().contains(testUnit2));
+            assert(!testArmy.getAllUnits().contains(testUnit3));
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Test
+    void createAListOfUnitsToTestTheAddAllUnitsMethodWithSimplifiedConstructor() {
         try {
             ArrayList<Unit> testArrayList = new ArrayList<>();
 
@@ -18,185 +48,110 @@ public class ArmyTest {
             testArrayList.add(testUnit2);
             testArrayList.add(testUnit3);
 
-            Army testArmy = new Army("The Alliance", testArrayList);
-
-            System.out.println("The list contain units:         " + testArmy.hasUnits());
-            System.out.println("Number of units in the list:    " + testArmy.getAllUnits().size() + "\n");
-            System.out.println("List of units in the ArrayList: " + testArmy.getAllUnits());
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    @Test
-    void instantiatingArmyClassAndSomeTestUnitsToBeAddedToTheArmy() {
-        try {
-            Army horde = new Army("The Horde");
-
-            Unit testUnit1 = new CommanderUnit("Gul'dan", 180);
-            Unit testUnit2 = new InfantryUnit("Grunt", 100);
-            Unit testUnit3 = new CavalryUnit("Raider", 100);
-            // Exception handling for method add(Unit unit) tested here.
-
-            horde.add(testUnit1);
-            horde.add(testUnit2);
-            horde.add(testUnit3);
-
-            System.out.println("The list contain units:         " + horde.hasUnits());
-            System.out.println("Number of units in the list:    " + horde.getAllUnits().size() + "\n");
-            System.out.println("List of units in the ArrayList: " + horde.getAllUnits());
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    @Test
-    void hasUnitsMethodTest() {
-        try {
             Army alliance = new Army("The Alliance"); // Simplified constructor.
-            Unit testUnit = new CommanderUnit("Mountain King", 180);
-            System.out.println(alliance.hasUnits()); // Expects false.
-            alliance.add(testUnit);
-            System.out.println(alliance.hasUnits()); // Expects true.
+
+            // expects the army to have no units in it.
+            assert(!alliance.hasUnits());
+            assert(alliance.getAllUnits().size() == 0);
+
+            alliance.addAll(testArrayList);
+
+            // Expects now that the army have 3 units in it.
+            assert(alliance.hasUnits());
+            assert(alliance.getAllUnits().size() == 3);
+
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
     @Test
-    void testToSeeReturnOfHasUnitsMethodWhenUnitsHaveBeenRemoved() {
+    void removeUnitsFromAnArmyAndSeeThatTheArmyUnitsListEventuallyGetsEmpty() {
         try {
             Army horde = new Army("The Alliance"); // Simplified constructor.
-
-            System.out.println("Expect false: " + horde.hasUnits()); // Expects false.
+            assert(!horde.hasUnits());  // Expects that the Horde does not have any units yet.
 
             // Adds x number of grunt units to the  horde army.
             for (int i = 0; i < 2; i++) {
                 horde.add(new InfantryUnit("Grunt", 100));
             }
+            assert(horde.getAllUnits().size() == 2);    // Expects that the army now have 2 units in it.
 
-            System.out.println("\n2 units in the army:");
-            System.out.println("Expect true:  " + horde.hasUnits()); // Expects true.
-            System.out.println(horde.getAllUnits().toString());
-            System.out.println("Expect true:  " + horde.hasUnits()); // Expects true.
-
-            System.out.println("\n1 unit in the army:");
+            // Removes 1 unit from the army:
             horde.remove(horde.getRandom());
-            System.out.println(horde.getAllUnits().toString());
-            System.out.println("Expect true:  " + horde.hasUnits()); // Expects true.
+            assert(horde.getAllUnits().size() == 1);    // Expects that the army now have 1 unit left.
+            assert(!horde.getAllUnits().isEmpty());     // And that the list is not empty.
 
-            System.out.println("\n0 units in the army:");
+            // Removes the last unit in the army:
             horde.remove(horde.getRandom());
-            System.out.println(horde.getAllUnits().toString());
-            System.out.println("Expect false:  " + horde.hasUnits()); // Expects false.
+            assert(horde.getAllUnits().size() == 0);    // Expects that the army now have no units left.
+            assert(horde.getAllUnits().isEmpty());      // And that the list now is empty.
+
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
     @Test
-    void accessMethodsTestingReturns() {
+    void accessMethodGetNameReturnExpectedName() {
         try {
             Army horde = new Army("The Horde");
-            System.out.println("Name of the army is:    " + horde.getName());
+
+            // Add some examples which should and should not return valid result.
+            assert(horde.getName().equals("The Horde"));
+            assert(!horde.getName().equals("The horde"));
+            assert(!horde.getName().equals("Horde"));
+
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    @Test
-    void addAllUnitsMethodTest() {
-        try {
-            ArrayList<Unit> testArrayList = new ArrayList<>();
 
-            Unit testUnit1 = new CommanderUnit("Mountain King", 180);
-            Unit testUnit2 = new InfantryUnit("Footman", 100);
-            Unit testUnit3 = new CavalryUnit("Knight", 100);
-
-            testArrayList.add(testUnit1);
-            testArrayList.add(testUnit2);
-            testArrayList.add(testUnit3);
-
-            Army alliance = new Army("The Alliance"); // Simplified constructor.
-
-            System.out.println("\nUnits in list:                " + alliance.hasUnits());
-            System.out.println("Number of units in the list:    " + alliance.getAllUnits().size());
-            alliance.addAll(testArrayList);
-            System.out.println("\nUnits in list:                " + alliance.hasUnits());
-            System.out.println("Number of units in the list:    " + alliance.getAllUnits().size());
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
 
     @Test
     void removeASingleUnitFromUnitsList() {
         try {
             Army horde = new Army("The Horde");
 
-            Unit testUnit1 = new InfantryUnit("Grunt1", 100);
-            Unit testUnit2 = new InfantryUnit("Grunt2", 100);
-            Unit testUnit3 = new InfantryUnit("Grunt3", 100);
-            Unit testUnit4 = new InfantryUnit("Grunt4", 100);
+            Unit testUnit1 = new InfantryUnit("Grunt", 100);
+            Unit testUnit2 = new InfantryUnit("Grunt", 100);
+            Unit testUnit3 = new InfantryUnit("Grunt", 100);
 
             horde.add(testUnit1);
             horde.add(testUnit2);
             horde.add(testUnit3);
-            horde.add(testUnit4);
 
-            System.out.println("The list contain units:         " + horde.hasUnits());
-            System.out.println("Number of units in the list:    " + horde.getAllUnits().size() + "\n");
-            System.out.println("List of units in the ArrayList: " + horde.getAllUnits());
+            assert(horde.getAllUnits().contains(testUnit1));
+            assert(horde.getAllUnits().contains(testUnit2));
+            assert(horde.getAllUnits().contains(testUnit3));
 
             horde.remove(testUnit2);
 
-            System.out.println("The list contain units:         " + horde.hasUnits());
-            System.out.println("Number of units in the list:    " + horde.getAllUnits().size() + "\n");
-            System.out.println("List of units in the ArrayList: " + horde.getAllUnits());
+            assert(horde.getAllUnits().contains(testUnit1));
+            assert(!horde.getAllUnits().contains(testUnit2));
+            assert(horde.getAllUnits().contains(testUnit3));
+
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
     @Test
-    void getRandomWarriorFromAnArrayList() {
+    void getRandomWarriorFromAnArmy() {
         try {
             Army horde = new Army("The Horde");
 
-            Unit testUnit1 = new CommanderUnit("Gul'dan", 100);
-            Unit testUnit2 = new CavalryUnit("Raider", 100);
-            Unit testUnit3 = new RangedUnit("Spearman", 100);
-            Unit testUnit4 = new InfantryUnit("Grunt", 100);
+            horde.add(new CommanderUnit("Gul'dan", 180));
+            horde.add(new CavalryUnit("Raider", 100));
+            horde.add(new RangedUnit("Spearman", 100));
+            horde.add(new InfantryUnit("Grunt", 100));
 
-            horde.add(testUnit1);
-            horde.add(testUnit2);
-            horde.add(testUnit3);
-            horde.add(testUnit4);
-
+            // Runs a loop to see if a unit seems to appear at random.
             for (int i = 0; i < 20; i++) {
-                System.out.println(horde.getRandom());
+                System.out.println(horde.getRandom().getName());
             }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
 
-    @Test
-    void getToStringFromArmyClass() {
-        try {
-            Army horde = new Army("The Horde");
-
-            Unit testUnit1 = new CommanderUnit("Gul'dan", 180);
-            Unit testUnit2 = new CavalryUnit("Raider", 100);
-            Unit testUnit3 = new RangedUnit("Spearman", 100);
-            Unit testUnit4 = new InfantryUnit("Grunt", 100);
-
-            horde.add(testUnit1);
-            horde.add(testUnit2);
-            horde.add(testUnit3);
-            horde.add(testUnit4);
-
-            System.out.println(horde.toString());
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -207,49 +162,65 @@ public class ArmyTest {
         try {
             Army army1 = new Army("The Horde");
             Army army2 = new Army("The Horde");
+            Army army3 = new Army("The Alliance");
 
-            Unit testUnit1 = new InfantryUnit("Grunt", 100);
-            Unit testUnit2 = new InfantryUnit("Raider", 100);
+            Unit testUnit1 = new InfantryUnit("SomeUnit", 100);
+            Unit testUnit2 = new InfantryUnit("SomeUnit", 100);
+            Unit testUnit3 = new InfantryUnit("SomeUnit", 100);
 
             army1.add(testUnit1);
             army1.add(testUnit2);
+
             army2.add(testUnit1);
             army2.add(testUnit2);
 
-            System.out.println(army1.equals(army2));
+            army3.add(testUnit3);
+
+            assert(army1.equals(army2));    // Army 1 and 2 equals that their values are the same,
+            assert(!(army1 == army2));      // but they are in reality two different armies.
+
+            assert(!army1.equals(army3));   // Army 1 and Army 3 on the other hand are two different factions.
+
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
     @Test
-    void hashCodeTestToSeeIfTheSameValueForAnObjectIsReturned() {
+    void hashCodeTestToSeeIfArmiesAndUnitsHaveDifferentHashCodeAndEvenIfSomeValuesAreTheSame() {
         try {
             Army army1 = new Army("The Horde");
             Army army2 = new Army("The Horde");
+            Army army3 = new Army("The Alliance");
+
+            assert(army1.hashCode() == army2.hashCode());   // army1 and army2 is saved on the same
+                                                            // hashCode as they have the same name.
+            assert(army1.hashCode() != army3.hashCode());   // army1 and army3 differs as they have different names.
 
             Unit testUnit1 = new InfantryUnit("Grunt", 100);
-            Unit testUnit2 = new CavalryUnit("Raider", 100);
-            Unit testUnit3 = new RangedUnit("Spearman", 100);
-            Unit testUnit4 = new InfantryUnit("Grunt", 100);
-            Unit testUnit5 = new InfantryUnit("Grunt", 100);
-            Unit testUnit6 = new InfantryUnit("Grunt", 100);
+            Unit testUnit2 = new CavalryUnit("Grunt", 100);
+            Unit testUnit3 = new RangedUnit("Grunt", 100);
 
-            army1.add(testUnit4);
-            army1.add(testUnit5);
-            army2.add(testUnit4);
-            army2.add(testUnit5);
-            army2.add(testUnit6);
+            army1.add(testUnit1);
+            army1.add(testUnit2);
+            army1.add(testUnit3);
+            army1.add(new InfantryUnit("Grunt",100));
+            army1.add(new InfantryUnit("Grunt",100));
+            army1.add(new InfantryUnit("Grunt",100));
 
-            System.out.println(army1.hashCode());
-            System.out.println(army1.hashCode());
-            System.out.println(army2.hashCode());
-            System.out.println(testUnit1.hashCode());
-            System.out.println(testUnit2.hashCode());
-            System.out.println(testUnit3.hashCode());
-            System.out.println(testUnit4.hashCode());
-            System.out.println(testUnit5.hashCode());
-            System.out.println(testUnit6.hashCode());
+            assert(army1.getAllUnits().size() == 6);    // Expects there to be six units in army1.
+
+            // Expects none of the units to have the same hashCode.
+            for (int i = 0; i < army1.getAllUnits().size(); i++) {
+                for (int j = 0; j < army1.getAllUnits().size(); j++) {
+                    if (i == j) {
+                        assert(army1.getAllUnits().get(i).hashCode() == army1.getAllUnits().get(j).hashCode());
+                    } else {
+                        assert(army1.getAllUnits().get(i).hashCode() != army1.getAllUnits().get(j).hashCode());
+                    }
+                }
+            }
+
         } catch (Exception e) {
             e.printStackTrace();
         }

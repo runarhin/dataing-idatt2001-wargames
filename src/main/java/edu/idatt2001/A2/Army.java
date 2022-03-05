@@ -158,6 +158,7 @@ public class Army {
         Army army = (Army) o;
         return Objects.equals(name, army.name) && Objects.equals(units, army.units);
     }
+    //TODO: Should maybe update equals method.
 
     /**
      * Method that returns the HashCode of an object.

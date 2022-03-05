@@ -10,7 +10,7 @@ public class CavalryUnit extends Unit {
      * attacks is used to determine how many times the warrior have attacked a target.
      * This to calculate the attack bonus.
      */
-    private int attacks = 0;
+    private boolean chargeReady = true;
 
     /**
      * Constructor for instantiation of the CavalryUnit class.
@@ -37,19 +37,27 @@ public class CavalryUnit extends Unit {
     /**
      * Method that returns the attack bonus value.
      * The attack bonus will change as the cavalry unit excessively attacks.
-     * This value is used in the parent class method attack(Unit opponent).
      * @return  int value of the attack bonus for an infantry unit.
      */
     @Override
     public int getAttackBonus() {
         int attackBonus = 2;
 
-        if (attacks < 1) {
-            attacks++;
+        if (chargeReady) {
+            chargeReady = false;
             return attackBonus + 4;
         } else {
             return attackBonus;
         }
+    }
+
+    /**
+     * Method which resets the attacks given by a cavalry unit when its opponent dies.
+     * Used to indicate that the cavalry unit can use the charge ability again,
+     * and against a new opponent at a distance.
+     */
+    public void resetChargeAbility() {
+        this.chargeReady = true;
     }
 
     /**

@@ -30,6 +30,8 @@ public class Battle {
     public Army simulate() {
         int roundCount = 0;
         int randomiseAttack;
+        int attackedWarriorOldHealth;
+        int attackedWarriorNewHealth;
         Random rand = new Random();
 
         Unit warriorArmyOne = armyOne.getRandom();
@@ -39,46 +41,85 @@ public class Battle {
         while (armyOne.hasUnits() & armyTwo.hasUnits()) {
             // Print for test purposes.
             roundCount++;
-            System.out.println("\nRound " + roundCount);
-            System.out.println("ArmyOne: " + warriorArmyOne.getName() + " have " + warriorArmyOne.getHealth() + " HP");
-            System.out.println("ArmyTwo: " + warriorArmyTwo.getName() + " have " + warriorArmyTwo.getHealth() + " HP");
+            System.out.println("\nRound " + roundCount + "");
+            System.out.println("    " + warriorArmyOne.getName() + " [" + warriorArmyOne.getHealth() + " HP]"
+            + " against "+ warriorArmyTwo.getName() + " [" + warriorArmyTwo.getHealth() + " HP]");
 
             // Randomises who attack first.
             randomiseAttack = rand.nextInt(0, 2);
             if (randomiseAttack == 0) {
                 if (warriorArmyOne.getHealth() > 0) {
+                    attackedWarriorOldHealth = warriorArmyTwo.getHealth();
                     warriorArmyOne.attack(warriorArmyTwo);
+                    attackedWarriorNewHealth = warriorArmyTwo.getHealth();
+                    System.out.println("        "
+                            + warriorArmyOne.getName() + " [" + warriorArmyOne.getHealth() + " HP]"
+                            + " strikes and deals " + (attackedWarriorOldHealth - attackedWarriorNewHealth)
+                            + " damage to " + warriorArmyTwo.getName() + " [" + attackedWarriorOldHealth
+                            + " HP][-" + (attackedWarriorOldHealth - attackedWarriorNewHealth) + " HP]");
                 }
                 if (warriorArmyTwo.getHealth() > 0) {
+                    attackedWarriorOldHealth = warriorArmyOne.getHealth();
                     warriorArmyTwo.attack(warriorArmyOne);
+                    attackedWarriorNewHealth = warriorArmyOne.getHealth();
+                    System.out.println("        "
+                            + warriorArmyTwo.getName() + " [" + warriorArmyTwo.getHealth() + " HP]"
+                            + " then deals " + (attackedWarriorOldHealth - attackedWarriorNewHealth)
+                            + " damage to " + warriorArmyOne.getName() + " [" + attackedWarriorOldHealth
+                            + " HP][-" + (attackedWarriorOldHealth - attackedWarriorNewHealth) + " HP]");
                 }
             } else {
                 if (warriorArmyTwo.getHealth() > 0) {
+                    attackedWarriorOldHealth = warriorArmyOne.getHealth();
                     warriorArmyTwo.attack(warriorArmyOne);
+                    attackedWarriorNewHealth = warriorArmyOne.getHealth();
+                    System.out.println("        "
+                            + warriorArmyTwo.getName() + " [" + warriorArmyTwo.getHealth() + " HP]"
+                            + " strikes and deals " + (attackedWarriorOldHealth - attackedWarriorNewHealth)
+                            + " damage to " + warriorArmyOne.getName() + " [" + attackedWarriorOldHealth
+                            + " HP][-" + (attackedWarriorOldHealth - attackedWarriorNewHealth) + " HP]");
                 }
                 if (warriorArmyOne.getHealth() > 0) {
+                    attackedWarriorOldHealth = warriorArmyTwo.getHealth();
                     warriorArmyOne.attack(warriorArmyTwo);
+                    attackedWarriorNewHealth = warriorArmyTwo.getHealth();
+                    System.out.println("        "
+                            + warriorArmyOne.getName() + " [" + warriorArmyOne.getHealth() + " HP]"
+                            + " then deals " + (attackedWarriorOldHealth - attackedWarriorNewHealth)
+                            + " damage to " + warriorArmyTwo.getName() + " [" + attackedWarriorOldHealth
+                            + " HP][-" + (attackedWarriorOldHealth - attackedWarriorNewHealth) + " HP]");
                 }
             }
             // Cleans up the mess and see if a warrior died or not. If a warrior died, it is replaced.
             if (warriorArmyTwo.getHealth() == 0) {
-                System.out.println(
-                    warriorArmyTwo.getName() + " died of fatal blow from " + warriorArmyOne.getName() + ""
-                );
+                System.out.println("\n    " + warriorArmyTwo.getName()
+                        + " died of fatal blow from " + warriorArmyOne.getName() + "!");
                 armyTwo.remove(warriorArmyTwo);
                 if (armyTwo.hasUnits()) {
                     warriorArmyTwo = armyTwo.getRandom();
                 }
+                if (warriorArmyOne instanceof RangedUnit) {
+                    ((RangedUnit) warriorArmyOne).resetAttacked();
+                }
+                if (warriorArmyOne instanceof CavalryUnit) {
+                    ((CavalryUnit) warriorArmyOne).resetChargeAbility();
+                }
             }
             if (warriorArmyOne.getHealth() == 0) {
-                System.out.println(
-                    warriorArmyOne.getName() + " died of fatal blow from " + warriorArmyTwo.getName() + ""
-                );
+                System.out.println("\n    " + warriorArmyOne.getName()
+                        + " died of fatal blow from " + warriorArmyTwo.getName() + "!");
                 armyOne.remove(warriorArmyOne);
                 if (armyOne.hasUnits()) {
                     warriorArmyOne = armyOne.getRandom();
                 }
+                if (warriorArmyTwo instanceof RangedUnit) {
+                    ((RangedUnit) warriorArmyTwo).resetAttacked();
+                }
+                if (warriorArmyTwo instanceof CavalryUnit) {
+                    ((CavalryUnit) warriorArmyTwo).resetChargeAbility();
+                }
             }
+            //TODO: The code does not take overkill damage into consideration at this point.
         }
         if (!armyOne.hasUnits()) {
             return armyTwo;

@@ -24,36 +24,30 @@ public class InfantryUnitTest {
     }
 
     @Test
-    void twoOpponentsWereOneExcessivelyAttacksTheOther() {
+    void oneInfantryUnitExcessivelyAttacksAnotherToSeeHealthOutcomeOfTheAttackedUnit() {
         try {
-            System.out.println("\nNotes, InfantryUnit have: ");
-            System.out.println("    - Base attack of 15.");
-            System.out.println("    - Base armor of 10.");
-            System.out.println("    - Resist bonus of 1.");
-            System.out.println("    - Attack bonus of 2.");
+            /* Notes, InfantryUnit have:
+                - Base attack of 15
+                - Base armor of 10
+                - Resist bonus of 1
+                - Attack bonus of 2    */
 
-            System.out.println("\n----------------------------------------------------------");
             Unit footman = new InfantryUnit("Footman", 100);
             Unit grunt = new InfantryUnit("Grunt", 100);
 
-            System.out.println("\n0. Before the grunt attacked the footman:");
-            System.out.println("\n" + footman.toString());
-            System.out.println("\n" + grunt.toString());
+            // 0. Before the grunt attacked the footman:
+            assert(footman.getHealth() == 100);
 
-            System.out.println("\n----------------------------------------------------------");
-            System.out.println("\n1. After the grunt attacked the footman:");
-            System.out.println("Expect (100 HP - 15 - 2 + 10 + 1 =) 94 HP left for footman after first blow.");
+            // 1. After the grunt attacked the footman:
+            // Expect (100 HP - 15 - 2 + 10 + 1 =) 94 HP left for footman after first blow.
             grunt.attack(footman);
-            System.out.println("\n" + footman.toString());
-            System.out.println("\n" + grunt.toString());
+            assert(footman.getHealth() == 94);
 
-            System.out.println("\n----------------------------------------------------------");
-            System.out.println("\n2. After the grunt attacked the footman:");
-            System.out.println("Expect (94 HP - 15 - 2 + 10 + 1 =) 88 HP left for footman after second blow.");
+            // 2. After the grunt attacked the footman:
+            //Expect (94 HP - 15 - 2 + 10 + 1 =) 88 HP left for footman after second blow.
             grunt.attack(footman);
-            System.out.println("\n" + footman.toString());
-            System.out.println("\n" + grunt.toString());
-            System.out.println("\n----------------------------------------------------------");
+            assert(footman.getHealth() == 88);
+
         } catch (Exception e) {
             e.printStackTrace();
         }

@@ -70,4 +70,15 @@ public class RangedUnit extends Unit {
     public int getAttackBonus() {
         return 3;
     }
+
+    /**
+     * Method which resets that the ranged unit is attacked.
+     * Used to indicate that the ranged unit have killed its resent opponent and refreshes
+     * its range to the new attacking opponent.
+     * @return
+     */
+    public void resetAttacked() {
+        this.attacked = 0;
+    }
+
 }

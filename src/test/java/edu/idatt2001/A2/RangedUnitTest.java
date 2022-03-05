@@ -24,53 +24,90 @@ public class RangedUnitTest {
     }
 
     @Test
-    void twoOpponentsWereOneExcessivelyAttacksTheOther() {
+    void infantryUnitExcessivelyAttacksRangedUnitToSeeChangeOfRangedUnitsResistBonus() {
         try {
-            System.out.println("\nNotes, RangedUnit have: ");
-            System.out.println("    - Base attack of 15.");
-            System.out.println("    - Base armor of 8.");
-            System.out.println(
-                "    - Resist bonus depends on the range between units. 6 when far away, " +
-                "4 when closer and 2 when up close."
-            );
-            System.out.println("    - Attack bonus of 3.");
+            /* Notes, RangedUnit have:
+                - Base attack of 15.
+                - Base armor of 8.
+                - Resist bonus depends on the range between units. 6 when far away, 4 when closer and 2 when up close.
+                - Attack bonus of 3.  */
 
-            System.out.println("\n----------------------------------------------------------");
             Unit archer = new RangedUnit("Archer", 100);
-            Unit spearman = new RangedUnit("Spearman", 100);
+            Unit grunt = new InfantryUnit("Grunt", 100);
 
-            System.out.println("\n0. Before the spearman attacked the archer:");
-            System.out.println("\n" + archer.toString());
-            System.out.println("\n" + spearman.toString());
+            // 0. Before the grunt attacked the archer:
+            assert(archer.getHealth() == 100);
 
-            System.out.println("\n----------------------------------------------------------");
-            System.out.println("\n1. After the spearman attacked the archer:");
-            System.out.println("Expect (100 HP - 15 - 3 + 8 + 6 =) 96 HP left for footman after first blow.");
-            spearman.attack(archer);
-            System.out.println("\n" + archer.toString());
-            System.out.println("\n" + spearman.toString());
+            // 1. After the grunt attacked the archer:
+            // Expect (100 HP - 15 - 2 + 8 + 6 =) 97 HP left for archer after first blow.
+            grunt.attack(archer);
+            assert(archer.getHealth() == 97);
 
-            System.out.println("\n----------------------------------------------------------");
-            System.out.println("\n2. After the spearman attacked the archer:");
-            System.out.println("Expect (96 HP - 15 - 3 + 8 + 4 =) 90 HP left for footman after second blow.");
-            spearman.attack(archer);
-            System.out.println("\n" + archer.toString());
-            System.out.println("\n" + spearman.toString());
+            // 2. After the grunt attacked the archer:
+            // Expect (97 HP - 15 - 2 + 8 + 4 =) 92 HP left for archer after second blow.
+            grunt.attack(archer);
+            assert(archer.getHealth() == 92);
 
-            System.out.println("\n----------------------------------------------------------");
-            System.out.println("\n3. After the spearman attacked the archer:");
-            System.out.println("Expect (90 HP - 15 - 3 + 8 + 2 =) 82 HP left for footman after third blow.");
-            spearman.attack(archer);
-            System.out.println("\n" + archer.toString());
-            System.out.println("\n" + spearman.toString());
+            // 3. After the grunt attacked the archer:
+            // Expect (92 HP - 15 - 2 + 8 + 2 =) 85 HP left for archer after third blow.
+            grunt.attack(archer);
+            assert(archer.getHealth() == 85);
 
-            System.out.println("\n----------------------------------------------------------");
-            System.out.println("\n4. After the spearman attacked the archer:");
-            System.out.println("Expect (82 HP - 15 - 3 + 8 + 2 =) 74 HP left for footman after fourth blow.");
-            spearman.attack(archer);
-            System.out.println("\n" + archer.toString());
-            System.out.println("\n" + spearman.toString());
-            System.out.println("\n----------------------------------------------------------");
+            // 4. After the grunt attacked the archer:
+            // Expect (85 HP - 15 - 2 + 8 + 2 =) 78 HP left for archer after fourth blow.
+            grunt.attack(archer);
+            assert(archer.getHealth() == 78);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Test
+    void resetMethodInRangedUnitClassShouldMakeResistanceBonusBeResetForWhenItsAttackedByANewOpponent() {
+        try {
+            Unit archer = new RangedUnit("Archer", 100);
+            Unit grunt = new InfantryUnit("Grunt", 100);
+
+            // 0. Before the grunt attacked the archer:
+            assert(archer.getHealth() == 100);
+            assert(archer.getResistBonus() == 6);
+
+            // 1. After the grunt attacked the archer:
+            // Expect (100 HP - 15 - 2 + 8 + 6 =) 97 HP left for archer after first blow.
+            grunt.attack(archer);
+            assert(archer.getHealth() == 97);
+            assert(archer.getResistBonus() == 4);
+
+            // 2. After the grunt attacked the archer:
+            // Expect (97 HP - 15 - 2 + 8 + 4 =) 92 HP left for archer after second blow.
+            grunt.attack(archer);
+            assert(archer.getHealth() == 92);
+            assert(archer.getResistBonus() == 2);
+
+            // 3. After the grunt attacked the archer:
+            // Expect (92 HP - 15 - 2 + 8 + 2 =) 85 HP left for archer after third blow.
+            grunt.attack(archer);
+            assert(archer.getHealth() == 85);
+            assert(archer.getResistBonus() == 2);
+
+            // 4. RESET of private variable attacked in the RangedUnit archer.
+            ((RangedUnit) archer).resetAttacked();
+            assert(archer.getResistBonus() == 6);
+
+            // 5. Grunt thereafter attacks again.
+            // Expect (85 HP - 15 - 2 + 8 + 6 =) 82 HP left for archer after fourth blow.
+            grunt.attack(archer);
+            assert(archer.getResistBonus() == 4);
+            assert(archer.getHealth() == 82);
+
+            // 6. Grunt attacks again.
+            // Expect (82 HP - 15 - 2 + 8 + 4 =) 77 HP left for archer after fourth blow.
+            grunt.attack(archer);
+            assert(archer.getResistBonus() == 2);
+            assert(archer.getHealth() == 77);
+
+
         } catch (Exception e) {
             e.printStackTrace();
         }

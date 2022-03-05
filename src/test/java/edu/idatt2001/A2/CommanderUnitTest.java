@@ -19,41 +19,33 @@ public class CommanderUnitTest {
     @Test
     void testingBonusCalculationsForCommanderUnit() {
         try {
-            System.out.println("\nNotes, CommanderUnit have: ");
-            System.out.println("    - Base attack of 25.");
-            System.out.println("    - Base armor of 15.");
-            System.out.println("    - Resist bonus of 1.");
-            System.out.println("    - Should have attack bonus of 4+2 on the first attack and 2 on the second.");
+            /* Notes, CommanderUnit have:
+                - Base attack of 25.
+                - Base armor of 15.
+                - Resist bonus of 1.
+                - Should have attack bonus of 4+2 on the first attack and 2 on the second.  */
 
-            System.out.println("\n----------------------------------------------------------");
             CommanderUnit hordeCommander = new CommanderUnit("Gul'dan", 180);
             CommanderUnit allianceCommander = new CommanderUnit("Mountain King", 180);
 
-            System.out.println("\n0. Before the Mountain King attacked Gul'dan:");
-            System.out.println("\n" + hordeCommander.toString());
-            System.out.println("\n" + allianceCommander.toString());
+            //0. Before the Mountain King attacked Gul'dan:
+            assert(hordeCommander.getHealth() == 180);
 
-            System.out.println("\n----------------------------------------------------------");
-            System.out.println("\n1. After the Mountain King attacked Gul'dan:");
-            System.out.println("Expect (180 HP - 25 - 6 + 15 + 1 =) 165 HP left for knight after first blow.");
+            // 1. After the Mountain King attacked Gul'dan:
+            // Expect (180 HP - 25 - 6 + 15 + 1 =) 165 HP left for knight after first blow.
             allianceCommander.attack(hordeCommander);
-            System.out.println("\n" + hordeCommander.toString());
-            System.out.println("\n" + allianceCommander.toString());
+            assert(hordeCommander.getHealth() == 165);
 
-            System.out.println("\n----------------------------------------------------------");
-            System.out.println("\n2. After the Mountain King attacked Gul'dan:");
-            System.out.println("Expect (165 HP - 25 - 2 + 15 + 1 =) 154 HP left for knight after second blow.");
+            // 2. After the Mountain King attacked Gul'dan:
+            // Expect (165 HP - 25 - 2 + 15 + 1 =) 154 HP left for knight after second blow.
             allianceCommander.attack(hordeCommander);
-            System.out.println("\n" + hordeCommander.toString());
-            System.out.println("\n" + allianceCommander.toString());
+            assert(hordeCommander.getHealth() == 154);
 
-            System.out.println("\n----------------------------------------------------------");
-            System.out.println("\n3. After the Mountain King attacked Gul'dan:");
-            System.out.println("Expect (154 HP - 25 - 2 + 15 + 1 =) 143 HP left for knight after third blow.");
+            // 3. After the Mountain King attacked Gul'dan:
+            // Expect (154 HP - 25 - 2 + 15 + 1 =) 143 HP left for knight after third blow.
             allianceCommander.attack(hordeCommander);
-            System.out.println("\n" + hordeCommander.toString());
-            System.out.println("\n" + allianceCommander.toString());
-            System.out.println("\n----------------------------------------------------------");
+            assert(hordeCommander.getHealth() == 143);
+
         } catch (Exception e) {
             e.printStackTrace();
         }

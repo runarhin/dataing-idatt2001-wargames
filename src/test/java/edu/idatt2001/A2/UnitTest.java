@@ -9,12 +9,14 @@ public class UnitTest {
         System.out.println("The nameless warrior test, first constructor:");
         try {
             Unit someTestUnit = new InfantryUnit("", 1, 1, 1);
+
         } catch (Exception e) {
             e.printStackTrace();
         }
         System.out.println("\nThe nameless warrior test, simplified constructor:");
         try {
             Unit someTestUnit = new InfantryUnit("", 1);
+
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -25,12 +27,14 @@ public class UnitTest {
         System.out.println("The dead knight test, first constructor:");
         try {
             Unit someTestUnit = new InfantryUnit("Knight", 0, 1, 1);
+
         } catch (Exception e) {
             e.printStackTrace();
         }
         System.out.println("\nThe dead knight test, simplified constructor:");
         try {
             Unit someTestUnit = new InfantryUnit("Knight", 0);
+
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -41,6 +45,7 @@ public class UnitTest {
         System.out.println("The weaponless knight test");
         try {
             Unit someTestUnit = new InfantryUnit("Knight", 1, -1, 1);
+
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -51,47 +56,26 @@ public class UnitTest {
         System.out.println("The naked knight test");
         try {
             Unit someTestUnit = new InfantryUnit("Knight", 1, 1, -1);
+
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
     @Test
-    void unitLosesHealthWhenAttackdeByAnotherUnitByAttackMethod() {
+    void unitLosesHealthWhenAttackedByAnotherUnitByAttackMethod() {
         try {
             Unit someTestFootman = new InfantryUnit("Footman", 100, 15, 10);
             Unit someTestGrunt = new InfantryUnit("Grunt", 100, 15, 10);
-            System.out.println("Grunts health before footman's attack: " + someTestGrunt.getHealth() + " HP");
+
+            // Grunts health before footman's attack is expected to be 100 HP.
+            assert(someTestGrunt.getHealth() == 100);
+
             someTestFootman.attack(someTestGrunt);
-            System.out.println("Grunts health after being attacked: " + someTestGrunt.getHealth() + " HP");
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
 
-    @Test
-    void testingAccessMethods() {
-        try {
-            Unit someTestUnit = new InfantryUnit("Knight", 100, 15, 10);
-            System.out.println(someTestUnit.getName());
-            System.out.println(someTestUnit.getHealth());
-            System.out.println(someTestUnit.getAttack());
-            System.out.println(someTestUnit.getArmor());
-            System.out.println(someTestUnit.getAttackBonus());
-            System.out.println(someTestUnit.getResistBonus());
-            System.out.println(someTestUnit.getClass());
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
+            // Grunts health after being attacked is expected to be 94 HP.
+            assert(someTestGrunt.getHealth() == 94);
 
-    @Test
-    void testingMutationMethod() {
-        try {
-            Unit someTestUnit = new InfantryUnit("Footman", 100, 15, 10);
-            System.out.println("Health before change: " + someTestUnit.getHealth() + " HP");
-            someTestUnit.setHealth(77);
-            System.out.println("Health after change:  " + someTestUnit.getHealth() + " HP");
         } catch (Exception e) {
             e.printStackTrace();
         }
