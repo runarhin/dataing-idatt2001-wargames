@@ -143,7 +143,7 @@ public class Army {
      */
     @Override
     public String toString() {
-        return "" + name + ", with " + units.size() + " unit(s),";
+        return "" + name + " [" + units.size() + " unit(s)]";
     }
 
     /**

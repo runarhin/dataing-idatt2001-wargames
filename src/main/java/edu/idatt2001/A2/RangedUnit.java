@@ -56,9 +56,6 @@ public class RangedUnit extends Unit {
         } else {
             return 2;
         }
-        //TODO: Reset attacked if opponent dies?
-        // Alternative feature:
-        // getResistBonus(Unit someAttackingUnit) {if (someAttackingUnit.getHealth == 0) {attacked = 0;}}
     }
 
     /**

@@ -1,5 +1,8 @@
 package edu.idatt2001.A2;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintStream;
 import java.util.Random;
 
 /**
@@ -27,12 +30,19 @@ public class Battle {
      * of being the first army. When a warrior dies, it is removed from the armies ArrayList.
      * @return      The winning army by toString.
      */
-    public Army simulate() {
+    public Army simulate() throws FileNotFoundException {
         int roundCount = 0;
         int randomiseAttack;
         int attackedWarriorOldHealth;
         int attackedWarriorNewHealth;
         Random rand = new Random();
+
+        // Creating a File object the battle log will be applied to.
+        PrintStream o = new PrintStream(new File("Battle-log.txt"));
+        // Store current System.out before assigning a new value
+        PrintStream console = System.out;
+        // Assign o to output stream. Every print from now until reset will go to a log-file.
+        System.setOut(o);
 
         Unit warriorArmyOne = armyOne.getRandom();
         Unit warriorArmyTwo = armyTwo.getRandom();
@@ -121,9 +131,14 @@ public class Battle {
             }
             //TODO: The code does not take overkill damage into consideration at this point.
         }
+
         if (!armyOne.hasUnits()) {
+            System.out.println("\n  " + armyTwo.getName() + " wins the battle!"); // Add to log who the winner is.
+            System.setOut(console);                                               // Use stored value for output stream.
             return armyTwo;
         } else {
+            System.out.println("\n  " + armyOne.getName() + " wins the battle!"); // Add to log who the winner is.
+            System.setOut(console);                                               // Use stored value for output stream.
             return armyOne;
         }
     }
