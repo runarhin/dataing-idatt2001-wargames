@@ -38,7 +38,7 @@ public class Battle {
         Random rand = new Random();
 
         // Creating a File object the battle log will be applied to.
-        PrintStream o = new PrintStream(new File("Battle-log.txt"));
+        PrintStream o = new PrintStream(new File("BattleLog.txt"));
         // Store current System.out before assigning a new value
         PrintStream console = System.out;
         // Assign o to output stream. Every print from now until reset will go to a log-file.
