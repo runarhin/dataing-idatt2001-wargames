@@ -1,6 +1,12 @@
-package edu.idatt2001.A2;
+package edu.ntnu.idatt2001.runarin.units;
 
 import java.util.ArrayList;
+
+import edu.ntnu.idatt2001.runarin.units.*;
+import edu.ntnu.idatt2001.runarin.units.specialised.CavalryUnit;
+import edu.ntnu.idatt2001.runarin.units.specialised.CommanderUnit;
+import edu.ntnu.idatt2001.runarin.units.specialised.InfantryUnit;
+import edu.ntnu.idatt2001.runarin.units.specialised.RangedUnit;
 import org.junit.jupiter.api.Test;
 
 public class ArmyTest {

@@ -1,5 +1,7 @@
-package edu.idatt2001.A2;
+package edu.ntnu.idatt2001.runarin.units.specialised;
 
+import edu.ntnu.idatt2001.runarin.units.specialised.CommanderUnit;
+import edu.ntnu.idatt2001.runarin.units.Unit;
 import org.junit.jupiter.api.Test;
 
 public class CommanderUnitTest {

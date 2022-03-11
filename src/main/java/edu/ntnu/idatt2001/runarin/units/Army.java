@@ -1,4 +1,4 @@
-package edu.idatt2001.A2;
+package edu.ntnu.idatt2001.runarin.units;
 
 import java.util.ArrayList;
 import java.util.Objects;
@@ -59,8 +59,8 @@ public class Army {
         } else if (unit.getArmor() <= 2) {
             throw new Exception("Unit forgot its armor? Come back at another time.");
         }
-        units.add(unit);
-        return true;
+
+        return units.add(unit);
     }
 
     /**

@@ -1,4 +1,6 @@
-package edu.idatt2001.A2;
+package edu.ntnu.idatt2001.runarin.units.specialised;
+
+import edu.ntnu.idatt2001.runarin.units.Unit;
 
 /**
  * A class for a ranged unit.

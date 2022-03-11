@@ -1,5 +1,9 @@
-package edu.idatt2001.A2;
+package edu.ntnu.idatt2001.runarin;
 
+import edu.ntnu.idatt2001.runarin.units.Army;
+import edu.ntnu.idatt2001.runarin.units.specialised.CavalryUnit;
+import edu.ntnu.idatt2001.runarin.units.specialised.InfantryUnit;
+import edu.ntnu.idatt2001.runarin.units.specialised.RangedUnit;
 import org.junit.jupiter.api.Test;
 
 public class BattleTest {
