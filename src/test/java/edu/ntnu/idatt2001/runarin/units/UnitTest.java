@@ -1,97 +1,146 @@
 package edu.ntnu.idatt2001.runarin.units;
 
-import edu.ntnu.idatt2001.runarin.units.specialised.InfantryUnit;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.fail;
+
 import edu.ntnu.idatt2001.runarin.units.Unit;
+import edu.ntnu.idatt2001.runarin.units.specialised.InfantryUnit;
+import org.junit.jupiter.api.DisplayNameGeneration;
+import org.junit.jupiter.api.DisplayNameGenerator;
+import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
 public class UnitTest {
-
-    @Test
-    void exceptionHandlingInConstructorsNameEmpty() {
-        System.out.println("The nameless warrior test, first constructor:");
-        try {
-            Unit someTestUnit = new InfantryUnit("", 1, 1, 1);
-
-        } catch (Exception e) {
-            e.printStackTrace();
+    
+    @Nested
+    class UnitConstructorThrowsException {
+        
+        @Test
+        void exceptionThrownIfUnitNameIsEmpty() {
+        /*
+        Instantiating a unit with no name and expect illegal argument exception message.
+         */
+            try {
+                Unit someTestUnit = new InfantryUnit("", 1);
+            } catch (IllegalArgumentException e) {
+                assertEquals(e.getMessage(), "Name of the warrior cannot be empty.");
+            }
         }
-        System.out.println("\nThe nameless warrior test, simplified constructor:");
-        try {
-            Unit someTestUnit = new InfantryUnit("", 1);
 
-        } catch (Exception e) {
-            e.printStackTrace();
+        @Test
+        void exceptionThrownWhenHealthOfAUnitIsZero() {
+            /*
+            Instantiating a unit with zero health and expect illegal argument exception message.
+             */
+            try {
+                Unit someTestUnit = new InfantryUnit("Grunt", 0);
+
+            } catch (IllegalArgumentException e) {
+                assertEquals(e.getMessage(), "Health points of the warrior must be above zero.");
+            }
         }
-    }
 
-    @Test
-    void exceptionHandlingInConstructorsHealthZero() {
-        System.out.println("The dead knight test, first constructor:");
-        try {
-            Unit someTestUnit = new InfantryUnit("Knight", 0, 1, 1);
+        @Test
+        void exceptionThrownWhenAttackPowerIsBelowZero() {
+            /*
+            Instantiating a unit with negative attack power and expect illegal argument exception message.
+             */
+            try {
+                Unit someTestUnit = new InfantryUnit("Knight", 1, -1, 1);
 
-        } catch (Exception e) {
-            e.printStackTrace();
+            } catch (IllegalArgumentException e) {
+                assertEquals(e.getMessage(), "Attack power of the warrior must be above zero.");
+            }
         }
-        System.out.println("\nThe dead knight test, simplified constructor:");
-        try {
-            Unit someTestUnit = new InfantryUnit("Knight", 0);
 
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
+        @Test
+        void exceptionThrownWhenArmorPointsIsBelowZero() {
+            try {
+                Unit someTestUnit = new InfantryUnit("Knight", 1, 1, -1);
 
-    @Test
-    void exceptionHandlingInConstructorsAttackPowerBelowZero() {
-        System.out.println("The weaponless knight test");
-        try {
-            Unit someTestUnit = new InfantryUnit("Knight", 1, -1, 1);
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    @Test
-    void exceptionHandlingInConstructorsArmorPointsBelowZero() {
-        System.out.println("The naked knight test");
-        try {
-            Unit someTestUnit = new InfantryUnit("Knight", 1, 1, -1);
-
-        } catch (Exception e) {
-            e.printStackTrace();
+            } catch (IllegalArgumentException e) {
+                assertEquals(e.getMessage(), "Armor points of the warrior cannot be below zero.");
+            }
         }
     }
 
-    @Test
-    void unitLosesHealthWhenAttackedByAnotherUnitByAttackMethod() {
-        try {
-            Unit someTestFootman = new InfantryUnit("Footman", 100, 15, 10);
-            Unit someTestGrunt = new InfantryUnit("Grunt", 100, 15, 10);
+    @Nested
+    class UnitAttacksAnotherUnit {
+
+        @Test
+        void unitLosesHealthWhenAttackedByAnotherUnitByAttackMethod() {
+
+            Unit attacker = new Unit("Footman", 100, 15, 0) {
+                @Override
+                public int getAttackBonus() {
+                    return 0;
+                }
+
+                @Override
+                public int getResistBonus() {
+                    return 0;
+                }
+            };
+
+            Unit defender = new Unit("Grunt", 100, 15, 0) {
+                @Override
+                public int getAttackBonus() {
+                    return 0;
+                }
+
+                @Override
+                public int getResistBonus() {
+                    return 0;
+                }
+            };
 
             // Grunts health before footman's attack is expected to be 100 HP.
-            assert(someTestGrunt.getHealth() == 100);
+            assertEquals(defender.getHealth(), 100);
 
-            someTestFootman.attack(someTestGrunt);
+            attacker.attack(defender);
 
-            // Grunts health after being attacked is expected to be 94 HP.
-            assert(someTestGrunt.getHealth() == 94);
-
-        } catch (Exception e) {
-            e.printStackTrace();
+        /*
+        Grunts health after being attacked is expected to be 85 HP.
+        */
+            assertEquals(defender.getHealth(), 85);
         }
-    }
 
-    @Test
-    void returnToString() {
-        try {
-            Unit someTestUnit1 = new InfantryUnit("Footman", 120, 13, 12);
-            Unit someTestUnit2 = new InfantryUnit("Footman", 90);
-            System.out.println("\n" + someTestUnit1.toString());
-            System.out.println("\n" + someTestUnit2.toString());
-        } catch (Exception e) {
-            e.printStackTrace();
+
+        @Test
+        void unitDoesntLooseHealthWhenArmorPointsAreEqualToAttackPower() {
+
+            Unit attacker = new Unit("Footman", 100, 10, 1) {
+                @Override
+                public int getAttackBonus() {
+                    return 0;
+                }
+
+                @Override
+                public int getResistBonus() {
+                    return 0;
+                }
+            };
+
+            Unit defender = new Unit("Grunt", 100, 1, 10) {
+                @Override
+                public int getAttackBonus() {
+                    return 0;
+                }
+
+                @Override
+                public int getResistBonus() {
+                    return 0;
+                }
+            };
+
+            // Grunts health before footman's attack is expected to be 100 HP.
+            assertEquals(defender.getHealth(), 100);
+
+            attacker.attack(defender);
+
+            assertEquals(defender.getHealth(), 100);
         }
     }
 }
