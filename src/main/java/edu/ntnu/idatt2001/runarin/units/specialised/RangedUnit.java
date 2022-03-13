@@ -28,14 +28,12 @@ public class RangedUnit extends Unit {
     }
 
     /**
-     * Second constructor for instantiation of the RangedUnit class.
+     * Simplified constructor for instantiation of the RangedUnit class.
      * @param name      Description of the type of warrior; Archer, Swordsman, etc.
      * @param health    Number of remaining health points for the warrior. Value is decreased when taking damage.
      */
     public RangedUnit(String name, int health) {
-        super(name, health);
-        super.attack = 15;
-        super.armor = 8;
+        super(name, health,15,8);
     }
 
     /**
@@ -50,7 +48,6 @@ public class RangedUnit extends Unit {
             attacked++;
             lastHealth = this.health;
         }
-
         if (attacked == 0) {
             return 6;
         } else if (attacked == 1) {
@@ -74,7 +71,6 @@ public class RangedUnit extends Unit {
      * Method which resets that the ranged unit is attacked.
      * Used to indicate that the ranged unit have killed its resent opponent and refreshes
      * its range to the new attacking opponent.
-     * @return
      */
     public void resetAttacked() {
         this.attacked = 0;

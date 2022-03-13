@@ -19,9 +19,8 @@ public class Army {
      * @param units     Units in the army; Footmen, raiders, knights, etc.
      */
     public Army(String name, ArrayList<Unit> units) {
-        if (name.isEmpty() || name.isBlank()) {
-            throw new IllegalArgumentException("Army name cannot be empty");
-        }
+        if (name.isEmpty() || name.isBlank()) throw new IllegalArgumentException("Army name cannot be empty");
+
         this.name = name;
         this.units = units;
     }
@@ -32,16 +31,15 @@ public class Army {
      * @param name      Name of the faction army.
      */
     public Army(String name) {
-        if (name.isEmpty() || name.isBlank()) {
-            throw new IllegalArgumentException("Army name cannot be empty");
-        }
+        if (name.isEmpty() || name.isBlank()) throw new IllegalArgumentException("Army name cannot be empty");
+
         this.name = name;
         this.units = new ArrayList<>();
     }
 
     /**
      * Get-method that returns the name of the army.
-     * @return  String, name of the army.
+     * @return      Name of the army.
      */
     public String getName() {
         return name;
@@ -49,44 +47,26 @@ public class Army {
 
     /**
      * Method that adds a unit to the army list.
-     * @param unit  Single unit to be added to the army.
+     * @param unit      Single unit to be added to the army.
      */
     public boolean add(Unit unit) throws Exception {
-        if (unit.getHealth() <= 5) {
-            throw new Exception("Cannot add half dead unit to army.");
-        } else if (unit.getAttack() <= 2) {
-            throw new Exception("Units level is to low to enlist to this army. Come back at another time.");
-        } else if (unit.getArmor() <= 2) {
-            throw new Exception("Unit forgot its armor? Come back at another time.");
-        }
+        if (unit.getHealth() <= 5) throw new Exception("Cannot add half dead unit to army.");
+        if (unit.getAttack() <= 2) throw new Exception("Units level is to low to enlist to this army. Come back at another time.");
+        if (unit.getArmor() <= 2) throw new Exception("Unit forgot its armor? Come back at another time.");
 
         return units.add(unit);
     }
 
     /**
-     * Method that adds a bunch of units to the army list.
-     * @param unitsInput     Adds a list of units to this army.
+     * Method that adds a number of units to the army list.
+     * @param unitsInput    Number of units to add to army.
      */
-    public boolean addAll(ArrayList<Unit> unitsInput) throws Exception {
+    public boolean addAll(ArrayList<Unit> unitsInput) {
         if (!unitsInput.isEmpty()) {
-            for (Unit u : unitsInput) {
-                if (u.getHealth() < 1) {
-                    throw new Exception("Cannot add dead unit to army.");
-                } else if (u.getAttack() <= 2) {
-                    throw new Exception(
-                        "Applicants level is to low to enlist to this army. Come back at another time."
-                    );
-                } else if (u.getArmor() <= 2) {
-                    throw new Exception("Forgot your armor? Come back at another time.");
-                }
-                units.add(u);
-            }
+            units.addAll(unitsInput);
             return true;
-            //TODO: Could use the addAll-method in ArrayList. Use this if its not important to check all units?
-            //TODO: for-loop stops when Exception is thrown. Find another solution!
-        } else {
-            return false;
-        }
+
+        } else return false;
     }
 
     /**
@@ -97,6 +77,7 @@ public class Army {
     public boolean remove(Unit unit) {
         if (!units.isEmpty()) {
             units.remove(unit);
+            return true;
         }
         return false;
     }
@@ -106,11 +87,7 @@ public class Army {
      * @return      false if the list is empty. true if the army list contains units.
      */
     public boolean hasUnits() {
-        if (units.isEmpty()) {
-            return false;
-        } else {
-            return true;
-        }
+        return !units.isEmpty();
     }
 
     /**
@@ -118,11 +95,7 @@ public class Army {
      * @return      ArrayList containing all units enlisted.
      */
     public ArrayList<Unit> getAllUnits() {
-        ArrayList<Unit> newArrayList = new ArrayList<Unit>();
-        for (Unit u : units) {
-            newArrayList.add(u);
-        }
-        return newArrayList;
+        return new ArrayList<>(units);
     }
 
     /**
@@ -154,11 +127,9 @@ public class Army {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Army)) return false;
-        Army army = (Army) o;
+        if (!(o instanceof Army army)) return false;
         return Objects.equals(name, army.name) && Objects.equals(units, army.units);
     }
-    //TODO: Should maybe update equals method.
 
     /**
      * Method that returns the HashCode of an object.

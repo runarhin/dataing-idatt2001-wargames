@@ -26,14 +26,12 @@ public class CavalryUnit extends Unit {
     }
 
     /**
-     * Second constructor for instantiation of the CavalryUnit class.
+     * Simplified constructor for instantiation of the CavalryUnit class.
      * @param name      Description of the type of warrior; Archer, Swordsman, etc.
      * @param health    Number of remaining health points for the warrior. Value is decreased when taking damage.
      */
     public CavalryUnit(String name, int health) {
-        super(name, health);
-        super.attack = 20;
-        super.armor = 12;
+        super(name, health, 20, 12);
     }
 
     /**

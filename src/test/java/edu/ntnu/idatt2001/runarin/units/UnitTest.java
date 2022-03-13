@@ -1,14 +1,8 @@
 package edu.ntnu.idatt2001.runarin.units;
 
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.junit.jupiter.api.Assertions.fail;
 
-import edu.ntnu.idatt2001.runarin.units.Unit;
 import edu.ntnu.idatt2001.runarin.units.specialised.InfantryUnit;
-import org.junit.jupiter.api.DisplayNameGeneration;
-import org.junit.jupiter.api.DisplayNameGenerator;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
@@ -19,9 +13,7 @@ public class UnitTest {
         
         @Test
         void exceptionThrownIfUnitNameIsEmpty() {
-        /*
-        Instantiating a unit with no name and expect illegal argument exception message.
-         */
+        // Instantiating a unit with no name and expect illegal argument exception message.
             try {
                 Unit someTestUnit = new InfantryUnit("", 1);
             } catch (IllegalArgumentException e) {
@@ -31,9 +23,7 @@ public class UnitTest {
 
         @Test
         void exceptionThrownWhenHealthOfAUnitIsZero() {
-            /*
-            Instantiating a unit with zero health and expect illegal argument exception message.
-             */
+            // Instantiating a unit with zero health and expect illegal argument exception message.
             try {
                 Unit someTestUnit = new InfantryUnit("Grunt", 0);
 
@@ -44,9 +34,7 @@ public class UnitTest {
 
         @Test
         void exceptionThrownWhenAttackPowerIsBelowZero() {
-            /*
-            Instantiating a unit with negative attack power and expect illegal argument exception message.
-             */
+            // Instantiating a unit with negative attack power and expect illegal argument exception message.
             try {
                 Unit someTestUnit = new InfantryUnit("Knight", 1, -1, 1);
 
@@ -57,6 +45,7 @@ public class UnitTest {
 
         @Test
         void exceptionThrownWhenArmorPointsIsBelowZero() {
+            // Instantiating a unit with negative armor value and expect illegal argument exception message.
             try {
                 Unit someTestUnit = new InfantryUnit("Knight", 1, 1, -1);
 
@@ -71,8 +60,7 @@ public class UnitTest {
 
         @Test
         void unitLosesHealthWhenAttackedByAnotherUnitByAttackMethod() {
-
-            Unit attacker = new Unit("Footman", 100, 15, 0) {
+            Unit attacker = new Unit("Attacker", 100, 15, 0) {
                 @Override
                 public int getAttackBonus() {
                     return 0;
@@ -83,8 +71,7 @@ public class UnitTest {
                     return 0;
                 }
             };
-
-            Unit defender = new Unit("Grunt", 100, 15, 0) {
+            Unit defender = new Unit("Defender", 100, 15, 0) {
                 @Override
                 public int getAttackBonus() {
                     return 0;
@@ -95,23 +82,18 @@ public class UnitTest {
                     return 0;
                 }
             };
-
-            // Grunts health before footman's attack is expected to be 100 HP.
+            // Defenders health before an attack is expected to be 100 HP.
             assertEquals(defender.getHealth(), 100);
 
             attacker.attack(defender);
 
-        /*
-        Grunts health after being attacked is expected to be 85 HP.
-        */
+            //Defenders health after being attacked is expected to be 85 HP.
             assertEquals(defender.getHealth(), 85);
         }
 
-
         @Test
         void unitDoesntLooseHealthWhenArmorPointsAreEqualToAttackPower() {
-
-            Unit attacker = new Unit("Footman", 100, 10, 1) {
+            Unit attacker = new Unit("Attacker", 100, 10, 1) {
                 @Override
                 public int getAttackBonus() {
                     return 0;
@@ -122,8 +104,7 @@ public class UnitTest {
                     return 0;
                 }
             };
-
-            Unit defender = new Unit("Grunt", 100, 1, 10) {
+            Unit defender = new Unit("Defender", 100, 1, 10) {
                 @Override
                 public int getAttackBonus() {
                     return 0;
@@ -134,12 +115,12 @@ public class UnitTest {
                     return 0;
                 }
             };
-
-            // Grunts health before footman's attack is expected to be 100 HP.
+            // Defenders health before an attack is expected to be 100 HP.
             assertEquals(defender.getHealth(), 100);
 
             attacker.attack(defender);
 
+            // Defenders health after the attack is also expected to be 100 HP.
             assertEquals(defender.getHealth(), 100);
         }
     }

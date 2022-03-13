@@ -20,14 +20,12 @@ public class InfantryUnit extends Unit {
     }
 
     /**
-     * Second constructor for instantiation of the InfantryUnit class.
+     * Simplified constructor for instantiation of the InfantryUnit class.
      * @param name      Description of the type of warrior; Archer, Swordsman, etc.
      * @param health    Number of remaining health points for the warrior. Value is decreased when taking damage.
      */
     public InfantryUnit(String name, int health) {
-        super(name, health);
-        super.attack = 15;
-        super.armor = 10;
+        super(name, health,15,10);
     }
 
     /**
