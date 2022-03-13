@@ -31,7 +31,7 @@ public class InfantryUnit extends Unit {
     /**
      * Method that returns the attack bonus value.
      * This value is used in the parent class method attack(Unit opponent).
-     * @return  int value of the attack bonus for an infantry unit.
+     * @return      Value of the attack bonus for an infantry unit.
      */
     @Override
     public int getAttackBonus() {
@@ -40,8 +40,8 @@ public class InfantryUnit extends Unit {
 
     /**
      * Method that returns the resist bonus value.
-     * This value is used in the parent class method attack(Unit opponent) for the attacking unit.
-     * @return  int value of the resist bonus for a damage receiving unit.
+     * This value is used in the parent class method attack(Unit opponent).
+     * @return      Value of the resist bonus for an infantry unit.
      */
     @Override
     public int getResistBonus() {

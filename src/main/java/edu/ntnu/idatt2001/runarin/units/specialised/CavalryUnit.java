@@ -9,7 +9,7 @@ import edu.ntnu.idatt2001.runarin.units.Unit;
 public class CavalryUnit extends Unit {
 
     /**
-     * attacks is used to determine how many times the warrior have attacked a target.
+     * chargeReady is used to determine if the warrior have attacked a target.
      * This to calculate the attack bonus.
      */
     private boolean chargeReady = true;
@@ -35,9 +35,9 @@ public class CavalryUnit extends Unit {
     }
 
     /**
-     * Method that returns the attack bonus value.
-     * The attack bonus will change as the cavalry unit excessively attacks.
-     * @return  int value of the attack bonus for an infantry unit.
+     * Method that gives an indication whether the charge ability is available or not.
+     * The attack bonus will change as the cavalry unit have ont attacked a target before.
+     * @return      Value of the attack bonus for a cavalry unit.
      */
     @Override
     public int getAttackBonus() {
@@ -52,7 +52,7 @@ public class CavalryUnit extends Unit {
     }
 
     /**
-     * Method which resets the attacks given by a cavalry unit when its opponent dies.
+     * Method which resets the charge ability for a cavalry unit when its opponent dies.
      * Used to indicate that the cavalry unit can use the charge ability again,
      * and against a new opponent at a distance.
      */
@@ -62,8 +62,7 @@ public class CavalryUnit extends Unit {
 
     /**
      * Method that returns the resist bonus value.
-     * This value is used in the parent class method attack(Unit opponent) for the attacking unit.
-     * @return  int value of the resist bonus for a damage receiving unit.
+     * @return      Value of the resist bonus for a cavalry unit.
      */
     @Override
     public int getResistBonus() {
