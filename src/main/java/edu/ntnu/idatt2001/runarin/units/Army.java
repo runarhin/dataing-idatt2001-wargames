@@ -10,7 +10,7 @@ import java.util.Random;
  */
 public class Army {
 
-    private String name;
+    private final String name;
     private ArrayList<Unit> units;
 
     /**
@@ -49,11 +49,7 @@ public class Army {
      * Method that adds a unit to the army list.
      * @param unit      Single unit to be added to the army.
      */
-    public boolean add(Unit unit) throws Exception {
-        if (unit.getHealth() <= 5) throw new Exception("Cannot add half dead unit to army.");
-        if (unit.getAttack() <= 2) throw new Exception("Units level is to low to enlist to this army. Come back at another time.");
-        if (unit.getArmor() <= 2) throw new Exception("Unit forgot its armor? Come back at another time.");
-
+    public boolean add(Unit unit) {
         return units.add(unit);
     }
 
@@ -63,23 +59,18 @@ public class Army {
      */
     public boolean addAll(ArrayList<Unit> unitsInput) {
         if (!unitsInput.isEmpty()) {
-            units.addAll(unitsInput);
-            return true;
-
+            return units.addAll(unitsInput);
         } else return false;
     }
 
     /**
      * Method which deletes a unit from the army list.
-     * @param unit  A unit to be removed from the army list.
-     * @return      true if unit is found and removed. false if unit is not found.
+     * @param unit      A unit to be removed from the army list.
      */
     public boolean remove(Unit unit) {
-        if (!units.isEmpty()) {
-            units.remove(unit);
-            return true;
-        }
-        return false;
+        if (!units.isEmpty() & units.contains(unit)) {
+            return units.remove(unit);
+        } else return false;
     }
 
     /**
