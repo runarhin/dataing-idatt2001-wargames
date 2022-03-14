@@ -1,6 +1,5 @@
 package edu.ntnu.idatt2001.runarin.units.specialised;
 
-import edu.ntnu.idatt2001.runarin.units.Unit;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

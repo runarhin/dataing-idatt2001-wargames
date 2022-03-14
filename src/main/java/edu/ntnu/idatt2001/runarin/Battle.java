@@ -32,8 +32,11 @@ public class Battle {
     /**
      * Method which simulates a battle between two armies.
      * The method randomises which warrior to attack first, to remove the advantage
-     * of being the first army. When a warrior dies, it is removed from the armies ArrayList.
-     * @return      The winning army by toString.
+     * of being the first army to strike. When a warrior dies, it is removed from the armies ArrayList.
+     *
+     * The battle is logged to the file BattleLog.txt.
+     *
+     * @return      The name of the winning army.
      */
     public Army simulate() throws FileNotFoundException {
         int roundCount = 0;
@@ -43,7 +46,7 @@ public class Battle {
         Random rand = new Random();
 
         // Creating a File object the battle log will be applied to.
-        PrintStream o = new PrintStream(new File("BattleLog.txt"));
+        PrintStream o = new PrintStream("BattleLog.txt");
         // Store current System.out before assigning a new value
         PrintStream console = System.out;
         // Assign o to output stream. Every print from now until reset will go to a log-file.
@@ -60,7 +63,7 @@ public class Battle {
             System.out.println("    " + warriorArmyOne.getName() + " [" + warriorArmyOne.getHealth() + " HP]"
             + " against "+ warriorArmyTwo.getName() + " [" + warriorArmyTwo.getHealth() + " HP]");
 
-            // Randomises who attack first.
+            // Randomises who attacks first.
             randomiseAttack = rand.nextInt(0, 2);
             if (randomiseAttack == 0) {
                 if (warriorArmyOne.getHealth() > 0) {
@@ -105,8 +108,8 @@ public class Battle {
                             + " HP][-" + (attackedWarriorOldHealth - attackedWarriorNewHealth) + " HP]");
                 }
             }
-            // Cleans up the mess and see if a warrior died or not. If a warrior died, it is replaced.
-            if (warriorArmyTwo.getHealth() == 0) {
+            // After an attack, see if a warrior died or not. If a warrior died, it is replaced.
+            if (warriorArmyTwo.getHealth() <= 0) {
                 System.out.println("\n    " + warriorArmyTwo.getName()
                         + " died of fatal blow from " + warriorArmyOne.getName() + "!");
                 armyTwo.remove(warriorArmyTwo);
@@ -120,7 +123,7 @@ public class Battle {
                     ((CavalryUnit) warriorArmyOne).resetChargeAbility();
                 }
             }
-            if (warriorArmyOne.getHealth() == 0) {
+            if (warriorArmyOne.getHealth() <= 0) {
                 System.out.println("\n    " + warriorArmyOne.getName()
                         + " died of fatal blow from " + warriorArmyTwo.getName() + "!");
                 armyOne.remove(warriorArmyOne);
@@ -134,16 +137,15 @@ public class Battle {
                     ((CavalryUnit) warriorArmyTwo).resetChargeAbility();
                 }
             }
-            //TODO: The code does not take overkill damage into consideration at this point.
         }
 
         if (!armyOne.hasUnits()) {
             System.out.println("\n  " + armyTwo.getName() + " wins the battle!"); // Add to log who the winner is.
-            System.setOut(console);                                               // Use stored value for output stream.
+            System.setOut(console);                                               // Restores output to console.
             return armyTwo;
         } else {
             System.out.println("\n  " + armyOne.getName() + " wins the battle!"); // Add to log who the winner is.
-            System.setOut(console);                                               // Use stored value for output stream.
+            System.setOut(console);                                               // Restores output to console.
             return armyOne;
         }
     }

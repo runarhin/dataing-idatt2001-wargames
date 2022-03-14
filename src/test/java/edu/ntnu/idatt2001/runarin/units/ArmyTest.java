@@ -53,7 +53,7 @@ public class ArmyTest {
 
             Army alliance = new Army("The Alliance"); // Simplified constructor.
 
-            alliance.addAll(testArrayList);
+            alliance.addUnitsFromList(testArrayList);
 
             // Expects now that the army have 3 units in it.
             assertEquals(alliance.getAllUnits().size(), 3);
@@ -65,7 +65,7 @@ public class ArmyTest {
 
             // Adds x number of grunt units to the horde army.
             for (int i = 0; i < 2; i++) {
-                horde.add(new InfantryUnit("Grunt", 100));
+                horde.addUnit(new InfantryUnit("Grunt", 100));
             }
             assertEquals(horde.getAllUnits().size(), 2);     // Expects that the army now have 2 units in it.
 
@@ -94,9 +94,9 @@ public class ArmyTest {
             Unit testUnit2 = new InfantryUnit("Grunt", 100);
             Unit testUnit3 = new InfantryUnit("Grunt", 100);
 
-            horde.add(testUnit1);
-            horde.add(testUnit2);
-            horde.add(testUnit3);
+            horde.addUnit(testUnit1);
+            horde.addUnit(testUnit2);
+            horde.addUnit(testUnit3);
 
             horde.remove(testUnit2);
 
@@ -115,16 +115,16 @@ public class ArmyTest {
         Unit testUnit2 = new InfantryUnit("SomeUnit", 100);
         Unit testUnit3 = new InfantryUnit("SomeUnit", 100);
 
-        army1.add(testUnit1);
-        army1.add(testUnit2);
+        army1.addUnit(testUnit1);
+        army1.addUnit(testUnit2);
 
-        army2.add(testUnit1);
-        army2.add(testUnit2);
+        army2.addUnit(testUnit1);
+        army2.addUnit(testUnit2);
 
-        army3.add(testUnit3);
+        army3.addUnit(testUnit3);
 
         assertEquals(army1,army2);              // Army 1 and 2 equals that their values are the same,
-        assertNotSame(army1, army2);   // but they are in reality two different armies.
+        assertNotSame(army1, army2);            // but they are in reality two different armies.
 
         assertNotEquals(army1,army3);           // Army 1 and Army 3 differs on value and being different armies.
     }
@@ -146,12 +146,12 @@ public class ArmyTest {
     void hashCodeIsDifferentForANumberOfUnitsInAnArmy() {
         Army army = new Army("The Horde");
 
-        army.add(new InfantryUnit("SomeUnit",100));
-        army.add(new InfantryUnit("SomeUnit",100));
-        army.add(new InfantryUnit("SomeUnit",100));
-        army.add(new InfantryUnit("SomeUnit",100));
-        army.add(new InfantryUnit("SomeUnit",100));
-        army.add(new InfantryUnit("SomeUnit",100));
+        army.addUnit(new InfantryUnit("SomeUnit",100));
+        army.addUnit(new InfantryUnit("SomeUnit",100));
+        army.addUnit(new InfantryUnit("SomeUnit",100));
+        army.addUnit(new InfantryUnit("SomeUnit",100));
+        army.addUnit(new InfantryUnit("SomeUnit",100));
+        army.addUnit(new InfantryUnit("SomeUnit",100));
 
         // Expects there to be six units in the army.
         assertEquals(army.getAllUnits().size(), 6);

@@ -205,50 +205,50 @@ public class WarGamesApp {
         }
     }
 
-    public void addArmyToRecord(String armyName, String commandingUnit) throws Exception {
+    public void addArmyToRecord(String armyName, String commandingUnit) {
         if (!armies.containsKey(armyName)) {
             armies.put(armyName,new Army(armyName));
             System.out.println(armyName + " added to army records.");
-            armies.get(armyName).add(new CommanderUnit(commandingUnit, 180));
+            armies.get(armyName).addUnit(new CommanderUnit(commandingUnit, 180));
         } else {
             System.out.println("Army already exists in the record. Try another name.");
         }
     }
 
-    public void addInfantryUnits(String armyName, String unitName, int numberOfUnits) throws Exception {
+    public void addInfantryUnits(String armyName, String unitName, int numberOfUnits) {
         if (armies.containsKey(armyName)) {
             Army army = armies.get(armyName);
 
             for (int i = 0; i < numberOfUnits; i++) {
-                army.add(new InfantryUnit(unitName, 100));
+                army.addUnit(new InfantryUnit(unitName, 100));
             }
         }
     }
 
-    public void addRangedUnits(String armyName, String unitName, int numberOfUnits) throws Exception {
+    public void addRangedUnits(String armyName, String unitName, int numberOfUnits) {
         if (armies.containsKey(armyName)) {
             Army army = armies.get(armyName);
 
             for (int i = 0; i < numberOfUnits; i++) {
-                army.add(new RangedUnit(unitName, 100));
+                army.addUnit(new RangedUnit(unitName, 100));
             }
         }
     }
 
-    public void addCavalryUnits(String armyName, String unitName, int numberOfUnits) throws Exception {
+    public void addCavalryUnits(String armyName, String unitName, int numberOfUnits) {
         if (armies.containsKey(armyName)) {
             Army army = armies.get(armyName);
 
             for (int i = 0; i < numberOfUnits; i++) {
-                army.add(new CavalryUnit(unitName, 100));
+                army.addUnit(new CavalryUnit(unitName, 100));
             }
         }
     }
 
-    public void addCommanderUnit(String armyName, String unitName) throws Exception {
+    public void addCommanderUnit(String armyName, String unitName) {
         if (armies.containsKey(armyName)) {
             Army army = armies.get(armyName);
-            army.add(new CommanderUnit(unitName, 180));
+            army.addUnit(new CommanderUnit(unitName, 180));
         }
     }
 
@@ -256,29 +256,29 @@ public class WarGamesApp {
         if ((army.getName().contains("orde")) || (army.getName().contains("rcish"))) {
             // Adds x number of grunt units to the horde army.
             for (int i = 0; i < 500; i++) {
-                army.add(new InfantryUnit("Grunt", 100));
+                army.addUnit(new InfantryUnit("Grunt", 100));
             }
             // Adds x number of spearman units to the horde army.
             for (int i = 0; i < 200; i++) {
-                army.add(new RangedUnit("Spearman", 100));
+                army.addUnit(new RangedUnit("Spearman", 100));
             }
             // Adds x number of raider units to the horde army.
             for (int i = 0; i < 100; i++) {
-                army.add(new CavalryUnit("Raider", 100));
+                army.addUnit(new CavalryUnit("Raider", 100));
             }
         }
         else if ((army.getName().contains("lliance")) || (army.getName().contains("uman"))) {
             // Adds x number of footman units to the alliance army.
             for (int i = 0; i < 500; i++) {
-                army.add(new InfantryUnit("Footman", 100));
+                army.addUnit(new InfantryUnit("Footman", 100));
             }
             // Adds x number of archer units to the alliance army.
             for (int i = 0; i < 200; i++) {
-                army.add(new RangedUnit("Archer", 100));
+                army.addUnit(new RangedUnit("Archer", 100));
             }
             // Adds x number of knight units to the alliance army.
             for (int i = 0; i < 100; i++) {
-                army.add(new CavalryUnit("Knight", 100));
+                army.addUnit(new CavalryUnit("Knight", 100));
             }
         }
         else {
@@ -288,40 +288,38 @@ public class WarGamesApp {
     }
 
     public void addSuperUnit(String armyName, String unitType, String unitName, int health,
-                                   int attack, int armor, int numberOfUnits) throws Exception {
+                                   int attack, int armor, int numberOfUnits) {
         if (armies.containsKey(armyName)) {
             Army army = armies.get(armyName);
 
             if ((unitType.contains("infantry")) || (unitType.contains("nfan")) || (unitType.contains("ntry"))) {
                 for (int i = 0; i < numberOfUnits; i++) {
-                    army.add(new InfantryUnit(unitName, health, attack, armor));
+                    army.addUnit(new InfantryUnit(unitName, health, attack, armor));
                 }
             }
             else if ((unitType.equalsIgnoreCase("ranged"))
                                 || (unitType.contains("ange")) || (unitType.contains("nged"))) {
                 for (int i = 0; i < numberOfUnits; i++) {
-                    army.add(new RangedUnit(unitName, health, attack, armor));
+                    army.addUnit(new RangedUnit(unitName, health, attack, armor));
                 }
             }
             else if ((unitType.equalsIgnoreCase("cavalry"))
                                 || (unitType.contains("aval")) || (unitType.contains("alry"))) {
                 for (int i = 0; i < numberOfUnits; i++) {
-                    army.add(new CavalryUnit(unitName, health, attack, armor));
+                    army.addUnit(new CavalryUnit(unitName, health, attack, armor));
                 }
             }
             else if ((unitType.equalsIgnoreCase("commander"))
                                 || (unitType.contains("omman")) || (unitType.contains("nder"))) {
                 for (int i = 0; i < numberOfUnits; i++) {
-                    army.add(new CommanderUnit(unitName, health, attack, armor));
+                    army.addUnit(new CommanderUnit(unitName, health, attack, armor));
                 }
             }
         }
     }
 
     public void deleteArmyFromRecord(String armyName) {
-        if (armies.containsKey(armyName)) {
-            armies.remove(armyName);
-        }
+        armies.remove(armyName);
     }
 
     public void displayRegisteredArmies() {
@@ -336,8 +334,7 @@ public class WarGamesApp {
 
     public Army startABattleBetweenTwoArmies(Army armyOne, Army armyTwo) throws FileNotFoundException {
         Battle battle = new Battle(armyOne,armyTwo);
-        Army winningArmy = battle.simulate();
-        return winningArmy;
+        return battle.simulate();
     }
 
     public static void main(String[] args) throws Exception {

@@ -49,28 +49,28 @@ public class Army {
      * Method that adds a unit to the army list.
      * @param unit      Single unit to be added to the army.
      */
-    public void add(Unit unit) {
-        units.add(unit);
+    public boolean addUnit(Unit unit) {
+        return units.add(unit);
     }
 
     /**
      * Method that adds a number of units to the army list.
      * @param unitsInput    A list of units to add to army.
      */
-    public void addAll(ArrayList<Unit> unitsInput) {
+    public boolean addUnitsFromList(ArrayList<Unit> unitsInput) {
         if (!unitsInput.isEmpty()) {
-            units.addAll(unitsInput);
-        }
+            return units.addAll(unitsInput);
+        } else return false;
     }
 
     /**
      * Method which deletes a unit from the army list.
      * @param unit      A unit to be removed from the army list.
      */
-    public void remove(Unit unit) {
-        if (!units.isEmpty() & units.contains(unit)) {
-            units.remove(unit);
-        }
+    public boolean remove(Unit unit) {
+        if (units.contains(unit)) {
+            return units.remove(unit);
+        } else return false;
     }
 
     /**
@@ -82,11 +82,15 @@ public class Army {
     }
 
     /**
-     * Method that returns a deep copy of the army list, containing units.
+     * Method that returns a deep copy of an armies unit list.
      * @return      ArrayList containing all units enlisted.
      */
     public ArrayList<Unit> getAllUnits() {
-        return new ArrayList<>(units);
+        ArrayList<Unit> newArrayList = new ArrayList<>();
+        for (Unit u : units) {
+            newArrayList.add(u);
+        }
+        return newArrayList;
     }
 
     /**
