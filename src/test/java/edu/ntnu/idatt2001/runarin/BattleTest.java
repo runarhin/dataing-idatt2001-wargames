@@ -2,6 +2,7 @@ package edu.ntnu.idatt2001.runarin;
 
 import edu.ntnu.idatt2001.runarin.units.Army;
 import edu.ntnu.idatt2001.runarin.units.specialised.CavalryUnit;
+import edu.ntnu.idatt2001.runarin.units.specialised.CommanderUnit;
 import edu.ntnu.idatt2001.runarin.units.specialised.InfantryUnit;
 import edu.ntnu.idatt2001.runarin.units.specialised.RangedUnit;
 import org.junit.jupiter.api.Test;
@@ -9,6 +10,7 @@ import org.junit.jupiter.api.Test;
 import java.io.FileNotFoundException;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 public class BattleTest {
 
@@ -34,7 +36,32 @@ public class BattleTest {
     }
 
     @Test
+    void armyWithMostUnitsWinTheWarAndReturnCorrectWinningArmy() throws FileNotFoundException {
+        /*
+        This test adds a powerful unit to one of the armies and footman to the other.
+        The goal is to check that the correct army is returned when it wins.
+         */
+        Army horde = new Army("The Horde");
+        Army alliance = new Army("The Alliance");
+
+        horde.addUnit(new CommanderUnit("Gul'dan", 9000));
+        alliance.addUnit(new InfantryUnit("Footman", 100));
+
+        Battle grandWar = new Battle(horde, alliance);
+
+        assertEquals(grandWar.simulate().toString(), "The Horde [1 unit(s)]");
+    }
+
+    @Test
     void someWarGame() {
+        /*
+        This test is used to give indications after a longer battle for that units attack and
+        looses health in an intuitive way. The results can be observed in the BattleLog.txt-file.
+
+        This test has been the main test resource for fault proofing the simulate-method.
+
+        It also asserts that one of the armies is empty of units after a simulation.
+         */
         try {
             Army horde = new Army("The Orcish Horde");
             Army alliance = new Army("The Human Army");
@@ -67,9 +94,12 @@ public class BattleTest {
             horde.addUnit(new CavalryUnit("Gul'dan", 180));
             alliance.addUnit(new CavalryUnit("Mountain King", 180));
 
-            Battle grandWar = new Battle(horde, alliance);
+            Battle battle = new Battle(horde, alliance);
 
-            System.out.println("\n" + grandWar.simulate() + " won the battle!");
+            Army winningArmy = battle.simulate();
+
+            if (!winningArmy.equals(alliance)) assertFalse(alliance.hasUnits());
+            else {assertFalse(horde.hasUnits());}
 
         } catch (FileNotFoundException f) {
             f.printStackTrace();

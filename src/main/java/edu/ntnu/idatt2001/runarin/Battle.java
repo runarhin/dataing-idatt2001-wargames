@@ -5,7 +5,6 @@ import edu.ntnu.idatt2001.runarin.units.specialised.CavalryUnit;
 import edu.ntnu.idatt2001.runarin.units.specialised.RangedUnit;
 import edu.ntnu.idatt2001.runarin.units.Unit;
 
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintStream;
 import java.util.Random;
@@ -57,7 +56,7 @@ public class Battle {
 
         // Run as long as there is units left in both armies.
         while (armyOne.hasUnits() & armyTwo.hasUnits()) {
-            // Print for test purposes.
+
             roundCount++;
             System.out.println("\nRound " + roundCount + "");
             System.out.println("    " + warriorArmyOne.getName() + " [" + warriorArmyOne.getHealth() + " HP]"

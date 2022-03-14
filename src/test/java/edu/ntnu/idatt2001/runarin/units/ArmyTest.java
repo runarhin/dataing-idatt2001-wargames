@@ -106,6 +106,15 @@ public class ArmyTest {
     }
 
     @Test
+    void throwsIllegalArgumentExceptionIfArmyNameIsBlank() {
+        try {
+            Army army = new Army("  ");
+        } catch (IllegalArgumentException e) {
+            assertEquals(e.getMessage(), "Army name cannot be empty");
+        }
+    }
+
+    @Test
     void equalsMethodTestedWithTwoArmies() {
         Army army1 = new Army("The Horde");
         Army army2 = new Army("The Horde");

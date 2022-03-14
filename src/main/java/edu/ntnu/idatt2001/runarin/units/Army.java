@@ -58,9 +58,7 @@ public class Army {
      * @param unitsInput    A list of units to add to army.
      */
     public boolean addUnitsFromList(ArrayList<Unit> unitsInput) {
-        if (!unitsInput.isEmpty()) {
-            return units.addAll(unitsInput);
-        } else return false;
+        return units.addAll(unitsInput);
     }
 
     /**
