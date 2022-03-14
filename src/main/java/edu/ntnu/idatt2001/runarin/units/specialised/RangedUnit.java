@@ -37,6 +37,16 @@ public class RangedUnit extends Unit {
     }
 
     /**
+     * Method that returns the attack bonus value.
+     * This value is used in the parent class method attack(Unit opponent).
+     * @return      Value of the attack bonus for a ranged unit.
+     */
+    @Override
+    public int getAttackBonus() {
+        return 3;
+    }
+
+    /**
      * Method that returns the resist bonus value.
      * The resist bonus will change as the range between the attacking and the attacked unit decreases.
      * This value is used in the parent class method attack(Unit opponent) for the attacking unit.
@@ -58,16 +68,6 @@ public class RangedUnit extends Unit {
     }
 
     /**
-     * Method that returns the attack bonus value.
-     * This value is used in the parent class method attack(Unit opponent).
-     * @return      Value of the attack bonus for a ranged unit.
-     */
-    @Override
-    public int getAttackBonus() {
-        return 3;
-    }
-
-    /**
      * Method which resets that the ranged unit is attacked.
      * Used to indicate that the ranged unit have killed its resent opponent and refreshes
      * its range to the new attacking opponent.
@@ -75,5 +75,4 @@ public class RangedUnit extends Unit {
     public void resetAttacked() {
         this.attacked = 0;
     }
-
 }

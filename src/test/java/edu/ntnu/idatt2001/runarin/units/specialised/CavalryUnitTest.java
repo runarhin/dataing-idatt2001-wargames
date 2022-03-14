@@ -1,102 +1,89 @@
 package edu.ntnu.idatt2001.runarin.units.specialised;
 
-import edu.ntnu.idatt2001.runarin.units.specialised.CavalryUnit;
-import edu.ntnu.idatt2001.runarin.units.specialised.InfantryUnit;
 import edu.ntnu.idatt2001.runarin.units.Unit;
 import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class CavalryUnitTest {
 
     @Test
-    void createSomeUnitsAndReturnToString() {
-        try {
-            Unit cavalryTestUnit1 = new CavalryUnit("Knight", 100);
-            System.out.println("\n" + cavalryTestUnit1.toString());
+    void createAUnitAndCheckToString() {
+        /*
+        Instantiate a unit to check its toString.
+         */
+        CavalryUnit testUnit = new CavalryUnit("Knight", 100);
 
-            CavalryUnit cavalryTestUnit2 = new CavalryUnit("Raider", 100);
-            System.out.println("\n" + cavalryTestUnit2.toString());
-
-            Unit cavalryTestUnit3 = new CavalryUnit("Epic Raider", 150, 22, 14);
-            System.out.println("\n" + cavalryTestUnit3.toString());
-
-            CavalryUnit cavalryTestUnit4 = new CavalryUnit("Epic Knight", 150, 22, 14);
-            System.out.println("\n" + cavalryTestUnit4.toString());
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        assertEquals(testUnit.toString(), "\n| Knight | HP = 100 | Attack power = 20 | Armor points = 12 |");
     }
 
     @Test
     void cavalryUnitExcessivelyAttacksAnInfantryUnitToSeeAttackBonusDecreaseAfterFirstAttack() {
-        try {
-            /* Notes, cavalryUnit have:
-                - Base attack of 20.
-                - Base armor of 12.
-                - Resist bonus of 1.
-                - Should have attack bonus of 4+2 on the first attack and 2 on the second.   */
+        /*
+        A unit attacks another to see outcome of health of the attacked unit. This test considers also the
+        attack and resist bonus for an infantry unit.
 
-            Unit footman = new InfantryUnit("Footman", 100);
-            Unit raider = new CavalryUnit("Raider", 100);
+        This test cannot use assertEquals(raiderAttacker.getAttackBonus(), 6) because by calling it, it will be set.
+        Instead, the HP of the attacked unit is asserted to see that the charge ability is successful.
+         */
+        InfantryUnit footmanDefender = new InfantryUnit("Footman", 100);
+        CavalryUnit raiderAttacker = new CavalryUnit("Raider", 100);
 
-            // 0. Before the raider attacked the footman:
-            assert(footman.getHealth() == 100);
+        // 0. Before the raider attacked the footman:
+        assertEquals(footmanDefender.getHealth(),100);
 
-            // 1. After the raider attacked the footman:
-            // Expect (100 HP - 20 - 6 + 10 + 1 =) 85 HP left for footman after first blow.
-            raider.attack(footman);
-            assert(footman.getHealth() == 85);
+        // 1. After the raider attacked the footman:
+        // Expect (100 HP - 20 - 6 + 10 + 1 =) 85 HP left for footman after first blow.
+        raiderAttacker.attack(footmanDefender);
+        assertEquals(footmanDefender.getHealth(), 85);
 
-            // 2. After the raider attacked the footman:
-            // Expect (85 HP - 20 - 2 + 10 + 1 =) 74 HP left for footman after second blow.
-            raider.attack(footman);
-            assert(footman.getHealth() == 74);
+        // 2. After the raider attacked the footman:
+        // Expect (85 HP - 20 - 2 + 10 + 1 =) 74 HP left for footman after second blow.
+        raiderAttacker.attack(footmanDefender);
+        assertEquals(footmanDefender.getHealth(), 74);
 
-            // 3. After the raider attacked the footman:
-            // Expect (74 HP - 20 - 2 + 10 + 1 =) 63 HP left for footman after third blow.
-            raider.attack(footman);
-            assert(footman.getHealth() == 63);
+        // 3. After the raider attacked the footman:
+        // Expect (74 HP - 20 - 2 + 10 + 1 =) 63 HP left for footman after third blow.
+        raiderAttacker.attack(footmanDefender);
+        assertEquals(footmanDefender.getHealth(), 63);
 
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
     }
 
     @Test
     void resetMethodInCavalryUnitClassShouldMakeAttackBonusToBeResetForWhenItsAttackingANewOpponent() {
-        try {
-            Unit footman = new InfantryUnit("Footman", 100);
-            Unit raider = new CavalryUnit("Raider", 100);
+        /*
+        This test checks that the attack bonus is reset and that again gives a full bonus.
 
-            // 0. Before the raider attacked the footman:
-            assert(footman.getHealth() == 100);
-            //assert(raider.getAttackBonus() == 6);
-            // Attack bonus is 6 initially, but this changes when getAttackBonus()-method is called for.
+        This test cannot use assertEquals(raiderAttacker.getAttackBonus(), 6) because by calling it, it will be set.
+        Instead, the HP of the attacked unit is asserted to see that the charge ability is successful.
+         */
+        InfantryUnit footmanDefender = new InfantryUnit("Footman", 100);
+        CavalryUnit raiderAttacker = new CavalryUnit("Raider", 100);
 
-            // 1. After the raider attacked the footman:
-            // Expect (100 HP - 20 - 6 + 10 + 1 =) 85 HP left for footman after first blow.
-            raider.attack(footman);
-            assert(footman.getHealth() == 85);
+        // 0. Before the raider attacked the footman:
+        assertEquals(footmanDefender.getHealth(), 100);
 
-            // 2. After the raider attacked the footman:
-            // Expect (85 HP - 20 - 2 + 10 + 1 =) 74 HP left for footman after second blow.
-            raider.attack(footman);
-            assert (footman.getHealth() == 74);
+        // 1. After the raider attacked the footman:
+        // Expect (100 HP - 20 - 6 + 10 + 1 =) 85 HP left for footman after first blow.
+        raiderAttacker.attack(footmanDefender);
+        assertEquals(footmanDefender.getHealth(), 85);
 
-            // 3. RESET of private variable attacked in the RangedUnit archer.
-            ((CavalryUnit) raider).resetChargeAbility();
+        // 2. After the raider attacked the footman:
+        // Expect (85 HP - 20 - 2 + 10 + 1 =) 74 HP left for footman after second blow.
+        raiderAttacker.attack(footmanDefender);
+        assertEquals (footmanDefender.getHealth(), 74);
 
-            // 4. The raider attacks again.
-            // Expect (74 HP - 20 - 6 + 10 + 1 =) 59 HP left for footman after third blow.
-            raider.attack(footman);
-            assert(footman.getHealth() == 59);
+        // 3. RESET of private variable attacked in the RangedUnit archer.
+        raiderAttacker.resetChargeAbility();
 
-            // 5. The raider attacks again.
-            // Expect (59 HP - 20 - 2 + 10 + 1 =) 48 HP left for footman after third blow.
-            raider.attack(footman);
-            assert(footman.getHealth() == 48);
+        // 4. The raider attacks again.
+        // Expect (74 HP - 20 - 6 + 10 + 1 =) 59 HP left for footman after third blow.
+        raiderAttacker.attack(footmanDefender);
+        assertEquals(footmanDefender.getHealth(), 59);
 
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        // 5. The raider attacks again.
+        // Expect (59 HP - 20 - 2 + 10 + 1 =) 48 HP left for footman after third blow.
+        raiderAttacker.attack(footmanDefender);
+        assertEquals(footmanDefender.getHealth(), 48);
     }
 }
