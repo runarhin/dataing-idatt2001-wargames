@@ -19,6 +19,10 @@ public class ArmyTest {
 
         @Test
         void addAListOfUnitsToAnArmyByAddingAListOfUnitsInTheConstructor() {
+            /*
+            This test adds units to an army and asserts that the right amount of
+            units are in the list.
+             */
             ArrayList<Unit> testArrayList = new ArrayList<>();
 
             Unit testUnit1 = new CommanderUnit("Mountain King", 180);
@@ -40,7 +44,10 @@ public class ArmyTest {
         }
 
         @Test
-        void addListOfUnitsWithAddAllMethod() {
+        void addListOfUnitsWithAddUnitsFromListMethod() {
+            /*
+            This test asserts the method addUnitsFromList by checking the number of units in the army.
+             */
             ArrayList<Unit> testArrayList = new ArrayList<>();
 
             Unit testUnit1 = new CommanderUnit("Mountain King", 180);
@@ -60,7 +67,31 @@ public class ArmyTest {
         }
 
         @Test
+        void removeASingleUnitFromUnitsList() {
+            /*
+            This test asserts that only a single unit is removed from the army.
+             */
+            Army horde = new Army("The Horde");
+
+            Unit testUnit1 = new InfantryUnit("Grunt", 100);
+            Unit testUnit2 = new InfantryUnit("Grunt", 100);
+            Unit testUnit3 = new InfantryUnit("Grunt", 100);
+
+            horde.addUnit(testUnit1);
+            horde.addUnit(testUnit2);
+            horde.addUnit(testUnit3);
+
+            horde.remove(testUnit2);
+
+            assertEquals(horde.getAllUnits().size(), 2);
+            assertFalse(horde.getAllUnits().contains(testUnit2));
+        }
+
+        @Test
         void removeUnitsFromAnArmyAndSeeThatTheUnitListEventuallyGetsEmpty() {
+            /*
+            This test removes a unit from a list one at the time and asserts that the number of units decreases.
+             */
             Army horde = new Army("The Horde"); // Simplified constructor.
 
             // Adds x number of grunt units to the horde army.
@@ -78,24 +109,6 @@ public class ArmyTest {
             horde.remove(horde.getRandom());
             assertEquals(horde.getAllUnits().size(), 0);    // Expects that the army now have no units left.
             assertTrue(horde.getAllUnits().isEmpty());             // And that the list now is empty.
-        }
-
-        @Test
-        void removeASingleUnitFromUnitsList() {
-            Army horde = new Army("The Horde");
-
-            Unit testUnit1 = new InfantryUnit("Grunt", 100);
-            Unit testUnit2 = new InfantryUnit("Grunt", 100);
-            Unit testUnit3 = new InfantryUnit("Grunt", 100);
-
-            horde.addUnit(testUnit1);
-            horde.addUnit(testUnit2);
-            horde.addUnit(testUnit3);
-
-            horde.remove(testUnit2);
-
-            assertEquals(horde.getAllUnits().size(), 2);
-            assertFalse(horde.getAllUnits().contains(testUnit2));
         }
     }
 
@@ -189,13 +202,15 @@ public class ArmyTest {
         // Expects there to be six units in the army.
         assertEquals(army.getAllUnits().size(), 6);
 
+        ArrayList<Unit> armyList = army.getAllUnits();
+
         // Expects none of the units to have the same hashCode.
         for (int i = 0; i < army.getAllUnits().size(); i++) {
             for (int j = 0; j < army.getAllUnits().size(); j++) {
                 if (i == j) {
-                    assertEquals(army.getAllUnits().get(i).hashCode(), army.getAllUnits().get(j).hashCode());
+                    assertEquals(armyList.get(i).hashCode(), armyList.get(j).hashCode());
                 } else {
-                    assertNotEquals(army.getAllUnits().get(i).hashCode(), army.getAllUnits().get(j).hashCode());
+                    assertNotEquals(armyList.get(i).hashCode(), armyList.get(j).hashCode());
                 }
             }
         }
