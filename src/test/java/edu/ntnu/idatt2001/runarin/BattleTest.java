@@ -1,15 +1,11 @@
 package edu.ntnu.idatt2001.runarin;
 
 import edu.ntnu.idatt2001.runarin.units.Army;
-import edu.ntnu.idatt2001.runarin.units.Unit;
 import edu.ntnu.idatt2001.runarin.units.specialised.CavalryUnit;
 import edu.ntnu.idatt2001.runarin.units.specialised.CommanderUnit;
 import edu.ntnu.idatt2001.runarin.units.specialised.InfantryUnit;
 import edu.ntnu.idatt2001.runarin.units.specialised.RangedUnit;
 import org.junit.jupiter.api.Test;
-
-import java.io.FileNotFoundException;
-import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
