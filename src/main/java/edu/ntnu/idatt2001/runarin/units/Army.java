@@ -8,6 +8,9 @@ import edu.ntnu.idatt2001.runarin.units.specialised.RangedUnit;
 import java.util.ArrayList;
 import java.util.Objects;
 import java.util.Random;
+import java.util.function.Consumer;
+import java.util.stream.Stream;
+import java.util.stream.Collectors;
 
 /**
  * A class Army.
@@ -106,6 +109,77 @@ public class Army {
         }
         return newArrayList;
     }
+
+
+
+
+
+
+
+    public ArrayList<Unit> getInfantryUnits() {
+        ArrayList<Unit> infantryList = new ArrayList<>();
+
+        Consumer<Unit> addAnInfantryUnit = u -> {
+            if (u instanceof InfantryUnit) {
+                infantryList.add(new InfantryUnit(u.getName(),u.getHealth(),u.getAttack(),u.getArmor()));
+            }
+        };
+        units.forEach(addAnInfantryUnit);
+
+        return infantryList;
+    }
+
+
+
+    public ArrayList<Unit> getRangedUnits() {
+        ArrayList<Unit> rangedList = new ArrayList<>();
+
+        Consumer<Unit> addARangedUnit = u -> {
+            if (u instanceof RangedUnit) {
+                rangedList.add(new RangedUnit(u.getName(),u.getHealth(),u.getAttack(),u.getArmor()));
+            }
+        };
+        units.forEach(addARangedUnit);
+
+        return rangedList;
+    }
+
+
+    public ArrayList<Unit> getCavalryUnits() {
+        ArrayList<Unit> cavalryList = new ArrayList<>();
+
+        Consumer<Unit> addACavalryUnit = u -> {
+            if ((u instanceof CavalryUnit) & !(u instanceof CommanderUnit)) {
+                cavalryList.add(new CavalryUnit(u.getName(),u.getHealth(),u.getAttack(),u.getArmor()));
+            }
+        };
+        units.forEach(addACavalryUnit);
+
+        return cavalryList;
+    }
+
+
+    public ArrayList<Unit> getCommanderUnits() {
+        ArrayList<Unit> commanderList = new ArrayList<>();
+
+        Consumer<Unit> addACommanderUnit = u -> {
+            if (u instanceof CommanderUnit) {
+                commanderList.add(new CavalryUnit(u.getName(),u.getHealth(),u.getAttack(),u.getArmor()));
+            }
+        };
+        units.forEach(addACommanderUnit);
+
+        return commanderList;
+    }
+
+
+
+
+
+
+
+
+
 
     /**
      * Method that finds a random number within the range of the units ArrayList and

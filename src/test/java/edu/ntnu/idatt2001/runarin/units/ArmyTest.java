@@ -3,6 +3,7 @@ package edu.ntnu.idatt2001.runarin.units;
 import java.util.ArrayList;
 
 import edu.ntnu.idatt2001.runarin.units.specialised.*;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
@@ -13,6 +14,87 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 
 public class ArmyTest {
+
+    @Nested
+    class getSpecialisedUnits{
+
+        Army army;
+        @BeforeEach
+        void addInitialUnitsToArmy() {
+            /*
+            This code is run before each of these nested tests and initialises an army
+            containing all varieties of units.
+             */
+            army = new Army("Test Army");
+
+            for (int i = 0; i < 3; i++) {
+                army.addUnit(new InfantryUnit("Grunt",100));
+            }
+            for (int i = 0; i < 3; i++) {
+                army.addUnit(new RangedUnit("Spearman",100));
+            }
+            for (int i = 0; i < 3; i++) {
+                army.addUnit(new CavalryUnit("Raider",100));
+            }
+            army.addUnit(new CommanderUnit("Gul'dan",180));
+        }
+
+        @Test
+        void getInfantryUnitListFromArmyListOfUnits() {
+            /*
+
+             */
+            assertEquals(army.getAllUnits().size(), 10);
+            assertEquals(army.getInfantryUnits().size(), 3);
+            assertEquals(army.getInfantryUnits().toString(),
+                    """
+                            [
+                            | Grunt | HP = 100 | Attack power = 15 | Armor points = 10 |,\s
+                            | Grunt | HP = 100 | Attack power = 15 | Armor points = 10 |,\s
+                            | Grunt | HP = 100 | Attack power = 15 | Armor points = 10 |]""");
+        }
+
+        @Test
+        void getRangedUnitListFromArmyListOfUnits() {
+            /*
+
+             */
+            assertEquals(army.getAllUnits().size(), 10);
+            assertEquals(army.getRangedUnits().size(), 3);
+            assertEquals(army.getRangedUnits().toString(),
+                    """
+                            [
+                            | Spearman | HP = 100 | Attack power = 15 | Armor points = 8 |,\s
+                            | Spearman | HP = 100 | Attack power = 15 | Armor points = 8 |,\s
+                            | Spearman | HP = 100 | Attack power = 15 | Armor points = 8 |]""");
+        }
+
+        @Test
+        void getCavalryUnitListFromArmyListOfUnits() {
+            /*
+
+             */
+            assertEquals(army.getAllUnits().size(), 10);
+            assertEquals(army.getCavalryUnits().size(), 3);
+            assertEquals(army.getCavalryUnits().toString(),
+                    """
+                            [
+                            | Raider | HP = 100 | Attack power = 20 | Armor points = 12 |,\s
+                            | Raider | HP = 100 | Attack power = 20 | Armor points = 12 |,\s
+                            | Raider | HP = 100 | Attack power = 20 | Armor points = 12 |]""");
+        }
+
+        @Test
+        void getCommanderUnitListFromArmyListOfUnits() {
+            /*
+
+             */
+            assertEquals(army.getAllUnits().size(), 10);
+            assertEquals(army.getCommanderUnits().size(), 1);
+            assertEquals(army.getCommanderUnits().toString(),
+                    "[\n| Gul'dan | HP = 180 | Attack power = 25 | Armor points = 15 |]");
+        }
+    }
 
     @Nested
     class addUnitsToAnArmy {
