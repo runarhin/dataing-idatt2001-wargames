@@ -81,12 +81,6 @@ public class ArmyTest {
         }
 
         @Test
-        void accessMethodGetNameReturnExpectedName() {
-            Army horde = new Army("The Horde");
-            assertEquals(horde.getName(), "The Horde");
-        }
-
-        @Test
         void removeASingleUnitFromUnitsList() {
             Army horde = new Army("The Horde");
 
@@ -106,12 +100,42 @@ public class ArmyTest {
     }
 
     @Test
+    void accessMethodGetNameReturnExpectedName() {
+        Army horde = new Army("The Horde");
+        assertEquals(horde.getName(), "The Horde");
+    }
+
+    @Test
     void throwsIllegalArgumentExceptionIfArmyNameIsBlank() {
         try {
             Army army = new Army("  ");
         } catch (IllegalArgumentException e) {
             assertEquals(e.getMessage(), "Army name cannot be empty");
         }
+    }
+
+    @Test
+    void methodGetAllUnitsReturnAllTypesOfUnitsToTheDeepCopiedList() {
+        /*
+        This test first adds units to the army list and then checks that all units are returned to
+        the deep copied list.
+         */
+        Army horde = new Army("The Horde");
+        horde.addUnit(new InfantryUnit("Grunt", 100));
+        horde.addUnit(new RangedUnit("Spearman", 100));
+        horde.addUnit(new CavalryUnit("Raider", 100));
+        horde.addUnit(new CommanderUnit("Gul'dan", 100));
+
+        ArrayList<Unit> testArrayList = horde.getAllUnits();
+
+        assertEquals(testArrayList.get(0).toString(),
+                "\n| Grunt | HP = 100 | Attack power = 15 | Armor points = 10 |");
+        assertEquals(testArrayList.get(1).toString(),
+                "\n| Spearman | HP = 100 | Attack power = 15 | Armor points = 8 |");
+        assertEquals(testArrayList.get(2).toString(),
+                "\n| Raider | HP = 100 | Attack power = 20 | Armor points = 12 |");
+        assertEquals(testArrayList.get(3).toString(),
+                "\n| Gul'dan | HP = 100 | Attack power = 25 | Armor points = 15 |");
     }
 
     @Test
