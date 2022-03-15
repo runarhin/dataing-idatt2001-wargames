@@ -1,5 +1,10 @@
 package edu.ntnu.idatt2001.runarin.units;
 
+import edu.ntnu.idatt2001.runarin.units.specialised.CavalryUnit;
+import edu.ntnu.idatt2001.runarin.units.specialised.CommanderUnit;
+import edu.ntnu.idatt2001.runarin.units.specialised.InfantryUnit;
+import edu.ntnu.idatt2001.runarin.units.specialised.RangedUnit;
+
 import java.util.ArrayList;
 import java.util.Objects;
 import java.util.Random;
@@ -86,7 +91,18 @@ public class Army {
     public ArrayList<Unit> getAllUnits() {
         ArrayList<Unit> newArrayList = new ArrayList<>();
         for (Unit u : units) {
-            newArrayList.add(u);
+            if (u instanceof InfantryUnit) {
+                newArrayList.add(new InfantryUnit(u.getName(),u.getHealth(),u.getAttack(), u.getArmor()));
+            }
+            else if (u instanceof RangedUnit) {
+                newArrayList.add(new RangedUnit(u.getName(),u.getHealth(),u.getAttack(), u.getArmor()));
+            }
+            else if (u instanceof CommanderUnit) {
+                newArrayList.add(new CommanderUnit(u.getName(),u.getHealth(),u.getAttack(), u.getArmor()));
+            }
+            else if (u instanceof CavalryUnit) {
+                newArrayList.add(new CavalryUnit(u.getName(),u.getHealth(),u.getAttack(), u.getArmor()));
+            }
         }
         return newArrayList;
     }
