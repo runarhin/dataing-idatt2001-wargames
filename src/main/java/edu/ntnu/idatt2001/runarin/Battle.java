@@ -37,7 +37,7 @@ public class Battle {
      *
      * @return      The name of the winning army.
      */
-    public Army simulate() throws FileNotFoundException {
+    public Army simulate() {
         int roundCount = 0;
         int randomiseAttack;
         int attackedWarriorOldHealth;
@@ -45,7 +45,12 @@ public class Battle {
         Random rand = new Random();
 
         // Creating a File object the battle log will be applied to.
-        PrintStream o = new PrintStream("BattleLog.txt");
+        PrintStream o = null;
+        try {
+            o = new PrintStream("BattleLog.txt");
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
         // Store current System.out before assigning a new value
         PrintStream console = System.out;
         // Assign o to output stream. Every print from now until reset will go to a log-file.

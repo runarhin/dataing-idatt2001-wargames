@@ -1,6 +1,7 @@
 package edu.ntnu.idatt2001.runarin;
 
 import edu.ntnu.idatt2001.runarin.units.Army;
+import edu.ntnu.idatt2001.runarin.units.Unit;
 import edu.ntnu.idatt2001.runarin.units.specialised.CavalryUnit;
 import edu.ntnu.idatt2001.runarin.units.specialised.CommanderUnit;
 import edu.ntnu.idatt2001.runarin.units.specialised.InfantryUnit;
@@ -8,6 +9,7 @@ import edu.ntnu.idatt2001.runarin.units.specialised.RangedUnit;
 import org.junit.jupiter.api.Test;
 
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
@@ -36,7 +38,7 @@ public class BattleTest {
     }
 
     @Test
-    void armyWithMostUnitsWinTheWarAndReturnCorrectWinningArmy() throws FileNotFoundException {
+    void armyWithMostUnitsWinTheWarAndReturnCorrectWinningArmy() {
         /*
         This test adds a powerful unit to one of the armies and footman to the other.
         The goal is to check that the correct army is returned when it wins.
@@ -53,56 +55,52 @@ public class BattleTest {
     }
 
     @Test
-    void someWarGame() {
+    void someWarGameWhereTheWinningArmyIsAsserted() {
         /*
         This test is used to give indications after a longer battle for that units attack and
-        looses health in an intuitive way. The results can be observed in the BattleLog.txt-file.
+        looses health in an intuitive way. This means for example that the cavalry unit can charge new opponents
+        and as a new attacking unit approaches a ranged unit, the range will be refreshed.
+        The results can be observed in the BattleLog.txt-file.
 
         This test has been the main test resource for fault proofing the simulate-method.
-
         It also asserts that one of the armies is empty of units after a simulation.
          */
-        try {
-            Army horde = new Army("The Orcish Horde");
-            Army alliance = new Army("The Human Army");
+        Army horde = new Army("The Orcish Horde");
+        Army alliance = new Army("The Human Army");
 
-            // Adds x number of grunt units to the horde army.
-            for (int i = 0; i < 3; i++) {
-                horde.addUnit(new InfantryUnit("Grunt", 100));
-            }
-            // Adds x number of footman units to the alliance army.
-            for (int i = 0; i < 3; i++) {
-                alliance.addUnit(new InfantryUnit("Footman", 100));
-            }
-            // Adds x number of spearman units to the horde army.
-            for (int i = 0; i < 3; i++) {
-                horde.addUnit(new RangedUnit("Spearman", 100));
-            }
-            // Adds x number of archer units to the alliance army.
-            for (int i = 0; i < 3; i++) {
-                alliance.addUnit(new RangedUnit("Archer", 100));
-            }
-            // Adds x number of raider units to the horde army.
-            for (int i = 0; i < 2; i++) {
-                horde.addUnit(new CavalryUnit("Raider", 100));
-            }
-            // Adds x number of knight units to the alliance army.
-            for (int i = 0; i < 2; i++) {
-                alliance.addUnit(new CavalryUnit("Knight", 100));
-            }
-            // Adds commanders to the respective armies.
-            horde.addUnit(new CavalryUnit("Gul'dan", 180));
-            alliance.addUnit(new CavalryUnit("Mountain King", 180));
-
-            Battle battle = new Battle(horde, alliance);
-
-            Army winningArmy = battle.simulate();
-
-            if (!winningArmy.equals(alliance)) assertFalse(alliance.hasUnits());
-            else {assertFalse(horde.hasUnits());}
-
-        } catch (FileNotFoundException f) {
-            f.printStackTrace();
+        // Adds x number of grunt units to the horde army.
+        for (int i = 0; i < 3; i++) {
+            horde.addUnit(new InfantryUnit("Grunt", 100));
         }
+        // Adds x number of footman units to the alliance army.
+        for (int i = 0; i < 3; i++) {
+            alliance.addUnit(new InfantryUnit("Footman", 100));
+        }
+        // Adds x number of spearman units to the horde army.
+        for (int i = 0; i < 3; i++) {
+            horde.addUnit(new RangedUnit("Spearman", 100));
+        }
+        // Adds x number of archer units to the alliance army.
+        for (int i = 0; i < 3; i++) {
+            alliance.addUnit(new RangedUnit("Archer", 100));
+        }
+        // Adds x number of raider units to the horde army.
+        for (int i = 0; i < 2; i++) {
+            horde.addUnit(new CavalryUnit("Raider", 100));
+        }
+        // Adds x number of knight units to the alliance army.
+        for (int i = 0; i < 2; i++) {
+            alliance.addUnit(new CavalryUnit("Knight", 100));
+        }
+        // Adds commanders to the respective armies.
+        horde.addUnit(new CavalryUnit("Gul'dan", 180));
+        alliance.addUnit(new CavalryUnit("Mountain King", 180));
+
+        Battle battle = new Battle(horde, alliance);
+
+        Army winningArmy = battle.simulate();
+
+        if (!winningArmy.equals(alliance)) assertFalse(alliance.hasUnits());
+        else {assertFalse(horde.hasUnits());}
     }
 }
