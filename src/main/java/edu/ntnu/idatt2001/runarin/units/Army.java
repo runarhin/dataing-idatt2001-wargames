@@ -5,9 +5,7 @@ import edu.ntnu.idatt2001.runarin.units.specialised.CommanderUnit;
 import edu.ntnu.idatt2001.runarin.units.specialised.InfantryUnit;
 import edu.ntnu.idatt2001.runarin.units.specialised.RangedUnit;
 
-import java.util.ArrayList;
-import java.util.Objects;
-import java.util.Random;
+import java.util.*;
 import java.util.function.Consumer;
 import java.util.stream.Stream;
 import java.util.stream.Collectors;
@@ -110,76 +108,53 @@ public class Army {
         return newArrayList;
     }
 
-
-
-
-
-
-
+    /**
+     * Method which streams through the army's units list and filter on instances of infantry units.
+     * @return      An ArrayList containing only infantry units.
+     */
     public ArrayList<Unit> getInfantryUnits() {
-        ArrayList<Unit> infantryList = new ArrayList<>();
-
-        Consumer<Unit> addAnInfantryUnit = u -> {
-            if (u instanceof InfantryUnit) {
-                infantryList.add(new InfantryUnit(u.getName(),u.getHealth(),u.getAttack(),u.getArmor()));
-            }
-        };
-        units.forEach(addAnInfantryUnit);
-
-        return infantryList;
+        List<Unit> infantryList
+                = units.stream()
+                        .filter(unit -> unit instanceof InfantryUnit)
+                        .collect(Collectors.toList());
+        return (ArrayList<Unit>) infantryList;
     }
 
-
-
+    /**
+     * Method which streams through the army's units list and filter on instances of ranged units.
+     * @return      An ArrayList containing only ranged units.
+     */
     public ArrayList<Unit> getRangedUnits() {
-        ArrayList<Unit> rangedList = new ArrayList<>();
-
-        Consumer<Unit> addARangedUnit = u -> {
-            if (u instanceof RangedUnit) {
-                rangedList.add(new RangedUnit(u.getName(),u.getHealth(),u.getAttack(),u.getArmor()));
-            }
-        };
-        units.forEach(addARangedUnit);
-
-        return rangedList;
+        List<Unit> rangedList
+                = units.stream()
+                        .filter(unit -> unit instanceof RangedUnit)
+                        .collect(Collectors.toList());
+        return (ArrayList<Unit>) rangedList;
     }
 
-
+    /**
+     * Method which streams through the army's units list and filter on instances of cavalry units.
+     * @return      An ArrayList containing only cavalry units.
+     */
     public ArrayList<Unit> getCavalryUnits() {
-        ArrayList<Unit> cavalryList = new ArrayList<>();
-
-        Consumer<Unit> addACavalryUnit = u -> {
-            if ((u instanceof CavalryUnit) & !(u instanceof CommanderUnit)) {
-                cavalryList.add(new CavalryUnit(u.getName(),u.getHealth(),u.getAttack(),u.getArmor()));
-            }
-        };
-        units.forEach(addACavalryUnit);
-
-        return cavalryList;
+        List<Unit> cavalryList
+                = units.stream()
+                        .filter(unit -> ((unit instanceof CavalryUnit) & !(unit instanceof CommanderUnit)))
+                        .collect(Collectors.toList());
+        return (ArrayList<Unit>) cavalryList;
     }
 
-
+    /**
+     * Method which streams through the army's units list and filter on instances of commander units.
+     * @return      An ArrayList containing only commander units.
+     */
     public ArrayList<Unit> getCommanderUnits() {
-        ArrayList<Unit> commanderList = new ArrayList<>();
-
-        Consumer<Unit> addACommanderUnit = u -> {
-            if (u instanceof CommanderUnit) {
-                commanderList.add(new CavalryUnit(u.getName(),u.getHealth(),u.getAttack(),u.getArmor()));
-            }
-        };
-        units.forEach(addACommanderUnit);
-
-        return commanderList;
+        List<Unit> commanderList
+                = units.stream()
+                .filter(unit -> unit instanceof CommanderUnit)
+                .collect(Collectors.toList());
+        return (ArrayList<Unit>) commanderList;
     }
-
-
-
-
-
-
-
-
-
 
     /**
      * Method that finds a random number within the range of the units ArrayList and

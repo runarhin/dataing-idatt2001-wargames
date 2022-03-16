@@ -37,62 +37,60 @@ public class ArmyTest {
                 army.addUnit(new CavalryUnit("Raider",100));
             }
             army.addUnit(new CommanderUnit("Gul'dan",180));
+
+            assertEquals(10, army.getAllUnits().size());
         }
 
         @Test
         void getInfantryUnitListFromArmyListOfUnits() {
             /*
-
+            Asserts that the filtered units list only contains the specified instance of infantry units.
              */
-            assertEquals(army.getAllUnits().size(), 10);
-            assertEquals(army.getInfantryUnits().size(), 3);
-            assertEquals(army.getInfantryUnits().toString(),
-                    """
+            assertEquals(3, army.getInfantryUnits().size());
+            assertEquals("""
                             [
                             | Grunt | HP = 100 | Attack power = 15 | Armor points = 10 |,\s
                             | Grunt | HP = 100 | Attack power = 15 | Armor points = 10 |,\s
-                            | Grunt | HP = 100 | Attack power = 15 | Armor points = 10 |]""");
+                            | Grunt | HP = 100 | Attack power = 15 | Armor points = 10 |]""",
+                    army.getInfantryUnits().toString());
         }
 
         @Test
         void getRangedUnitListFromArmyListOfUnits() {
             /*
-
+            Asserts that the filtered units list only contains the specified instance of ranged units.
              */
-            assertEquals(army.getAllUnits().size(), 10);
-            assertEquals(army.getRangedUnits().size(), 3);
-            assertEquals(army.getRangedUnits().toString(),
-                    """
+            assertEquals(3, army.getRangedUnits().size());
+            assertEquals("""
                             [
                             | Spearman | HP = 100 | Attack power = 15 | Armor points = 8 |,\s
                             | Spearman | HP = 100 | Attack power = 15 | Armor points = 8 |,\s
-                            | Spearman | HP = 100 | Attack power = 15 | Armor points = 8 |]""");
+                            | Spearman | HP = 100 | Attack power = 15 | Armor points = 8 |]""",
+                    army.getRangedUnits().toString());
         }
 
         @Test
         void getCavalryUnitListFromArmyListOfUnits() {
             /*
-
+            Asserts that the filtered units list only contains the specified instance of cavalry units.
              */
-            assertEquals(army.getAllUnits().size(), 10);
-            assertEquals(army.getCavalryUnits().size(), 3);
-            assertEquals(army.getCavalryUnits().toString(),
-                    """
+            assertEquals(3, army.getCavalryUnits().size());
+            assertEquals("""
                             [
                             | Raider | HP = 100 | Attack power = 20 | Armor points = 12 |,\s
                             | Raider | HP = 100 | Attack power = 20 | Armor points = 12 |,\s
-                            | Raider | HP = 100 | Attack power = 20 | Armor points = 12 |]""");
+                            | Raider | HP = 100 | Attack power = 20 | Armor points = 12 |]""",
+                    army.getCavalryUnits().toString());
         }
 
         @Test
         void getCommanderUnitListFromArmyListOfUnits() {
             /*
-
+            Asserts that the filtered units list only contains the specified instance of commander units.
              */
-            assertEquals(army.getAllUnits().size(), 10);
-            assertEquals(army.getCommanderUnits().size(), 1);
-            assertEquals(army.getCommanderUnits().toString(),
-                    "[\n| Gul'dan | HP = 180 | Attack power = 25 | Armor points = 15 |]");
+            assertEquals(1, army.getCommanderUnits().size());
+            assertEquals("[\n| Gul'dan | HP = 180 | Attack power = 25 | Armor points = 15 |]",
+                    army.getCommanderUnits().toString());
         }
     }
 
@@ -120,9 +118,9 @@ public class ArmyTest {
             assertTrue(testArmy.hasUnits());
 
             // Number of units in the list:  Expects 2 units to be added and not 1 or 3.
-            assertEquals(testArmy.getAllUnits().size(), 2);
-            assertNotEquals(testArmy.getAllUnits().size(), 1);
-            assertNotEquals(testArmy.getAllUnits().size(), 3);
+            assertEquals(2, testArmy.getAllUnits().size());
+            assertNotEquals(1, testArmy.getAllUnits().size());
+            assertNotEquals(3, testArmy.getAllUnits().size());
         }
 
         @Test
@@ -145,7 +143,7 @@ public class ArmyTest {
             alliance.addUnitsFromList(testArrayList);
 
             // Expects now that the army have 3 units in it.
-            assertEquals(alliance.getAllUnits().size(), 3);
+            assertEquals(3, alliance.getAllUnits().size());
         }
 
         @Test
@@ -165,7 +163,7 @@ public class ArmyTest {
 
             horde.remove(testUnit2);
 
-            assertEquals(horde.getAllUnits().size(), 2);
+            assertEquals(2, horde.getAllUnits().size());
             assertFalse(horde.getAllUnits().contains(testUnit2));
         }
 
@@ -174,23 +172,23 @@ public class ArmyTest {
             /*
             This test removes a unit from a list one at the time and asserts that the number of units decreases.
              */
-            Army horde = new Army("The Horde"); // Simplified constructor.
+            Army horde = new Army("The Horde");               // Simplified constructor.
 
             // Adds x number of grunt units to the horde army.
             for (int i = 0; i < 2; i++) {
                 horde.addUnit(new InfantryUnit("Grunt", 100));
             }
-            assertEquals(horde.getAllUnits().size(), 2);     // Expects that the army now have 2 units in it.
+            assertEquals(2, horde.getAllUnits().size());   // Expects that the army now have 2 units in it.
 
             // Removes 1 unit from the army:
             horde.remove(horde.getRandom());
-            assertEquals(horde.getAllUnits().size(), 1);    // Expects that the army now have 1 unit left.
-            assertFalse(horde.getAllUnits().isEmpty());            // And that the list is not empty.
+            assertEquals(1, horde.getAllUnits().size());   // Expects that the army now have 1 unit left.
+            assertFalse(horde.getAllUnits().isEmpty());             // And that the list is not empty.
 
             // Removes the last unit in the army:
             horde.remove(horde.getRandom());
-            assertEquals(horde.getAllUnits().size(), 0);    // Expects that the army now have no units left.
-            assertTrue(horde.getAllUnits().isEmpty());             // And that the list now is empty.
+            assertEquals(0, horde.getAllUnits().size());   // Expects that the army now have no units left.
+            assertTrue(horde.getAllUnits().isEmpty());              // And that the list now is empty.
         }
     }
 
@@ -223,14 +221,14 @@ public class ArmyTest {
 
         ArrayList<Unit> testArrayList = horde.getAllUnits();
 
-        assertEquals(testArrayList.get(0).toString(),
-                "\n| Grunt | HP = 100 | Attack power = 15 | Armor points = 10 |");
-        assertEquals(testArrayList.get(1).toString(),
-                "\n| Spearman | HP = 100 | Attack power = 15 | Armor points = 8 |");
-        assertEquals(testArrayList.get(2).toString(),
-                "\n| Raider | HP = 100 | Attack power = 20 | Armor points = 12 |");
-        assertEquals(testArrayList.get(3).toString(),
-                "\n| Gul'dan | HP = 100 | Attack power = 25 | Armor points = 15 |");
+        assertEquals("\n| Grunt | HP = 100 | Attack power = 15 | Armor points = 10 |",
+                testArrayList.get(0).toString());
+        assertEquals("\n| Spearman | HP = 100 | Attack power = 15 | Armor points = 8 |",
+                testArrayList.get(1).toString());
+        assertEquals("\n| Raider | HP = 100 | Attack power = 20 | Armor points = 12 |",
+                testArrayList.get(2).toString());
+        assertEquals("\n| Gul'dan | HP = 100 | Attack power = 25 | Armor points = 15 |",
+                testArrayList.get(3).toString());
     }
 
     @Test
@@ -251,10 +249,10 @@ public class ArmyTest {
 
         army3.addUnit(testUnit3);
 
-        assertEquals(army1,army2);              // Army 1 and 2 equals that their values are the same,
-        assertNotSame(army1, army2);            // but they are in reality two different armies.
+        assertEquals(army1, army2);              // Army 1 and 2 equals that their values are the same,
+        assertNotSame(army1, army2);             // but they are in reality two different armies.
 
-        assertNotEquals(army1,army3);           // Army 1 and Army 3 differs on value and being different armies.
+        assertNotEquals(army1, army3);           // Army 1 and Army 3 differs on value and being different armies.
     }
 
     @Test
@@ -282,7 +280,7 @@ public class ArmyTest {
         army.addUnit(new InfantryUnit("SomeUnit",100));
 
         // Expects there to be six units in the army.
-        assertEquals(army.getAllUnits().size(), 6);
+        assertEquals(6, army.getAllUnits().size());
 
         ArrayList<Unit> armyList = army.getAllUnits();
 
