@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class CommanderUnitTest {
 
     @Test
-    void createAUnitAndCheckToString() {
+    public void createAUnitAndCheckToString() {
         /*
         Instantiate a unit to check its toString.
          */
@@ -17,7 +17,7 @@ public class CommanderUnitTest {
     }
 
     @Test
-    void testingBonusCalculationsForCommanderUnit() {
+    public void testingBonusCalculationsForCommanderUnit() {
         /*
         A commander unit attacks another to see outcome of health of the attacked unit. This test considers also the
         attack and resist bonus for a commander unit.

@@ -13,7 +13,7 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 public class BattleTest {
 
     @Test
-    void toStringTestToCheckTotalToStringWithNameAndNumberOfUnitsAfterAddingUnitsToBothArmies() {
+    public void toStringTestToCheckTotalToStringWithNameAndNumberOfUnitsAfterAddingUnitsToBothArmies() {
         /*
         Instantiate a battle to check its toString.
          */
@@ -34,7 +34,7 @@ public class BattleTest {
     }
 
     @Test
-    void armyWithMostUnitsWinTheWarAndReturnCorrectWinningArmy() {
+    public void armyWithMostUnitsWinTheWarAndReturnCorrectWinningArmy() {
         /*
         This test adds a powerful unit to one of the armies and footman to the other.
         The goal is to check that the correct army is returned when it wins.
@@ -51,7 +51,7 @@ public class BattleTest {
     }
 
     @Test
-    void someWarGameWhereTheWinningArmyIsAsserted() {
+    public void someWarGameWhereTheWinningArmyIsAsserted() {
         /*
         This test is used to give indications after a longer battle for that units attack and
         looses health in an intuitive way. This means for example that the cavalry unit can charge new opponents

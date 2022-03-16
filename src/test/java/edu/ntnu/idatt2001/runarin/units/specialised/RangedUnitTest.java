@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class RangedUnitTest {
 
     @Test
-    void createAUnitAndCheckToString() {
+    public void createAUnitAndCheckToString() {
         /*
         Instantiate a unit to check its toString.
          */
@@ -17,7 +17,7 @@ public class RangedUnitTest {
     }
 
     @Test
-    void resistBonusForARangeUnitDecreasesAsAnOpposingUnitExcessivelyAttacks() {
+    public void resistBonusForARangeUnitDecreasesAsAnOpposingUnitExcessivelyAttacks() {
         /*
         This test checks that the resist bonus for a ranged unit will change when excessively attacked.
             - Resist bonus depends on the "range" between units. 6 when far away, 4 when closer and 2 when up close.
@@ -51,7 +51,7 @@ public class RangedUnitTest {
     }
 
     @Test
-    void resetAttackedMethodMakesResistanceBonusToBeReset() {
+    public void resetAttackedMethodMakesResistanceBonusToBeReset() {
         /*
         This test checks that the resist bonus is reset and that again gives a full bonus.
          */

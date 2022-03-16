@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class CavalryUnitTest {
 
     @Test
-    void createAUnitAndCheckToString() {
+    public void createAUnitAndCheckToString() {
         /*
         Instantiate a unit to check its toString.
          */
@@ -17,7 +17,7 @@ public class CavalryUnitTest {
     }
 
     @Test
-    void cavalryUnitExcessivelyAttacksAnInfantryUnitToSeeAttackBonusDecreaseAfterFirstAttack() {
+    public void cavalryUnitExcessivelyAttacksAnInfantryUnitToSeeAttackBonusDecreaseAfterFirstAttack() {
         /*
         A unit attacks another to see outcome of health of the attacked unit. This test considers also the
         attack and resist bonus for an infantry unit.
@@ -49,7 +49,7 @@ public class CavalryUnitTest {
     }
 
     @Test
-    void resetMethodInCavalryUnitClassShouldMakeAttackBonusToBeResetForWhenItsAttackingANewOpponent() {
+    public void resetMethodInCavalryUnitClassShouldMakeAttackBonusToBeResetForWhenItsAttackingANewOpponent() {
         /*
         This test checks that the attack bonus is reset and that again gives a full bonus.
 

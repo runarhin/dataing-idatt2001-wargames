@@ -16,11 +16,11 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 public class ArmyTest {
 
     @Nested
-    class getSpecialisedUnits{
+    public class getSpecialisedUnits{
 
         Army army;
         @BeforeEach
-        void addInitialUnitsToArmy() {
+        public void addInitialUnitsToArmy() {
             /*
             This code is run before each of these nested tests and initialises an army
             containing all varieties of units.
@@ -42,7 +42,7 @@ public class ArmyTest {
         }
 
         @Test
-        void getInfantryUnitListFromArmyListOfUnits() {
+        public void getInfantryUnitListFromArmyListOfUnits() {
             /*
             Asserts that the filtered units list only contains the specified instance of infantry units.
              */
@@ -56,7 +56,7 @@ public class ArmyTest {
         }
 
         @Test
-        void getRangedUnitListFromArmyListOfUnits() {
+        public void getRangedUnitListFromArmyListOfUnits() {
             /*
             Asserts that the filtered units list only contains the specified instance of ranged units.
              */
@@ -70,7 +70,7 @@ public class ArmyTest {
         }
 
         @Test
-        void getCavalryUnitListFromArmyListOfUnits() {
+        public void getCavalryUnitListFromArmyListOfUnits() {
             /*
             Asserts that the filtered units list only contains the specified instance of cavalry units.
              */
@@ -84,7 +84,7 @@ public class ArmyTest {
         }
 
         @Test
-        void getCommanderUnitListFromArmyListOfUnits() {
+        public void getCommanderUnitListFromArmyListOfUnits() {
             /*
             Asserts that the filtered units list only contains the specified instance of commander units.
              */
@@ -95,10 +95,10 @@ public class ArmyTest {
     }
 
     @Nested
-    class addUnitsToAnArmy {
+    public class addUnitsToAnArmy {
 
         @Test
-        void addAListOfUnitsToAnArmyByAddingAListOfUnitsInTheConstructor() {
+        public void addAListOfUnitsToAnArmyByAddingAListOfUnitsInTheConstructor() {
             /*
             This test adds units to an army and asserts that the right amount of
             units are in the list.
@@ -124,7 +124,7 @@ public class ArmyTest {
         }
 
         @Test
-        void addListOfUnitsWithAddUnitsFromListMethod() {
+        public void addListOfUnitsWithAddUnitsFromListMethod() {
             /*
             This test asserts the method addUnitsFromList by checking the number of units in the army.
              */
@@ -147,7 +147,7 @@ public class ArmyTest {
         }
 
         @Test
-        void removeASingleUnitFromUnitsList() {
+        public void removeASingleUnitFromUnitsList() {
             /*
             This test asserts that only a single unit is removed from the army.
              */
@@ -168,7 +168,7 @@ public class ArmyTest {
         }
 
         @Test
-        void removeUnitsFromAnArmyAndSeeThatTheUnitListEventuallyGetsEmpty() {
+        public void removeUnitsFromAnArmyAndSeeThatTheUnitListEventuallyGetsEmpty() {
             /*
             This test removes a unit from a list one at the time and asserts that the number of units decreases.
              */
@@ -193,13 +193,13 @@ public class ArmyTest {
     }
 
     @Test
-    void accessMethodGetNameReturnExpectedName() {
+    public void accessMethodGetNameReturnExpectedName() {
         Army horde = new Army("The Horde");
         assertEquals(horde.getName(), "The Horde");
     }
 
     @Test
-    void throwsIllegalArgumentExceptionIfArmyNameIsBlank() {
+    public void throwsIllegalArgumentExceptionIfArmyNameIsBlank() {
         try {
             Army army = new Army("  ");
         } catch (IllegalArgumentException e) {
@@ -208,7 +208,7 @@ public class ArmyTest {
     }
 
     @Test
-    void methodGetAllUnitsReturnAllTypesOfUnitsToTheDeepCopiedList() {
+    public void methodGetAllUnitsReturnAllTypesOfUnitsToTheDeepCopiedList() {
         /*
         This test first adds units to the army list and then checks that all units are returned to
         the deep copied list.
@@ -232,7 +232,7 @@ public class ArmyTest {
     }
 
     @Test
-    void equalsMethodTestedWithTwoArmies() {
+    public void equalsMethodTestedWithTwoArmies() {
         Army army1 = new Army("The Horde");
         Army army2 = new Army("The Horde");
         Army army3 = new Army("The Alliance");
@@ -256,7 +256,7 @@ public class ArmyTest {
     }
 
     @Test
-    void hashCodeIsDifferentBetweenArmies() {
+    public void hashCodeIsDifferentBetweenArmies() {
         Army army1 = new Army("The Horde");
         Army army2 = new Army("The Horde");
         Army army3 = new Army("The Alliance");
@@ -269,7 +269,7 @@ public class ArmyTest {
     }
 
     @Test
-    void hashCodeIsDifferentForANumberOfUnitsInAnArmy() {
+    public void hashCodeIsDifferentForANumberOfUnitsInAnArmy() {
         Army army = new Army("The Horde");
 
         army.addUnit(new InfantryUnit("SomeUnit",100));

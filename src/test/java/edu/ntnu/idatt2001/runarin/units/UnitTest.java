@@ -9,10 +9,10 @@ import org.junit.jupiter.api.Test;
 public class UnitTest {
     
     @Nested
-    class UnitConstructorThrowsException {
+    public class UnitConstructorThrowsException {
         
         @Test
-        void exceptionThrownIfUnitNameIsEmpty() {
+        public void exceptionThrownIfUnitNameIsEmpty() {
         // Instantiating a unit with no name and expect illegal argument exception message.
             try {
                 Unit someTestUnit = new InfantryUnit("", 1);
@@ -22,7 +22,7 @@ public class UnitTest {
         }
 
         @Test
-        void exceptionThrownWhenHealthOfAUnitIsZero() {
+        public void exceptionThrownWhenHealthOfAUnitIsZero() {
             // Instantiating a unit with zero health and expect illegal argument exception message.
             try {
                 Unit someTestUnit = new InfantryUnit("Grunt", 0);
@@ -33,7 +33,7 @@ public class UnitTest {
         }
 
         @Test
-        void exceptionThrownWhenAttackPowerIsBelowZero() {
+        public void exceptionThrownWhenAttackPowerIsBelowZero() {
             // Instantiating a unit with negative attack power and expect illegal argument exception message.
             try {
                 Unit someTestUnit = new InfantryUnit("Knight", 1, -1, 1);
@@ -44,7 +44,7 @@ public class UnitTest {
         }
 
         @Test
-        void exceptionThrownWhenArmorPointsIsBelowZero() {
+        public void exceptionThrownWhenArmorPointsIsBelowZero() {
             // Instantiating a unit with negative armor value and expect illegal argument exception message.
             try {
                 Unit someTestUnit = new InfantryUnit("Knight", 1, 1, -1);
@@ -56,10 +56,10 @@ public class UnitTest {
     }
 
     @Nested
-    class UnitAttacksAnotherUnit {
+    public class UnitAttacksAnotherUnit {
 
         @Test
-        void unitLosesHealthWhenAttackedByAnotherUnitByAttackMethod() {
+        public void unitLosesHealthWhenAttackedByAnotherUnitByAttackMethod() {
             Unit attacker = new Unit("Attacker", 100, 15, 0) {
                 @Override
                 public int getAttackBonus() {
@@ -92,7 +92,7 @@ public class UnitTest {
         }
 
         @Test
-        void unitDoesntLooseHealthWhenArmorPointsAreEqualToAttackPower() {
+        public void unitDoesntLooseHealthWhenArmorPointsAreEqualToAttackPower() {
             Unit attacker = new Unit("Attacker", 100, 10, 1) {
                 @Override
                 public int getAttackBonus() {

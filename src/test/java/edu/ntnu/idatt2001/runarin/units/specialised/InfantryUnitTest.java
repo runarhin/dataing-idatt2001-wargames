@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class InfantryUnitTest {
 
     @Test
-    void createAUnitAndCheckToString() {
+    public void createAUnitAndCheckToString() {
         /*
         Instantiate a unit to check its toString.
          */
@@ -17,7 +17,7 @@ public class InfantryUnitTest {
     }
 
     @Test
-    void oneInfantryUnitExcessivelyAttacksAnotherUnitToSeeHealthDecreaseOfTheAttackedUnit() {
+    public void oneInfantryUnitExcessivelyAttacksAnotherUnitToSeeHealthDecreaseOfTheAttackedUnit() {
         /*
         A unit attacks another to see outcome of health of the attacked unit. This test considers also the
         attack and resist bonus for an infantry unit.
