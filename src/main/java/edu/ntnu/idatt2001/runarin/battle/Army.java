@@ -6,12 +6,15 @@ import edu.ntnu.idatt2001.runarin.battle.units.specialised.CommanderUnit;
 import edu.ntnu.idatt2001.runarin.battle.units.specialised.InfantryUnit;
 import edu.ntnu.idatt2001.runarin.battle.units.specialised.RangedUnit;
 
+import java.io.*;
 import java.util.*;
 import java.util.stream.Collectors;
 
 /**
  * A class Army.
  * This class represents an army with a name and a list of warrior units.
+ *
+ * @version 1.0.1
  */
 public class Army {
 
@@ -153,6 +156,81 @@ public class Army {
                 .filter(unit -> unit instanceof CommanderUnit)
                 .collect(Collectors.toList());
         return (ArrayList<Unit>) commanderList;
+    }
+
+    /**
+     * Method which writes information about the army and its units to a csv file
+     * to path: src/main/resources/army-files/
+     * @throws      IOException if error occurs.
+     */
+    public void writeArmyToFile() throws IOException {
+
+        String csvFile = "src/main/resources/army-files/" + name.replace(" ", "") + "-export.csv";
+        File file = new File(csvFile);
+        FileWriter fw = new FileWriter(file);
+        BufferedWriter bw = new BufferedWriter(fw);
+
+        // Writes the army name to the file.
+        bw.write(name);
+        bw.newLine();
+
+        // Writes all the specialised units to the file.
+        for (int i = 0; i < getCommanderUnits().size(); i++) {
+            bw.write("CommanderUnit" + ","
+                    + getCommanderUnits().get(i).getName() + ","
+                    + getCommanderUnits().get(i).getHealth());
+            bw.newLine();
+        }
+        for (int i = 0; i < getCavalryUnits().size(); i++) {
+            bw.write("CavalryUnit" + ","
+                    + getCavalryUnits().get(i).getName() + ","
+                    + getCavalryUnits().get(i).getHealth());
+            bw.newLine();
+        }
+        for (int i = 0; i < getRangedUnits().size(); i++) {
+            bw.write("RangedUnit" + ","
+                    + getRangedUnits().get(i).getName() + ","
+                    + getRangedUnits().get(i).getHealth());
+            bw.newLine();
+        }
+        for (int i = 0; i < getInfantryUnits().size(); i++) {
+            bw.write("InfantryUnit" + ","
+                    + getInfantryUnits().get(i).getName() + ","
+                    + getInfantryUnits().get(i).getHealth());
+            bw.newLine();
+        }
+        bw.close();
+        fw.close();
+    }
+
+    /**
+     * Method which reads a file containing units and adds these units if they coherce with the correct army.
+     * @param filePath      Filepath and file name to where the file is stored.
+     * @throws IOException  Throws IOException if the army name is different in the import file to the Army object.
+     */
+    public void readAndAddUnitsFromFile(String filePath) throws IOException {
+
+        try (BufferedReader br = new BufferedReader((new FileReader(filePath)))) {
+
+            // Iterates readLine() to the first line, then see if the file contains the correct army.
+            String line = br.readLine();
+            if (!line.equals(name)) throw new IOException("File refers to wrong army.");
+
+            while ((line = br.readLine()) != null) {
+
+                String[] unit = line.split(",");
+                String unitType = unit[0];
+                String unitName = unit[1];
+                int unitHealth = Integer.parseInt(unit[2]);
+
+                switch (unitType) {
+                    case "CommanderUnit" -> units.add(new CommanderUnit(unitName, unitHealth));
+                    case "CavalryUnit" -> units.add(new CavalryUnit(unitName, unitHealth));
+                    case "RangedUnit" -> units.add(new RangedUnit(unitName, unitHealth));
+                    case "InfantryUnit" -> units.add(new InfantryUnit(unitName, unitHealth));
+                }
+            }
+        }
     }
 
     /**

@@ -1,5 +1,7 @@
 package edu.ntnu.idatt2001.runarin.battle;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 
 import edu.ntnu.idatt2001.runarin.battle.units.Unit;
@@ -11,39 +13,71 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertNotSame;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class ArmyTest {
 
-    @Nested
-    public class getSpecialisedUnits{
-
-        Army army;
-        @BeforeEach
-        public void addInitialUnitsToArmy() {
+    Army army;
+    @BeforeEach
+    public void addInitialUnitsToArmy() {
             /*
             This code is run before each of these nested tests and initialises an army
             containing all varieties of units.
              */
-            army = new Army("Test Army");
+        army = new Army("Test Army");
 
-            for (int i = 0; i < 3; i++) {
-                army.addUnit(new InfantryUnit("Grunt",100));
-            }
-            for (int i = 0; i < 3; i++) {
-                army.addUnit(new RangedUnit("Spearman",100));
-            }
-            for (int i = 0; i < 3; i++) {
-                army.addUnit(new CavalryUnit("Raider",100));
-            }
-            army.addUnit(new CommanderUnit("Gul'dan",180));
-
-            assertEquals(10, army.getAllUnits().size());
+        for (int i = 0; i < 3; i++) {
+            army.addUnit(new InfantryUnit("Grunt",100));
         }
+        for (int i = 0; i < 3; i++) {
+            army.addUnit(new RangedUnit("Spearman",100));
+        }
+        for (int i = 0; i < 3; i++) {
+            army.addUnit(new CavalryUnit("Raider",100));
+        }
+        army.addUnit(new CommanderUnit("Gul'dan",180));
+
+        assertEquals(10, army.getAllUnits().size());
+    }
+
+    @Nested
+    public class readAndWriteArmyFromAndToFile {
+
+        @Test
+        public void writeArmyToFile() {
+            /*
+            This test writes information about an army to a csv-file and checks that no exceptions are thrown.
+             */
+            try {
+                army.writeArmyToFile();
+            } catch (IOException e) {
+                assertNull(e.getMessage());
+            }
+        }
+
+        @Test
+        public void readContentOfFileAndAddUnitsToArmy() {
+            /*
+            This test reads the content of a file and asserts that it follows the correct format.
+             */
+
+            try {
+                System.out.println(army.getAllUnits().size());
+                String filePath = "src/main/resources/army-files/TestArmy-import.csv";
+                army.readAndAddUnitsFromFile(filePath);
+                System.out.println(army.getAllUnits().size());
+
+                System.out.println(army.getAllUnits());
+
+            } catch (IOException e) {
+                assertNull(e.getMessage());
+            }
+        }
+
+    }
+
+    @Nested
+    public class getSpecialisedUnits {
 
         @Test
         public void getInfantryUnitListFromArmyListOfUnits() {
@@ -205,7 +239,7 @@ public class ArmyTest {
     @Test
     public void throwsIllegalArgumentExceptionIfArmyNameIsBlank() {
         try {
-            Army army = new Army("  ");
+            Army testArmy = new Army("  ");
         } catch (IllegalArgumentException e) {
             assertEquals(e.getMessage(), "Army name cannot be empty");
         }
@@ -274,23 +308,23 @@ public class ArmyTest {
 
     @Test
     public void hashCodeIsDifferentForANumberOfUnitsInAnArmy() {
-        Army army = new Army("The Horde");
+        Army testArmy = new Army("The Horde");
 
-        army.addUnit(new InfantryUnit("SomeUnit",100));
-        army.addUnit(new InfantryUnit("SomeUnit",100));
-        army.addUnit(new InfantryUnit("SomeUnit",100));
-        army.addUnit(new InfantryUnit("SomeUnit",100));
-        army.addUnit(new InfantryUnit("SomeUnit",100));
-        army.addUnit(new InfantryUnit("SomeUnit",100));
+        testArmy.addUnit(new InfantryUnit("SomeUnit",100));
+        testArmy.addUnit(new InfantryUnit("SomeUnit",100));
+        testArmy.addUnit(new InfantryUnit("SomeUnit",100));
+        testArmy.addUnit(new InfantryUnit("SomeUnit",100));
+        testArmy.addUnit(new InfantryUnit("SomeUnit",100));
+        testArmy.addUnit(new InfantryUnit("SomeUnit",100));
 
         // Expects there to be six units in the army.
-        assertEquals(6, army.getAllUnits().size());
+        assertEquals(6, testArmy.getAllUnits().size());
 
-        ArrayList<Unit> armyList = army.getAllUnits();
+        ArrayList<Unit> armyList = testArmy.getAllUnits();
 
         // Expects none of the units to have the same hashCode.
-        for (int i = 0; i < army.getAllUnits().size(); i++) {
-            for (int j = 0; j < army.getAllUnits().size(); j++) {
+        for (int i = 0; i < testArmy.getAllUnits().size(); i++) {
+            for (int j = 0; j < testArmy.getAllUnits().size(); j++) {
                 if (i == j) {
                     assertEquals(armyList.get(i).hashCode(), armyList.get(j).hashCode());
                 } else {

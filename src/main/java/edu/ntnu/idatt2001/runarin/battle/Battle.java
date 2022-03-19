@@ -46,7 +46,7 @@ public class Battle {
         // Creating a File object the battle log will be applied to.
         PrintStream o = null;
         try {
-            o = new PrintStream("BattleLog.txt");
+            o = new PrintStream("src/main/resources/battle-log/BattleLog.txt");
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
