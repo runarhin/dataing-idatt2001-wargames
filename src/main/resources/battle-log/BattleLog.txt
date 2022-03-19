@@ -1,0 +1,679 @@
+
+Round 1
+    Grunt [100 HP] against Mountain King [180 HP]
+        Grunt [100 HP] strikes and deals 4 damage to Mountain King [180 HP][-4 HP]
+        Mountain King [176 HP] then deals 15 damage to Grunt [100 HP][-15 HP]
+
+Round 2
+    Grunt [85 HP] against Mountain King [176 HP]
+        Grunt [85 HP] strikes and deals 4 damage to Mountain King [176 HP][-4 HP]
+        Mountain King [172 HP] then deals 11 damage to Grunt [85 HP][-11 HP]
+
+Round 3
+    Grunt [74 HP] against Mountain King [172 HP]
+        Mountain King [172 HP] strikes and deals 11 damage to Grunt [74 HP][-11 HP]
+        Grunt [63 HP] then deals 4 damage to Mountain King [172 HP][-4 HP]
+
+Round 4
+    Grunt [63 HP] against Mountain King [168 HP]
+        Mountain King [168 HP] strikes and deals 11 damage to Grunt [63 HP][-11 HP]
+        Grunt [52 HP] then deals 4 damage to Mountain King [168 HP][-4 HP]
+
+Round 5
+    Grunt [52 HP] against Mountain King [164 HP]
+        Mountain King [164 HP] strikes and deals 11 damage to Grunt [52 HP][-11 HP]
+        Grunt [41 HP] then deals 4 damage to Mountain King [164 HP][-4 HP]
+
+Round 6
+    Grunt [41 HP] against Mountain King [160 HP]
+        Grunt [41 HP] strikes and deals 4 damage to Mountain King [160 HP][-4 HP]
+        Mountain King [156 HP] then deals 11 damage to Grunt [41 HP][-11 HP]
+
+Round 7
+    Grunt [30 HP] against Mountain King [156 HP]
+        Mountain King [156 HP] strikes and deals 11 damage to Grunt [30 HP][-11 HP]
+        Grunt [19 HP] then deals 4 damage to Mountain King [156 HP][-4 HP]
+
+Round 8
+    Grunt [19 HP] against Mountain King [152 HP]
+        Mountain King [152 HP] strikes and deals 11 damage to Grunt [19 HP][-11 HP]
+        Grunt [8 HP] then deals 4 damage to Mountain King [152 HP][-4 HP]
+
+Round 9
+    Grunt [8 HP] against Mountain King [148 HP]
+        Mountain King [148 HP] strikes and deals 8 damage to Grunt [8 HP][-8 HP]
+
+    Grunt died of fatal blow from Mountain King!
+
+Round 10
+    Spearman [100 HP] against Mountain King [148 HP]
+        Mountain King [148 HP] strikes and deals 12 damage to Spearman [100 HP][-12 HP]
+        Spearman [88 HP] then deals 5 damage to Mountain King [148 HP][-5 HP]
+
+Round 11
+    Spearman [88 HP] against Mountain King [143 HP]
+        Spearman [88 HP] strikes and deals 5 damage to Mountain King [143 HP][-5 HP]
+        Mountain King [138 HP] then deals 10 damage to Spearman [88 HP][-10 HP]
+
+Round 12
+    Spearman [78 HP] against Mountain King [138 HP]
+        Mountain King [138 HP] strikes and deals 12 damage to Spearman [78 HP][-12 HP]
+        Spearman [66 HP] then deals 5 damage to Mountain King [138 HP][-5 HP]
+
+Round 13
+    Spearman [66 HP] against Mountain King [133 HP]
+        Mountain King [133 HP] strikes and deals 12 damage to Spearman [66 HP][-12 HP]
+        Spearman [54 HP] then deals 5 damage to Mountain King [133 HP][-5 HP]
+
+Round 14
+    Spearman [54 HP] against Mountain King [128 HP]
+        Spearman [54 HP] strikes and deals 5 damage to Mountain King [128 HP][-5 HP]
+        Mountain King [123 HP] then deals 12 damage to Spearman [54 HP][-12 HP]
+
+Round 15
+    Spearman [42 HP] against Mountain King [123 HP]
+        Spearman [42 HP] strikes and deals 5 damage to Mountain King [123 HP][-5 HP]
+        Mountain King [118 HP] then deals 12 damage to Spearman [42 HP][-12 HP]
+
+Round 16
+    Spearman [30 HP] against Mountain King [118 HP]
+        Mountain King [118 HP] strikes and deals 12 damage to Spearman [30 HP][-12 HP]
+        Spearman [18 HP] then deals 5 damage to Mountain King [118 HP][-5 HP]
+
+Round 17
+    Spearman [18 HP] against Mountain King [113 HP]
+        Mountain King [113 HP] strikes and deals 12 damage to Spearman [18 HP][-12 HP]
+        Spearman [6 HP] then deals 5 damage to Mountain King [113 HP][-5 HP]
+
+Round 18
+    Spearman [6 HP] against Mountain King [108 HP]
+        Mountain King [108 HP] strikes and deals 6 damage to Spearman [6 HP][-6 HP]
+
+    Spearman died of fatal blow from Mountain King!
+
+Round 19
+    Grunt [100 HP] against Mountain King [108 HP]
+        Grunt [100 HP] strikes and deals 4 damage to Mountain King [108 HP][-4 HP]
+        Mountain King [104 HP] then deals 15 damage to Grunt [100 HP][-15 HP]
+
+Round 20
+    Grunt [85 HP] against Mountain King [104 HP]
+        Grunt [85 HP] strikes and deals 4 damage to Mountain King [104 HP][-4 HP]
+        Mountain King [100 HP] then deals 11 damage to Grunt [85 HP][-11 HP]
+
+Round 21
+    Grunt [74 HP] against Mountain King [100 HP]
+        Grunt [74 HP] strikes and deals 4 damage to Mountain King [100 HP][-4 HP]
+        Mountain King [96 HP] then deals 11 damage to Grunt [74 HP][-11 HP]
+
+Round 22
+    Grunt [63 HP] against Mountain King [96 HP]
+        Mountain King [96 HP] strikes and deals 11 damage to Grunt [63 HP][-11 HP]
+        Grunt [52 HP] then deals 4 damage to Mountain King [96 HP][-4 HP]
+
+Round 23
+    Grunt [52 HP] against Mountain King [92 HP]
+        Mountain King [92 HP] strikes and deals 11 damage to Grunt [52 HP][-11 HP]
+        Grunt [41 HP] then deals 4 damage to Mountain King [92 HP][-4 HP]
+
+Round 24
+    Grunt [41 HP] against Mountain King [88 HP]
+        Grunt [41 HP] strikes and deals 4 damage to Mountain King [88 HP][-4 HP]
+        Mountain King [84 HP] then deals 11 damage to Grunt [41 HP][-11 HP]
+
+Round 25
+    Grunt [30 HP] against Mountain King [84 HP]
+        Mountain King [84 HP] strikes and deals 11 damage to Grunt [30 HP][-11 HP]
+        Grunt [19 HP] then deals 4 damage to Mountain King [84 HP][-4 HP]
+
+Round 26
+    Grunt [19 HP] against Mountain King [80 HP]
+        Grunt [19 HP] strikes and deals 4 damage to Mountain King [80 HP][-4 HP]
+        Mountain King [76 HP] then deals 11 damage to Grunt [19 HP][-11 HP]
+
+Round 27
+    Grunt [8 HP] against Mountain King [76 HP]
+        Mountain King [76 HP] strikes and deals 8 damage to Grunt [8 HP][-8 HP]
+
+    Grunt died of fatal blow from Mountain King!
+
+Round 28
+    Spearman [100 HP] against Mountain King [76 HP]
+        Spearman [100 HP] strikes and deals 5 damage to Mountain King [76 HP][-5 HP]
+        Mountain King [71 HP] then deals 12 damage to Spearman [100 HP][-12 HP]
+
+Round 29
+    Spearman [88 HP] against Mountain King [71 HP]
+        Spearman [88 HP] strikes and deals 5 damage to Mountain King [71 HP][-5 HP]
+        Mountain King [66 HP] then deals 10 damage to Spearman [88 HP][-10 HP]
+
+Round 30
+    Spearman [78 HP] against Mountain King [66 HP]
+        Mountain King [66 HP] strikes and deals 12 damage to Spearman [78 HP][-12 HP]
+        Spearman [66 HP] then deals 5 damage to Mountain King [66 HP][-5 HP]
+
+Round 31
+    Spearman [66 HP] against Mountain King [61 HP]
+        Spearman [66 HP] strikes and deals 5 damage to Mountain King [61 HP][-5 HP]
+        Mountain King [56 HP] then deals 12 damage to Spearman [66 HP][-12 HP]
+
+Round 32
+    Spearman [54 HP] against Mountain King [56 HP]
+        Mountain King [56 HP] strikes and deals 12 damage to Spearman [54 HP][-12 HP]
+        Spearman [42 HP] then deals 5 damage to Mountain King [56 HP][-5 HP]
+
+Round 33
+    Spearman [42 HP] against Mountain King [51 HP]
+        Spearman [42 HP] strikes and deals 5 damage to Mountain King [51 HP][-5 HP]
+        Mountain King [46 HP] then deals 12 damage to Spearman [42 HP][-12 HP]
+
+Round 34
+    Spearman [30 HP] against Mountain King [46 HP]
+        Mountain King [46 HP] strikes and deals 12 damage to Spearman [30 HP][-12 HP]
+        Spearman [18 HP] then deals 5 damage to Mountain King [46 HP][-5 HP]
+
+Round 35
+    Spearman [18 HP] against Mountain King [41 HP]
+        Mountain King [41 HP] strikes and deals 12 damage to Spearman [18 HP][-12 HP]
+        Spearman [6 HP] then deals 5 damage to Mountain King [41 HP][-5 HP]
+
+Round 36
+    Spearman [6 HP] against Mountain King [36 HP]
+        Mountain King [36 HP] strikes and deals 6 damage to Spearman [6 HP][-6 HP]
+
+    Spearman died of fatal blow from Mountain King!
+
+Round 37
+    Gul'dan [180 HP] against Mountain King [36 HP]
+        Gul'dan [180 HP] strikes and deals 13 damage to Mountain King [36 HP][-13 HP]
+        Mountain King [23 HP] then deals 13 damage to Gul'dan [180 HP][-13 HP]
+
+Round 38
+    Gul'dan [167 HP] against Mountain King [23 HP]
+        Mountain King [23 HP] strikes and deals 9 damage to Gul'dan [167 HP][-9 HP]
+        Gul'dan [158 HP] then deals 9 damage to Mountain King [23 HP][-9 HP]
+
+Round 39
+    Gul'dan [158 HP] against Mountain King [14 HP]
+        Gul'dan [158 HP] strikes and deals 9 damage to Mountain King [14 HP][-9 HP]
+        Mountain King [5 HP] then deals 9 damage to Gul'dan [158 HP][-9 HP]
+
+Round 40
+    Gul'dan [149 HP] against Mountain King [5 HP]
+        Gul'dan [149 HP] strikes and deals 5 damage to Mountain King [5 HP][-5 HP]
+
+    Mountain King died of fatal blow from Gul'dan!
+
+Round 41
+    Gul'dan [149 HP] against Archer [100 HP]
+        Gul'dan [149 HP] strikes and deals 12 damage to Archer [100 HP][-12 HP]
+        Archer [88 HP] then deals 5 damage to Gul'dan [149 HP][-5 HP]
+
+Round 42
+    Gul'dan [144 HP] against Archer [88 HP]
+        Archer [88 HP] strikes and deals 5 damage to Gul'dan [144 HP][-5 HP]
+        Gul'dan [139 HP] then deals 10 damage to Archer [88 HP][-10 HP]
+
+Round 43
+    Gul'dan [139 HP] against Archer [78 HP]
+        Gul'dan [139 HP] strikes and deals 12 damage to Archer [78 HP][-12 HP]
+        Archer [66 HP] then deals 5 damage to Gul'dan [139 HP][-5 HP]
+
+Round 44
+    Gul'dan [134 HP] against Archer [66 HP]
+        Gul'dan [134 HP] strikes and deals 12 damage to Archer [66 HP][-12 HP]
+        Archer [54 HP] then deals 5 damage to Gul'dan [134 HP][-5 HP]
+
+Round 45
+    Gul'dan [129 HP] against Archer [54 HP]
+        Archer [54 HP] strikes and deals 5 damage to Gul'dan [129 HP][-5 HP]
+        Gul'dan [124 HP] then deals 12 damage to Archer [54 HP][-12 HP]
+
+Round 46
+    Gul'dan [124 HP] against Archer [42 HP]
+        Archer [42 HP] strikes and deals 5 damage to Gul'dan [124 HP][-5 HP]
+        Gul'dan [119 HP] then deals 12 damage to Archer [42 HP][-12 HP]
+
+Round 47
+    Gul'dan [119 HP] against Archer [30 HP]
+        Archer [30 HP] strikes and deals 5 damage to Gul'dan [119 HP][-5 HP]
+        Gul'dan [114 HP] then deals 12 damage to Archer [30 HP][-12 HP]
+
+Round 48
+    Gul'dan [114 HP] against Archer [18 HP]
+        Archer [18 HP] strikes and deals 5 damage to Gul'dan [114 HP][-5 HP]
+        Gul'dan [109 HP] then deals 12 damage to Archer [18 HP][-12 HP]
+
+Round 49
+    Gul'dan [109 HP] against Archer [6 HP]
+        Archer [6 HP] strikes and deals 5 damage to Gul'dan [109 HP][-5 HP]
+        Gul'dan [104 HP] then deals 6 damage to Archer [6 HP][-6 HP]
+
+    Archer died of fatal blow from Gul'dan!
+
+Round 50
+    Gul'dan [104 HP] against Archer [100 HP]
+        Gul'dan [104 HP] strikes and deals 12 damage to Archer [100 HP][-12 HP]
+        Archer [88 HP] then deals 5 damage to Gul'dan [104 HP][-5 HP]
+
+Round 51
+    Gul'dan [99 HP] against Archer [88 HP]
+        Gul'dan [99 HP] strikes and deals 10 damage to Archer [88 HP][-10 HP]
+        Archer [78 HP] then deals 5 damage to Gul'dan [99 HP][-5 HP]
+
+Round 52
+    Gul'dan [94 HP] against Archer [78 HP]
+        Archer [78 HP] strikes and deals 5 damage to Gul'dan [94 HP][-5 HP]
+        Gul'dan [89 HP] then deals 12 damage to Archer [78 HP][-12 HP]
+
+Round 53
+    Gul'dan [89 HP] against Archer [66 HP]
+        Gul'dan [89 HP] strikes and deals 12 damage to Archer [66 HP][-12 HP]
+        Archer [54 HP] then deals 5 damage to Gul'dan [89 HP][-5 HP]
+
+Round 54
+    Gul'dan [84 HP] against Archer [54 HP]
+        Gul'dan [84 HP] strikes and deals 12 damage to Archer [54 HP][-12 HP]
+        Archer [42 HP] then deals 5 damage to Gul'dan [84 HP][-5 HP]
+
+Round 55
+    Gul'dan [79 HP] against Archer [42 HP]
+        Archer [42 HP] strikes and deals 5 damage to Gul'dan [79 HP][-5 HP]
+        Gul'dan [74 HP] then deals 12 damage to Archer [42 HP][-12 HP]
+
+Round 56
+    Gul'dan [74 HP] against Archer [30 HP]
+        Archer [30 HP] strikes and deals 5 damage to Gul'dan [74 HP][-5 HP]
+        Gul'dan [69 HP] then deals 12 damage to Archer [30 HP][-12 HP]
+
+Round 57
+    Gul'dan [69 HP] against Archer [18 HP]
+        Archer [18 HP] strikes and deals 5 damage to Gul'dan [69 HP][-5 HP]
+        Gul'dan [64 HP] then deals 12 damage to Archer [18 HP][-12 HP]
+
+Round 58
+    Gul'dan [64 HP] against Archer [6 HP]
+        Gul'dan [64 HP] strikes and deals 6 damage to Archer [6 HP][-6 HP]
+
+    Archer died of fatal blow from Gul'dan!
+
+Round 59
+    Gul'dan [64 HP] against Archer [100 HP]
+        Gul'dan [64 HP] strikes and deals 12 damage to Archer [100 HP][-12 HP]
+        Archer [88 HP] then deals 5 damage to Gul'dan [64 HP][-5 HP]
+
+Round 60
+    Gul'dan [59 HP] against Archer [88 HP]
+        Archer [88 HP] strikes and deals 5 damage to Gul'dan [59 HP][-5 HP]
+        Gul'dan [54 HP] then deals 10 damage to Archer [88 HP][-10 HP]
+
+Round 61
+    Gul'dan [54 HP] against Archer [78 HP]
+        Archer [78 HP] strikes and deals 5 damage to Gul'dan [54 HP][-5 HP]
+        Gul'dan [49 HP] then deals 12 damage to Archer [78 HP][-12 HP]
+
+Round 62
+    Gul'dan [49 HP] against Archer [66 HP]
+        Gul'dan [49 HP] strikes and deals 12 damage to Archer [66 HP][-12 HP]
+        Archer [54 HP] then deals 5 damage to Gul'dan [49 HP][-5 HP]
+
+Round 63
+    Gul'dan [44 HP] against Archer [54 HP]
+        Archer [54 HP] strikes and deals 5 damage to Gul'dan [44 HP][-5 HP]
+        Gul'dan [39 HP] then deals 12 damage to Archer [54 HP][-12 HP]
+
+Round 64
+    Gul'dan [39 HP] against Archer [42 HP]
+        Gul'dan [39 HP] strikes and deals 12 damage to Archer [42 HP][-12 HP]
+        Archer [30 HP] then deals 5 damage to Gul'dan [39 HP][-5 HP]
+
+Round 65
+    Gul'dan [34 HP] against Archer [30 HP]
+        Gul'dan [34 HP] strikes and deals 12 damage to Archer [30 HP][-12 HP]
+        Archer [18 HP] then deals 5 damage to Gul'dan [34 HP][-5 HP]
+
+Round 66
+    Gul'dan [29 HP] against Archer [18 HP]
+        Archer [18 HP] strikes and deals 5 damage to Gul'dan [29 HP][-5 HP]
+        Gul'dan [24 HP] then deals 12 damage to Archer [18 HP][-12 HP]
+
+Round 67
+    Gul'dan [24 HP] against Archer [6 HP]
+        Gul'dan [24 HP] strikes and deals 6 damage to Archer [6 HP][-6 HP]
+
+    Archer died of fatal blow from Gul'dan!
+
+Round 68
+    Gul'dan [24 HP] against Footman [100 HP]
+        Footman [100 HP] strikes and deals 4 damage to Gul'dan [24 HP][-4 HP]
+        Gul'dan [20 HP] then deals 15 damage to Footman [100 HP][-15 HP]
+
+Round 69
+    Gul'dan [20 HP] against Footman [85 HP]
+        Gul'dan [20 HP] strikes and deals 11 damage to Footman [85 HP][-11 HP]
+        Footman [74 HP] then deals 4 damage to Gul'dan [20 HP][-4 HP]
+
+Round 70
+    Gul'dan [16 HP] against Footman [74 HP]
+        Footman [74 HP] strikes and deals 4 damage to Gul'dan [16 HP][-4 HP]
+        Gul'dan [12 HP] then deals 11 damage to Footman [74 HP][-11 HP]
+
+Round 71
+    Gul'dan [12 HP] against Footman [63 HP]
+        Footman [63 HP] strikes and deals 4 damage to Gul'dan [12 HP][-4 HP]
+        Gul'dan [8 HP] then deals 11 damage to Footman [63 HP][-11 HP]
+
+Round 72
+    Gul'dan [8 HP] against Footman [52 HP]
+        Footman [52 HP] strikes and deals 4 damage to Gul'dan [8 HP][-4 HP]
+        Gul'dan [4 HP] then deals 11 damage to Footman [52 HP][-11 HP]
+
+Round 73
+    Gul'dan [4 HP] against Footman [41 HP]
+        Gul'dan [4 HP] strikes and deals 11 damage to Footman [41 HP][-11 HP]
+        Footman [30 HP] then deals 4 damage to Gul'dan [4 HP][-4 HP]
+
+    Gul'dan died of fatal blow from Footman!
+
+Round 74
+    Spearman [100 HP] against Footman [30 HP]
+        Footman [30 HP] strikes and deals 3 damage to Spearman [100 HP][-3 HP]
+        Spearman [97 HP] then deals 7 damage to Footman [30 HP][-7 HP]
+
+Round 75
+    Spearman [97 HP] against Footman [23 HP]
+        Footman [23 HP] strikes and deals 5 damage to Spearman [97 HP][-5 HP]
+        Spearman [92 HP] then deals 7 damage to Footman [23 HP][-7 HP]
+
+Round 76
+    Spearman [92 HP] against Footman [16 HP]
+        Footman [16 HP] strikes and deals 7 damage to Spearman [92 HP][-7 HP]
+        Spearman [85 HP] then deals 7 damage to Footman [16 HP][-7 HP]
+
+Round 77
+    Spearman [85 HP] against Footman [9 HP]
+        Footman [9 HP] strikes and deals 7 damage to Spearman [85 HP][-7 HP]
+        Spearman [78 HP] then deals 7 damage to Footman [9 HP][-7 HP]
+
+Round 78
+    Spearman [78 HP] against Footman [2 HP]
+        Spearman [78 HP] strikes and deals 2 damage to Footman [2 HP][-2 HP]
+
+    Footman died of fatal blow from Spearman!
+
+Round 79
+    Spearman [78 HP] against Footman [100 HP]
+        Footman [100 HP] strikes and deals 5 damage to Spearman [78 HP][-5 HP]
+        Spearman [73 HP] then deals 7 damage to Footman [100 HP][-7 HP]
+
+Round 80
+    Spearman [73 HP] against Footman [93 HP]
+        Footman [93 HP] strikes and deals 7 damage to Spearman [73 HP][-7 HP]
+        Spearman [66 HP] then deals 7 damage to Footman [93 HP][-7 HP]
+
+Round 81
+    Spearman [66 HP] against Footman [86 HP]
+        Spearman [66 HP] strikes and deals 7 damage to Footman [86 HP][-7 HP]
+        Footman [79 HP] then deals 7 damage to Spearman [66 HP][-7 HP]
+
+Round 82
+    Spearman [59 HP] against Footman [79 HP]
+        Spearman [59 HP] strikes and deals 7 damage to Footman [79 HP][-7 HP]
+        Footman [72 HP] then deals 7 damage to Spearman [59 HP][-7 HP]
+
+Round 83
+    Spearman [52 HP] against Footman [72 HP]
+        Spearman [52 HP] strikes and deals 7 damage to Footman [72 HP][-7 HP]
+        Footman [65 HP] then deals 7 damage to Spearman [52 HP][-7 HP]
+
+Round 84
+    Spearman [45 HP] against Footman [65 HP]
+        Spearman [45 HP] strikes and deals 7 damage to Footman [65 HP][-7 HP]
+        Footman [58 HP] then deals 7 damage to Spearman [45 HP][-7 HP]
+
+Round 85
+    Spearman [38 HP] against Footman [58 HP]
+        Footman [58 HP] strikes and deals 7 damage to Spearman [38 HP][-7 HP]
+        Spearman [31 HP] then deals 7 damage to Footman [58 HP][-7 HP]
+
+Round 86
+    Spearman [31 HP] against Footman [51 HP]
+        Spearman [31 HP] strikes and deals 7 damage to Footman [51 HP][-7 HP]
+        Footman [44 HP] then deals 7 damage to Spearman [31 HP][-7 HP]
+
+Round 87
+    Spearman [24 HP] against Footman [44 HP]
+        Spearman [24 HP] strikes and deals 7 damage to Footman [44 HP][-7 HP]
+        Footman [37 HP] then deals 7 damage to Spearman [24 HP][-7 HP]
+
+Round 88
+    Spearman [17 HP] against Footman [37 HP]
+        Footman [37 HP] strikes and deals 7 damage to Spearman [17 HP][-7 HP]
+        Spearman [10 HP] then deals 7 damage to Footman [37 HP][-7 HP]
+
+Round 89
+    Spearman [10 HP] against Footman [30 HP]
+        Footman [30 HP] strikes and deals 7 damage to Spearman [10 HP][-7 HP]
+        Spearman [3 HP] then deals 7 damage to Footman [30 HP][-7 HP]
+
+Round 90
+    Spearman [3 HP] against Footman [23 HP]
+        Spearman [3 HP] strikes and deals 7 damage to Footman [23 HP][-7 HP]
+        Footman [16 HP] then deals 3 damage to Spearman [3 HP][-3 HP]
+
+    Spearman died of fatal blow from Footman!
+
+Round 91
+    Grunt [100 HP] against Footman [16 HP]
+        Grunt [100 HP] strikes and deals 6 damage to Footman [16 HP][-6 HP]
+        Footman [10 HP] then deals 6 damage to Grunt [100 HP][-6 HP]
+
+Round 92
+    Grunt [94 HP] against Footman [10 HP]
+        Grunt [94 HP] strikes and deals 6 damage to Footman [10 HP][-6 HP]
+        Footman [4 HP] then deals 6 damage to Grunt [94 HP][-6 HP]
+
+Round 93
+    Grunt [88 HP] against Footman [4 HP]
+        Grunt [88 HP] strikes and deals 4 damage to Footman [4 HP][-4 HP]
+
+    Footman died of fatal blow from Grunt!
+
+Round 94
+    Grunt [88 HP] against Footman [100 HP]
+        Grunt [88 HP] strikes and deals 6 damage to Footman [100 HP][-6 HP]
+        Footman [94 HP] then deals 6 damage to Grunt [88 HP][-6 HP]
+
+Round 95
+    Grunt [82 HP] against Footman [94 HP]
+        Footman [94 HP] strikes and deals 6 damage to Grunt [82 HP][-6 HP]
+        Grunt [76 HP] then deals 6 damage to Footman [94 HP][-6 HP]
+
+Round 96
+    Grunt [76 HP] against Footman [88 HP]
+        Grunt [76 HP] strikes and deals 6 damage to Footman [88 HP][-6 HP]
+        Footman [82 HP] then deals 6 damage to Grunt [76 HP][-6 HP]
+
+Round 97
+    Grunt [70 HP] against Footman [82 HP]
+        Footman [82 HP] strikes and deals 6 damage to Grunt [70 HP][-6 HP]
+        Grunt [64 HP] then deals 6 damage to Footman [82 HP][-6 HP]
+
+Round 98
+    Grunt [64 HP] against Footman [76 HP]
+        Grunt [64 HP] strikes and deals 6 damage to Footman [76 HP][-6 HP]
+        Footman [70 HP] then deals 6 damage to Grunt [64 HP][-6 HP]
+
+Round 99
+    Grunt [58 HP] against Footman [70 HP]
+        Footman [70 HP] strikes and deals 6 damage to Grunt [58 HP][-6 HP]
+        Grunt [52 HP] then deals 6 damage to Footman [70 HP][-6 HP]
+
+Round 100
+    Grunt [52 HP] against Footman [64 HP]
+        Footman [64 HP] strikes and deals 6 damage to Grunt [52 HP][-6 HP]
+        Grunt [46 HP] then deals 6 damage to Footman [64 HP][-6 HP]
+
+Round 101
+    Grunt [46 HP] against Footman [58 HP]
+        Footman [58 HP] strikes and deals 6 damage to Grunt [46 HP][-6 HP]
+        Grunt [40 HP] then deals 6 damage to Footman [58 HP][-6 HP]
+
+Round 102
+    Grunt [40 HP] against Footman [52 HP]
+        Grunt [40 HP] strikes and deals 6 damage to Footman [52 HP][-6 HP]
+        Footman [46 HP] then deals 6 damage to Grunt [40 HP][-6 HP]
+
+Round 103
+    Grunt [34 HP] against Footman [46 HP]
+        Footman [46 HP] strikes and deals 6 damage to Grunt [34 HP][-6 HP]
+        Grunt [28 HP] then deals 6 damage to Footman [46 HP][-6 HP]
+
+Round 104
+    Grunt [28 HP] against Footman [40 HP]
+        Footman [40 HP] strikes and deals 6 damage to Grunt [28 HP][-6 HP]
+        Grunt [22 HP] then deals 6 damage to Footman [40 HP][-6 HP]
+
+Round 105
+    Grunt [22 HP] against Footman [34 HP]
+        Footman [34 HP] strikes and deals 6 damage to Grunt [22 HP][-6 HP]
+        Grunt [16 HP] then deals 6 damage to Footman [34 HP][-6 HP]
+
+Round 106
+    Grunt [16 HP] against Footman [28 HP]
+        Grunt [16 HP] strikes and deals 6 damage to Footman [28 HP][-6 HP]
+        Footman [22 HP] then deals 6 damage to Grunt [16 HP][-6 HP]
+
+Round 107
+    Grunt [10 HP] against Footman [22 HP]
+        Grunt [10 HP] strikes and deals 6 damage to Footman [22 HP][-6 HP]
+        Footman [16 HP] then deals 6 damage to Grunt [10 HP][-6 HP]
+
+Round 108
+    Grunt [4 HP] against Footman [16 HP]
+        Grunt [4 HP] strikes and deals 6 damage to Footman [16 HP][-6 HP]
+        Footman [10 HP] then deals 4 damage to Grunt [4 HP][-4 HP]
+
+    Grunt died of fatal blow from Footman!
+
+Round 109
+    Raider [100 HP] against Footman [10 HP]
+        Raider [100 HP] strikes and deals 10 damage to Footman [10 HP][-10 HP]
+
+    Footman died of fatal blow from Raider!
+
+Round 110
+    Raider [100 HP] against Knight [100 HP]
+        Knight [100 HP] strikes and deals 13 damage to Raider [100 HP][-13 HP]
+        Raider [87 HP] then deals 13 damage to Knight [100 HP][-13 HP]
+
+Round 111
+    Raider [87 HP] against Knight [87 HP]
+        Knight [87 HP] strikes and deals 9 damage to Raider [87 HP][-9 HP]
+        Raider [78 HP] then deals 9 damage to Knight [87 HP][-9 HP]
+
+Round 112
+    Raider [78 HP] against Knight [78 HP]
+        Knight [78 HP] strikes and deals 9 damage to Raider [78 HP][-9 HP]
+        Raider [69 HP] then deals 9 damage to Knight [78 HP][-9 HP]
+
+Round 113
+    Raider [69 HP] against Knight [69 HP]
+        Raider [69 HP] strikes and deals 9 damage to Knight [69 HP][-9 HP]
+        Knight [60 HP] then deals 9 damage to Raider [69 HP][-9 HP]
+
+Round 114
+    Raider [60 HP] against Knight [60 HP]
+        Raider [60 HP] strikes and deals 9 damage to Knight [60 HP][-9 HP]
+        Knight [51 HP] then deals 9 damage to Raider [60 HP][-9 HP]
+
+Round 115
+    Raider [51 HP] against Knight [51 HP]
+        Raider [51 HP] strikes and deals 9 damage to Knight [51 HP][-9 HP]
+        Knight [42 HP] then deals 9 damage to Raider [51 HP][-9 HP]
+
+Round 116
+    Raider [42 HP] against Knight [42 HP]
+        Knight [42 HP] strikes and deals 9 damage to Raider [42 HP][-9 HP]
+        Raider [33 HP] then deals 9 damage to Knight [42 HP][-9 HP]
+
+Round 117
+    Raider [33 HP] against Knight [33 HP]
+        Knight [33 HP] strikes and deals 9 damage to Raider [33 HP][-9 HP]
+        Raider [24 HP] then deals 9 damage to Knight [33 HP][-9 HP]
+
+Round 118
+    Raider [24 HP] against Knight [24 HP]
+        Raider [24 HP] strikes and deals 9 damage to Knight [24 HP][-9 HP]
+        Knight [15 HP] then deals 9 damage to Raider [24 HP][-9 HP]
+
+Round 119
+    Raider [15 HP] against Knight [15 HP]
+        Knight [15 HP] strikes and deals 9 damage to Raider [15 HP][-9 HP]
+        Raider [6 HP] then deals 9 damage to Knight [15 HP][-9 HP]
+
+Round 120
+    Raider [6 HP] against Knight [6 HP]
+        Knight [6 HP] strikes and deals 6 damage to Raider [6 HP][-6 HP]
+
+    Raider died of fatal blow from Knight!
+
+Round 121
+    Raider [100 HP] against Knight [6 HP]
+        Knight [6 HP] strikes and deals 13 damage to Raider [100 HP][-13 HP]
+        Raider [87 HP] then deals 6 damage to Knight [6 HP][-6 HP]
+
+    Knight died of fatal blow from Raider!
+
+Round 122
+    Raider [87 HP] against Knight [100 HP]
+        Knight [100 HP] strikes and deals 13 damage to Raider [87 HP][-13 HP]
+        Raider [74 HP] then deals 13 damage to Knight [100 HP][-13 HP]
+
+Round 123
+    Raider [74 HP] against Knight [87 HP]
+        Raider [74 HP] strikes and deals 9 damage to Knight [87 HP][-9 HP]
+        Knight [78 HP] then deals 9 damage to Raider [74 HP][-9 HP]
+
+Round 124
+    Raider [65 HP] against Knight [78 HP]
+        Raider [65 HP] strikes and deals 9 damage to Knight [78 HP][-9 HP]
+        Knight [69 HP] then deals 9 damage to Raider [65 HP][-9 HP]
+
+Round 125
+    Raider [56 HP] against Knight [69 HP]
+        Knight [69 HP] strikes and deals 9 damage to Raider [56 HP][-9 HP]
+        Raider [47 HP] then deals 9 damage to Knight [69 HP][-9 HP]
+
+Round 126
+    Raider [47 HP] against Knight [60 HP]
+        Knight [60 HP] strikes and deals 9 damage to Raider [47 HP][-9 HP]
+        Raider [38 HP] then deals 9 damage to Knight [60 HP][-9 HP]
+
+Round 127
+    Raider [38 HP] against Knight [51 HP]
+        Knight [51 HP] strikes and deals 9 damage to Raider [38 HP][-9 HP]
+        Raider [29 HP] then deals 9 damage to Knight [51 HP][-9 HP]
+
+Round 128
+    Raider [29 HP] against Knight [42 HP]
+        Knight [42 HP] strikes and deals 9 damage to Raider [29 HP][-9 HP]
+        Raider [20 HP] then deals 9 damage to Knight [42 HP][-9 HP]
+
+Round 129
+    Raider [20 HP] against Knight [33 HP]
+        Raider [20 HP] strikes and deals 9 damage to Knight [33 HP][-9 HP]
+        Knight [24 HP] then deals 9 damage to Raider [20 HP][-9 HP]
+
+Round 130
+    Raider [11 HP] against Knight [24 HP]
+        Knight [24 HP] strikes and deals 9 damage to Raider [11 HP][-9 HP]
+        Raider [2 HP] then deals 9 damage to Knight [24 HP][-9 HP]
+
+Round 131
+    Raider [2 HP] against Knight [15 HP]
+        Knight [15 HP] strikes and deals 2 damage to Raider [2 HP][-2 HP]
+
+    Raider died of fatal blow from Knight!
+
+  The Human Army wins the battle!

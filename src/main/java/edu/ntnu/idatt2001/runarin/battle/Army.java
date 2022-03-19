@@ -216,6 +216,7 @@ public class Army {
             String line = br.readLine();
             if (!line.equals(name)) throw new IOException("File refers to wrong army.");
 
+            // readLine() then iterates from line 2.
             while ((line = br.readLine()) != null) {
 
                 String[] unit = line.split(",");
