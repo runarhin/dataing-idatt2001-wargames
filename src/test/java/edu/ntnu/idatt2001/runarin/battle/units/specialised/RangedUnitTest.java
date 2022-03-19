@@ -1,4 +1,4 @@
-package edu.ntnu.idatt2001.runarin.units.specialised;
+package edu.ntnu.idatt2001.runarin.battle.units.specialised;
 
 import edu.ntnu.idatt2001.runarin.battle.units.specialised.InfantryUnit;
 import edu.ntnu.idatt2001.runarin.battle.units.specialised.RangedUnit;

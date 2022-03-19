@@ -1,4 +1,4 @@
-package edu.ntnu.idatt2001.runarin;
+package edu.ntnu.idatt2001.runarin.battle;
 
 import edu.ntnu.idatt2001.runarin.battle.Battle;
 import edu.ntnu.idatt2001.runarin.battle.Army;

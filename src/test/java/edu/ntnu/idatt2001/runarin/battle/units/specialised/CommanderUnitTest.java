@@ -1,4 +1,4 @@
-package edu.ntnu.idatt2001.runarin.units.specialised;
+package edu.ntnu.idatt2001.runarin.battle.units.specialised;
 
 import edu.ntnu.idatt2001.runarin.battle.units.specialised.CommanderUnit;
 import org.junit.jupiter.api.Test;
