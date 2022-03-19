@@ -1,4 +1,4 @@
-package edu.ntnu.idatt2001.runarin.units;
+package edu.ntnu.idatt2001.runarin.battle.units;
 
 /**
  * An abstract class Unit.

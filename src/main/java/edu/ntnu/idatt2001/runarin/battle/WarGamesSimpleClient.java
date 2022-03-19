@@ -1,16 +1,14 @@
-package edu.ntnu.idatt2001.runarin;
+package edu.ntnu.idatt2001.runarin.battle;
 
-import edu.ntnu.idatt2001.runarin.units.*;
-import edu.ntnu.idatt2001.runarin.units.specialised.CavalryUnit;
-import edu.ntnu.idatt2001.runarin.units.specialised.CommanderUnit;
-import edu.ntnu.idatt2001.runarin.units.specialised.InfantryUnit;
-import edu.ntnu.idatt2001.runarin.units.specialised.RangedUnit;
+import edu.ntnu.idatt2001.runarin.battle.units.specialised.CavalryUnit;
+import edu.ntnu.idatt2001.runarin.battle.units.specialised.CommanderUnit;
+import edu.ntnu.idatt2001.runarin.battle.units.specialised.InfantryUnit;
+import edu.ntnu.idatt2001.runarin.battle.units.specialised.RangedUnit;
 
-import java.io.FileNotFoundException;
 import java.util.HashMap;
 import java.util.Scanner;
 
-public class WarGamesApp {
+public class WarGamesSimpleClient {
 
     private final HashMap<String, Army> armies = new HashMap<>();
     private final int CREATE_ARMY_AND_ADD_COMMANDER = 1;
@@ -24,7 +22,7 @@ public class WarGamesApp {
     private final int EXIT = 9;
 
 
-    public WarGamesApp() {
+    public WarGamesSimpleClient() {
     }
 
     private int showMenu() {
@@ -332,13 +330,13 @@ public class WarGamesApp {
         }
     }
 
-    public Army startABattleBetweenTwoArmies(Army armyOne, Army armyTwo) throws FileNotFoundException {
+    public Army startABattleBetweenTwoArmies(Army armyOne, Army armyTwo) {
         Battle battle = new Battle(armyOne,armyTwo);
         return battle.simulate();
     }
 
     public static void main(String[] args) throws Exception {
-        WarGamesApp wga = new WarGamesApp();
+        WarGamesSimpleClient wga = new WarGamesSimpleClient();
         wga.start();
     }
 }

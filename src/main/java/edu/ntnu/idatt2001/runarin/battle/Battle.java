@@ -1,9 +1,8 @@
-package edu.ntnu.idatt2001.runarin;
+package edu.ntnu.idatt2001.runarin.battle;
 
-import edu.ntnu.idatt2001.runarin.units.Army;
-import edu.ntnu.idatt2001.runarin.units.specialised.CavalryUnit;
-import edu.ntnu.idatt2001.runarin.units.specialised.RangedUnit;
-import edu.ntnu.idatt2001.runarin.units.Unit;
+import edu.ntnu.idatt2001.runarin.battle.units.specialised.CavalryUnit;
+import edu.ntnu.idatt2001.runarin.battle.units.specialised.RangedUnit;
+import edu.ntnu.idatt2001.runarin.battle.units.Unit;
 
 import java.io.FileNotFoundException;
 import java.io.PrintStream;

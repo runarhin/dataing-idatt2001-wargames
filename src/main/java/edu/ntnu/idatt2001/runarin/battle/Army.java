@@ -1,13 +1,12 @@
-package edu.ntnu.idatt2001.runarin.units;
+package edu.ntnu.idatt2001.runarin.battle;
 
-import edu.ntnu.idatt2001.runarin.units.specialised.CavalryUnit;
-import edu.ntnu.idatt2001.runarin.units.specialised.CommanderUnit;
-import edu.ntnu.idatt2001.runarin.units.specialised.InfantryUnit;
-import edu.ntnu.idatt2001.runarin.units.specialised.RangedUnit;
+import edu.ntnu.idatt2001.runarin.battle.units.Unit;
+import edu.ntnu.idatt2001.runarin.battle.units.specialised.CavalryUnit;
+import edu.ntnu.idatt2001.runarin.battle.units.specialised.CommanderUnit;
+import edu.ntnu.idatt2001.runarin.battle.units.specialised.InfantryUnit;
+import edu.ntnu.idatt2001.runarin.battle.units.specialised.RangedUnit;
 
 import java.util.*;
-import java.util.function.Consumer;
-import java.util.stream.Stream;
 import java.util.stream.Collectors;
 
 /**

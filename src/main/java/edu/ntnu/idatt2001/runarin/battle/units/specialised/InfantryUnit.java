@@ -1,6 +1,6 @@
-package edu.ntnu.idatt2001.runarin.units.specialised;
+package edu.ntnu.idatt2001.runarin.battle.units.specialised;
 
-import edu.ntnu.idatt2001.runarin.units.Unit;
+import edu.ntnu.idatt2001.runarin.battle.units.Unit;
 
 /**
  * A class for an infantry unit.

@@ -2,7 +2,12 @@ package edu.ntnu.idatt2001.runarin.units;
 
 import java.util.ArrayList;
 
-import edu.ntnu.idatt2001.runarin.units.specialised.*;
+import edu.ntnu.idatt2001.runarin.battle.Army;
+import edu.ntnu.idatt2001.runarin.battle.units.Unit;
+import edu.ntnu.idatt2001.runarin.battle.units.specialised.CavalryUnit;
+import edu.ntnu.idatt2001.runarin.battle.units.specialised.CommanderUnit;
+import edu.ntnu.idatt2001.runarin.battle.units.specialised.InfantryUnit;
+import edu.ntnu.idatt2001.runarin.battle.units.specialised.RangedUnit;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;

@@ -1,10 +1,11 @@
 package edu.ntnu.idatt2001.runarin;
 
-import edu.ntnu.idatt2001.runarin.units.Army;
-import edu.ntnu.idatt2001.runarin.units.specialised.CavalryUnit;
-import edu.ntnu.idatt2001.runarin.units.specialised.CommanderUnit;
-import edu.ntnu.idatt2001.runarin.units.specialised.InfantryUnit;
-import edu.ntnu.idatt2001.runarin.units.specialised.RangedUnit;
+import edu.ntnu.idatt2001.runarin.battle.Battle;
+import edu.ntnu.idatt2001.runarin.battle.Army;
+import edu.ntnu.idatt2001.runarin.battle.units.specialised.CavalryUnit;
+import edu.ntnu.idatt2001.runarin.battle.units.specialised.CommanderUnit;
+import edu.ntnu.idatt2001.runarin.battle.units.specialised.InfantryUnit;
+import edu.ntnu.idatt2001.runarin.battle.units.specialised.RangedUnit;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
