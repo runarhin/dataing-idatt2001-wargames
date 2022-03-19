@@ -1,7 +1,5 @@
 package edu.ntnu.idatt2001.runarin.battle;
 
-import edu.ntnu.idatt2001.runarin.battle.Battle;
-import edu.ntnu.idatt2001.runarin.battle.Army;
 import edu.ntnu.idatt2001.runarin.battle.units.specialised.CavalryUnit;
 import edu.ntnu.idatt2001.runarin.battle.units.specialised.CommanderUnit;
 import edu.ntnu.idatt2001.runarin.battle.units.specialised.InfantryUnit;

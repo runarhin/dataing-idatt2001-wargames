@@ -1,7 +1,5 @@
 package edu.ntnu.idatt2001.runarin.battle.units.specialised;
 
-import edu.ntnu.idatt2001.runarin.battle.units.specialised.CavalryUnit;
-import edu.ntnu.idatt2001.runarin.battle.units.specialised.InfantryUnit;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

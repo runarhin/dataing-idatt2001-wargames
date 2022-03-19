@@ -2,7 +2,6 @@ package edu.ntnu.idatt2001.runarin.battle.units;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import edu.ntnu.idatt2001.runarin.battle.units.Unit;
 import edu.ntnu.idatt2001.runarin.battle.units.specialised.InfantryUnit;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;

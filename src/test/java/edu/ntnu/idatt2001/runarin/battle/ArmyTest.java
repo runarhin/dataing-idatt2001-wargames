@@ -2,7 +2,6 @@ package edu.ntnu.idatt2001.runarin.battle;
 
 import java.util.ArrayList;
 
-import edu.ntnu.idatt2001.runarin.battle.Army;
 import edu.ntnu.idatt2001.runarin.battle.units.Unit;
 import edu.ntnu.idatt2001.runarin.battle.units.specialised.CavalryUnit;
 import edu.ntnu.idatt2001.runarin.battle.units.specialised.CommanderUnit;
