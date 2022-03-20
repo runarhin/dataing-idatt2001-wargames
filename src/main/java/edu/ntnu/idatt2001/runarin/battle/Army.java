@@ -161,6 +161,7 @@ public class Army {
     /**
      * Method which writes information about the army and its units to a csv file
      * to path: src/main/resources/army-files/
+     * The file name is the same as the army's name.
      * @throws      IOException if error occurs.
      */
     public void writeArmyToFile() throws IOException {
@@ -208,7 +209,7 @@ public class Army {
      * @param filePath      Filepath and file name to where the file is stored.
      * @throws IOException  Throws IOException if the army name is different in the import file to the Army object.
      */
-    public void readAndAddUnitsFromFile(String filePath) throws IOException {
+    public void readUnitsFileAndAddToArmy(String filePath) throws IOException {
 
         try (BufferedReader br = new BufferedReader((new FileReader(filePath)))) {
 

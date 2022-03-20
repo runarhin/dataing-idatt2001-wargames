@@ -1,6 +1,7 @@
 package edu.ntnu.idatt2001.runarin.battle;
 
-import java.io.FileNotFoundException;
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -41,39 +42,101 @@ public class ArmyTest {
     }
 
     @Nested
-    public class readAndWriteArmyFromAndToFile {
+    public class readAndWriteArmyFromAndToCSVFile {
 
         @Test
         public void writeArmyToFile() {
             /*
             This test writes information about an army to a csv-file and checks that no exceptions are thrown.
+            It Also reads the file and asserts its content.
              */
             try {
                 army.writeArmyToFile();
+
+                String filePath = "src/main/resources/army-files/TestArmy-export.csv";
+                try (BufferedReader br = new BufferedReader((new FileReader(filePath)))) {
+
+                    // Iterates readLine() to the first line, then see if the file contains the correct army.
+                    String line = br.readLine();
+                    assertEquals(line, army.getName());
+
+                    int i = 1;
+                    // readLine() then iterates from second line.
+                    while ((line = br.readLine()) != null) {
+
+                        String[] unit = line.split(",");
+                        String unitType = unit[0];
+                        String unitName = unit[1];
+                        int unitHealth = Integer.parseInt(unit[2]);
+
+                        if (i == 1) {
+                            assertEquals("CommanderUnit", unitType);
+                            assertEquals("Gul'dan", unitName);
+                            assertEquals(180, unitHealth);
+                        }
+                        if ((i == 2) || (i == 3) || (i == 4)) {
+                            assertEquals("CavalryUnit", unitType);
+                            assertEquals("Raider", unitName);
+                            assertEquals(100, unitHealth);
+                        }
+                        if ((i == 5) || (i == 6) || (i == 7)) {
+                            assertEquals("RangedUnit", unitType);
+                            assertEquals("Spearman", unitName);
+                            assertEquals(100, unitHealth);
+                        }
+                        if ((i == 8) || (i == 9) || (i == 10)) {
+                            assertEquals("InfantryUnit", unitType);
+                            assertEquals("Grunt", unitName);
+                            assertEquals(100, unitHealth);
+                        }
+                        i++;
+                    }
+                }
             } catch (IOException e) {
                 assertNull(e.getMessage());
             }
         }
 
         @Test
-        public void readContentOfFileAndAddUnitsToArmy() {
+        public void readContentOfFileAndAddItsContentOfUnitsToArmy() {
             /*
-            This test reads the content of a file and asserts that it follows the correct format.
+            This test reads the content of a file and asserts that it follows the correct format,
+            by adding units to the army from the import file.
              */
-
             try {
-                System.out.println(army.getAllUnits().size());
-                String filePath = "src/main/resources/army-files/TestArmy-import.csv";
-                army.readAndAddUnitsFromFile(filePath);
-                System.out.println(army.getAllUnits().size());
+                assertEquals(10, army.getAllUnits().size());
 
-                System.out.println(army.getAllUnits());
+                String filePath = "src/main/resources/army-files/TestArmy-import.csv";
+                army.readUnitsFileAndAddToArmy(filePath);
+
+                assertEquals(19, army.getAllUnits().size());
+                assertEquals("""
+                                [
+                                | Grunt | HP = 100 | Attack power = 15 | Armor points = 10 |,\s
+                                | Grunt | HP = 100 | Attack power = 15 | Armor points = 10 |,\s
+                                | Grunt | HP = 100 | Attack power = 15 | Armor points = 10 |,\s
+                                | Spearman | HP = 100 | Attack power = 15 | Armor points = 8 |,\s
+                                | Spearman | HP = 100 | Attack power = 15 | Armor points = 8 |,\s
+                                | Spearman | HP = 100 | Attack power = 15 | Armor points = 8 |,\s
+                                | Raider | HP = 100 | Attack power = 20 | Armor points = 12 |,\s
+                                | Raider | HP = 100 | Attack power = 20 | Armor points = 12 |,\s
+                                | Raider | HP = 100 | Attack power = 20 | Armor points = 12 |,\s
+                                | Gul'dan | HP = 180 | Attack power = 25 | Armor points = 15 |,\s
+                                | Raider | HP = 100 | Attack power = 20 | Armor points = 12 |,\s
+                                | Raider | HP = 100 | Attack power = 20 | Armor points = 12 |,\s
+                                | Raider | HP = 100 | Attack power = 20 | Armor points = 12 |,\s
+                                | Spearman | HP = 100 | Attack power = 15 | Armor points = 8 |,\s
+                                | Spearman | HP = 100 | Attack power = 15 | Armor points = 8 |,\s
+                                | Spearman | HP = 100 | Attack power = 15 | Armor points = 8 |,\s
+                                | Grunt | HP = 100 | Attack power = 15 | Armor points = 10 |,\s
+                                | Grunt | HP = 100 | Attack power = 15 | Armor points = 10 |,\s
+                                | Grunt | HP = 100 | Attack power = 15 | Armor points = 10 |]""",
+                        army.getAllUnits().toString());
 
             } catch (IOException e) {
                 assertNull(e.getMessage());
             }
         }
-
     }
 
     @Nested
