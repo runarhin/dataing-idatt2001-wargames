@@ -16,8 +16,8 @@ import java.util.Scanner;
  * A single battle between two armies can be simulated at the time, but the surviving units
  * from the winning army can battle again against a new army.
  *
- *  * @author Runar Indahl
- *  * @version 1.0.1
+ * @author Runar Indahl
+ * @version 1.0.1
  */
 
 public class WarGamesSimpleClient {

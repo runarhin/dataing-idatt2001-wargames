@@ -6,8 +6,8 @@ import edu.ntnu.idatt2001.runarin.battle.units.Unit;
  * A class for a cavalry unit.
  * This is a unit with relatively high attack power and also comes with a charge ability.
  *
- *  * @author Runar Indahl
- *  * @version 1.0.1
+ * @author Runar Indahl
+ * @version 1.0.1
  */
 
 public class CavalryUnit extends Unit {

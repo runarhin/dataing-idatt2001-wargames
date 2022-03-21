@@ -12,8 +12,8 @@ import java.util.Random;
  * A class Battle.
  * This class represents a battle between two armies.
  *
- *  * @author Runar Indahl
- *  * @version 1.0.1
+ * @author Runar Indahl
+ * @version 1.0.1
  */
 public class Battle {
 
