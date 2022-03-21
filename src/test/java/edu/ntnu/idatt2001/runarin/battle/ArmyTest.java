@@ -21,10 +21,10 @@ public class ArmyTest {
     Army army;
     @BeforeEach
     public void addInitialUnitsToArmy() {
-            /*
-            This code is run before each of these nested tests and initialises an army
-            containing all varieties of units.
-             */
+        /*
+        This code is run before each of these nested tests and initialises an army
+        containing all varieties of units.
+         */
         army = new Army("Test Army");
 
         for (int i = 0; i < 3; i++) {
