@@ -6,6 +6,9 @@ import edu.ntnu.idatt2001.runarin.battle.units.Unit;
  * A class for a ranged unit.
  * This is a basic ranged unit with normal attack power and armor resistance.
  * It has a benefit of attacking from a range, and therefore takes less damage the first two times it is attacked.
+ *
+ * @author Runar Indahl
+ * @version 1.0.1
  */
 public class RangedUnit extends Unit {
 

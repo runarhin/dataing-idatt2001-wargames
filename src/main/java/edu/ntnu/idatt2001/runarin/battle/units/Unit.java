@@ -3,6 +3,9 @@ package edu.ntnu.idatt2001.runarin.battle.units;
 /**
  * An abstract class Unit.
  * The class gives a general description of capabilities inherited by its subclasses.
+ *
+ *  * @author Runar Indahl
+ *  * @version 1.0.1
  */
 public abstract class Unit {
 

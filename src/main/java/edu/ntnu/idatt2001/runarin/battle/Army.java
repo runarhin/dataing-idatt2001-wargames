@@ -14,6 +14,7 @@ import java.util.stream.Collectors;
  * A class Army.
  * This class represents an army with a name and a list of warrior units.
  *
+ * @author Runar Indahl
  * @version 1.0.1
  */
 public class Army {

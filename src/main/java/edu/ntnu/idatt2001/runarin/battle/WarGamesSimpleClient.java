@@ -8,6 +8,18 @@ import edu.ntnu.idatt2001.runarin.battle.units.specialised.RangedUnit;
 import java.util.HashMap;
 import java.util.Scanner;
 
+/**
+ * This is a simple War Games-client which allows creating armies and add units to it.
+ * This task did not have a clear description and is made out of my own imagination.
+ *
+ * It can create an infinite number of armies which is added to a list of armies.
+ * A single battle between two armies can be simulated at the time, but the surviving units
+ * from the winning army can battle again against a new army.
+ *
+ *  * @author Runar Indahl
+ *  * @version 1.0.1
+ */
+
 public class WarGamesSimpleClient {
 
     private final HashMap<String, Army> armies = new HashMap<>();
@@ -20,7 +32,6 @@ public class WarGamesSimpleClient {
     private final int LIST_OF_ARMIES = 7;
     private final int START_BATTLE = 8;
     private final int EXIT = 9;
-
 
     public WarGamesSimpleClient() {
     }

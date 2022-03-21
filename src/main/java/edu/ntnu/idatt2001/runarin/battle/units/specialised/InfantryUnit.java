@@ -5,6 +5,9 @@ import edu.ntnu.idatt2001.runarin.battle.units.Unit;
 /**
  * A class for an infantry unit.
  * This is a basic melee unit with normal attack power and armor resistance.
+ *
+ *  * @author Runar Indahl
+ *  * @version 1.0.1
  */
 public class InfantryUnit extends Unit {
 
