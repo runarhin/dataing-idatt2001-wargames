@@ -1,10 +1,10 @@
-package edu.ntnu.idatt2001.runarin.battle;
+package edu.ntnu.idatt2001.runarin.backend;
 
-import edu.ntnu.idatt2001.runarin.battle.units.Unit;
-import edu.ntnu.idatt2001.runarin.battle.units.specialised.CavalryUnit;
-import edu.ntnu.idatt2001.runarin.battle.units.specialised.CommanderUnit;
-import edu.ntnu.idatt2001.runarin.battle.units.specialised.InfantryUnit;
-import edu.ntnu.idatt2001.runarin.battle.units.specialised.RangedUnit;
+import edu.ntnu.idatt2001.runarin.backend.units.Unit;
+import edu.ntnu.idatt2001.runarin.backend.units.specialised.CavalryUnit;
+import edu.ntnu.idatt2001.runarin.backend.units.specialised.CommanderUnit;
+import edu.ntnu.idatt2001.runarin.backend.units.specialised.InfantryUnit;
+import edu.ntnu.idatt2001.runarin.backend.units.specialised.RangedUnit;
 
 import java.io.*;
 import java.util.*;
@@ -116,11 +116,9 @@ public class Army {
      * @return      An ArrayList containing only infantry units.
      */
     public ArrayList<Unit> getInfantryUnits() {
-        List<Unit> infantryList
-                = units.stream()
-                        .filter(unit -> unit instanceof InfantryUnit)
-                        .collect(Collectors.toList());
-        return (ArrayList<Unit>) infantryList;
+        return units.stream()
+                .filter(unit -> unit instanceof InfantryUnit)
+                .collect(Collectors.toCollection(ArrayList::new));
     }
 
     /**
@@ -128,11 +126,9 @@ public class Army {
      * @return      An ArrayList containing only ranged units.
      */
     public ArrayList<Unit> getRangedUnits() {
-        List<Unit> rangedList
-                = units.stream()
-                        .filter(unit -> unit instanceof RangedUnit)
-                        .collect(Collectors.toList());
-        return (ArrayList<Unit>) rangedList;
+        return units.stream()
+                .filter(unit -> unit instanceof RangedUnit)
+                .collect(Collectors.toCollection(ArrayList::new));
     }
 
     /**
@@ -140,11 +136,9 @@ public class Army {
      * @return      An ArrayList containing only cavalry units.
      */
     public ArrayList<Unit> getCavalryUnits() {
-        List<Unit> cavalryList
-                = units.stream()
-                        .filter(unit -> ((unit instanceof CavalryUnit) & !(unit instanceof CommanderUnit)))
-                        .collect(Collectors.toList());
-        return (ArrayList<Unit>) cavalryList;
+        return units.stream()
+                .filter(unit -> ((unit instanceof CavalryUnit) & !(unit instanceof CommanderUnit)))
+                .collect(Collectors.toCollection(ArrayList::new));
     }
 
     /**
@@ -152,11 +146,9 @@ public class Army {
      * @return      An ArrayList containing only commander units.
      */
     public ArrayList<Unit> getCommanderUnits() {
-        List<Unit> commanderList
-                = units.stream()
+        return units.stream()
                 .filter(unit -> unit instanceof CommanderUnit)
-                .collect(Collectors.toList());
-        return (ArrayList<Unit>) commanderList;
+                .collect(Collectors.toCollection(ArrayList::new));
     }
 
     /**

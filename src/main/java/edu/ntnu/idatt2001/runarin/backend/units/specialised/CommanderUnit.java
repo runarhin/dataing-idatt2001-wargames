@@ -1,4 +1,4 @@
-package edu.ntnu.idatt2001.runarin.battle.units.specialised;
+package edu.ntnu.idatt2001.runarin.backend.units.specialised;
 
 /**
  * A class for a commander unit.

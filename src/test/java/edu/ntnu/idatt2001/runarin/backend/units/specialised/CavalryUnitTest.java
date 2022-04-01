@@ -1,4 +1,4 @@
-package edu.ntnu.idatt2001.runarin.battle.units.specialised;
+package edu.ntnu.idatt2001.runarin.backend.units.specialised;
 
 import org.junit.jupiter.api.Test;
 
@@ -12,7 +12,6 @@ public class CavalryUnitTest {
         Instantiate a unit to check its toString.
          */
         CavalryUnit testUnit = new CavalryUnit("Knight", 100);
-
         assertEquals(testUnit.toString(), "\n| Knight | HP = 100 | Attack power = 20 | Armor points = 12 |");
     }
 

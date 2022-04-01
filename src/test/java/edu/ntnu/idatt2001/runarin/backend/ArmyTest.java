@@ -1,15 +1,15 @@
-package edu.ntnu.idatt2001.runarin.battle;
+package edu.ntnu.idatt2001.runarin.backend;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 
-import edu.ntnu.idatt2001.runarin.battle.units.Unit;
-import edu.ntnu.idatt2001.runarin.battle.units.specialised.CavalryUnit;
-import edu.ntnu.idatt2001.runarin.battle.units.specialised.CommanderUnit;
-import edu.ntnu.idatt2001.runarin.battle.units.specialised.InfantryUnit;
-import edu.ntnu.idatt2001.runarin.battle.units.specialised.RangedUnit;
+import edu.ntnu.idatt2001.runarin.backend.units.Unit;
+import edu.ntnu.idatt2001.runarin.backend.units.specialised.CavalryUnit;
+import edu.ntnu.idatt2001.runarin.backend.units.specialised.CommanderUnit;
+import edu.ntnu.idatt2001.runarin.backend.units.specialised.InfantryUnit;
+import edu.ntnu.idatt2001.runarin.backend.units.specialised.RangedUnit;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
@@ -303,6 +303,7 @@ public class ArmyTest {
     public void throwsIllegalArgumentExceptionIfArmyNameIsBlank() {
         try {
             Army testArmy = new Army("  ");
+            fail();
         } catch (IllegalArgumentException e) {
             assertEquals(e.getMessage(), "Army name cannot be empty");
         }

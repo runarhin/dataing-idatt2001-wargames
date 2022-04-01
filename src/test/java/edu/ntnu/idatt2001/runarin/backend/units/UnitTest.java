@@ -1,8 +1,9 @@
-package edu.ntnu.idatt2001.runarin.battle.units;
+package edu.ntnu.idatt2001.runarin.backend.units;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.fail;
 
-import edu.ntnu.idatt2001.runarin.battle.units.specialised.InfantryUnit;
+import edu.ntnu.idatt2001.runarin.backend.units.specialised.InfantryUnit;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
@@ -16,6 +17,7 @@ public class UnitTest {
         // Instantiating a unit with no name and expect illegal argument exception message.
             try {
                 Unit someTestUnit = new InfantryUnit("", 1);
+                fail();
             } catch (IllegalArgumentException e) {
                 assertEquals(e.getMessage(), "Name of the warrior cannot be empty.");
             }
@@ -26,7 +28,7 @@ public class UnitTest {
             // Instantiating a unit with zero health and expect illegal argument exception message.
             try {
                 Unit someTestUnit = new InfantryUnit("Grunt", 0);
-
+                fail();
             } catch (IllegalArgumentException e) {
                 assertEquals(e.getMessage(), "Health points of the warrior must be above zero.");
             }
@@ -37,7 +39,7 @@ public class UnitTest {
             // Instantiating a unit with negative attack power and expect illegal argument exception message.
             try {
                 Unit someTestUnit = new InfantryUnit("Knight", 1, -1, 1);
-
+                fail();
             } catch (IllegalArgumentException e) {
                 assertEquals(e.getMessage(), "Attack power of the warrior must be above zero.");
             }
@@ -48,7 +50,7 @@ public class UnitTest {
             // Instantiating a unit with negative armor value and expect illegal argument exception message.
             try {
                 Unit someTestUnit = new InfantryUnit("Knight", 1, 1, -1);
-
+                fail();
             } catch (IllegalArgumentException e) {
                 assertEquals(e.getMessage(), "Armor points of the warrior cannot be below zero.");
             }
