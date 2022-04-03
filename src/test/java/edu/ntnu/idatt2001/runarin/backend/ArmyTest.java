@@ -5,6 +5,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import edu.ntnu.idatt2001.runarin.backend.exceptions.CorruptedFileException;
 import edu.ntnu.idatt2001.runarin.backend.units.Unit;
 import edu.ntnu.idatt2001.runarin.backend.units.specialised.CavalryUnit;
 import edu.ntnu.idatt2001.runarin.backend.units.specialised.CommanderUnit;
@@ -48,13 +49,14 @@ public class ArmyTest {
         public void writeArmyToFile() {
             /*
             This test writes information about an army to a csv-file and checks that no exceptions are thrown.
-            It Also reads the file and asserts its content.
+            Then reads the file and asserts its content.
              */
             try {
-                army.writeArmyToFile();
+                army.writeArmyToFile("src/main/resources/test-files");
 
-                String filePath = "src/main/resources/army-files/TestArmy-export.csv";
-                try (BufferedReader br = new BufferedReader((new FileReader(filePath)))) {
+                // Asserts that the content of the file written to is correct.
+                String file = "src/main/resources/test-files/TestArmy.csv";
+                try (BufferedReader br = new BufferedReader((new FileReader(file)))) {
 
                     // Iterates readLine() to the first line, then see if the file contains the correct army.
                     String line = br.readLine();
@@ -106,8 +108,8 @@ public class ArmyTest {
             try {
                 assertEquals(10, army.getAllUnits().size());
 
-                String filePath = "src/main/resources/army-files/TestArmy-import.csv";
-                army.readUnitsFileAndAddToArmy(filePath);
+                String file = "src/main/resources/test-files/TestArmy-valid.csv";
+                army.addUnitsFromFile(file);
 
                 assertEquals(19, army.getAllUnits().size());
                 assertEquals("""
@@ -133,6 +135,119 @@ public class ArmyTest {
                                 | Grunt | HP = 100 | Attack power = 15 | Armor points = 10 |]""",
                         army.getAllUnits().toString());
 
+            } catch (IOException e) {
+                assertNull(e.getMessage());
+            }
+        }
+
+        @Test
+        public void readsNonCSVFileAndIllegalArgumentExceptionIsThrown() {
+            /*
+            Test asserts that IllegalArgumentException is thrown when the parameter-file is not of .csv-format.
+             */
+            try {
+                String file = "src/main/resources/test-files/TestArmy.word";
+                army.addUnitsFromFile(file);
+                fail();
+            } catch (IllegalArgumentException e) {
+                assertEquals("Parameter 'file' must be of a .csv-format", e.getMessage());
+            } catch (IOException e) {
+                assertNull(e.getMessage());
+            }
+        }
+
+        @Test
+        public void readsCommaCorruptedFileAndCorruptedArmyFileExceptionIsThrown() {
+            /*
+            Test asserts that CorruptedArmyFileException is thrown when there is a comma missing in the file.
+             */
+            try {
+                String file = "src/main/resources/test-files/TestArmy-corrupted-comma.csv";
+                army.addUnitsFromFile(file);
+                fail();
+            } catch (CorruptedFileException cE) {
+                assertEquals("""
+                        Corrupted data in file:
+                            'src/main/resources/test-files/TestArmy-corrupted-comma.csv'
+                            In line '3': does not follow the correct format of three columns.""", cE.getMessage());
+            } catch (IOException e) {
+                assertNull(e.getMessage());
+            }
+        }
+
+        @Test
+        public void readsInvalidUnitTypeAndCorruptedArmyFileExceptionIsThrown() {
+            /*
+            Test asserts that CorruptedArmyFileException is thrown when an invalid unit type is in the file.
+             */
+            try {
+                String file = "src/main/resources/test-files/TestArmy-corrupted-unitType.csv";
+                army.addUnitsFromFile(file);
+                fail();
+            } catch (CorruptedFileException e) {
+                assertEquals("""
+                        Corrupted data in file:
+                            'src/main/resources/test-files/TestArmy-corrupted-unitType.csv'
+                            In line '2': A unit with an invalid unit type occurred in file.""", e.getMessage());
+            } catch (IOException e) {
+                assertNull(e.getMessage());
+            }
+        }
+
+        @Test
+        public void readsInvalidUnitNameAndCorruptedArmyFileExceptionIsThrown() {
+            /*
+            Test asserts that CorruptedArmyFileException is thrown when an invalid unit name is in the file.
+             */
+            try {
+                String file = "src/main/resources/test-files/TestArmy-corrupted-unitName.csv";
+                army.addUnitsFromFile(file);
+                fail();
+            } catch (CorruptedFileException e) {
+                assertEquals("""
+                        Corrupted data in file:
+                            'src/main/resources/test-files/TestArmy-corrupted-unitName.csv'
+                            In line '7': A unit with no name occurred in file.""", e.getMessage());
+            } catch (IOException e) {
+                assertNull(e.getMessage());
+            }
+        }
+
+        @Test
+        public void readsInvalidUnitHealthAndCorruptedArmyFileExceptionIsThrown() {
+            /*
+            Test asserts that CorruptedArmyFileException is thrown when an invalid unit health is in the file.
+             */
+            try {
+                String file = "src/main/resources/test-files/TestArmy-corrupted-unitHealth.csv";
+                army.addUnitsFromFile(file);
+                fail();
+            } catch (CorruptedFileException e) {
+                assertEquals("""
+                        Corrupted data in file:
+                            'src/main/resources/test-files/TestArmy-corrupted-unitHealth.csv'
+                            In line '1': A unit with invalid health occurred in file.""", e.getMessage());
+            } catch (IOException e) {
+                assertNull(e.getMessage());
+            }
+        }
+
+        @Test
+        public void readsInvalidFileAndAssertThatUnitsAreNotAddedToTheArmy() {
+            /*
+            Test asserts that units are not added to the army if the file is corrupt.
+             */
+            try {
+                assertEquals(10, army.getAllUnits().size());
+                String file = "src/main/resources/test-files/TestArmy-corrupted-unitHealth.csv";
+                army.addUnitsFromFile(file);
+                assertEquals(10, army.getAllUnits().size());
+
+            } catch (CorruptedFileException e) {
+                assertEquals("""
+                        Corrupted data in file:
+                            'src/main/resources/test-files/TestArmy-corrupted-unitHealth.csv'
+                            In line '1': A unit with invalid health occurred in file.""", e.getMessage());
             } catch (IOException e) {
                 assertNull(e.getMessage());
             }
@@ -296,7 +411,7 @@ public class ArmyTest {
     @Test
     public void accessMethodGetNameReturnExpectedName() {
         Army horde = new Army("The Horde");
-        assertEquals(horde.getName(), "The Horde");
+        assertEquals("The Horde", horde.getName());
     }
 
     @Test
@@ -305,7 +420,7 @@ public class ArmyTest {
             Army testArmy = new Army("  ");
             fail();
         } catch (IllegalArgumentException e) {
-            assertEquals(e.getMessage(), "Army name cannot be empty");
+            assertEquals("Army name cannot be empty", e.getMessage());
         }
     }
 

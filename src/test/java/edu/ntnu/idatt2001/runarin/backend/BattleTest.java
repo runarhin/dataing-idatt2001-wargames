@@ -6,10 +6,32 @@ import edu.ntnu.idatt2001.runarin.backend.units.specialised.InfantryUnit;
 import edu.ntnu.idatt2001.runarin.backend.units.specialised.RangedUnit;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class BattleTest {
+
+    @Test
+    public void constructorThrowsIllegalArgumentExceptionWhenAnArmyIsNull() {
+        try {
+            Army horde = new Army("The Horde");
+            Army alliance = new Army("The Alliance");
+            Battle grandWar = new Battle(null, alliance);
+            fail();
+        } catch (IllegalArgumentException e) {
+            assertEquals("There must be two armies as input.", e.getMessage());
+        }
+    }
+
+    @Test
+    public void constructorThrowsIllegalArgumentExceptionWhenArmyIsToBattleItself() {
+        try {
+            Army alliance = new Army("The Alliance");
+            Battle grandWar = new Battle(alliance, alliance);
+            fail();
+        } catch (IllegalArgumentException e) {
+            assertEquals("An army cannot battle itself.", e.getMessage());
+        }
+    }
 
     @Test
     public void toStringTestToCheckTotalToStringWithNameAndNumberOfUnitsAfterAddingUnitsToBothArmies() {
@@ -29,7 +51,7 @@ public class BattleTest {
         for (int i = 0; i < 3; i++) {
             alliance.addUnit(new InfantryUnit("Footman", 100));
         }
-        assertEquals(grandWar.toString(), "Battle between The Horde [3 unit(s)] and The Alliance [3 unit(s)]");
+        assertEquals("Battle between The Horde [3 unit(s)] and The Alliance [3 unit(s)]", grandWar.toString());
     }
 
     @Test
@@ -46,7 +68,7 @@ public class BattleTest {
 
         Battle grandWar = new Battle(horde, alliance);
 
-        assertEquals(grandWar.simulate().toString(), "The Horde [1 unit(s)]");
+        assertEquals("The Horde [1 unit(s)]", grandWar.simulate().toString());
     }
 
     @Test
