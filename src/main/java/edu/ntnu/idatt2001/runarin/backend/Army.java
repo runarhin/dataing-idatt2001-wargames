@@ -1,6 +1,6 @@
 package edu.ntnu.idatt2001.runarin.backend;
 
-import edu.ntnu.idatt2001.runarin.backend.exceptions.CorruptedArmyFileException;
+import edu.ntnu.idatt2001.runarin.backend.exceptions.CorruptedFileException;
 import edu.ntnu.idatt2001.runarin.backend.filehandling.FileHandler;
 import edu.ntnu.idatt2001.runarin.backend.units.Unit;
 import edu.ntnu.idatt2001.runarin.backend.units.specialised.CavalryUnit;
@@ -183,7 +183,7 @@ public class Army {
      * Reads a file containing units and adds these to the army.
      *
      * @param file path and name to where the file is stored.
-     * @throws CorruptedArmyFileException thrown if the file data is corrupted.
+     * @throws CorruptedFileException thrown if the file data is corrupted.
      * @throws IOException thrown if the file refers to the wrong army.
      */
     public void addUnitsFromFile(String file) throws IOException {
