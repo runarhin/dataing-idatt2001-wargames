@@ -14,7 +14,7 @@ import java.util.Random;
  *
  * @author Runar Indahl
  * @version 1.0
- * @since 2022-04-02
+ * @since 2022-04-03
  */
 public class Battle {
 
@@ -23,6 +23,7 @@ public class Battle {
 
     /**
      * Constructor which instantiate a Battle between two armies.
+     *
      * @param armyOne one out of two armies battling for survival.
      * @param armyTwo second out of two armies battling for survival.
      */
@@ -162,6 +163,7 @@ public class Battle {
 
     /**
      * toString-method which return the names of the two clashing armies.
+     *
      * @return names of the battling armies.
      */
     @Override

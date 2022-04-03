@@ -17,7 +17,7 @@ public class CorruptedFileException extends IOException {
      * Instantiates a new CorruptFileException-object inherited by IOException super class.
      * Specialises the Exception message.
      *
-     * @param message Message from the super class, IOException.
+     * @param message message from the super class, IOException.
      */
     public CorruptedFileException(String message) {
         super(message);

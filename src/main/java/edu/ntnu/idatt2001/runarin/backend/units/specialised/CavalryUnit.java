@@ -7,7 +7,8 @@ import edu.ntnu.idatt2001.runarin.backend.units.Unit;
  * This is a unit with relatively high attack power and also comes with a charge ability.
  *
  * @author Runar Indahl
- * @version 1.0.1
+ * @version 1.0
+ * @since 2022-04-03
  */
 
 public class CavalryUnit extends Unit {
@@ -20,10 +21,11 @@ public class CavalryUnit extends Unit {
 
     /**
      * Constructor for instantiation of the CavalryUnit class.
-     * @param name      Description of the type of warrior; Archer, Swordsman, etc.
-     * @param health    Number of remaining health points for the warrior. Value is decreased when taking damage.
-     * @param attack    Attack points the warrior inflicts to an opponent (weapon damage).
-     * @param armor     Armor points which decreases the damage taken from an opponent.
+     *
+     * @param name description of the type of warrior; Archer, Swordsman, etc.
+     * @param health number of remaining health points for the warrior. Value is decreased when taking damage.
+     * @param attack attack points the warrior inflicts to an opponent (weapon damage).
+     * @param armor armor points which decreases the damage taken from an opponent.
      */
     public CavalryUnit(String name, int health, int attack, int armor) {
         super(name, health, attack, armor);
@@ -31,17 +33,19 @@ public class CavalryUnit extends Unit {
 
     /**
      * Simplified constructor for instantiation of the CavalryUnit class.
-     * @param name      Description of the type of warrior; Archer, Swordsman, etc.
-     * @param health    Number of remaining health points for the warrior. Value is decreased when taking damage.
+     *
+     * @param name description of the type of warrior; Archer, Swordsman, etc.
+     * @param health number of remaining health points for the warrior. Value is decreased when taking damage.
      */
     public CavalryUnit(String name, int health) {
         super(name, health, 20, 12);
     }
 
     /**
-     * Method that gives an indication whether the charge ability is available or not.
+     * Returns boolean whether the charge ability is available or not.
      * The attack bonus will change as the cavalry unit have ont attacked a target before.
-     * @return      Value of the attack bonus for a cavalry unit.
+     *
+     * @return value of the attack bonus for a cavalry unit.
      */
     @Override
     public int getAttackBonus() {
@@ -56,7 +60,7 @@ public class CavalryUnit extends Unit {
     }
 
     /**
-     * Method which resets the charge ability for a cavalry unit when its opponent dies.
+     * Resets the charge ability for a cavalry unit when its opponent dies.
      * Used to indicate that the cavalry unit can use the charge ability again,
      * and against a new opponent at a distance.
      */
@@ -65,8 +69,9 @@ public class CavalryUnit extends Unit {
     }
 
     /**
-     * Method that returns the resist bonus value.
-     * @return      Value of the resist bonus for a cavalry unit.
+     * Returns the resist bonus value.
+     *
+     * @return value of the resist bonus for a cavalry unit.
      */
     @Override
     public int getResistBonus() {

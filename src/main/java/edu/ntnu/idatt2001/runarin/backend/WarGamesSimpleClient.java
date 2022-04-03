@@ -17,7 +17,8 @@ import java.util.Scanner;
  * from the winning army can battle again against a new army.
  *
  * @author Runar Indahl
- * @version 1.0.1
+ * @version 1.0
+ * @since 2022-03-06
  */
 
 public class WarGamesSimpleClient {

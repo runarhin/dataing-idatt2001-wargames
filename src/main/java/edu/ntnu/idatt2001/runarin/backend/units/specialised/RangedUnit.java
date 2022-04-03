@@ -8,7 +8,8 @@ import edu.ntnu.idatt2001.runarin.backend.units.Unit;
  * It has a benefit of attacking from a range, and therefore takes less damage the first two times it is attacked.
  *
  * @author Runar Indahl
- * @version 1.0.1
+ * @version 1.0
+ * @since 2022-04-03
  */
 public class RangedUnit extends Unit {
 
@@ -21,10 +22,11 @@ public class RangedUnit extends Unit {
 
     /**
      * Constructor for instantiation of the RangedUnit class.
-     * @param name      Description of the type of warrior; Archer, Swordsman, etc.
-     * @param health    Number of remaining health points for the warrior. Value is decreased when taking damage.
-     * @param attack    Attack points the warrior inflicts to an opponent (weapon damage).
-     * @param armor     Armor points which decreases the damage taken from an opponent.
+     *
+     * @param name description of the type of warrior; Archer, Swordsman, etc.
+     * @param health number of remaining health points for the warrior. Value is decreased when taking damage.
+     * @param attack attack points the warrior inflicts to an opponent (weapon damage).
+     * @param armor armor points which decreases the damage taken from an opponent.
      */
     public RangedUnit(String name, int health, int attack, int armor) {
         super(name, health, attack, armor);
@@ -32,17 +34,19 @@ public class RangedUnit extends Unit {
 
     /**
      * Simplified constructor for instantiation of the RangedUnit class.
-     * @param name      Description of the type of warrior; Archer, Swordsman, etc.
-     * @param health    Number of remaining health points for the warrior. Value is decreased when taking damage.
+     *
+     * @param name description of the type of warrior; Archer, Swordsman, etc.
+     * @param health number of remaining health points for the warrior. Value is decreased when taking damage.
      */
     public RangedUnit(String name, int health) {
         super(name, health,15,8);
     }
 
     /**
-     * Method that returns the attack bonus value.
+     * Returns the attack bonus value.
      * This value is used in the parent class method attack(Unit opponent).
-     * @return      Value of the attack bonus for a ranged unit.
+     *
+     * @return value of the attack bonus for a ranged unit.
      */
     @Override
     public int getAttackBonus() {
@@ -50,10 +54,11 @@ public class RangedUnit extends Unit {
     }
 
     /**
-     * Method that returns the resist bonus value.
+     * Returns the resist bonus value.
      * The resist bonus will change as the range between the attacking and the attacked unit decreases.
      * This value is used in the parent class method attack(Unit opponent) for the attacking unit.
-     * @return      Value of the resist bonus for a ranged unit.
+     *
+     * @return value of the resist bonus for a ranged unit.
      */
     @Override
     public int getResistBonus() {
@@ -71,7 +76,7 @@ public class RangedUnit extends Unit {
     }
 
     /**
-     * Method which resets that the ranged unit is attacked.
+     * Resets that the ranged unit is attacked.
      * Used to indicate that the ranged unit have killed its resent opponent and refreshes
      * its range to the new attacking opponent.
      */

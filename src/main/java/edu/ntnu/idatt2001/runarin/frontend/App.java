@@ -16,7 +16,7 @@ import javafx.stage.Stage;
 
 public class App extends Application {
 
-    private static final String VERSION = "1.0.1";
+    private static final String VERSION = "1.0";
 
     @Override
     public void init() throws Exception {

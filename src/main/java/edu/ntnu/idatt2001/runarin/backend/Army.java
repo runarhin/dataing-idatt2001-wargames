@@ -28,7 +28,7 @@ public class Army {
     /**
      * Constructor for instantiation the class Army with a given Hashmap list of units.
      *
-     * @param name Name of the faction army.
+     * @param name name of the faction army.
      * @param units units in the army; Footmen, raiders, knights, etc.
      */
     public Army(String name, ArrayList<Unit> units) {
@@ -194,6 +194,7 @@ public class Army {
     /**
      * Finds a random number within the range of the units ArrayList and
      * thereafter finds a random unit by index.
+     *
      * @return random unit in the units ArrayList.
      */
     public Unit getRandom() {
@@ -205,6 +206,7 @@ public class Army {
 
     /**
      * Returns the name and the number of units of a mighty army.
+     *
      * @return army name and its size.
      */
     @Override
@@ -214,6 +216,7 @@ public class Army {
 
     /**
      * Checks if an army-object is the same object another army-object.
+     *
      * @param o object to be compared to.
      * @return true if the two objects are the same. False if not.
      */
@@ -226,6 +229,7 @@ public class Army {
 
     /**
      * Returns the HashCode of an object.
+     *
      * @return int value of the HashCode.
      */
     @Override
