@@ -1,4 +1,4 @@
-package edu.ntnu.idatt2001.runarin.backend;
+package edu.ntnu.idatt2001.runarin.backend.units;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
