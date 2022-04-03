@@ -1,5 +1,7 @@
 package edu.ntnu.idatt2001.runarin.backend;
 
+import edu.ntnu.idatt2001.runarin.backend.exceptions.CorruptedArmyFileException;
+import edu.ntnu.idatt2001.runarin.backend.filehandling.FileHandler;
 import edu.ntnu.idatt2001.runarin.backend.units.Unit;
 import edu.ntnu.idatt2001.runarin.backend.units.specialised.CavalryUnit;
 import edu.ntnu.idatt2001.runarin.backend.units.specialised.CommanderUnit;
@@ -15,21 +17,22 @@ import java.util.stream.Collectors;
  * This class represents an army with a name and a list of warrior units.
  *
  * @author Runar Indahl
- * @version 1.0.1
+ * @version 1.0
+ * @since 2022-04-02
  */
 public class Army {
 
     private final String name;
-    private ArrayList<Unit> units;
+    private final ArrayList<Unit> units;
 
     /**
      * Constructor for instantiation the class Army with a given Hashmap list of units.
-     * @param name      Name of the faction army.
-     * @param units     Units in the army; Footmen, raiders, knights, etc.
+     *
+     * @param name Name of the faction army.
+     * @param units units in the army; Footmen, raiders, knights, etc.
      */
     public Army(String name, ArrayList<Unit> units) {
         if (name.isEmpty() || name.isBlank()) throw new IllegalArgumentException("Army name cannot be empty");
-
         this.name = name;
         this.units = units;
     }
@@ -37,60 +40,64 @@ public class Army {
     /**
      * Constructor for instantiation the class Army.
      * This simplified Army class initialises a HashMap list for containing all units in an army.
-     * @param name      Name of the faction army.
+     *
+     * @param name name of the faction army.
      */
     public Army(String name) {
         if (name.isEmpty() || name.isBlank()) throw new IllegalArgumentException("Army name cannot be empty");
-
         this.name = name;
         this.units = new ArrayList<>();
     }
 
     /**
-     * Get-method that returns the name of the army.
-     * @return      Name of the army.
+     * Returns the name of the army.
+     *
+     * @return name of the army.
      */
     public String getName() {
         return name;
     }
 
     /**
-     * Method that adds a unit to the army list.
-     * @param unit      Single unit to be added to the army.
+     * Adds a unit to the army list.
+     *
+     * @param unit single unit to be added to the army.
      */
-    public boolean addUnit(Unit unit) {
-        return units.add(unit);
+    public void addUnit(Unit unit) {
+        units.add(unit);
     }
 
     /**
-     * Method that adds a number of units to the army list.
-     * @param unitsInput    A list of units to add to army.
+     * Adds a number of units to the army list.
+     *
+     * @param unitsInput list of units to add to army.
      */
-    public boolean addUnitsFromList(ArrayList<Unit> unitsInput) {
-        return units.addAll(unitsInput);
+    public void addUnitsFromList(ArrayList<Unit> unitsInput) {
+        units.addAll(unitsInput);
     }
 
     /**
-     * Method which deletes a unit from the army list.
-     * @param unit      A unit to be removed from the army list.
+     * Deletes a unit from the army list.
+     *
+     * @param unit a unit to be removed from the army list.
      */
-    public boolean remove(Unit unit) {
-        if (units.contains(unit)) {
-            return units.remove(unit);
-        } else return false;
+    public void remove(Unit unit) {
+        units.remove(unit);
     }
 
     /**
-     * Method that gives an indication whether the units-list contains units or not.
-     * @return      false if the list is empty. true if the army list contains units.
+     * Returns an indication whether the units-list contains units or not.
+     *
+     * @return false if the list is empty. true if the army list contains units.
      */
     public boolean hasUnits() {
         return !units.isEmpty();
     }
 
     /**
-     * Method that returns a deep copy of an armies unit list.
-     * @return      ArrayList containing all units enlisted.
+     * Returns a deep copy of an armies unit list.
+     *
+     * @return ArrayList containing all units enlisted.
      */
     public ArrayList<Unit> getAllUnits() {
         ArrayList<Unit> newArrayList = new ArrayList<>();
@@ -112,8 +119,10 @@ public class Army {
     }
 
     /**
-     * Method which streams through the army's units list and filter on instances of infantry units.
-     * @return      An ArrayList containing only infantry units.
+     * Returns ArrayList<InfantryUnit>.
+     * Streams through the army's units list and filter on instances of infantry units.
+     *
+     * @return ArrayList containing only infantry units.
      */
     public ArrayList<Unit> getInfantryUnits() {
         return units.stream()
@@ -122,8 +131,9 @@ public class Army {
     }
 
     /**
-     * Method which streams through the army's units list and filter on instances of ranged units.
-     * @return      An ArrayList containing only ranged units.
+     * Returns ArrayList<RangedUnit>.
+     * Streams through the army's units list and filter on instances of ranged units.
+     * @return ArrayList containing only ranged units.
      */
     public ArrayList<Unit> getRangedUnits() {
         return units.stream()
@@ -132,8 +142,10 @@ public class Army {
     }
 
     /**
-     * Method which streams through the army's units list and filter on instances of cavalry units.
-     * @return      An ArrayList containing only cavalry units.
+     * Returns ArrayList<CavalryUnit>.
+     * Streams through the army's units list and filter on instances of cavalry units.
+     *
+     * @return ArrayList containing only cavalry units.
      */
     public ArrayList<Unit> getCavalryUnits() {
         return units.stream()
@@ -142,8 +154,10 @@ public class Army {
     }
 
     /**
-     * Method which streams through the army's units list and filter on instances of commander units.
-     * @return      An ArrayList containing only commander units.
+     * Returns ArrayList<CommanderUnit>.
+     * Streams through the army's units list and filter on instances of commander units.
+     *
+     * @return ArrayList containing only commander units.
      */
     public ArrayList<Unit> getCommanderUnits() {
         return units.stream()
@@ -152,86 +166,35 @@ public class Army {
     }
 
     /**
-     * Method which writes information about the army and its units to a csv file
-     * to path: src/main/resources/army-files/
+     * Creates a new, or writes to existing, csv.-file information
+     * about the army and its units to a wanted location.
      * The file name is the same as the army's name.
-     * @throws      IOException if error occurs.
+     *
+     * @param filePath path to where the file is to be stored. The file-name
+     *                 itself is self-generated based on the army name.
+     * @throws IOException thrown from FileWriter-object in the FileHandler-class.
+     * @see FileHandler
      */
-    public void writeArmyToFile() throws IOException {
-
-        String csvFile = "src/main/resources/army-files/" + name.replace(" ", "") + "-export.csv";
-        File file = new File(csvFile);
-        FileWriter fw = new FileWriter(file);
-        BufferedWriter bw = new BufferedWriter(fw);
-
-        // Writes the army name to the file.
-        bw.write(name);
-        bw.newLine();
-
-        // Writes all the specialised units to the file.
-        for (int i = 0; i < getCommanderUnits().size(); i++) {
-            bw.write("CommanderUnit" + ","
-                    + getCommanderUnits().get(i).getName() + ","
-                    + getCommanderUnits().get(i).getHealth());
-            bw.newLine();
-        }
-        for (int i = 0; i < getCavalryUnits().size(); i++) {
-            bw.write("CavalryUnit" + ","
-                    + getCavalryUnits().get(i).getName() + ","
-                    + getCavalryUnits().get(i).getHealth());
-            bw.newLine();
-        }
-        for (int i = 0; i < getRangedUnits().size(); i++) {
-            bw.write("RangedUnit" + ","
-                    + getRangedUnits().get(i).getName() + ","
-                    + getRangedUnits().get(i).getHealth());
-            bw.newLine();
-        }
-        for (int i = 0; i < getInfantryUnits().size(); i++) {
-            bw.write("InfantryUnit" + ","
-                    + getInfantryUnits().get(i).getName() + ","
-                    + getInfantryUnits().get(i).getHealth());
-            bw.newLine();
-        }
-        bw.close();
-        fw.close();
+    public void writeArmyToFile(String filePath) throws IOException {
+        FileHandler.writeArmyToFile(this, filePath);
     }
 
     /**
-     * Method which reads a file containing units and adds these units if they coherce with the correct army.
-     * @param filePath      Filepath and file name to where the file is stored.
-     * @throws IOException  Throws IOException if the army name is different in the import file to the Army object.
+     * Reads a file containing units and adds these to the army.
+     *
+     * @param file path and name to where the file is stored.
+     * @throws CorruptedArmyFileException thrown if the file data is corrupted.
+     * @throws IOException thrown if the file refers to the wrong army.
      */
-    public void readUnitsFileAndAddToArmy(String filePath) throws IOException {
-
-        try (BufferedReader br = new BufferedReader((new FileReader(filePath)))) {
-
-            // Iterates readLine() to the first line, then see if the file contains the correct army.
-            String line = br.readLine();
-            if (!line.equals(name)) throw new IOException("File refers to wrong army.");
-
-            // readLine() then iterates from line 2.
-            while ((line = br.readLine()) != null) {
-
-                String[] unit = line.split(",");
-                String unitType = unit[0];
-                String unitName = unit[1];
-                int unitHealth = Integer.parseInt(unit[2]);
-
-                switch (unitType) {
-                    case "CommanderUnit" -> units.add(new CommanderUnit(unitName, unitHealth));
-                    case "CavalryUnit" -> units.add(new CavalryUnit(unitName, unitHealth));
-                    case "RangedUnit" -> units.add(new RangedUnit(unitName, unitHealth));
-                    case "InfantryUnit" -> units.add(new InfantryUnit(unitName, unitHealth));
-                }
-            }
-        }
+    public void addUnitsFromFile(String file) throws IOException {
+        ArrayList<Unit> importUnitsList = FileHandler.readArmyFromFile(this, file);
+        units.addAll(importUnitsList);
     }
 
     /**
-     * Method that finds a random number within the range of the units ArrayList and
+     * Finds a random number within the range of the units ArrayList and
      * thereafter finds a random unit by index.
-     * @return      Random unit in the units ArrayList.
+     * @return random unit in the units ArrayList.
      */
     public Unit getRandom() {
         Random rand = new Random();
@@ -241,8 +204,8 @@ public class Army {
     }
 
     /**
-     * toString-method that returns the name and the number of units of a mighty army.
-     * @return      Army name and its size.
+     * Returns the name and the number of units of a mighty army.
+     * @return army name and its size.
      */
     @Override
     public String toString() {
@@ -250,9 +213,9 @@ public class Army {
     }
 
     /**
-     * Method that checks if an army-object is the same object another army-object.
-     * @param o     Object to be compared to.
-     * @return      True if the two objects are the same. False if not.
+     * Checks if an army-object is the same object another army-object.
+     * @param o object to be compared to.
+     * @return true if the two objects are the same. False if not.
      */
     @Override
     public boolean equals(Object o) {
@@ -262,8 +225,8 @@ public class Army {
     }
 
     /**
-     * Method that returns the HashCode of an object.
-     * @return      Int value of the HashCode.
+     * Returns the HashCode of an object.
+     * @return int value of the HashCode.
      */
     @Override
     public int hashCode() {
