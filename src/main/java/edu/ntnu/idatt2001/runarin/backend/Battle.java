@@ -13,31 +13,35 @@ import java.util.Random;
  * This class represents a battle between two armies.
  *
  * @author Runar Indahl
- * @version 1.0.1
+ * @version 1.0
+ * @since 2022-04-02
  */
 public class Battle {
 
-    private Army armyOne;
-    private Army armyTwo;
+    private final Army armyOne;
+    private final Army armyTwo;
 
     /**
      * Constructor which instantiate a Battle between two armies.
-     * @param armyOne   One out of two armies battling for survival.
-     * @param armyTwo   Second out of two armies battling for survival.
+     * @param armyOne one out of two armies battling for survival.
+     * @param armyTwo second out of two armies battling for survival.
      */
     public Battle(Army armyOne, Army armyTwo) {
+        if (armyOne == null || armyTwo == null) throw new IllegalArgumentException("There must be two armies as input.");
+        if (armyOne.equals(armyTwo)) throw new IllegalArgumentException("An army cannot battle itself.");
         this.armyOne = armyOne;
         this.armyTwo = armyTwo;
     }
 
     /**
-     * Method which simulates a battle between two armies.
-     * The method randomises which warrior to attack first, to remove the advantage
-     * of being the first army to strike. When a warrior dies, it is removed from the armies ArrayList.
-     *
+     * Simulates a battle between two armies.
+     * The method randomises which warrior to attack first for every round.
+     * When a warrior dies, it is removed from the armies ArrayList and is
+     * replaced by a new warrior.
+     * The simulation progresses until an army has no units left.
      * The battle is logged to the file BattleLog.txt.
      *
-     * @return      The name of the winning army.
+     * @return the name of the winning army.
      */
     public Army simulate() {
         int roundCount = 0;
@@ -158,7 +162,7 @@ public class Battle {
 
     /**
      * toString-method which return the names of the two clashing armies.
-     * @return      Names of the battling armies.
+     * @return names of the battling armies.
      */
     @Override
     public String toString() {
