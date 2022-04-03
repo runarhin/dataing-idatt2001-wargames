@@ -1,18 +1,18 @@
 
 Round 1
     Gul'dan [9000 HP] against Footman [100 HP]
-        Gul'dan [9000 HP] strikes and deals 20 damage to Footman [100 HP][-20 HP]
-        Footman [80 HP] then deals 1 damage to Gul'dan [9000 HP][-1 HP]
+        Footman [100 HP] strikes and deals 1 damage to Gul'dan [9000 HP][-1 HP]
+        Gul'dan [8999 HP] then deals 20 damage to Footman [100 HP][-20 HP]
 
 Round 2
     Gul'dan [8999 HP] against Footman [80 HP]
-        Gul'dan [8999 HP] strikes and deals 16 damage to Footman [80 HP][-16 HP]
-        Footman [64 HP] then deals 1 damage to Gul'dan [8999 HP][-1 HP]
+        Footman [80 HP] strikes and deals 1 damage to Gul'dan [8999 HP][-1 HP]
+        Gul'dan [8998 HP] then deals 16 damage to Footman [80 HP][-16 HP]
 
 Round 3
     Gul'dan [8998 HP] against Footman [64 HP]
-        Footman [64 HP] strikes and deals 1 damage to Gul'dan [8998 HP][-1 HP]
-        Gul'dan [8997 HP] then deals 16 damage to Footman [64 HP][-16 HP]
+        Gul'dan [8998 HP] strikes and deals 16 damage to Footman [64 HP][-16 HP]
+        Footman [48 HP] then deals 1 damage to Gul'dan [8998 HP][-1 HP]
 
 Round 4
     Gul'dan [8997 HP] against Footman [48 HP]

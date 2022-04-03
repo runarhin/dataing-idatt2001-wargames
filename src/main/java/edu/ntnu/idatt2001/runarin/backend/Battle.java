@@ -1,5 +1,6 @@
 package edu.ntnu.idatt2001.runarin.backend;
 
+import edu.ntnu.idatt2001.runarin.backend.units.Army;
 import edu.ntnu.idatt2001.runarin.backend.units.specialised.CavalryUnit;
 import edu.ntnu.idatt2001.runarin.backend.units.specialised.RangedUnit;
 import edu.ntnu.idatt2001.runarin.backend.units.Unit;

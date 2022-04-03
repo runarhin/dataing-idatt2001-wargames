@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 import edu.ntnu.idatt2001.runarin.backend.exceptions.CorruptedFileException;
+import edu.ntnu.idatt2001.runarin.backend.units.Army;
 import edu.ntnu.idatt2001.runarin.backend.units.Unit;
 import edu.ntnu.idatt2001.runarin.backend.units.specialised.CavalryUnit;
 import edu.ntnu.idatt2001.runarin.backend.units.specialised.CommanderUnit;

@@ -1,6 +1,6 @@
 package edu.ntnu.idatt2001.runarin.backend.filehandling;
 
-import edu.ntnu.idatt2001.runarin.backend.Army;
+import edu.ntnu.idatt2001.runarin.backend.units.Army;
 import edu.ntnu.idatt2001.runarin.backend.exceptions.CorruptedFileException;
 import edu.ntnu.idatt2001.runarin.backend.units.Unit;
 import edu.ntnu.idatt2001.runarin.backend.units.specialised.CavalryUnit;
