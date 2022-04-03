@@ -1,7 +1,7 @@
 package edu.ntnu.idatt2001.runarin.backend.filehandling;
 
 import edu.ntnu.idatt2001.runarin.backend.Army;
-import edu.ntnu.idatt2001.runarin.backend.exceptions.CorruptedArmyFileException;
+import edu.ntnu.idatt2001.runarin.backend.exceptions.CorruptedFileException;
 import edu.ntnu.idatt2001.runarin.backend.units.Unit;
 import edu.ntnu.idatt2001.runarin.backend.units.specialised.CavalryUnit;
 import edu.ntnu.idatt2001.runarin.backend.units.specialised.CommanderUnit;
@@ -77,7 +77,7 @@ public class FileHandler {
      * Only returns units to the list if there are no corruptions in the file.
      *
      * @param file Path and name to the file to be read.
-     * @throws CorruptedArmyFileException Throws exception if the file data is corrupted.
+     * @throws CorruptedFileException Throws exception if the file data is corrupted.
      */
     public static ArrayList<Unit> readArmyFromFile(Army army, String file) throws IOException {
         if (army == null) throw new IllegalArgumentException("Parameter for Army class is missing.");
@@ -98,7 +98,7 @@ public class FileHandler {
 
                 String[] unit = line.split(",");
                 if (unit.length != 3)
-                    throw new CorruptedArmyFileException("Corrupted data in file:\n    '" + file +
+                    throw new CorruptedFileException("Corrupted data in file:\n    '" + file +
                             "'\n    In line '" + i + "': does not follow the correct format of three columns.");
 
                 String unitType = unit[0];
@@ -107,13 +107,13 @@ public class FileHandler {
 
                 if (!(unitType.contains("CommanderUnit") || unitType.contains("CavalryUnit")
                         || unitType.contains("RangedUnit") || unitType.contains("InfantryUnit")))
-                    throw new CorruptedArmyFileException("Corrupted data in file:\n    '" + file +
+                    throw new CorruptedFileException("Corrupted data in file:\n    '" + file +
                             "'\n    In line '" + i + "': A unit with an invalid unit type occurred in file.");
                 if (unitName.isBlank())
-                    throw new CorruptedArmyFileException("Corrupted data in file:\n    '" + file +
+                    throw new CorruptedFileException("Corrupted data in file:\n    '" + file +
                             "'\n    In line '" + i + "': A unit with no name occurred in file.");
                 if (unitHealth <= 0)
-                    throw new CorruptedArmyFileException("Corrupted data in file:\n    '" + file +
+                    throw new CorruptedFileException("Corrupted data in file:\n    '" + file +
                             "'\n    In line '" + i + "': A unit with invalid health occurred in file.");
 
                 switch (unitType) {
