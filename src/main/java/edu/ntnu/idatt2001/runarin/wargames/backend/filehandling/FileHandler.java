@@ -16,7 +16,7 @@ import java.util.ArrayList;
  *
  * @author Runar Indahl
  * @version 1.0
- * @since 2022-04-03
+ * @since 2022-04-11
  */
 public class FileHandler {
 

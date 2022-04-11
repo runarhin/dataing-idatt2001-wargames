@@ -18,7 +18,7 @@ import java.util.stream.Collectors;
  *
  * @author Runar Indahl
  * @version 1.0
- * @since 2022-04-02
+ * @since 2022-04-11
  */
 public class Army {
 
