@@ -1,6 +1,6 @@
-package edu.ntnu.idatt2001.runarin.backend.units.specialised;
+package edu.ntnu.idatt2001.runarin.wargames.backend.units.specialised;
 
-import edu.ntnu.idatt2001.runarin.backend.units.Unit;
+import edu.ntnu.idatt2001.runarin.wargames.backend.units.Unit;
 
 /**
  * A class for a cavalry unit.

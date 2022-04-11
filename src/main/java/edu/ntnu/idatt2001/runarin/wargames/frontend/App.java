@@ -1,6 +1,6 @@
-package edu.ntnu.idatt2001.runarin.frontend;
+package edu.ntnu.idatt2001.runarin.wargames.frontend;
 
-import edu.ntnu.idatt2001.runarin.backend.units.Unit;
+import edu.ntnu.idatt2001.runarin.wargames.backend.units.Unit;
 import javafx.application.Application;
 import javafx.geometry.HPos;
 import javafx.geometry.Insets;

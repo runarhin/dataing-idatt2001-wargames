@@ -1,9 +1,8 @@
-package edu.ntnu.idatt2001.runarin.backend;
+package edu.ntnu.idatt2001.runarin.wargames.backend.armies;
 
-import edu.ntnu.idatt2001.runarin.backend.units.Army;
-import edu.ntnu.idatt2001.runarin.backend.units.specialised.CavalryUnit;
-import edu.ntnu.idatt2001.runarin.backend.units.specialised.RangedUnit;
-import edu.ntnu.idatt2001.runarin.backend.units.Unit;
+import edu.ntnu.idatt2001.runarin.wargames.backend.units.specialised.CavalryUnit;
+import edu.ntnu.idatt2001.runarin.wargames.backend.units.specialised.RangedUnit;
+import edu.ntnu.idatt2001.runarin.wargames.backend.units.Unit;
 
 import java.io.FileNotFoundException;
 import java.io.PrintStream;

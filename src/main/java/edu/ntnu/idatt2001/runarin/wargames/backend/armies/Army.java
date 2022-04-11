@@ -1,11 +1,12 @@
-package edu.ntnu.idatt2001.runarin.backend.units;
+package edu.ntnu.idatt2001.runarin.wargames.backend.armies;
 
-import edu.ntnu.idatt2001.runarin.backend.exceptions.CorruptedFileException;
-import edu.ntnu.idatt2001.runarin.backend.filehandling.FileHandler;
-import edu.ntnu.idatt2001.runarin.backend.units.specialised.CavalryUnit;
-import edu.ntnu.idatt2001.runarin.backend.units.specialised.CommanderUnit;
-import edu.ntnu.idatt2001.runarin.backend.units.specialised.InfantryUnit;
-import edu.ntnu.idatt2001.runarin.backend.units.specialised.RangedUnit;
+import edu.ntnu.idatt2001.runarin.wargames.backend.exceptions.CorruptedFileException;
+import edu.ntnu.idatt2001.runarin.wargames.backend.filehandling.FileHandler;
+import edu.ntnu.idatt2001.runarin.wargames.backend.units.Unit;
+import edu.ntnu.idatt2001.runarin.wargames.backend.units.specialised.CavalryUnit;
+import edu.ntnu.idatt2001.runarin.wargames.backend.units.specialised.CommanderUnit;
+import edu.ntnu.idatt2001.runarin.wargames.backend.units.specialised.InfantryUnit;
+import edu.ntnu.idatt2001.runarin.wargames.backend.units.specialised.RangedUnit;
 
 import java.io.*;
 import java.util.*;

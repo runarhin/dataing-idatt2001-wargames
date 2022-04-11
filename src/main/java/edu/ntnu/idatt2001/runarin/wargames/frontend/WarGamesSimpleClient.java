@@ -1,10 +1,11 @@
-package edu.ntnu.idatt2001.runarin.backend;
+package edu.ntnu.idatt2001.runarin.wargames.frontend;
 
-import edu.ntnu.idatt2001.runarin.backend.units.Army;
-import edu.ntnu.idatt2001.runarin.backend.units.specialised.CavalryUnit;
-import edu.ntnu.idatt2001.runarin.backend.units.specialised.CommanderUnit;
-import edu.ntnu.idatt2001.runarin.backend.units.specialised.InfantryUnit;
-import edu.ntnu.idatt2001.runarin.backend.units.specialised.RangedUnit;
+import edu.ntnu.idatt2001.runarin.wargames.backend.armies.Army;
+import edu.ntnu.idatt2001.runarin.wargames.backend.armies.Battle;
+import edu.ntnu.idatt2001.runarin.wargames.backend.units.specialised.CavalryUnit;
+import edu.ntnu.idatt2001.runarin.wargames.backend.units.specialised.CommanderUnit;
+import edu.ntnu.idatt2001.runarin.wargames.backend.units.specialised.InfantryUnit;
+import edu.ntnu.idatt2001.runarin.wargames.backend.units.specialised.RangedUnit;
 
 import java.util.HashMap;
 import java.util.Scanner;

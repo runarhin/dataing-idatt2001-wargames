@@ -1,4 +1,4 @@
-package edu.ntnu.idatt2001.runarin.backend.exceptions;
+package edu.ntnu.idatt2001.runarin.wargames.backend.exceptions;
 
 import java.io.IOException;
 
