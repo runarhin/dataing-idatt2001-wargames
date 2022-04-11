@@ -100,22 +100,22 @@ public class Army {
      * @return ArrayList containing all units enlisted.
      */
     public ArrayList<Unit> getAllUnits() {
-        ArrayList<Unit> newArrayList = new ArrayList<>();
-        for (Unit u : units) {
-            if (u instanceof InfantryUnit) {
-                newArrayList.add(new InfantryUnit(u.getName(),u.getHealth(),u.getAttack(), u.getArmor()));
-            }
-            else if (u instanceof RangedUnit) {
-                newArrayList.add(new RangedUnit(u.getName(),u.getHealth(),u.getAttack(), u.getArmor()));
-            }
-            else if (u instanceof CommanderUnit) {
-                newArrayList.add(new CommanderUnit(u.getName(),u.getHealth(),u.getAttack(), u.getArmor()));
+        ArrayList<Unit> newUnitsList = new ArrayList<>();
+        for (Unit u : this.units) {
+            if (u instanceof CommanderUnit) {
+                newUnitsList.add(new CommanderUnit(u.getName(),u.getHealth(),u.getAttack(), u.getArmor()));
             }
             else if (u instanceof CavalryUnit) {
-                newArrayList.add(new CavalryUnit(u.getName(),u.getHealth(),u.getAttack(), u.getArmor()));
+                newUnitsList.add(new CavalryUnit(u.getName(),u.getHealth(),u.getAttack(), u.getArmor()));
+            }
+            else if (u instanceof RangedUnit) {
+                newUnitsList.add(new RangedUnit(u.getName(),u.getHealth(),u.getAttack(), u.getArmor()));
+            }
+            else if (u instanceof InfantryUnit) {
+                newUnitsList.add(new InfantryUnit(u.getName(),u.getHealth(),u.getAttack(), u.getArmor()));
             }
         }
-        return newArrayList;
+        return newUnitsList;
     }
 
     /**
