@@ -33,6 +33,11 @@ public class FileHandler {
     public static void writeArmyToFile(Army army, String filePath) throws IOException {
         if (army == null) throw new IllegalArgumentException("Parameter for Army class is missing.");
 
+        ArrayList<Unit> units = new ArrayList<>(army.getCommanderUnits());
+        units.addAll(army.getCavalryUnits());
+        units.addAll(army.getRangedUnits());
+        units.addAll(army.getInfantryUnits());
+
         String csvFile = filePath + "/" + army.getName().replace(" ", "") + ".csv";
         File file = new File(csvFile);
         FileWriter fw = new FileWriter(file);
@@ -43,29 +48,20 @@ public class FileHandler {
         bw.newLine();
 
         // Writes all the specialised units to the file.
-        for (int i = 0; i < army.getCommanderUnits().size(); i++) {
-            bw.write("CommanderUnit" + ","
-                    + army.getCommanderUnits().get(i).getName() + ","
-                    + army.getCommanderUnits().get(i).getHealth());
-            bw.newLine();
-        }
-        for (int i = 0; i < army.getCavalryUnits().size(); i++) {
-            bw.write("CavalryUnit" + ","
-                    + army.getCavalryUnits().get(i).getName() + ","
-                    + army.getCavalryUnits().get(i).getHealth());
-            bw.newLine();
-        }
-        for (int i = 0; i < army.getRangedUnits().size(); i++) {
-            bw.write("RangedUnit" + ","
-                    + army.getRangedUnits().get(i).getName() + ","
-                    + army.getRangedUnits().get(i).getHealth());
-            bw.newLine();
-        }
-        for (int i = 0; i < army.getInfantryUnits().size(); i++) {
-            bw.write("InfantryUnit" + ","
-                    + army.getInfantryUnits().get(i).getName() + ","
-                    + army.getInfantryUnits().get(i).getHealth());
-            bw.newLine();
+        for (Unit unit : units) {
+            if (unit instanceof CommanderUnit) {
+                bw.write("CommanderUnit" + "," + unit.getName() + "," + unit.getHealth());
+                bw.newLine();
+            } else if (unit instanceof CavalryUnit) {
+                bw.write("CavalryUnit" + "," + unit.getName() + "," + unit.getHealth());
+                bw.newLine();
+            } else if (unit instanceof RangedUnit) {
+                bw.write("RangedUnit" + "," + unit.getName() + "," + unit.getHealth());
+                bw.newLine();
+            } else if (unit instanceof InfantryUnit) {
+                bw.write("InfantryUnit" + "," + unit.getName() + "," + unit.getHealth());
+                bw.newLine();
+            }
         }
         bw.close();
         fw.close();
