@@ -85,4 +85,61 @@ public class CavalryUnitTest {
         raiderAttacker.attack(footmanDefender, TerrainType.HILL);
         assertEquals(footmanDefender.getHealth(), 48);
     }
+
+    @Test
+    public void assertAttackBonusWhenFightingInPlainsTerrain() {
+        /*
+        Test asserts that the cavalry unit get the attack bonus when fighting in PLAINS terrain
+        against an infantry unit which has no bonuses when fighting on a plains.
+         */
+        CavalryUnit raider = new CavalryUnit("Raider", 100);
+        InfantryUnit footman = new InfantryUnit("Footman", 100);
+
+        // Calling raider.getAttackBonus() twice in FOREST to assert charge ability is disabled.
+        assertEquals(6, raider.getAttackBonus(TerrainType.FOREST));
+        assertEquals(2, raider.getAttackBonus(TerrainType.FOREST));
+        assertEquals(2, raider.getAttackBonus(TerrainType.HILL));
+        assertEquals(7, raider.getAttackBonus(TerrainType.PLAINS));
+
+        // 0. Before the raider attacked the footman:
+        assertEquals(100, footman.getHealth());
+
+        // 1. After the raider attacked the footman:
+        // Expect (100 HP - 20 - 7 + 10 + 1 =) 84 HP left for footman after first blow.
+        raider.attack(footman, TerrainType.PLAINS);
+        assertEquals(84, footman.getHealth());
+
+        // 2. After the raider attacked the footman:
+        // Expect (84 HP - 20 - 7 + 10 + 1 =) 68 HP left for footman after first blow.
+        raider.attack(footman, TerrainType.PLAINS);
+        assertEquals(68, footman.getHealth());
+    }
+
+    @Test
+    public void assertResistHandicapWhenAttackedInForestTerrain() {
+        /*
+        Test asserts that the cavalry unit have no resist bonus when fighting in FOREST terrain
+        against a ranged unit which has a small attack handicap in forest.
+         */
+        CavalryUnit knight = new CavalryUnit("Knight", 100);
+        RangedUnit spearman = new RangedUnit("Spearman", 100);
+
+        assertEquals(1, knight.getResistBonus(TerrainType.HILL));
+        assertEquals(1, knight.getResistBonus(TerrainType.PLAINS));
+        assertEquals(0, knight.getResistBonus(TerrainType.FOREST));
+        assertEquals(1, spearman.getAttackBonus(TerrainType.FOREST));
+
+        // 0. Before the spearman attacked the knight:
+        assertEquals(100, knight.getHealth());
+
+        // 1. After the spearman attacked the knight:
+        // Expect (100 HP - 15 - 1 + 12 + 0 =) 96 HP left for knight after first blow.
+        spearman.attack(knight, TerrainType.FOREST);
+        assertEquals(96, knight.getHealth());
+
+        // 2. After the spearman attacked the knight:
+        // Expect (98 HP - 15 - 1 + 12 + 0 =) 92 HP left for knight after first blow.
+        spearman.attack(knight, TerrainType.FOREST);
+        assertEquals(92, knight.getHealth());
+    }
 }

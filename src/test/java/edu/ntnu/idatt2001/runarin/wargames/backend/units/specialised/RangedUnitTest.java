@@ -85,4 +85,31 @@ public class RangedUnitTest {
         gruntAttacker.attack(archerDefender, TerrainType.PLAINS);
         assertEquals(archerDefender.getResistBonus(TerrainType.PLAINS), 2);
     }
+
+    @Test
+    public void assertAttackBonusWhenFightingInHillTerrain() {
+        /*
+        Test asserts that the ranged unit get the attack bonus when fighting in HILL terrain
+        against an infantry unit which has no bonuses when fighting on a hill.
+         */
+        RangedUnit spearman = new RangedUnit("Spearman", 100);
+        InfantryUnit footman = new InfantryUnit("Footman", 100);
+
+        assertEquals(1, spearman.getAttackBonus(TerrainType.FOREST));
+        assertEquals(7, spearman.getAttackBonus(TerrainType.HILL));
+        assertEquals(3, spearman.getAttackBonus(TerrainType.PLAINS));
+
+        // 0. Before the spearman attacked the footman:
+        assertEquals(100, footman.getHealth());
+
+        // 1. After the spearman attacked the footman:
+        // Expect (100 HP - 15 - 7 + 10 + 1 =) 89 HP left for footman after first blow.
+        spearman.attack(footman, TerrainType.HILL);
+        assertEquals(89, footman.getHealth());
+
+        // 2. After the spearman attacked the footman:
+        // Expect (92 HP - 15 - 7 + 10 + 1 =) 78 HP left for footman after first blow.
+        spearman.attack(footman, TerrainType.HILL);
+        assertEquals(78, footman.getHealth());
+    }
 }
