@@ -6,10 +6,13 @@ package edu.ntnu.idatt2001.runarin.wargames.backend.units.specialised;
  * Extends the CavalryUnit class and comes with a charge ability.
  *
  * @author Runar Indahl
- * @version 1.0
- * @since 2022-04-03
+ * @version 3.0
+ * @since 2022-04-17
  */
 public class CommanderUnit extends CavalryUnit {
+
+    private static final int BASE_ATTACK = 25;
+    private static final int BASE_DEFENCE = 15;
 
     /**
      * Constructor for instantiation of the CommanderUnit class.
@@ -30,6 +33,6 @@ public class CommanderUnit extends CavalryUnit {
      * @param health number of remaining health points for the warrior. Value is decreased when taking damage.
      */
     public CommanderUnit(String name, int health) {
-        super(name, health,25,15);
+        super(name, health, BASE_ATTACK, BASE_DEFENCE);
     }
 }

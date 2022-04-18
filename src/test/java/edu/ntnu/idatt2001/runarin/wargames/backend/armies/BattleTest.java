@@ -1,5 +1,6 @@
 package edu.ntnu.idatt2001.runarin.wargames.backend.armies;
 
+import edu.ntnu.idatt2001.runarin.wargames.backend.units.TerrainType;
 import edu.ntnu.idatt2001.runarin.wargames.backend.units.specialised.CavalryUnit;
 import edu.ntnu.idatt2001.runarin.wargames.backend.units.specialised.CommanderUnit;
 import edu.ntnu.idatt2001.runarin.wargames.backend.units.specialised.InfantryUnit;
@@ -68,7 +69,7 @@ public class BattleTest {
 
         Battle grandWar = new Battle(horde, alliance);
 
-        assertEquals("The Horde [1 unit(s)]", grandWar.simulate().toString());
+        assertEquals("The Horde [1 unit(s)]", grandWar.simulate(TerrainType.HILL).toString());
     }
 
     @Test
@@ -115,7 +116,7 @@ public class BattleTest {
 
         Battle battle = new Battle(horde, alliance);
 
-        Army winningArmy = battle.simulate();
+        Army winningArmy = battle.simulate(TerrainType.HILL);
 
         if (!winningArmy.equals(alliance)) assertFalse(alliance.hasUnits());
         else {assertFalse(horde.hasUnits());}

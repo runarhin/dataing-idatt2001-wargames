@@ -5,8 +5,8 @@ package edu.ntnu.idatt2001.runarin.wargames.backend.units;
  * The class gives a general description of capabilities inherited by its subclasses.
  *
  * @author Runar Indahl
- * @version 1.0
- * @since 2022-04-03
+ * @version 3.0
+ * @since 2022-04-17
  */
 public abstract class Unit {
 
@@ -57,15 +57,16 @@ public abstract class Unit {
      * based on the defenders armor and the attackers attack power.
      *
      * @param opponent opponent that loses health points when attacked.
+     * @param terrain deters the terrain the unit is fighting on.
      */
-    public void attack(Unit opponent) {
+    public void attack(Unit opponent, TerrainType terrain) {
         int healthOpponent = opponent.getHealth();
         int newHealth;
         if (healthOpponent > 0) {
             newHealth =
                 opponent.getHealth() -
-                (this.getAttack() + this.getAttackBonus()) +
-                (opponent.getArmor() + opponent.getResistBonus());
+                (this.getAttack() + this.getAttackBonus(terrain)) +
+                (opponent.getArmor() + opponent.getResistBonus(terrain));
 
             opponent.setHealth(newHealth);
         }
@@ -135,14 +136,16 @@ public abstract class Unit {
     /**
      * Abstract method to be specified in a subclass to the superclass Unit.
      *
+     * @param terrain deters the terrain the unit is fighting on.
      * @return int value to be used for calculating damage to an opponent.
      */
-    public abstract int getAttackBonus();
+    public abstract int getAttackBonus(TerrainType terrain);
 
     /**
      * Abstract method to be specified in a subclass to the superclass Unit.
      *
+     * @param terrain deters the terrain the unit is fighting on.
      * @return int value to be used for calculating damage from an opponent.
      */
-    public abstract int getResistBonus();
+    public abstract int getResistBonus(TerrainType terrain);
 }

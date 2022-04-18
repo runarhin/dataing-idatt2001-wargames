@@ -1,5 +1,6 @@
 package edu.ntnu.idatt2001.runarin.wargames.backend.units.specialised;
 
+import edu.ntnu.idatt2001.runarin.wargames.backend.units.TerrainType;
 import edu.ntnu.idatt2001.runarin.wargames.backend.units.Unit;
 
 /**
@@ -7,10 +8,14 @@ import edu.ntnu.idatt2001.runarin.wargames.backend.units.Unit;
  * This is a basic melee unit with normal attack power and armor resistance.
  *
  * @author Runar Indahl
- * @version 1.0
- * @since 2022-04-03
+ * @version 3.0
+ * @since 2022-04-17
  */
 public class InfantryUnit extends Unit {
+
+    private static final int BASE_ATTACK = 15;
+    private static final int BASE_DEFENCE = 10;
+    private final int FOREST_BONUS = 3;
 
     /**
      * Constructor for instantiation of the InfantryUnit class.
@@ -31,28 +36,34 @@ public class InfantryUnit extends Unit {
      * @param health number of remaining health points for the warrior. Value is decreased when taking damage.
      */
     public InfantryUnit(String name, int health) {
-        super(name, health,15,10);
+        super(name, health, BASE_ATTACK, BASE_DEFENCE);
     }
 
     /**
      * Returns the attack bonus value.
      * This value is used in the parent class method attack(Unit opponent).
+     * The unit have an advantage when fighting in FOREST terrain.
      *
+     * @param terrain deters the terrain the unit is fighting on.
      * @return value of the attack bonus for an infantry unit.
      */
     @Override
-    public int getAttackBonus() {
-        return 2;
+    public int getAttackBonus(TerrainType terrain) {
+        int attackBonus = 2;
+        return (terrain.equals(TerrainType.FOREST)) ? attackBonus + FOREST_BONUS : attackBonus;
     }
 
     /**
      * Returns the resist bonus value.
      * This value is used in the parent class method attack(Unit opponent).
+     * The unit have an advantage when fighting in FOREST terrain.
      *
+     * @param terrain deters the terrain the unit is fighting on.
      * @return value of the resist bonus for an infantry unit.
      */
     @Override
-    public int getResistBonus() {
-        return 1;
+    public int getResistBonus(TerrainType terrain) {
+        int resistBonus = 1;
+        return (terrain.equals(TerrainType.FOREST)) ? resistBonus + FOREST_BONUS : resistBonus;
     }
 }
