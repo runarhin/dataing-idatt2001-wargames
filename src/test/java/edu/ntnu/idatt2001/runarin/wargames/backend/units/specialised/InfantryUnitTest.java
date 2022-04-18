@@ -1,5 +1,6 @@
 package edu.ntnu.idatt2001.runarin.wargames.backend.units.specialised;
 
+import edu.ntnu.idatt2001.runarin.wargames.backend.units.TerrainType;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -30,12 +31,12 @@ public class InfantryUnitTest {
 
         // 1. After the grunt attacked the footman:
         // Expect (100 HP - 15 - 2 + 10 + 1 =) 94 HP left for footman after first blow.
-        grunt.attack(footman);
+        grunt.attack(footman, TerrainType.PLAINS);
         Assertions.assertEquals(footman.getHealth(), 94);
 
         // 2. After the grunt attacked the footman:
         //Expect (94 HP - 15 - 2 + 10 + 1 =) 88 HP left for footman after second blow.
-        grunt.attack(footman);
+        grunt.attack(footman, TerrainType.PLAINS);
         Assertions.assertEquals(footman.getHealth(), 88);
     }
 }

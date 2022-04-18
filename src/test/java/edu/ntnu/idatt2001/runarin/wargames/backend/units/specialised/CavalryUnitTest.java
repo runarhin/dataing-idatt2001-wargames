@@ -1,5 +1,6 @@
 package edu.ntnu.idatt2001.runarin.wargames.backend.units.specialised;
 
+import edu.ntnu.idatt2001.runarin.wargames.backend.units.TerrainType;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -32,17 +33,17 @@ public class CavalryUnitTest {
 
         // 1. After the raider attacked the footman:
         // Expect (100 HP - 20 - 6 + 10 + 1 =) 85 HP left for footman after first blow.
-        raiderAttacker.attack(footmanDefender);
+        raiderAttacker.attack(footmanDefender, TerrainType.HILL);
         assertEquals(footmanDefender.getHealth(), 85);
 
         // 2. After the raider attacked the footman:
         // Expect (85 HP - 20 - 2 + 10 + 1 =) 74 HP left for footman after second blow.
-        raiderAttacker.attack(footmanDefender);
+        raiderAttacker.attack(footmanDefender, TerrainType.HILL);
         assertEquals(footmanDefender.getHealth(), 74);
 
         // 3. After the raider attacked the footman:
         // Expect (74 HP - 20 - 2 + 10 + 1 =) 63 HP left for footman after third blow.
-        raiderAttacker.attack(footmanDefender);
+        raiderAttacker.attack(footmanDefender, TerrainType.HILL);
         assertEquals(footmanDefender.getHealth(), 63);
 
     }
@@ -63,12 +64,12 @@ public class CavalryUnitTest {
 
         // 1. After the raider attacked the footman:
         // Expect (100 HP - 20 - 6 + 10 + 1 =) 85 HP left for footman after first blow.
-        raiderAttacker.attack(footmanDefender);
+        raiderAttacker.attack(footmanDefender, TerrainType.HILL);
         assertEquals(footmanDefender.getHealth(), 85);
 
         // 2. After the raider attacked the footman:
         // Expect (85 HP - 20 - 2 + 10 + 1 =) 74 HP left for footman after second blow.
-        raiderAttacker.attack(footmanDefender);
+        raiderAttacker.attack(footmanDefender, TerrainType.HILL);
         assertEquals (footmanDefender.getHealth(), 74);
 
         // 3. RESET of private variable attacked in the RangedUnit archer.
@@ -76,12 +77,12 @@ public class CavalryUnitTest {
 
         // 4. The raider attacks again.
         // Expect (74 HP - 20 - 6 + 10 + 1 =) 59 HP left for footman after third blow.
-        raiderAttacker.attack(footmanDefender);
+        raiderAttacker.attack(footmanDefender, TerrainType.HILL);
         assertEquals(footmanDefender.getHealth(), 59);
 
         // 5. The raider attacks again.
         // Expect (59 HP - 20 - 2 + 10 + 1 =) 48 HP left for footman after third blow.
-        raiderAttacker.attack(footmanDefender);
+        raiderAttacker.attack(footmanDefender, TerrainType.HILL);
         assertEquals(footmanDefender.getHealth(), 48);
     }
 }

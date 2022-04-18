@@ -346,7 +346,7 @@ public class WarGamesSimpleClient {
 
     public Army startABattleBetweenTwoArmies(Army armyOne, Army armyTwo) {
         Battle battle = new Battle(armyOne,armyTwo);
-        return battle.simulate();
+        return battle.simulate(null);
     }
 
     public static void main(String[] args) throws Exception {

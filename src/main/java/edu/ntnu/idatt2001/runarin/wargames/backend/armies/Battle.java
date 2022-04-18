@@ -1,5 +1,6 @@
 package edu.ntnu.idatt2001.runarin.wargames.backend.armies;
 
+import edu.ntnu.idatt2001.runarin.wargames.backend.units.TerrainType;
 import edu.ntnu.idatt2001.runarin.wargames.backend.units.specialised.CavalryUnit;
 import edu.ntnu.idatt2001.runarin.wargames.backend.units.specialised.RangedUnit;
 import edu.ntnu.idatt2001.runarin.wargames.backend.units.Unit;
@@ -44,7 +45,7 @@ public class Battle {
      *
      * @return the name of the winning army.
      */
-    public Army simulate() {
+    public Army simulate(TerrainType terrain) {
         int roundCount = 0;
         int randomiseAttack;
         int attackedWarriorOldHealth;
@@ -79,7 +80,7 @@ public class Battle {
             if (randomiseAttack == 0) {
                 if (warriorArmyOne.getHealth() > 0) {
                     attackedWarriorOldHealth = warriorArmyTwo.getHealth();
-                    warriorArmyOne.attack(warriorArmyTwo);
+                    warriorArmyOne.attack(warriorArmyTwo, terrain);
                     attackedWarriorNewHealth = warriorArmyTwo.getHealth();
                     System.out.println("        "
                             + warriorArmyOne.getName() + " [" + warriorArmyOne.getHealth() + " HP]"
@@ -89,7 +90,7 @@ public class Battle {
                 }
                 if (warriorArmyTwo.getHealth() > 0) {
                     attackedWarriorOldHealth = warriorArmyOne.getHealth();
-                    warriorArmyTwo.attack(warriorArmyOne);
+                    warriorArmyTwo.attack(warriorArmyOne, terrain);
                     attackedWarriorNewHealth = warriorArmyOne.getHealth();
                     System.out.println("        "
                             + warriorArmyTwo.getName() + " [" + warriorArmyTwo.getHealth() + " HP]"
@@ -100,7 +101,7 @@ public class Battle {
             } else {
                 if (warriorArmyTwo.getHealth() > 0) {
                     attackedWarriorOldHealth = warriorArmyOne.getHealth();
-                    warriorArmyTwo.attack(warriorArmyOne);
+                    warriorArmyTwo.attack(warriorArmyOne, terrain);
                     attackedWarriorNewHealth = warriorArmyOne.getHealth();
                     System.out.println("        "
                             + warriorArmyTwo.getName() + " [" + warriorArmyTwo.getHealth() + " HP]"
@@ -110,7 +111,7 @@ public class Battle {
                 }
                 if (warriorArmyOne.getHealth() > 0) {
                     attackedWarriorOldHealth = warriorArmyTwo.getHealth();
-                    warriorArmyOne.attack(warriorArmyTwo);
+                    warriorArmyOne.attack(warriorArmyTwo, terrain);
                     attackedWarriorNewHealth = warriorArmyTwo.getHealth();
                     System.out.println("        "
                             + warriorArmyOne.getName() + " [" + warriorArmyOne.getHealth() + " HP]"

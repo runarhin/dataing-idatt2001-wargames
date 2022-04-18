@@ -1,5 +1,6 @@
 package edu.ntnu.idatt2001.runarin.wargames.backend.units.specialised;
 
+import edu.ntnu.idatt2001.runarin.wargames.backend.units.TerrainType;
 import edu.ntnu.idatt2001.runarin.wargames.backend.units.Unit;
 
 /**
@@ -7,8 +8,8 @@ import edu.ntnu.idatt2001.runarin.wargames.backend.units.Unit;
  * This is a unit with relatively high attack power and also comes with a charge ability.
  *
  * @author Runar Indahl
- * @version 1.0
- * @since 2022-04-03
+ * @version 3.0
+ * @since 2022-04-17
  */
 
 public class CavalryUnit extends Unit {
@@ -18,6 +19,8 @@ public class CavalryUnit extends Unit {
      * This to calculate the attack bonus.
      */
     private boolean chargeReady = true;
+    private static final int BASE_ATTACK = 20;
+    private static final int BASE_DEFENCE = 12;
 
     /**
      * Constructor for instantiation of the CavalryUnit class.
@@ -38,18 +41,23 @@ public class CavalryUnit extends Unit {
      * @param health number of remaining health points for the warrior. Value is decreased when taking damage.
      */
     public CavalryUnit(String name, int health) {
-        super(name, health, 20, 12);
+        super(name, health, BASE_ATTACK, BASE_DEFENCE);
     }
 
     /**
-     * Returns boolean whether the charge ability is available or not.
+     * Returns the attack bonus value.
      * The attack bonus will change as the cavalry unit have ont attacked a target before.
+     * The unit have an advantage when fighting on PLAINS, but a handicap when in FOREST.
      *
+     * @param terrain deters the terrain the unit is fighting on.
      * @return value of the attack bonus for a cavalry unit.
      */
     @Override
-    public int getAttackBonus() {
+    public int getAttackBonus(TerrainType terrain) {
         int attackBonus = 2;
+        int plainsBonus = 5;
+
+        if (terrain.equals(TerrainType.PLAINS)) attackBonus += plainsBonus;
 
         if (chargeReady) {
             chargeReady = false;
@@ -60,21 +68,26 @@ public class CavalryUnit extends Unit {
     }
 
     /**
+     * Returns the resist bonus value.
+     * If the unit is fighting in a FOREST the resist bonus will be zero.
+     *
+     * @param terrain deters the terrain the unit is fighting on.
+     * @return value of the resist bonus for a cavalry unit.
+     */
+    @Override
+    public int getResistBonus(TerrainType terrain) {
+        int resistBonus = 1;
+        int forestHandicap = 0;
+
+        return (terrain.equals(TerrainType.FOREST)) ? forestHandicap : resistBonus;
+    }
+
+    /**
      * Resets the charge ability for a cavalry unit when its opponent dies.
      * Used to indicate that the cavalry unit can use the charge ability again,
      * and against a new opponent at a distance.
      */
     public void resetChargeAbility() {
         this.chargeReady = true;
-    }
-
-    /**
-     * Returns the resist bonus value.
-     *
-     * @return value of the resist bonus for a cavalry unit.
-     */
-    @Override
-    public int getResistBonus() {
-        return 1;
     }
 }

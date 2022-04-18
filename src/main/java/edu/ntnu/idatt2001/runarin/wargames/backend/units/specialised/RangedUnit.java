@@ -1,5 +1,6 @@
 package edu.ntnu.idatt2001.runarin.wargames.backend.units.specialised;
 
+import edu.ntnu.idatt2001.runarin.wargames.backend.units.TerrainType;
 import edu.ntnu.idatt2001.runarin.wargames.backend.units.Unit;
 
 /**
@@ -8,8 +9,8 @@ import edu.ntnu.idatt2001.runarin.wargames.backend.units.Unit;
  * It has a benefit of attacking from a range, and therefore takes less damage the first two times it is attacked.
  *
  * @author Runar Indahl
- * @version 1.0
- * @since 2022-04-03
+ * @version 3.0
+ * @since 2022-04-17
  */
 public class RangedUnit extends Unit {
 
@@ -19,6 +20,8 @@ public class RangedUnit extends Unit {
      */
     private int lastHealth = this.health;
     private int attacked = 0;
+    private static final int BASE_ATTACK = 15;
+    private static final int BASE_DEFENCE = 8;
 
     /**
      * Constructor for instantiation of the RangedUnit class.
@@ -39,18 +42,27 @@ public class RangedUnit extends Unit {
      * @param health number of remaining health points for the warrior. Value is decreased when taking damage.
      */
     public RangedUnit(String name, int health) {
-        super(name, health,15,8);
+        super(name, health, BASE_ATTACK, BASE_DEFENCE);
     }
 
     /**
      * Returns the attack bonus value.
      * This value is used in the parent class method attack(Unit opponent).
+     * The unit have an advantage when fighting on HILL terrain, but has a handicap when in FOREST.
      *
+     * @param terrain deters the terrain the unit is fighting on.
      * @return value of the attack bonus for a ranged unit.
      */
     @Override
-    public int getAttackBonus() {
-        return 3;
+    public int getAttackBonus(TerrainType terrain) {
+        int attackBonus = 3;
+        int hillBonus = 4;
+        int forestHandicap = 2;
+
+        if (terrain.equals(TerrainType.HILL)) attackBonus += hillBonus;
+        else if (terrain.equals(TerrainType.FOREST)) attackBonus -= forestHandicap;
+
+        return attackBonus;
     }
 
     /**
@@ -58,10 +70,11 @@ public class RangedUnit extends Unit {
      * The resist bonus will change as the range between the attacking and the attacked unit decreases.
      * This value is used in the parent class method attack(Unit opponent) for the attacking unit.
      *
+     * @param terrain deters the terrain the unit is fighting on. Not relevant for a ranged unit's resist bonus.
      * @return value of the resist bonus for a ranged unit.
      */
     @Override
-    public int getResistBonus() {
+    public int getResistBonus(TerrainType terrain) {
         if (this.health < lastHealth) {
             attacked++;
             lastHealth = this.health;

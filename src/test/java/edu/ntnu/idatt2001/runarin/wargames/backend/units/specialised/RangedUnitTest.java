@@ -1,5 +1,6 @@
 package edu.ntnu.idatt2001.runarin.wargames.backend.units.specialised;
 
+import edu.ntnu.idatt2001.runarin.wargames.backend.units.TerrainType;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -30,22 +31,22 @@ public class RangedUnitTest {
 
         // 1. After the grunt attacked the archer:
         // Expect (100 HP - 15 - 2 + 8 + 6 =) 97 HP left for archer after first blow.
-        gruntAttacker.attack(archerDefender);
+        gruntAttacker.attack(archerDefender, TerrainType.PLAINS);
         assertEquals(archerDefender.getHealth(), 97);
 
         // 2. After the grunt attacked the archer:
         // Expect (97 HP - 15 - 2 + 8 + 4 =) 92 HP left for archer after second blow.
-        gruntAttacker.attack(archerDefender);
+        gruntAttacker.attack(archerDefender, TerrainType.PLAINS);
         assertEquals(archerDefender.getHealth(), 92);
 
         // 3. After the grunt attacked the archer:
         // Expect (92 HP - 15 - 2 + 8 + 2 =) 85 HP left for archer after third blow.
-        gruntAttacker.attack(archerDefender);
+        gruntAttacker.attack(archerDefender, TerrainType.PLAINS);
         assertEquals(archerDefender.getHealth(), 85);
 
         // 4. After the grunt attacked the archer:
         // Expect (85 HP - 15 - 2 + 8 + 2 =) 78 HP left for archer after fourth blow.
-        gruntAttacker.attack(archerDefender);
+        gruntAttacker.attack(archerDefender, TerrainType.PLAINS);
         assertEquals(archerDefender.getHealth(), 78);
     }
 
@@ -58,30 +59,30 @@ public class RangedUnitTest {
         InfantryUnit gruntAttacker = new InfantryUnit("Grunt", 100);
 
         // 0. Before the grunt attacked the archer:
-        assertEquals(archerDefender.getResistBonus(), 6);
+        assertEquals(archerDefender.getResistBonus(TerrainType.PLAINS), 6);
 
         // 1. After the grunt attacked the archer:
-        gruntAttacker.attack(archerDefender);
-        assertEquals(archerDefender.getResistBonus(), 4);
+        gruntAttacker.attack(archerDefender, TerrainType.PLAINS);
+        assertEquals(archerDefender.getResistBonus(TerrainType.PLAINS), 4);
 
         // 2. After the grunt attacked the archer:
-        gruntAttacker.attack(archerDefender);
-        assertEquals(archerDefender.getResistBonus(), 2);
+        gruntAttacker.attack(archerDefender, TerrainType.PLAINS);
+        assertEquals(archerDefender.getResistBonus(TerrainType.PLAINS), 2);
 
         // 3. After the grunt attacked the archer:
-        gruntAttacker.attack(archerDefender);
-        assertEquals(archerDefender.getResistBonus(), 2);
+        gruntAttacker.attack(archerDefender, TerrainType.PLAINS);
+        assertEquals(archerDefender.getResistBonus(TerrainType.PLAINS), 2);
 
         // 4. RESET of private variable attacked in the RangedUnit archer.
         archerDefender.resetAttacked();
-        assertEquals(archerDefender.getResistBonus(), 6);
+        assertEquals(archerDefender.getResistBonus(TerrainType.PLAINS), 6);
 
         // 5. Grunt thereafter attacks again.
-        gruntAttacker.attack(archerDefender);
-        assertEquals(archerDefender.getResistBonus(), 4);
+        gruntAttacker.attack(archerDefender, TerrainType.PLAINS);
+        assertEquals(archerDefender.getResistBonus(TerrainType.PLAINS), 4);
 
         // 6. Grunt attacks again.
-        gruntAttacker.attack(archerDefender);
-        assertEquals(archerDefender.getResistBonus(), 2);
+        gruntAttacker.attack(archerDefender, TerrainType.PLAINS);
+        assertEquals(archerDefender.getResistBonus(TerrainType.PLAINS), 2);
     }
 }

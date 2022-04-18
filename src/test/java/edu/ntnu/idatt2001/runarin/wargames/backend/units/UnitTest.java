@@ -64,30 +64,30 @@ public class UnitTest {
         public void unitLosesHealthWhenAttackedByAnotherUnitByAttackMethod() {
             Unit attacker = new Unit("Attacker", 100, 15, 0) {
                 @Override
-                public int getAttackBonus() {
+                public int getAttackBonus(TerrainType terrain) {
                     return 0;
                 }
 
                 @Override
-                public int getResistBonus() {
+                public int getResistBonus(TerrainType terrain) {
                     return 0;
                 }
             };
             Unit defender = new Unit("Defender", 100, 15, 0) {
                 @Override
-                public int getAttackBonus() {
+                public int getAttackBonus(TerrainType terrain) {
                     return 0;
                 }
 
                 @Override
-                public int getResistBonus() {
+                public int getResistBonus(TerrainType terrain) {
                     return 0;
                 }
             };
             // Defenders health before an attack is expected to be 100 HP.
             assertEquals(defender.getHealth(), 100);
 
-            attacker.attack(defender);
+            attacker.attack(defender, TerrainType.PLAINS);
 
             //Defenders health after being attacked is expected to be 85 HP.
             assertEquals(defender.getHealth(), 85);
@@ -97,30 +97,30 @@ public class UnitTest {
         public void unitDoesntLooseHealthWhenArmorPointsAreEqualToAttackPower() {
             Unit attacker = new Unit("Attacker", 100, 10, 1) {
                 @Override
-                public int getAttackBonus() {
+                public int getAttackBonus(TerrainType terrain) {
                     return 0;
                 }
 
                 @Override
-                public int getResistBonus() {
+                public int getResistBonus(TerrainType terrain) {
                     return 0;
                 }
             };
             Unit defender = new Unit("Defender", 100, 1, 10) {
                 @Override
-                public int getAttackBonus() {
+                public int getAttackBonus(TerrainType terrain) {
                     return 0;
                 }
 
                 @Override
-                public int getResistBonus() {
+                public int getResistBonus(TerrainType terrain) {
                     return 0;
                 }
             };
             // Defenders health before an attack is expected to be 100 HP.
             assertEquals(defender.getHealth(), 100);
 
-            attacker.attack(defender);
+            attacker.attack(defender, TerrainType.PLAINS);
 
             // Defenders health after the attack is also expected to be 100 HP.
             assertEquals(defender.getHealth(), 100);

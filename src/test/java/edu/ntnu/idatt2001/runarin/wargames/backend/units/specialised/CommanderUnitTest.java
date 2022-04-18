@@ -1,5 +1,6 @@
 package edu.ntnu.idatt2001.runarin.wargames.backend.units.specialised;
 
+import edu.ntnu.idatt2001.runarin.wargames.backend.units.TerrainType;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -30,17 +31,17 @@ public class CommanderUnitTest {
 
         // 1. After the Mountain King charged Gul'dan:
         // Expect (180 HP - 25 - 6 + 15 + 1 =) 165 HP left for knight after first blow.
-        allianceCommander.attack(hordeCommander);
+        allianceCommander.attack(hordeCommander, TerrainType.HILL);
         Assertions.assertEquals(hordeCommander.getHealth(), 165);
 
         // 2. After the Mountain King attacked Gul'dan:
         // Expect (165 HP - 25 - 2 + 15 + 1 =) 154 HP left for knight after second blow.
-        allianceCommander.attack(hordeCommander);
+        allianceCommander.attack(hordeCommander, TerrainType.HILL);
         Assertions.assertEquals(hordeCommander.getHealth(), 154);
 
         // 3. After the Mountain King attacked Gul'dan:
         // Expect (154 HP - 25 - 2 + 15 + 1 =) 143 HP left for knight after third blow.
-        allianceCommander.attack(hordeCommander);
+        allianceCommander.attack(hordeCommander, TerrainType.HILL);
         Assertions.assertEquals(hordeCommander.getHealth(), 143);
     }
 }
