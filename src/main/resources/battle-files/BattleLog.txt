@@ -1,0 +1,411 @@
+
+
+Round 1      Spearman [100 hp]  VS.  Archer [100 hp]
+     Archer strikes and deals 8 damage to Spearman [92 hp]
+     Spearman strikes and deals 8 damage to Archer [92 hp]
+
+Round 2      Spearman [92 hp]  VS.  Archer [92 hp]
+     Archer strikes and deals 10 damage to Spearman [82 hp]
+     Spearman strikes and deals 10 damage to Archer [82 hp]
+
+Round 3      Spearman [82 hp]  VS.  Archer [82 hp]
+     Spearman strikes and deals 12 damage to Archer [70 hp]
+     Archer strikes and deals 12 damage to Spearman [70 hp]
+
+Round 4      Spearman [70 hp]  VS.  Archer [70 hp]
+     Spearman strikes and deals 12 damage to Archer [58 hp]
+     Archer strikes and deals 12 damage to Spearman [58 hp]
+
+Round 5      Spearman [58 hp]  VS.  Archer [58 hp]
+     Spearman strikes and deals 12 damage to Archer [46 hp]
+     Archer strikes and deals 12 damage to Spearman [46 hp]
+
+Round 6      Spearman [46 hp]  VS.  Archer [46 hp]
+     Archer strikes and deals 12 damage to Spearman [34 hp]
+     Spearman strikes and deals 12 damage to Archer [34 hp]
+
+Round 7      Spearman [34 hp]  VS.  Archer [34 hp]
+     Spearman strikes and deals 12 damage to Archer [22 hp]
+     Archer strikes and deals 12 damage to Spearman [22 hp]
+
+Round 8      Spearman [22 hp]  VS.  Archer [22 hp]
+     Archer strikes and deals 12 damage to Spearman [10 hp]
+     Spearman strikes and deals 12 damage to Archer [10 hp]
+
+Round 9      Spearman [10 hp]  VS.  Archer [10 hp]
+     Archer strikes and deals 10 damage to Spearman [0 hp]
+    Spearman died of fatal blow from Archer!
+
+Round 10      Grunt [100 hp]  VS.  Archer [10 hp]
+     Archer strikes and deals 11 damage to Grunt [89 hp]
+     Grunt strikes and deals 5 damage to Archer [5 hp]
+
+Round 11      Grunt [89 hp]  VS.  Archer [5 hp]
+     Grunt strikes and deals 5 damage to Archer [0 hp]
+    Archer died of fatal blow from Grunt!
+
+Round 12      Grunt [89 hp]  VS.  Knight [100 hp]
+     Grunt strikes and deals 4 damage to Knight [96 hp]
+     Knight strikes and deals 15 damage to Grunt [74 hp]
+
+Round 13      Grunt [74 hp]  VS.  Knight [96 hp]
+     Grunt strikes and deals 4 damage to Knight [92 hp]
+     Knight strikes and deals 11 damage to Grunt [63 hp]
+
+Round 14      Grunt [63 hp]  VS.  Knight [92 hp]
+     Knight strikes and deals 11 damage to Grunt [52 hp]
+     Grunt strikes and deals 4 damage to Knight [88 hp]
+
+Round 15      Grunt [52 hp]  VS.  Knight [88 hp]
+     Grunt strikes and deals 4 damage to Knight [84 hp]
+     Knight strikes and deals 11 damage to Grunt [41 hp]
+
+Round 16      Grunt [41 hp]  VS.  Knight [84 hp]
+     Grunt strikes and deals 4 damage to Knight [80 hp]
+     Knight strikes and deals 11 damage to Grunt [30 hp]
+
+Round 17      Grunt [30 hp]  VS.  Knight [80 hp]
+     Grunt strikes and deals 4 damage to Knight [76 hp]
+     Knight strikes and deals 11 damage to Grunt [19 hp]
+
+Round 18      Grunt [19 hp]  VS.  Knight [76 hp]
+     Grunt strikes and deals 4 damage to Knight [72 hp]
+     Knight strikes and deals 11 damage to Grunt [8 hp]
+
+Round 19      Grunt [8 hp]  VS.  Knight [72 hp]
+     Knight strikes and deals 8 damage to Grunt [0 hp]
+    Grunt died of fatal blow from Knight!
+
+Round 20      Spearman [100 hp]  VS.  Knight [72 hp]
+     Spearman strikes and deals 9 damage to Knight [63 hp]
+     Knight strikes and deals 12 damage to Spearman [88 hp]
+
+Round 21      Spearman [88 hp]  VS.  Knight [63 hp]
+     Spearman strikes and deals 9 damage to Knight [54 hp]
+     Knight strikes and deals 10 damage to Spearman [78 hp]
+
+Round 22      Spearman [78 hp]  VS.  Knight [54 hp]
+     Knight strikes and deals 12 damage to Spearman [66 hp]
+     Spearman strikes and deals 9 damage to Knight [45 hp]
+
+Round 23      Spearman [66 hp]  VS.  Knight [45 hp]
+     Knight strikes and deals 12 damage to Spearman [54 hp]
+     Spearman strikes and deals 9 damage to Knight [36 hp]
+
+Round 24      Spearman [54 hp]  VS.  Knight [36 hp]
+     Spearman strikes and deals 9 damage to Knight [27 hp]
+     Knight strikes and deals 12 damage to Spearman [42 hp]
+
+Round 25      Spearman [42 hp]  VS.  Knight [27 hp]
+     Spearman strikes and deals 9 damage to Knight [18 hp]
+     Knight strikes and deals 12 damage to Spearman [30 hp]
+
+Round 26      Spearman [30 hp]  VS.  Knight [18 hp]
+     Spearman strikes and deals 9 damage to Knight [9 hp]
+     Knight strikes and deals 12 damage to Spearman [18 hp]
+
+Round 27      Spearman [18 hp]  VS.  Knight [9 hp]
+     Knight strikes and deals 12 damage to Spearman [6 hp]
+     Spearman strikes and deals 9 damage to Knight [0 hp]
+    Knight died of fatal blow from Spearman!
+
+Round 28      Spearman [6 hp]  VS.  Footman [100 hp]
+     Footman strikes and deals 5 damage to Spearman [1 hp]
+     Spearman strikes and deals 11 damage to Footman [89 hp]
+
+Round 29      Spearman [1 hp]  VS.  Footman [89 hp]
+     Footman strikes and deals 1 damage to Spearman [0 hp]
+    Spearman died of fatal blow from Footman!
+
+Round 30      Spearman [100 hp]  VS.  Footman [89 hp]
+     Spearman strikes and deals 11 damage to Footman [78 hp]
+     Footman strikes and deals 3 damage to Spearman [97 hp]
+
+Round 31      Spearman [97 hp]  VS.  Footman [78 hp]
+     Spearman strikes and deals 11 damage to Footman [67 hp]
+     Footman strikes and deals 5 damage to Spearman [92 hp]
+
+Round 32      Spearman [92 hp]  VS.  Footman [67 hp]
+     Footman strikes and deals 7 damage to Spearman [85 hp]
+     Spearman strikes and deals 11 damage to Footman [56 hp]
+
+Round 33      Spearman [85 hp]  VS.  Footman [56 hp]
+     Spearman strikes and deals 11 damage to Footman [45 hp]
+     Footman strikes and deals 7 damage to Spearman [78 hp]
+
+Round 34      Spearman [78 hp]  VS.  Footman [45 hp]
+     Footman strikes and deals 7 damage to Spearman [71 hp]
+     Spearman strikes and deals 11 damage to Footman [34 hp]
+
+Round 35      Spearman [71 hp]  VS.  Footman [34 hp]
+     Spearman strikes and deals 11 damage to Footman [23 hp]
+     Footman strikes and deals 7 damage to Spearman [64 hp]
+
+Round 36      Spearman [64 hp]  VS.  Footman [23 hp]
+     Footman strikes and deals 7 damage to Spearman [57 hp]
+     Spearman strikes and deals 11 damage to Footman [12 hp]
+
+Round 37      Spearman [57 hp]  VS.  Footman [12 hp]
+     Footman strikes and deals 7 damage to Spearman [50 hp]
+     Spearman strikes and deals 11 damage to Footman [1 hp]
+
+Round 38      Spearman [50 hp]  VS.  Footman [1 hp]
+     Spearman strikes and deals 1 damage to Footman [0 hp]
+    Footman died of fatal blow from Spearman!
+
+Round 39      Spearman [50 hp]  VS.  Mountain King [180 hp]
+     Mountain King strikes and deals 19 damage to Spearman [31 hp]
+     Spearman strikes and deals 6 damage to Mountain King [174 hp]
+
+Round 40      Spearman [31 hp]  VS.  Mountain King [174 hp]
+     Spearman strikes and deals 6 damage to Mountain King [168 hp]
+     Mountain King strikes and deals 17 damage to Spearman [14 hp]
+
+Round 41      Spearman [14 hp]  VS.  Mountain King [168 hp]
+     Mountain King strikes and deals 14 damage to Spearman [0 hp]
+    Spearman died of fatal blow from Mountain King!
+
+Round 42      Raider [100 hp]  VS.  Mountain King [168 hp]
+     Raider strikes and deals 10 damage to Mountain King [158 hp]
+     Mountain King strikes and deals 18 damage to Raider [82 hp]
+
+Round 43      Raider [82 hp]  VS.  Mountain King [158 hp]
+     Raider strikes and deals 6 damage to Mountain King [152 hp]
+     Mountain King strikes and deals 14 damage to Raider [68 hp]
+
+Round 44      Raider [68 hp]  VS.  Mountain King [152 hp]
+     Raider strikes and deals 6 damage to Mountain King [146 hp]
+     Mountain King strikes and deals 14 damage to Raider [54 hp]
+
+Round 45      Raider [54 hp]  VS.  Mountain King [146 hp]
+     Mountain King strikes and deals 14 damage to Raider [40 hp]
+     Raider strikes and deals 6 damage to Mountain King [140 hp]
+
+Round 46      Raider [40 hp]  VS.  Mountain King [140 hp]
+     Raider strikes and deals 6 damage to Mountain King [134 hp]
+     Mountain King strikes and deals 14 damage to Raider [26 hp]
+
+Round 47      Raider [26 hp]  VS.  Mountain King [134 hp]
+     Mountain King strikes and deals 14 damage to Raider [12 hp]
+     Raider strikes and deals 6 damage to Mountain King [128 hp]
+
+Round 48      Raider [12 hp]  VS.  Mountain King [128 hp]
+     Mountain King strikes and deals 12 damage to Raider [0 hp]
+    Raider died of fatal blow from Mountain King!
+
+Round 49      Grunt [100 hp]  VS.  Mountain King [128 hp]
+     Mountain King strikes and deals 20 damage to Grunt [80 hp]
+     Grunt strikes and deals 1 damage to Mountain King [127 hp]
+
+Round 50      Grunt [80 hp]  VS.  Mountain King [127 hp]
+     Grunt strikes and deals 1 damage to Mountain King [126 hp]
+     Mountain King strikes and deals 16 damage to Grunt [64 hp]
+
+Round 51      Grunt [64 hp]  VS.  Mountain King [126 hp]
+     Mountain King strikes and deals 16 damage to Grunt [48 hp]
+     Grunt strikes and deals 1 damage to Mountain King [125 hp]
+
+Round 52      Grunt [48 hp]  VS.  Mountain King [125 hp]
+     Mountain King strikes and deals 16 damage to Grunt [32 hp]
+     Grunt strikes and deals 1 damage to Mountain King [124 hp]
+
+Round 53      Grunt [32 hp]  VS.  Mountain King [124 hp]
+     Grunt strikes and deals 1 damage to Mountain King [123 hp]
+     Mountain King strikes and deals 16 damage to Grunt [16 hp]
+
+Round 54      Grunt [16 hp]  VS.  Mountain King [123 hp]
+     Grunt strikes and deals 1 damage to Mountain King [122 hp]
+     Mountain King strikes and deals 16 damage to Grunt [0 hp]
+    Grunt died of fatal blow from Mountain King!
+
+Round 55      Raider [100 hp]  VS.  Mountain King [122 hp]
+     Raider strikes and deals 10 damage to Mountain King [112 hp]
+     Mountain King strikes and deals 18 damage to Raider [82 hp]
+
+Round 56      Raider [82 hp]  VS.  Mountain King [112 hp]
+     Raider strikes and deals 6 damage to Mountain King [106 hp]
+     Mountain King strikes and deals 14 damage to Raider [68 hp]
+
+Round 57      Raider [68 hp]  VS.  Mountain King [106 hp]
+     Raider strikes and deals 6 damage to Mountain King [100 hp]
+     Mountain King strikes and deals 14 damage to Raider [54 hp]
+
+Round 58      Raider [54 hp]  VS.  Mountain King [100 hp]
+     Mountain King strikes and deals 14 damage to Raider [40 hp]
+     Raider strikes and deals 6 damage to Mountain King [94 hp]
+
+Round 59      Raider [40 hp]  VS.  Mountain King [94 hp]
+     Mountain King strikes and deals 14 damage to Raider [26 hp]
+     Raider strikes and deals 6 damage to Mountain King [88 hp]
+
+Round 60      Raider [26 hp]  VS.  Mountain King [88 hp]
+     Raider strikes and deals 6 damage to Mountain King [82 hp]
+     Mountain King strikes and deals 14 damage to Raider [12 hp]
+
+Round 61      Raider [12 hp]  VS.  Mountain King [82 hp]
+     Mountain King strikes and deals 12 damage to Raider [0 hp]
+    Raider died of fatal blow from Mountain King!
+
+Round 62      Gul'dan [180 hp]  VS.  Mountain King [82 hp]
+     Mountain King strikes and deals 15 damage to Gul'dan [165 hp]
+     Gul'dan strikes and deals 15 damage to Mountain King [67 hp]
+
+Round 63      Gul'dan [165 hp]  VS.  Mountain King [67 hp]
+     Gul'dan strikes and deals 11 damage to Mountain King [56 hp]
+     Mountain King strikes and deals 11 damage to Gul'dan [154 hp]
+
+Round 64      Gul'dan [154 hp]  VS.  Mountain King [56 hp]
+     Gul'dan strikes and deals 11 damage to Mountain King [45 hp]
+     Mountain King strikes and deals 11 damage to Gul'dan [143 hp]
+
+Round 65      Gul'dan [143 hp]  VS.  Mountain King [45 hp]
+     Gul'dan strikes and deals 11 damage to Mountain King [34 hp]
+     Mountain King strikes and deals 11 damage to Gul'dan [132 hp]
+
+Round 66      Gul'dan [132 hp]  VS.  Mountain King [34 hp]
+     Mountain King strikes and deals 11 damage to Gul'dan [121 hp]
+     Gul'dan strikes and deals 11 damage to Mountain King [23 hp]
+
+Round 67      Gul'dan [121 hp]  VS.  Mountain King [23 hp]
+     Mountain King strikes and deals 11 damage to Gul'dan [110 hp]
+     Gul'dan strikes and deals 11 damage to Mountain King [12 hp]
+
+Round 68      Gul'dan [110 hp]  VS.  Mountain King [12 hp]
+     Gul'dan strikes and deals 11 damage to Mountain King [1 hp]
+     Mountain King strikes and deals 11 damage to Gul'dan [99 hp]
+
+Round 69      Gul'dan [99 hp]  VS.  Mountain King [1 hp]
+     Gul'dan strikes and deals 1 damage to Mountain King [0 hp]
+    Mountain King died of fatal blow from Gul'dan!
+
+Round 70      Gul'dan [99 hp]  VS.  Footman [100 hp]
+     Footman strikes and deals 1 damage to Gul'dan [98 hp]
+     Gul'dan strikes and deals 20 damage to Footman [80 hp]
+
+Round 71      Gul'dan [98 hp]  VS.  Footman [80 hp]
+     Gul'dan strikes and deals 16 damage to Footman [64 hp]
+     Footman strikes and deals 1 damage to Gul'dan [97 hp]
+
+Round 72      Gul'dan [97 hp]  VS.  Footman [64 hp]
+     Footman strikes and deals 1 damage to Gul'dan [96 hp]
+     Gul'dan strikes and deals 16 damage to Footman [48 hp]
+
+Round 73      Gul'dan [96 hp]  VS.  Footman [48 hp]
+     Footman strikes and deals 1 damage to Gul'dan [95 hp]
+     Gul'dan strikes and deals 16 damage to Footman [32 hp]
+
+Round 74      Gul'dan [95 hp]  VS.  Footman [32 hp]
+     Gul'dan strikes and deals 16 damage to Footman [16 hp]
+     Footman strikes and deals 1 damage to Gul'dan [94 hp]
+
+Round 75      Gul'dan [94 hp]  VS.  Footman [16 hp]
+     Footman strikes and deals 1 damage to Gul'dan [93 hp]
+     Gul'dan strikes and deals 16 damage to Footman [0 hp]
+    Footman died of fatal blow from Gul'dan!
+
+Round 76      Gul'dan [93 hp]  VS.  Archer [100 hp]
+     Gul'dan strikes and deals 17 damage to Archer [83 hp]
+     Archer strikes and deals 6 damage to Gul'dan [87 hp]
+
+Round 77      Gul'dan [87 hp]  VS.  Archer [83 hp]
+     Archer strikes and deals 6 damage to Gul'dan [81 hp]
+     Gul'dan strikes and deals 15 damage to Archer [68 hp]
+
+Round 78      Gul'dan [81 hp]  VS.  Archer [68 hp]
+     Gul'dan strikes and deals 17 damage to Archer [51 hp]
+     Archer strikes and deals 6 damage to Gul'dan [75 hp]
+
+Round 79      Gul'dan [75 hp]  VS.  Archer [51 hp]
+     Gul'dan strikes and deals 17 damage to Archer [34 hp]
+     Archer strikes and deals 6 damage to Gul'dan [69 hp]
+
+Round 80      Gul'dan [69 hp]  VS.  Archer [34 hp]
+     Gul'dan strikes and deals 17 damage to Archer [17 hp]
+     Archer strikes and deals 6 damage to Gul'dan [63 hp]
+
+Round 81      Gul'dan [63 hp]  VS.  Archer [17 hp]
+     Archer strikes and deals 6 damage to Gul'dan [57 hp]
+     Gul'dan strikes and deals 17 damage to Archer [0 hp]
+    Archer died of fatal blow from Gul'dan!
+
+Round 82      Gul'dan [57 hp]  VS.  Knight [100 hp]
+     Gul'dan strikes and deals 18 damage to Knight [82 hp]
+     Knight strikes and deals 10 damage to Gul'dan [47 hp]
+
+Round 83      Gul'dan [47 hp]  VS.  Knight [82 hp]
+     Gul'dan strikes and deals 14 damage to Knight [68 hp]
+     Knight strikes and deals 6 damage to Gul'dan [41 hp]
+
+Round 84      Gul'dan [41 hp]  VS.  Knight [68 hp]
+     Gul'dan strikes and deals 14 damage to Knight [54 hp]
+     Knight strikes and deals 6 damage to Gul'dan [35 hp]
+
+Round 85      Gul'dan [35 hp]  VS.  Knight [54 hp]
+     Gul'dan strikes and deals 14 damage to Knight [40 hp]
+     Knight strikes and deals 6 damage to Gul'dan [29 hp]
+
+Round 86      Gul'dan [29 hp]  VS.  Knight [40 hp]
+     Knight strikes and deals 6 damage to Gul'dan [23 hp]
+     Gul'dan strikes and deals 14 damage to Knight [26 hp]
+
+Round 87      Gul'dan [23 hp]  VS.  Knight [26 hp]
+     Gul'dan strikes and deals 14 damage to Knight [12 hp]
+     Knight strikes and deals 6 damage to Gul'dan [17 hp]
+
+Round 88      Gul'dan [17 hp]  VS.  Knight [12 hp]
+     Gul'dan strikes and deals 12 damage to Knight [0 hp]
+    Knight died of fatal blow from Gul'dan!
+
+Round 89      Gul'dan [17 hp]  VS.  Archer [100 hp]
+     Archer strikes and deals 6 damage to Gul'dan [11 hp]
+     Gul'dan strikes and deals 17 damage to Archer [83 hp]
+
+Round 90      Gul'dan [11 hp]  VS.  Archer [83 hp]
+     Archer strikes and deals 6 damage to Gul'dan [5 hp]
+     Gul'dan strikes and deals 15 damage to Archer [68 hp]
+
+Round 91      Gul'dan [5 hp]  VS.  Archer [68 hp]
+     Archer strikes and deals 5 damage to Gul'dan [0 hp]
+    Gul'dan died of fatal blow from Archer!
+
+Round 92      Grunt [100 hp]  VS.  Archer [68 hp]
+     Archer strikes and deals 11 damage to Grunt [89 hp]
+     Grunt strikes and deals 5 damage to Archer [63 hp]
+
+Round 93      Grunt [89 hp]  VS.  Archer [63 hp]
+     Grunt strikes and deals 7 damage to Archer [56 hp]
+     Archer strikes and deals 11 damage to Grunt [78 hp]
+
+Round 94      Grunt [78 hp]  VS.  Archer [56 hp]
+     Archer strikes and deals 11 damage to Grunt [67 hp]
+     Grunt strikes and deals 7 damage to Archer [49 hp]
+
+Round 95      Grunt [67 hp]  VS.  Archer [49 hp]
+     Archer strikes and deals 11 damage to Grunt [56 hp]
+     Grunt strikes and deals 7 damage to Archer [42 hp]
+
+Round 96      Grunt [56 hp]  VS.  Archer [42 hp]
+     Grunt strikes and deals 7 damage to Archer [35 hp]
+     Archer strikes and deals 11 damage to Grunt [45 hp]
+
+Round 97      Grunt [45 hp]  VS.  Archer [35 hp]
+     Grunt strikes and deals 7 damage to Archer [28 hp]
+     Archer strikes and deals 11 damage to Grunt [34 hp]
+
+Round 98      Grunt [34 hp]  VS.  Archer [28 hp]
+     Archer strikes and deals 11 damage to Grunt [23 hp]
+     Grunt strikes and deals 7 damage to Archer [21 hp]
+
+Round 99      Grunt [23 hp]  VS.  Archer [21 hp]
+     Archer strikes and deals 11 damage to Grunt [12 hp]
+     Grunt strikes and deals 7 damage to Archer [14 hp]
+
+Round 100      Grunt [12 hp]  VS.  Archer [14 hp]
+     Archer strikes and deals 11 damage to Grunt [1 hp]
+     Grunt strikes and deals 7 damage to Archer [7 hp]
+
+Round 101      Grunt [1 hp]  VS.  Archer [7 hp]
+     Archer strikes and deals 1 damage to Grunt [0 hp]
+    Grunt died of fatal blow from Archer!
+
+  The Human Army wins the battle!
