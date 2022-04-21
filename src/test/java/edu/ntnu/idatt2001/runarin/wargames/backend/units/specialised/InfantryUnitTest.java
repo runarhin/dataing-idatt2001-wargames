@@ -14,7 +14,7 @@ public class InfantryUnitTest {
         Instantiate a unit to check its toString.
          */
         InfantryUnit testUnit = new InfantryUnit("Footman", 100);
-        assertEquals(testUnit.toString(), "\n| Footman | HP = 100 | Attack power = 15 | Armor points = 10 |");
+        assertEquals(testUnit.toString(), "\nFootman  [100 hp]  InfantryUnit");
     }
 
     @Test
