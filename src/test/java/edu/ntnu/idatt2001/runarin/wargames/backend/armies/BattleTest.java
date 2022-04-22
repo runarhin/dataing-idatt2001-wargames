@@ -1,5 +1,6 @@
 package edu.ntnu.idatt2001.runarin.wargames.backend.armies;
 
+import edu.ntnu.idatt2001.runarin.wargames.backend.exceptions.ArmyEmptyOfUnitsException;
 import edu.ntnu.idatt2001.runarin.wargames.backend.units.TerrainType;
 import edu.ntnu.idatt2001.runarin.wargames.backend.units.specialised.CavalryUnit;
 import edu.ntnu.idatt2001.runarin.wargames.backend.units.specialised.CommanderUnit;
@@ -7,30 +8,61 @@ import edu.ntnu.idatt2001.runarin.wargames.backend.units.specialised.InfantryUni
 import edu.ntnu.idatt2001.runarin.wargames.backend.units.specialised.RangedUnit;
 import org.junit.jupiter.api.Test;
 
+import java.io.IOException;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class BattleTest {
 
     @Test
     public void constructorThrowsIllegalArgumentExceptionWhenAnArmyIsNull() {
+        /*
+        Test asserts that a battling army cannot be null.
+         */
         try {
             Army horde = new Army("The Horde");
             Army alliance = new Army("The Alliance");
-            Battle grandWar = new Battle(null, alliance);
+            Battle battle = new Battle(null, alliance);
             fail();
-        } catch (IllegalArgumentException e) {
-            assertEquals("There must be two armies as input.", e.getMessage());
+        } catch (IOException e) {
+            assertEquals("Two armies must be initialised to run simulation.", e.getMessage());
         }
     }
 
     @Test
     public void constructorThrowsIllegalArgumentExceptionWhenArmyIsToBattleItself() {
+        /*
+        Test asserts that an army cannot be set to fight itself and throws exception.
+         */
         try {
             Army alliance = new Army("The Alliance");
-            Battle grandWar = new Battle(alliance, alliance);
+            Battle battle = new Battle(alliance, alliance);
             fail();
-        } catch (IllegalArgumentException e) {
+        } catch (IllegalArgumentException | IOException e) {
             assertEquals("An army cannot battle itself.", e.getMessage());
+        }
+    }
+
+    @Test
+    public void simulationMethodThrowsExceptionWhenInitialisedWithAnArmyWithNoUnits() {
+        /*
+        Test asserts that if a simulation is initialised with an army
+        that has no units, an ArmyEmptyOfUnitsException is thrown.
+         */
+        try {
+            Army horde = new Army("The Horde");
+            horde.addUnit(new InfantryUnit("Grunt", 100));
+            Army alliance = new Army("The Alliance");
+
+            Battle battle = new Battle(horde, alliance);
+            battle.simulate(TerrainType.FOREST);
+
+            fail();
+        } catch (ArmyEmptyOfUnitsException e) {
+            assertEquals("The Alliance has no units left to fight in the simulation. " +
+                    "Press the \"Initialise army from file\"-button to rebuild the army.", e.getMessage());
+        } catch (IOException e) {
+            assertNull(e.getMessage());
         }
     }
 
@@ -42,7 +74,12 @@ public class BattleTest {
         Army horde = new Army("The Horde");
         Army alliance = new Army("The Alliance");
 
-        Battle grandWar = new Battle(horde, alliance);
+        Battle battle = null;
+        try {
+            battle = new Battle(horde, alliance);
+        } catch (IOException e) {
+            assertNull(e.getMessage());
+        }
 
         // Adds x number of grunt units to the  horde army.
         for (int i = 0; i < 3; i++) {
@@ -52,7 +89,8 @@ public class BattleTest {
         for (int i = 0; i < 3; i++) {
             alliance.addUnit(new InfantryUnit("Footman", 100));
         }
-        assertEquals("Battle between The Horde [3 unit(s)] and The Alliance [3 unit(s)]", grandWar.toString());
+        assertNotNull(battle);
+        assertEquals("Battle between The Horde [3 unit(s)] and The Alliance [3 unit(s)]", battle.toString());
     }
 
     @Test
@@ -67,9 +105,12 @@ public class BattleTest {
         horde.addUnit(new CommanderUnit("Gul'dan", 9000));
         alliance.addUnit(new InfantryUnit("Footman", 100));
 
-        Battle grandWar = new Battle(horde, alliance);
-
-        assertEquals("The Horde [1 unit(s)]", grandWar.simulate(TerrainType.HILL).toString());
+        try {
+            Battle battle = new Battle(horde, alliance);
+            assertEquals("The Horde [1 unit(s)]", battle.simulate(TerrainType.HILL).toString());
+        } catch (IOException e) {
+            assertNull(e.getMessage());
+        }
     }
 
     @Test
@@ -85,6 +126,7 @@ public class BattleTest {
          */
         Army horde = new Army("The Orcish Horde");
         Army alliance = new Army("The Human Army");
+
 
         // Adds x number of grunt units to the horde army.
         for (int i = 0; i < 3; i++) {
@@ -111,13 +153,18 @@ public class BattleTest {
             alliance.addUnit(new CavalryUnit("Knight", 100));
         }
         // Adds commanders to the respective armies.
-        horde.addUnit(new CavalryUnit("Gul'dan", 180));
-        alliance.addUnit(new CavalryUnit("Mountain King", 180));
+        horde.addUnit(new CommanderUnit("Gul'dan", 180));
+        alliance.addUnit(new CommanderUnit("Mountain King", 180));
 
-        Battle battle = new Battle(horde, alliance);
+        Army winningArmy = null;
+        try {
+            Battle battle = new Battle(horde, alliance);
+            winningArmy = battle.simulate(TerrainType.HILL);
+        } catch (IOException e) {
+            assertNull(e.getMessage());
+        }
 
-        Army winningArmy = battle.simulate(TerrainType.HILL);
-
+        assertNotNull(winningArmy);
         if (!winningArmy.equals(alliance)) assertFalse(alliance.hasUnits());
         else {assertFalse(horde.hasUnits());}
     }

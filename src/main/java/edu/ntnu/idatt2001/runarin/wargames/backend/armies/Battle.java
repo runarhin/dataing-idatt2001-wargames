@@ -1,12 +1,12 @@
 package edu.ntnu.idatt2001.runarin.wargames.backend.armies;
 
+import edu.ntnu.idatt2001.runarin.wargames.backend.exceptions.ArmyEmptyOfUnitsException;
+import edu.ntnu.idatt2001.runarin.wargames.backend.filehandling.FileHandler;
 import edu.ntnu.idatt2001.runarin.wargames.backend.units.TerrainType;
 import edu.ntnu.idatt2001.runarin.wargames.backend.units.specialised.CavalryUnit;
 import edu.ntnu.idatt2001.runarin.wargames.backend.units.specialised.RangedUnit;
 import edu.ntnu.idatt2001.runarin.wargames.backend.units.Unit;
-
-import java.io.FileNotFoundException;
-import java.io.PrintStream;
+import java.io.IOException;
 import java.util.Random;
 
 /**
@@ -14,8 +14,8 @@ import java.util.Random;
  * This class represents a battle between two armies.
  *
  * @author Runar Indahl
- * @version 1.0
- * @since 2022-04-03
+ * @version 3.0
+ * @since 2022-04-19
  */
 public class Battle {
 
@@ -28,9 +28,11 @@ public class Battle {
      * @param armyOne one out of two armies battling for survival.
      * @param armyTwo second out of two armies battling for survival.
      */
-    public Battle(Army armyOne, Army armyTwo) {
-        if (armyOne == null || armyTwo == null) throw new IllegalArgumentException("There must be two armies as input.");
-        if (armyOne.equals(armyTwo)) throw new IllegalArgumentException("An army cannot battle itself.");
+    public Battle(Army armyOne, Army armyTwo) throws IOException {
+        if (armyOne == null || armyTwo == null)
+            throw new IOException("Two armies must be initialised to run simulation.");
+        if (armyOne.equals(armyTwo))
+            throw new IllegalArgumentException("An army cannot battle itself.");
         this.armyOne = armyOne;
         this.armyTwo = armyTwo;
     }
@@ -45,85 +47,58 @@ public class Battle {
      *
      * @return the name of the winning army.
      */
-    public Army simulate(TerrainType terrain) {
+    public Army simulate(TerrainType terrain) throws ArmyEmptyOfUnitsException {
+
+        if (!armyOne.hasUnits()) throw new ArmyEmptyOfUnitsException(armyOne.getName() +
+                " has no units left to fight in the simulation. " +
+                "Press the \"Initialise army from file\"-button to rebuild the army.");
+        if (!armyTwo.hasUnits()) throw new ArmyEmptyOfUnitsException(armyTwo.getName() +
+                " has no units left to fight in the simulation. " +
+                "Press the \"Initialise army from file\"-button to rebuild the army.");
+
         int roundCount = 0;
-        int randomiseAttack;
-        int attackedWarriorOldHealth;
-        int attackedWarriorNewHealth;
         Random rand = new Random();
-
-        // Creating a File object the battle log will be applied to.
-        PrintStream o = null;
-        try {
-            o = new PrintStream("src/main/resources/battle-log/BattleLog.txt");
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
-        // Store current System.out before assigning a new value
-        PrintStream console = System.out;
-        // Assign o to output stream. Every print from now until reset will go to a log-file.
-        System.setOut(o);
-
         Unit warriorArmyOne = armyOne.getRandom();
         Unit warriorArmyTwo = armyTwo.getRandom();
+        String clashReport;
+        StringBuilder battleLog = new StringBuilder();
 
-        // Run as long as there is units left in both armies.
+        // Loop run as long as there is units left in both armies.
         while (armyOne.hasUnits() & armyTwo.hasUnits()) {
 
             roundCount++;
-            System.out.println("\nRound " + roundCount + "");
-            System.out.println("    " + warriorArmyOne.getName() + " [" + warriorArmyOne.getHealth() + " HP]"
-            + " against "+ warriorArmyTwo.getName() + " [" + warriorArmyTwo.getHealth() + " HP]");
+            battleLog.append("\n\nRound ").append(roundCount);
+            battleLog.append("      ").append(warriorArmyOne.getName())
+                    .append(" [").append(warriorArmyOne.getHealth())
+                    .append(" hp]").append("  VS.  ").append(warriorArmyTwo.getName())
+                    .append(" [").append(warriorArmyTwo.getHealth()).append(" hp]");
 
             // Randomises who attacks first.
-            randomiseAttack = rand.nextInt(0, 2);
-            if (randomiseAttack == 0) {
+            if (rand.nextInt(0, 2) == 0) {
                 if (warriorArmyOne.getHealth() > 0) {
-                    attackedWarriorOldHealth = warriorArmyTwo.getHealth();
-                    warriorArmyOne.attack(warriorArmyTwo, terrain);
-                    attackedWarriorNewHealth = warriorArmyTwo.getHealth();
-                    System.out.println("        "
-                            + warriorArmyOne.getName() + " [" + warriorArmyOne.getHealth() + " HP]"
-                            + " strikes and deals " + (attackedWarriorOldHealth - attackedWarriorNewHealth)
-                            + " damage to " + warriorArmyTwo.getName() + " [" + attackedWarriorOldHealth
-                            + " HP][-" + (attackedWarriorOldHealth - attackedWarriorNewHealth) + " HP]");
+                    clashReport = clash(warriorArmyOne, warriorArmyTwo, terrain);
+                    battleLog.append(clashReport);
                 }
                 if (warriorArmyTwo.getHealth() > 0) {
-                    attackedWarriorOldHealth = warriorArmyOne.getHealth();
-                    warriorArmyTwo.attack(warriorArmyOne, terrain);
-                    attackedWarriorNewHealth = warriorArmyOne.getHealth();
-                    System.out.println("        "
-                            + warriorArmyTwo.getName() + " [" + warriorArmyTwo.getHealth() + " HP]"
-                            + " then deals " + (attackedWarriorOldHealth - attackedWarriorNewHealth)
-                            + " damage to " + warriorArmyOne.getName() + " [" + attackedWarriorOldHealth
-                            + " HP][-" + (attackedWarriorOldHealth - attackedWarriorNewHealth) + " HP]");
+                    clashReport = clash(warriorArmyTwo, warriorArmyOne, terrain);
+                    battleLog.append(clashReport);
                 }
             } else {
                 if (warriorArmyTwo.getHealth() > 0) {
-                    attackedWarriorOldHealth = warriorArmyOne.getHealth();
-                    warriorArmyTwo.attack(warriorArmyOne, terrain);
-                    attackedWarriorNewHealth = warriorArmyOne.getHealth();
-                    System.out.println("        "
-                            + warriorArmyTwo.getName() + " [" + warriorArmyTwo.getHealth() + " HP]"
-                            + " strikes and deals " + (attackedWarriorOldHealth - attackedWarriorNewHealth)
-                            + " damage to " + warriorArmyOne.getName() + " [" + attackedWarriorOldHealth
-                            + " HP][-" + (attackedWarriorOldHealth - attackedWarriorNewHealth) + " HP]");
+                    clashReport = clash(warriorArmyTwo, warriorArmyOne, terrain);
+                    battleLog.append(clashReport);
                 }
                 if (warriorArmyOne.getHealth() > 0) {
-                    attackedWarriorOldHealth = warriorArmyTwo.getHealth();
-                    warriorArmyOne.attack(warriorArmyTwo, terrain);
-                    attackedWarriorNewHealth = warriorArmyTwo.getHealth();
-                    System.out.println("        "
-                            + warriorArmyOne.getName() + " [" + warriorArmyOne.getHealth() + " HP]"
-                            + " then deals " + (attackedWarriorOldHealth - attackedWarriorNewHealth)
-                            + " damage to " + warriorArmyTwo.getName() + " [" + attackedWarriorOldHealth
-                            + " HP][-" + (attackedWarriorOldHealth - attackedWarriorNewHealth) + " HP]");
+                    clashReport = clash(warriorArmyOne, warriorArmyTwo, terrain);
+                    battleLog.append(clashReport);
                 }
             }
             // After an attack, see if a warrior died or not. If a warrior died, it is replaced.
             if (warriorArmyTwo.getHealth() <= 0) {
-                System.out.println("\n    " + warriorArmyTwo.getName()
-                        + " died of fatal blow from " + warriorArmyOne.getName() + "!");
+                battleLog.append("\n    ").append(warriorArmyTwo.getName())
+                        .append(" died of fatal blow from ")
+                        .append(warriorArmyOne.getName()).append("!");
+
                 armyTwo.remove(warriorArmyTwo);
                 if (armyTwo.hasUnits()) {
                     warriorArmyTwo = armyTwo.getRandom();
@@ -136,8 +111,10 @@ public class Battle {
                 }
             }
             if (warriorArmyOne.getHealth() <= 0) {
-                System.out.println("\n    " + warriorArmyOne.getName()
-                        + " died of fatal blow from " + warriorArmyTwo.getName() + "!");
+                battleLog.append("\n    ").append(warriorArmyOne.getName())
+                        .append(" died of fatal blow from ")
+                        .append(warriorArmyTwo.getName()).append("!");
+
                 armyOne.remove(warriorArmyOne);
                 if (armyOne.hasUnits()) {
                     warriorArmyOne = armyOne.getRandom();
@@ -152,14 +129,40 @@ public class Battle {
         }
 
         if (!armyOne.hasUnits()) {
-            System.out.println("\n  " + armyTwo.getName() + " wins the battle!"); // Add to log who the winner is.
-            System.setOut(console);                                               // Restores output to console.
+            battleLog.append("\n\n  ").append(armyTwo.getName())
+                    .append(" wins the battle!"); // Add to log who the winner is.
+            try {
+                FileHandler.writeBattleLogToFile(battleLog,"/BattleLog.txt");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
             return armyTwo;
         } else {
-            System.out.println("\n  " + armyOne.getName() + " wins the battle!"); // Add to log who the winner is.
-            System.setOut(console);                                               // Restores output to console.
+            battleLog.append("\n\n  ").append(armyOne.getName())
+                    .append(" wins the battle!"); // Add to log who the winner is.
+            try {
+                FileHandler.writeBattleLogToFile(battleLog, "/BattleLog.txt");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
             return armyOne;
         }
+    }
+
+    /**
+     * Helper method to make the simulate()-method easier to read when randomizing attacks.
+     *
+     * @param attacker attacking unit.
+     * @param defender defending unit.
+     * @return string of text to be viewed either in terminal, battle log or GUI output window.
+     */
+    private String clash(Unit attacker, Unit defender, TerrainType terrain) {
+        int defenderOldHealth = defender.getHealth();
+        attacker.attack(defender, terrain);
+        int defenderNewHealth = defender.getHealth();
+        return "\n" + "     "
+                + attacker.getName() + " strikes and deals " + (defenderOldHealth - defenderNewHealth)
+                + " damage to " + defender.getName() + " [" + defenderNewHealth + " hp]";
     }
 
     /**
