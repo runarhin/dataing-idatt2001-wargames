@@ -16,8 +16,8 @@ import java.util.ArrayList;
  * Class handles reading and writing of files regarding data in the Army class.
  *
  * @author Runar Indahl
- * @version 1.0
- * @since 2022-04-11
+ * @version 3.0
+ * @since 2022-04-22
  */
 public class FileHandler {
 
@@ -151,7 +151,7 @@ public class FileHandler {
      * @throws IOException thrown from FileWriter-object.
      * @see Battle class.
      */
-    public static void writeBattleLogToFile(StringBuilder battleLog, String fileName) throws IOException {
+    public static void writeStringBuilderToFile(StringBuilder battleLog, String fileName) throws IOException {
         if (battleLog.isEmpty()) throw new IOException("Battle log is empty.");
 
         String filePath = "src/main/resources/battle-files" + fileName;
@@ -172,7 +172,7 @@ public class FileHandler {
      * @return StringBuilder containing text information from a file.
      * @throws IOException thrown by BufferedReader.
      */
-    public static StringBuilder readBattleLogFromFile() throws IOException {
+    public static StringBuilder readStringBuilderFromFile() throws IOException {
         StringBuilder stringBuilder = new StringBuilder();
 
         String file = "src/main/resources/battle-files/BattleLog.txt";

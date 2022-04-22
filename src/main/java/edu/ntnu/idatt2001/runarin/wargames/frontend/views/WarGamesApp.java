@@ -8,11 +8,11 @@ import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 /**
- * The view-class which launches the war games' main window/application.
+ * MVC View-class which launches the war games' main window/application.
  *
  * @author Runar Indahl
  * @version 3.0
- * @since 2022-04-18
+ * @since 2022-04-22
  */
 public class WarGamesApp extends Application {
 
@@ -60,7 +60,7 @@ public class WarGamesApp extends Application {
      *
      * @param message the message
      */
-    public static void giveError(String message) {
+    public static void giveError(String message) { //TODO: Is this ever used?
         alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle("Error");
         alert.setHeaderText(null);

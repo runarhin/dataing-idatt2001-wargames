@@ -1,13 +1,13 @@
 package edu.ntnu.idatt2001.runarin.wargames.frontend.controllers;
-import static edu.ntnu.idatt2001.runarin.wargames.frontend.model.WarGamesModel.*;
 
+import static edu.ntnu.idatt2001.runarin.wargames.frontend.model.WarGamesModel.*;
 import edu.ntnu.idatt2001.runarin.wargames.backend.armies.Army;
 import edu.ntnu.idatt2001.runarin.wargames.backend.armies.Battle;
-import edu.ntnu.idatt2001.runarin.wargames.backend.exceptions.ArmyEmptyOfUnitsException;
 import edu.ntnu.idatt2001.runarin.wargames.backend.filehandling.FileHandler;
 import edu.ntnu.idatt2001.runarin.wargames.backend.units.TerrainType;
 import edu.ntnu.idatt2001.runarin.wargames.backend.units.Unit;
 import edu.ntnu.idatt2001.runarin.wargames.frontend.views.WarGamesApp;
+
 import javafx.collections.FXCollections;
 import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
@@ -22,13 +22,15 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 /**
- *
+ * MVC Controller class for communicating between the application and the model holding data.
  *
  * @author Runar Indahl
  * @version 3.0
- * @since 2022-04-19
+ * @since 2022-04-22
  */
 public class WarGamesController implements Initializable {
+
+    TerrainType terrain;
 
     @FXML private Label nameArmyOne;
     @FXML private Label armyOneNumberOfUnits;
@@ -52,27 +54,14 @@ public class WarGamesController implements Initializable {
     @FXML private Button idBtnForest;
     @FXML private Button idBtnHill;
     @FXML private Button idBtnPlains;
-
     @FXML private TextArea textFieldBattleLog;
 
-    TerrainType terrain;
-
-    /*
-    private ObservableList<Unit> obsListArmyOne;
-    private void initArmyOneUnitsListView() {
-        obsListArmyOne = FXCollections.observableList(getArmyOne().getAllUnits());
-        obsListArmyOne.addListener(new ListChangeListener<Unit>() {
-            @Override
-            public void onChanged(Change<? extends Unit> change) {
-                System.out.println("Army One: List change detected.");
-                obsListArmyOne.setAll(getArmyOne().getAllUnits());
-                listViewArmyOneUnits.setItems(null);
-                listViewArmyOneUnits.setItems(obsListArmyOne);
-            }
-        });
-        listViewArmyOneUnits.setItems(obsListArmyOne);
-    }*/
-
+    /**
+     *
+     *
+     * @param army
+     * @return
+     */
     private ObservableList<Unit> updateUnitsListView(Army army) {
 
         ObservableList<Unit> obsArmyList = FXCollections.observableList(army.getAllUnits());
@@ -86,14 +75,18 @@ public class WarGamesController implements Initializable {
         return obsArmyList;
     }
 
-
+    /**
+     *
+     *
+     * @param actionEvent
+     */
     public void btnStartBattle(ActionEvent actionEvent) {
 
         StringBuilder battleLog = null;
         try {
             Battle battle = new Battle(getArmyOne(), getArmyTwo());
             battle.simulate(terrain);
-            battleLog = FileHandler.readBattleLogFromFile();
+            battleLog = FileHandler.readStringBuilderFromFile();
         }
         catch (IOException e) {
             WarGamesApp.giveInformation(e.getMessage());
@@ -127,6 +120,11 @@ public class WarGamesController implements Initializable {
         }
     }
 
+    /**
+     *
+     *
+     * @param actionEvent
+     */
     public void btnForest(ActionEvent actionEvent) {
         idBtnStartBattle.setDisable(false);
         idBtnForest.setDisable(true);
@@ -136,6 +134,11 @@ public class WarGamesController implements Initializable {
         terrain = TerrainType.FOREST;
     }
 
+    /**
+     *
+     *
+     * @param actionEvent
+     */
     public void btnHill(ActionEvent actionEvent) {
         idBtnStartBattle.setDisable(false);
         idBtnForest.setDisable(false);
@@ -145,6 +148,11 @@ public class WarGamesController implements Initializable {
         terrain = TerrainType.HILL;
     }
 
+    /**
+     *
+     *
+     * @param actionEvent
+     */
     public void btnPlains(ActionEvent actionEvent) {
         idBtnStartBattle.setDisable(false);
         idBtnForest.setDisable(false);
@@ -154,13 +162,28 @@ public class WarGamesController implements Initializable {
         terrain = TerrainType.PLAINS;
     }
 
-
+    /**
+     *
+     *
+     * @param actionEvent
+     */
     public void btnArmyOneSelectFile(ActionEvent actionEvent) {
     }
 
+    /**
+     *
+     *
+     * @param actionEvent
+     */
     public void btnArmyTwoSelectFile(ActionEvent actionEvent) {
     }
 
+    /**
+     *
+     *
+     * @param actionEvent
+     * @throws IOException
+     */
     public void btnInitialiseArmyOne(ActionEvent actionEvent) throws IOException {
         String newArmyName = FileHandler.readArmyNameFromFile(getFilePathArmyOne());
         nameArmyOne.setText(newArmyName);
@@ -179,6 +202,12 @@ public class WarGamesController implements Initializable {
         listViewArmyOneUnits.setItems(obsListArmyOne);
     }
 
+    /**
+     *
+     *
+     * @param actionEvent
+     * @throws IOException
+     */
     public void btnInitialiseArmyTwo(ActionEvent actionEvent) throws IOException {
         String newArmyName = FileHandler.readArmyNameFromFile(getFilePathArmyTwo());
         nameArmyTwo.setText(newArmyName);
@@ -197,6 +226,12 @@ public class WarGamesController implements Initializable {
         listViewArmyTwoUnits.setItems(obsListArmyTwo);
     }
 
+    /**
+     *
+     *
+     * @param url
+     * @param resourceBundle
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
