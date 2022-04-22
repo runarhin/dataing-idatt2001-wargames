@@ -187,7 +187,7 @@ public class Army {
      * @throws IOException thrown if the file refers to the wrong army.
      */
     public void addUnitsFromFile(String file) throws IOException {
-        ArrayList<Unit> importUnitsList = FileHandler.readArmyFromFile(this, file);
+        ArrayList<Unit> importUnitsList = FileHandler.readUnitsFromFile(this, file);
         units.addAll(importUnitsList);
     }
 

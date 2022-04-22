@@ -2,11 +2,13 @@ package edu.ntnu.idatt2001.runarin.wargames.frontend;
 
 import edu.ntnu.idatt2001.runarin.wargames.backend.armies.Army;
 import edu.ntnu.idatt2001.runarin.wargames.backend.armies.Battle;
+import edu.ntnu.idatt2001.runarin.wargames.backend.exceptions.ArmyEmptyOfUnitsException;
 import edu.ntnu.idatt2001.runarin.wargames.backend.units.specialised.CavalryUnit;
 import edu.ntnu.idatt2001.runarin.wargames.backend.units.specialised.CommanderUnit;
 import edu.ntnu.idatt2001.runarin.wargames.backend.units.specialised.InfantryUnit;
 import edu.ntnu.idatt2001.runarin.wargames.backend.units.specialised.RangedUnit;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Scanner;
 
@@ -344,8 +346,13 @@ public class WarGamesSimpleClient {
         }
     }
 
-    public Army startABattleBetweenTwoArmies(Army armyOne, Army armyTwo) {
-        Battle battle = new Battle(armyOne,armyTwo);
+    public Army startABattleBetweenTwoArmies(Army armyOne, Army armyTwo) throws ArmyEmptyOfUnitsException {
+        Battle battle = null;
+        try {
+            battle = new Battle(armyOne,armyTwo);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         return battle.simulate(null);
     }
 
