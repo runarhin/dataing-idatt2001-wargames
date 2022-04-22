@@ -1,6 +1,7 @@
 package edu.ntnu.idatt2001.runarin.wargames.backend.filehandling;
 
 import edu.ntnu.idatt2001.runarin.wargames.backend.armies.Army;
+import edu.ntnu.idatt2001.runarin.wargames.backend.armies.Battle;
 import edu.ntnu.idatt2001.runarin.wargames.backend.exceptions.CorruptedFileException;
 import edu.ntnu.idatt2001.runarin.wargames.backend.units.Unit;
 import edu.ntnu.idatt2001.runarin.wargames.backend.units.specialised.CavalryUnit;
@@ -25,10 +26,10 @@ public class FileHandler {
      * about the army and its units to a wanted location.
      * The file name is the same as the army's name.
      *
-     * @param filePath Path to where the generated file is to be stored. The file-name
+     * @param filePath path to where the generated file is to be stored. The file-name
      *                 itself is generated based on the army name.
      * @throws IOException thrown from FileWriter-object.
-     * @see Army
+     * @see Army class.
      */
     public static void writeArmyToFile(Army army, String filePath) throws IOException {
         if (army == null) throw new IllegalArgumentException("Parameter for Army class is missing.");
@@ -68,14 +69,33 @@ public class FileHandler {
     }
 
     /**
+     * Returns only the army name from a file.
+     *
+     * @param file path and file name of the file to be read.
+     * @return army name.
+     * @throws IOException if army name s blank.
+     */
+    public static String readArmyNameFromFile(String file) throws IOException {
+        if (file.isBlank()) throw new IllegalArgumentException("Parameter 'file' cannot be blank.");
+
+        String armyName;
+        try (BufferedReader br = new BufferedReader((new FileReader(file)))) {
+            // Reads the first line in the file which contains the army name.
+            armyName = br.readLine();
+            if (armyName.isBlank()) throw new IOException("Army name is blank in the given file.");
+        }
+        return armyName;
+    }
+
+    /**
      * Reads a file containing units and returns an ArrayList with these units.
      * Throws CorruptedArmyFileException if the file is corrupt.
      * Only returns units to the list if there are no corruptions in the file.
      *
-     * @param file Path and name to the file to be read.
-     * @throws CorruptedFileException Throws exception if the file data is corrupted.
+     * @param file path and file name of the file to be read.
+     * @throws CorruptedFileException throws exception if the file data is corrupted.
      */
-    public static ArrayList<Unit> readArmyFromFile(Army army, String file) throws IOException {
+    public static ArrayList<Unit> readUnitsFromFile(Army army, String file) throws IOException {
         if (army == null) throw new IllegalArgumentException("Parameter for Army class is missing.");
         if (file.isBlank()) throw new IllegalArgumentException("Parameter 'file' cannot be blank.");
         if (!file.contains(".csv")) throw new IllegalArgumentException("Parameter 'file' must be of a .csv-format");
@@ -122,5 +142,47 @@ public class FileHandler {
             }
         }
         return importUnitsList;
+    }
+
+    /**
+     * Writes string from StringBuilder to a .txt-file named BattleLog.txt.
+     *
+     * @param battleLog the battle log in StringBuilder format to be written to a .txt-file.
+     * @throws IOException thrown from FileWriter-object.
+     * @see Battle class.
+     */
+    public static void writeBattleLogToFile(StringBuilder battleLog, String fileName) throws IOException {
+        if (battleLog.isEmpty()) throw new IOException("Battle log is empty.");
+
+        String filePath = "src/main/resources/battle-files" + fileName;
+        File file = new File(filePath);
+        FileWriter fw = new FileWriter(file);
+        BufferedWriter bw = new BufferedWriter(fw);
+
+        // Writes the battle log to file.
+        bw.write(battleLog.toString());
+
+        bw.close();
+        fw.close();
+    }
+
+    /**
+     * Returns a StringBuilder containing text information from a file.
+     *
+     * @return StringBuilder containing text information from a file.
+     * @throws IOException thrown by BufferedReader.
+     */
+    public static StringBuilder readBattleLogFromFile() throws IOException {
+        StringBuilder stringBuilder = new StringBuilder();
+
+        String file = "src/main/resources/battle-files/BattleLog.txt";
+        try (BufferedReader br = new BufferedReader((new FileReader(file)))) {
+
+            String line;
+            while ((line = br.readLine()) != null) {
+                stringBuilder.append(line).append(System.lineSeparator());
+            }
+        }
+        return stringBuilder;
     }
 }

@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 import edu.ntnu.idatt2001.runarin.wargames.backend.exceptions.CorruptedFileException;
+import edu.ntnu.idatt2001.runarin.wargames.backend.filehandling.FileHandler;
 import edu.ntnu.idatt2001.runarin.wargames.backend.units.Unit;
 import edu.ntnu.idatt2001.runarin.wargames.backend.units.specialised.CavalryUnit;
 import edu.ntnu.idatt2001.runarin.wargames.backend.units.specialised.CommanderUnit;
@@ -100,6 +101,21 @@ public class ArmyTest {
         }
 
         @Test
+        public void readArmyNameFromFile() {
+            /*
+            This test asserts that the army name is returned from a file.
+             */
+            try {
+                String file = "src/main/resources/test-files/TestArmy-valid.csv";
+                String armyName = FileHandler.readArmyNameFromFile(file);
+                assertEquals("Test Army", armyName);
+            } catch (IOException e) {
+                assertNull(e.getMessage());
+            }
+
+        }
+
+        @Test
         public void readContentOfFileAndAddItsContentOfUnitsToArmy() {
             /*
             This test reads the content of a file and asserts that it follows the correct format,
@@ -114,25 +130,25 @@ public class ArmyTest {
                 assertEquals(19, army.getAllUnits().size());
                 assertEquals("""
                                 [
-                                | Grunt | HP = 100 | Attack power = 15 | Armor points = 10 |,\s
-                                | Grunt | HP = 100 | Attack power = 15 | Armor points = 10 |,\s
-                                | Grunt | HP = 100 | Attack power = 15 | Armor points = 10 |,\s
-                                | Spearman | HP = 100 | Attack power = 15 | Armor points = 8 |,\s
-                                | Spearman | HP = 100 | Attack power = 15 | Armor points = 8 |,\s
-                                | Spearman | HP = 100 | Attack power = 15 | Armor points = 8 |,\s
-                                | Raider | HP = 100 | Attack power = 20 | Armor points = 12 |,\s
-                                | Raider | HP = 100 | Attack power = 20 | Armor points = 12 |,\s
-                                | Raider | HP = 100 | Attack power = 20 | Armor points = 12 |,\s
-                                | Gul'dan | HP = 180 | Attack power = 25 | Armor points = 15 |,\s
-                                | Raider | HP = 100 | Attack power = 20 | Armor points = 12 |,\s
-                                | Raider | HP = 100 | Attack power = 20 | Armor points = 12 |,\s
-                                | Raider | HP = 100 | Attack power = 20 | Armor points = 12 |,\s
-                                | Spearman | HP = 100 | Attack power = 15 | Armor points = 8 |,\s
-                                | Spearman | HP = 100 | Attack power = 15 | Armor points = 8 |,\s
-                                | Spearman | HP = 100 | Attack power = 15 | Armor points = 8 |,\s
-                                | Grunt | HP = 100 | Attack power = 15 | Armor points = 10 |,\s
-                                | Grunt | HP = 100 | Attack power = 15 | Armor points = 10 |,\s
-                                | Grunt | HP = 100 | Attack power = 15 | Armor points = 10 |]""",
+                                Grunt  [100 hp]  InfantryUnit,\s
+                                Grunt  [100 hp]  InfantryUnit,\s
+                                Grunt  [100 hp]  InfantryUnit,\s
+                                Spearman  [100 hp]  RangedUnit,\s
+                                Spearman  [100 hp]  RangedUnit,\s
+                                Spearman  [100 hp]  RangedUnit,\s
+                                Raider  [100 hp]  CavalryUnit,\s
+                                Raider  [100 hp]  CavalryUnit,\s
+                                Raider  [100 hp]  CavalryUnit,\s
+                                Gul'dan  [180 hp]  CommanderUnit,\s
+                                Raider  [100 hp]  CavalryUnit,\s
+                                Raider  [100 hp]  CavalryUnit,\s
+                                Raider  [100 hp]  CavalryUnit,\s
+                                Spearman  [100 hp]  RangedUnit,\s
+                                Spearman  [100 hp]  RangedUnit,\s
+                                Spearman  [100 hp]  RangedUnit,\s
+                                Grunt  [100 hp]  InfantryUnit,\s
+                                Grunt  [100 hp]  InfantryUnit,\s
+                                Grunt  [100 hp]  InfantryUnit]""",
                         army.getAllUnits().toString());
 
             } catch (IOException e) {
@@ -265,9 +281,9 @@ public class ArmyTest {
             assertEquals(3, army.getInfantryUnits().size());
             assertEquals("""
                             [
-                            | Grunt | HP = 100 | Attack power = 15 | Armor points = 10 |,\s
-                            | Grunt | HP = 100 | Attack power = 15 | Armor points = 10 |,\s
-                            | Grunt | HP = 100 | Attack power = 15 | Armor points = 10 |]""",
+                            Grunt  [100 hp]  InfantryUnit,\s
+                            Grunt  [100 hp]  InfantryUnit,\s
+                            Grunt  [100 hp]  InfantryUnit]""",
                     army.getInfantryUnits().toString());
         }
 
@@ -279,9 +295,9 @@ public class ArmyTest {
             assertEquals(3, army.getRangedUnits().size());
             assertEquals("""
                             [
-                            | Spearman | HP = 100 | Attack power = 15 | Armor points = 8 |,\s
-                            | Spearman | HP = 100 | Attack power = 15 | Armor points = 8 |,\s
-                            | Spearman | HP = 100 | Attack power = 15 | Armor points = 8 |]""",
+                            Spearman  [100 hp]  RangedUnit,\s
+                            Spearman  [100 hp]  RangedUnit,\s
+                            Spearman  [100 hp]  RangedUnit]""",
                     army.getRangedUnits().toString());
         }
 
@@ -293,9 +309,9 @@ public class ArmyTest {
             assertEquals(3, army.getCavalryUnits().size());
             assertEquals("""
                             [
-                            | Raider | HP = 100 | Attack power = 20 | Armor points = 12 |,\s
-                            | Raider | HP = 100 | Attack power = 20 | Armor points = 12 |,\s
-                            | Raider | HP = 100 | Attack power = 20 | Armor points = 12 |]""",
+                            Raider  [100 hp]  CavalryUnit,\s
+                            Raider  [100 hp]  CavalryUnit,\s
+                            Raider  [100 hp]  CavalryUnit]""",
                     army.getCavalryUnits().toString());
         }
 
@@ -305,7 +321,7 @@ public class ArmyTest {
             Asserts that the filtered units list only contains the specified instance of commander units.
              */
             assertEquals(1, army.getCommanderUnits().size());
-            assertEquals("[\n| Gul'dan | HP = 180 | Attack power = 25 | Armor points = 15 |]",
+            assertEquals("[\nGul'dan  [180 hp]  CommanderUnit]",
                     army.getCommanderUnits().toString());
         }
     }
@@ -434,17 +450,17 @@ public class ArmyTest {
         horde.addUnit(new InfantryUnit("Grunt", 100));
         horde.addUnit(new RangedUnit("Spearman", 100));
         horde.addUnit(new CavalryUnit("Raider", 100));
-        horde.addUnit(new CommanderUnit("Gul'dan", 100));
+        horde.addUnit(new CommanderUnit("Gul'dan", 180));
 
         ArrayList<Unit> testArrayList = horde.getAllUnits();
 
-        assertEquals("\n| Grunt | HP = 100 | Attack power = 15 | Armor points = 10 |",
+        assertEquals("\nGrunt  [100 hp]  InfantryUnit",
                 testArrayList.get(0).toString());
-        assertEquals("\n| Spearman | HP = 100 | Attack power = 15 | Armor points = 8 |",
+        assertEquals("\nSpearman  [100 hp]  RangedUnit",
                 testArrayList.get(1).toString());
-        assertEquals("\n| Raider | HP = 100 | Attack power = 20 | Armor points = 12 |",
+        assertEquals("\nRaider  [100 hp]  CavalryUnit",
                 testArrayList.get(2).toString());
-        assertEquals("\n| Gul'dan | HP = 100 | Attack power = 25 | Armor points = 15 |",
+        assertEquals("\nGul'dan  [180 hp]  CommanderUnit",
                 testArrayList.get(3).toString());
     }
 

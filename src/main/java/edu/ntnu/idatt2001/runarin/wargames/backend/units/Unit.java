@@ -6,7 +6,7 @@ package edu.ntnu.idatt2001.runarin.wargames.backend.units;
  *
  * @author Runar Indahl
  * @version 3.0
- * @since 2022-04-17
+ * @since 2022-04-19
  */
 public abstract class Unit {
 
@@ -122,14 +122,14 @@ public abstract class Unit {
     }
 
     /**
-     * Returns the status of a warrior in toString-format.
+     * Returns the unit type, name and health status of a warrior in toString-format.
      *
      * @return status of a warrior.
      */
     @Override
     public String toString() {
         return (
-            "\n| " + name + " | HP = " + health + " | Attack power = " + attack + " | Armor points = " + armor + " |"
+            "\n" + name + "  [" + health + " hp]  " + getClass().getSimpleName()
         );
     }
 

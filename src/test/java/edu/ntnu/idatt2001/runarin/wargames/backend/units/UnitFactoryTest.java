@@ -16,7 +16,7 @@ public class UnitFactoryTest {
          */
         Unit unit = UnitFactory.getUnit(UnitType.INFANTRY, "Grunt", 100);
 
-        assertEquals("\n| Grunt | HP = 100 | Attack power = 15 | Armor points = 10 |", unit.toString());
+        assertEquals("\nGrunt  [100 hp]  InfantryUnit", unit.toString());
     }
 
     @Test
@@ -31,7 +31,7 @@ public class UnitFactoryTest {
 
         assertEquals(4, units.size());
         for (Unit unit : units) {
-            assertEquals("\n| Archer | HP = 100 | Attack power = 15 | Armor points = 8 |",
+            assertEquals("\nArcher  [100 hp]  RangedUnit",
                     unit.toString());
         }
     }

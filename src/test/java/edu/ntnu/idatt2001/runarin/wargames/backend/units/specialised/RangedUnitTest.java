@@ -13,7 +13,7 @@ public class RangedUnitTest {
         Instantiate a unit to check its toString.
          */
         RangedUnit testUnit = new RangedUnit("Archer", 100);
-        assertEquals(testUnit.toString(), "\n| Archer | HP = 100 | Attack power = 15 | Armor points = 8 |");
+        assertEquals(testUnit.toString(), "\nArcher  [100 hp]  RangedUnit");
     }
 
     @Test
