@@ -1,0 +1,6 @@
+.forest_background{
+    -fx-background-position: center;
+    -fx-background-repeat: no-repeat;
+    -fx-background-image: url('forest_background.png');
+    -fx-background-size: stretch, stretch;
+}

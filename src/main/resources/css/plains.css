@@ -1,0 +1,6 @@
+.plains_background{
+    -fx-background-position: center;
+    -fx-background-repeat: no-repeat;
+    -fx-background-image: url('plains_background.jpg');
+    -fx-background-size: stretch, stretch;
+}
