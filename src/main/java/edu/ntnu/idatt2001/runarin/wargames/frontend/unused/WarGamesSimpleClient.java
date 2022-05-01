@@ -1,4 +1,4 @@
-package edu.ntnu.idatt2001.runarin.wargames.frontend;
+package edu.ntnu.idatt2001.runarin.wargames.frontend.unused;
 
 import edu.ntnu.idatt2001.runarin.wargames.backend.armies.Army;
 import edu.ntnu.idatt2001.runarin.wargames.backend.armies.Battle;
