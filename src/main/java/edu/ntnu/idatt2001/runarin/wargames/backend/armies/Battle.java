@@ -96,7 +96,7 @@ public class Battle {
             }
             // After an attack, see if a warrior died or not. If a warrior died, it is replaced.
             if (warriorArmyTwo.getHealth() <= 0) {
-                battleLog.append("\n    ").append(warriorArmyTwo.getName())
+                battleLog.append("\n     ").append(warriorArmyTwo.getName())
                         .append(" died of fatal blow from ")
                         .append(warriorArmyOne.getName()).append("!");
 
@@ -112,7 +112,7 @@ public class Battle {
                 }
             }
             if (warriorArmyOne.getHealth() <= 0) {
-                battleLog.append("\n    ").append(warriorArmyOne.getName())
+                battleLog.append("\n     ").append(warriorArmyOne.getName())
                         .append(" died of fatal blow from ")
                         .append(warriorArmyTwo.getName()).append("!");
 
