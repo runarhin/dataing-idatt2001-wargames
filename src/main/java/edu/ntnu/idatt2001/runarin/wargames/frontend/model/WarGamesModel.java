@@ -91,4 +91,24 @@ public class WarGamesModel {
     public static void setFilePathArmyTwo(File filePathArmyTwo) {
         WarGamesModel.filePathArmyTwo = filePathArmyTwo;
     }
+
+
+
+    /*
+    public static String selectFile() throws FileNotFoundException {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Open army from file");
+        File selectedFile = fileChooser.showOpenDialog(WarGamesApp.getStage());'7
+
+        /* check if a file selected, and if selected file has read permissions */
+        /*if (selectedFile != null && selectedFile.canRead())
+            return selectedFile.getAbsolutePath();
+        else
+            throw new FileNotFoundException("Selected file could not be read, or does not have read permissions");
+    }*/
+
+
+
+
+
 }

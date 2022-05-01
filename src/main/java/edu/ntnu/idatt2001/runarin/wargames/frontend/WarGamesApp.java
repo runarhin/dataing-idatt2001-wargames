@@ -1,4 +1,4 @@
-package edu.ntnu.idatt2001.runarin.wargames.frontend.views;
+package edu.ntnu.idatt2001.runarin.wargames.frontend;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -12,12 +12,13 @@ import javafx.stage.Stage;
  *
  * @author Runar Indahl
  * @version 3.0
- * @since 2022-04-22
+ * @since 2022-05-01
  */
 public class WarGamesApp extends Application {
 
     private static final String VERSION = "3.0";
     private static Alert alert;
+    private static Scene scene; //TODO: Test if this have to be set as a getter for changing background.
 
     /**
      * Method loads the application window.
@@ -29,16 +30,17 @@ public class WarGamesApp extends Application {
     public void start(Stage stage) throws Exception {
         FXMLLoader root = new FXMLLoader(
                 WarGamesApp.class.getClassLoader().getResource("war_games_view.fxml"));
-        Scene scene = new Scene(root.load());
+        scene = new Scene(root.load());
 
         stage.setTitle("War Games   v." + VERSION);
 
-        Image icon = new Image("icon.png");
+        Image icon = new Image("icon_2.png");
         stage.getIcons().add(icon);
 
         stage.setScene(scene);
         stage.show();
     }
+
 
     /**
      * Give information.
