@@ -6,6 +6,7 @@ import edu.ntnu.idatt2001.runarin.wargames.backend.units.TerrainType;
 import edu.ntnu.idatt2001.runarin.wargames.backend.units.specialised.CavalryUnit;
 import edu.ntnu.idatt2001.runarin.wargames.backend.units.specialised.RangedUnit;
 import edu.ntnu.idatt2001.runarin.wargames.backend.units.Unit;
+
 import java.io.IOException;
 import java.util.Random;
 
@@ -15,7 +16,7 @@ import java.util.Random;
  *
  * @author Runar Indahl
  * @version 3.0
- * @since 2022-04-19
+ * @since 2022-04-21
  */
 public class Battle {
 
@@ -95,7 +96,7 @@ public class Battle {
             }
             // After an attack, see if a warrior died or not. If a warrior died, it is replaced.
             if (warriorArmyTwo.getHealth() <= 0) {
-                battleLog.append("\n    ").append(warriorArmyTwo.getName())
+                battleLog.append("\n     ").append(warriorArmyTwo.getName())
                         .append(" died of fatal blow from ")
                         .append(warriorArmyOne.getName()).append("!");
 
@@ -111,7 +112,7 @@ public class Battle {
                 }
             }
             if (warriorArmyOne.getHealth() <= 0) {
-                battleLog.append("\n    ").append(warriorArmyOne.getName())
+                battleLog.append("\n     ").append(warriorArmyOne.getName())
                         .append(" died of fatal blow from ")
                         .append(warriorArmyTwo.getName()).append("!");
 
@@ -132,7 +133,7 @@ public class Battle {
             battleLog.append("\n\n  ").append(armyTwo.getName())
                     .append(" wins the battle!"); // Add to log who the winner is.
             try {
-                FileHandler.writeBattleLogToFile(battleLog,"/BattleLog.txt");
+                FileHandler.writeStringBuilderToFile(battleLog,"/BattleLog.txt");
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -141,7 +142,7 @@ public class Battle {
             battleLog.append("\n\n  ").append(armyOne.getName())
                     .append(" wins the battle!"); // Add to log who the winner is.
             try {
-                FileHandler.writeBattleLogToFile(battleLog, "/BattleLog.txt");
+                FileHandler.writeStringBuilderToFile(battleLog, "/BattleLog.txt");
             } catch (IOException e) {
                 e.printStackTrace();
             }
