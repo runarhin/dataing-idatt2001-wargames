@@ -16,7 +16,7 @@ import java.util.Random;
  *
  * @author Runar Indahl
  * @version 3.0
- * @since 2022-04-21
+ * @since 2022-05-09
  */
 public class Battle {
 
@@ -32,8 +32,8 @@ public class Battle {
     public Battle(Army armyOne, Army armyTwo) throws IOException {
         if (armyOne == null || armyTwo == null)
             throw new IOException("Two armies must be initialised to run simulation.");
-        if (armyOne.equals(armyTwo))
-            throw new IllegalArgumentException("An army cannot battle itself.");
+        if (armyOne.getName().equals(armyTwo.getName()))
+            throw new IllegalArgumentException("An army cannot battle itself. Choose one other army.");
         this.armyOne = armyOne;
         this.armyTwo = armyTwo;
     }
