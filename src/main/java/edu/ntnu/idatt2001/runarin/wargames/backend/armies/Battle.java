@@ -52,10 +52,10 @@ public class Battle {
 
         if (!armyOne.hasUnits()) throw new ArmyEmptyOfUnitsException(armyOne.getName() +
                 " has no units left to fight in the simulation. " +
-                "Press the \"Initialise army from file\"-button to rebuild the army.");
+                "\nPress the \"Initialise army from file\"- or \"Reinitialize\"-button to rebuild the army.");
         if (!armyTwo.hasUnits()) throw new ArmyEmptyOfUnitsException(armyTwo.getName() +
                 " has no units left to fight in the simulation. " +
-                "Press the \"Initialise army from file\"-button to rebuild the army.");
+                "\nPress the \"Initialise army from file\"- or \"Reinitialize\"-button to rebuild the army.");
 
         int roundCount = 0;
         Random rand = new Random();

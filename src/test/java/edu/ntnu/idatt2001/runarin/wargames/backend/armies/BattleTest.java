@@ -9,7 +9,6 @@ import edu.ntnu.idatt2001.runarin.wargames.backend.units.specialised.RangedUnit;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 public class BattleTest {
@@ -39,7 +38,7 @@ public class BattleTest {
             Battle battle = new Battle(alliance, alliance);
             fail();
         } catch (IllegalArgumentException | IOException e) {
-            assertEquals("An army cannot battle itself.", e.getMessage());
+            assertEquals("An army cannot battle itself. Choose one other army.", e.getMessage());
         }
     }
 
