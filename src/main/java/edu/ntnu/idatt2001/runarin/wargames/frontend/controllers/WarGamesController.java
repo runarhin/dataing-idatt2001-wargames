@@ -37,6 +37,8 @@ import java.util.ResourceBundle;
  */
 public class WarGamesController implements Initializable {
 
+    @FXML private Button idBtnAddUnitsArmyOne;
+    @FXML private Button idBtnAddUnitsArmyTwo;
     TerrainType terrain;
 
     @FXML private Text nameArmyOne;
@@ -313,7 +315,8 @@ public class WarGamesController implements Initializable {
      * @param actionEvent action event.
      */
     public void btnReinitialize(ActionEvent actionEvent) {
-        idBtnReinitialize.setStyle("-fx-background-color: grey;");
+        //idBtnReinitialize.setStyle("-fx-background-color: grey;");
+        idBtnReinitialize.setStyle(null);
         idBtnReinitialize.setText("Reinitialize");
 
         idBtnStartBattle.setStyle(null);
@@ -393,5 +396,11 @@ public class WarGamesController implements Initializable {
             }
         });
         return obsArmyList;
+    }
+
+    public void btnAddUnitsArmyOne(ActionEvent actionEvent) {
+    }
+
+    public void btnAddUnitsArmyTwo(ActionEvent actionEvent) {
     }
 }

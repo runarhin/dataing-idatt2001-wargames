@@ -147,7 +147,7 @@
                         </Text>
                         <ListView fx:id="listViewArmyOneUnits" focusTraversable="false" maxHeight="1.7976931348623157E308" maxWidth="270.0" minHeight="50.0" minWidth="100.0" prefWidth="270.0">
                            <VBox.margin>
-                              <Insets bottom="20.0" left="20.0" right="10.0" top="5.0" />
+                              <Insets left="20.0" right="10.0" top="5.0" />
                            </VBox.margin>
                            <effect>
                               <InnerShadow>
@@ -157,12 +157,27 @@
                               </InnerShadow>
                            </effect>
                         </ListView>
+                        <HBox alignment="TOP_RIGHT" prefHeight="25.0" prefWidth="300.0">
+                           <children>
+                              <Button fx:id="idBtnAddUnitsArmyOne" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#btnAddUnitsArmyOne" prefHeight="25.0" prefWidth="70.0" text="Add units">
+                                 <HBox.margin>
+                                    <Insets left="10.0" right="12.0" />
+                                 </HBox.margin>
+                                 <effect>
+                                    <InnerShadow />
+                                 </effect>
+                              </Button>
+                           </children>
+                           <VBox.margin>
+                              <Insets top="5.0" />
+                           </VBox.margin>
+                        </HBox>
                         <Text fill="WHITE" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="2.0" text="Army one filepath:">
                            <font>
                               <Font name="System Bold" size="16.0" />
                            </font>
                            <VBox.margin>
-                              <Insets left="25.0" right="10.0" top="10.0" />
+                              <Insets left="25.0" right="10.0" top="20.0" />
                            </VBox.margin>
                         </Text>
                         <TextField fx:id="filePathArmyOne" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="270.0" promptText="Browse for army file" text="path/to/army-file.csv">
@@ -466,7 +481,7 @@
                         </Text>
                         <ListView fx:id="listViewArmyTwoUnits" focusTraversable="false" maxHeight="1.7976931348623157E308" maxWidth="270.0" minHeight="50.0" minWidth="100.0" prefWidth="270.0">
                            <VBox.margin>
-                              <Insets bottom="20.0" left="10.0" right="20.0" top="5.0" />
+                              <Insets left="10.0" right="20.0" top="5.0" />
                            </VBox.margin>
                            <effect>
                               <SepiaTone level="0.2">
@@ -476,12 +491,27 @@
                               </SepiaTone>
                            </effect>
                         </ListView>
+                        <HBox alignment="TOP_RIGHT" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Button fx:id="idBtnAddUnitsArmyTwo" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#btnAddUnitsArmyTwo" prefHeight="25.0" prefWidth="70.0" text="Add units">
+                                 <effect>
+                                    <InnerShadow />
+                                 </effect>
+                                 <HBox.margin>
+                                    <Insets left="10.0" right="22.0" />
+                                 </HBox.margin>
+                              </Button>
+                           </children>
+                           <VBox.margin>
+                              <Insets top="5.0" />
+                           </VBox.margin>
+                        </HBox>
                         <Text fill="WHITE" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="2.0" text="Army two filepath:">
                            <font>
                               <Font name="System Bold" size="16.0" />
                            </font>
                            <VBox.margin>
-                              <Insets left="15.0" right="10.0" top="10.0" />
+                              <Insets left="15.0" right="10.0" top="20.0" />
                            </VBox.margin>
                         </Text>
                         <TextField fx:id="filePathArmyTwo" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="270.0" text="path/to/army-file.csv">
