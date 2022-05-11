@@ -17,8 +17,8 @@ import java.util.stream.Collectors;
  * This class represents an army with a name and a list of warrior units.
  *
  * @author Runar Indahl
- * @version 3.0
- * @since 2022-04-11
+ * @version 4.0
+ * @since 2022-05-11
  */
 public class Army {
 
@@ -33,6 +33,8 @@ public class Army {
      */
     public Army(String name, ArrayList<Unit> units) {
         if (name.isEmpty() || name.isBlank()) throw new IllegalArgumentException("Army name cannot be empty");
+        if (name.length() > 25) throw new IllegalArgumentException("Army name is to long for: \"" + name + "\"." +
+                "\nTry to shorten the name in the imported army file.");
         this.name = name;
         this.units = units;
     }
@@ -45,6 +47,8 @@ public class Army {
      */
     public Army(String name) {
         if (name.isEmpty() || name.isBlank()) throw new IllegalArgumentException("Army name cannot be empty");
+        if (name.length() > 25) throw new IllegalArgumentException("Army name is to long for: \"" + name + "\"." +
+                "\nTry to shorten the name in the imported army file.");
         this.name = name;
         this.units = new ArrayList<>();
     }

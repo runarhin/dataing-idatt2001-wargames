@@ -1,6 +1,7 @@
 package edu.ntnu.idatt2001.runarin.wargames.frontend.model;
 
 import edu.ntnu.idatt2001.runarin.wargames.backend.armies.Army;
+import edu.ntnu.idatt2001.runarin.wargames.backend.armies.Battle;
 
 import java.io.File;
 
@@ -8,20 +9,39 @@ import java.io.File;
  * MVC Model-class for holding values used in the GUI.
  *
  * @author Runar Indahl
- * @version 3.0
- * @since 2022-04-22
+ * @version 4.0
+ * @since 2022-05-11
  */
 public class WarGamesModel {
 
+    private static Battle battle;
     private static Army armyOne;
     private static Army armyTwo;
     private static File filePathArmyOne;
     private static File filePathArmyTwo;
 
     /**
+     * Return the static object battle.
+     *
+     * @return the battle object, representing the battle between two armies.
+     */
+    public static Battle getBattle() {
+        return battle;
+    }
+
+    /**
+     * Set the battle object which holds the battle-simulation between two armies.
+     *
+     * @param battle the battle between two armies.
+     */
+    public static void setBattle(Battle battle) {
+        WarGamesModel.battle = battle;
+    }
+
+    /**
      * Return the static object army one.
      *
-     * @return army one, initialised by input army file.
+     * @return army one, the first out of two armies to battle in the simulation.
      * @see edu.ntnu.idatt2001.runarin.wargames.frontend.controllers.WarGamesController
      */
     public static Army getArmyOne() {
@@ -31,7 +51,7 @@ public class WarGamesModel {
     /**
      * Return the static object army two.
      *
-     * @return army two, initialised by input army file.
+     * @return army two, the second out of two armies to battle in the simulation.
      * @see edu.ntnu.idatt2001.runarin.wargames.frontend.controllers.WarGamesController
      */
     public static Army getArmyTwo() {
@@ -91,24 +111,4 @@ public class WarGamesModel {
     public static void setFilePathArmyTwo(File filePathArmyTwo) {
         WarGamesModel.filePathArmyTwo = filePathArmyTwo;
     }
-
-
-
-    /*
-    public static String selectFile() throws FileNotFoundException {
-        FileChooser fileChooser = new FileChooser();
-        fileChooser.setTitle("Open army from file");
-        File selectedFile = fileChooser.showOpenDialog(WarGamesApp.getStage());'7
-
-        /* check if a file selected, and if selected file has read permissions */
-        /*if (selectedFile != null && selectedFile.canRead())
-            return selectedFile.getAbsolutePath();
-        else
-            throw new FileNotFoundException("Selected file could not be read, or does not have read permissions");
-    }*/
-
-
-
-
-
 }

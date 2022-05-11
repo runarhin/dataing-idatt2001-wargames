@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.String?>
-<?import java.net.URL?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.effect.SepiaTone?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
@@ -20,7 +19,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<GridPane id="background_css" fx:id="idGridPane" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.ntnu.idatt2001.runarin.wargames.frontend.controllers.WarGamesController">
+<GridPane id="idStylesheet" fx:id="idGridPane" stylesheets="@css/forest.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.ntnu.idatt2001.runarin.wargames.frontend.controllers.WarGamesController">
    <columnConstraints>
       <ColumnConstraints hgrow="SOMETIMES" minWidth="200.0" prefWidth="300.0" />
       <ColumnConstraints hgrow="SOMETIMES" minWidth="200.0" prefWidth="400.0" />
@@ -36,36 +35,14 @@
                <children>
                   <VBox minWidth="-Infinity">
                      <children>
-                        <Label text="Army one filepath:" textFill="WHITE">
-                           <VBox.margin>
-                              <Insets left="25.0" right="10.0" top="10.0" />
-                           </VBox.margin>
+                        <Text fx:id="nameArmyOne" fill="WHITE" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="3.0" text="[Press &quot;Initialize&quot;-button]">
                            <font>
-                              <Font name="System Bold" size="12.0" />
+                              <Font name="System Bold" size="22.0" />
                            </font>
-                        </Label>
-                        <HBox>
-                           <children>
-                              <TextField fx:id="filePathArmyOne" prefHeight="25.0" prefWidth="220.0" promptText="Browse for army file" text="path/to/army/file.csv">
-                                 <HBox.margin>
-                                    <Insets left="10.0" />
-                                 </HBox.margin>
-                              </TextField>
-                              <Hyperlink fx:id="idBtnArmyOneSelectFile" onAction="#btnArmyOneSelectFile" pickOnBounds="false" text="Browse">
-                                 <HBox.margin>
-                                    <Insets left="5.0" />
-                                 </HBox.margin>
-                              </Hyperlink>
-                           </children>
                            <VBox.margin>
-                              <Insets bottom="10.0" left="10.0" top="10.0" />
+                              <Insets left="22.0" right="10.0" top="30.0" />
                            </VBox.margin>
-                        </HBox>
-                        <Button fx:id="idBtnInitialiseArmyOne" mnemonicParsing="false" onAction="#btnInitialiseArmyOne" text="Initialise army from file">
-                           <VBox.margin>
-                              <Insets bottom="20.0" left="20.0" right="10.0" />
-                           </VBox.margin>
-                        </Button>
+                        </Text>
                         <TitledPane animated="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" prefHeight="116.0" prefWidth="270.0" text="Army overview">
                            <content>
                               <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="90.0" prefWidth="270.0">
@@ -74,8 +51,8 @@
                                        <children>
                                           <GridPane prefHeight="63.0" prefWidth="270.0">
                                              <columnConstraints>
-                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="160.0" minWidth="10.0" prefWidth="150.0" />
-                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="135.0" minWidth="10.0" prefWidth="120.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="180.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="90.0" />
                                              </columnConstraints>
                                              <rowConstraints>
                                                 <RowConstraints maxHeight="65.0" minHeight="30.0" prefHeight="32.0" vgrow="SOMETIMES" />
@@ -83,29 +60,29 @@
                                                 <RowConstraints maxHeight="59.0" minHeight="20.0" prefHeight="21.0" vgrow="SOMETIMES" />
                                              </rowConstraints>
                                              <children>
-                                                <Label fx:id="armyOneNumberOfUnits" text="0" GridPane.halignment="RIGHT">
+                                                <Label fx:id="armyOneNumberOfUnits" text="0" GridPane.halignment="LEFT">
                                                    <GridPane.margin>
-                                                      <Insets bottom="15.0" left="10.0" right="10.0" top="10.0" />
+                                                      <Insets bottom="14.0" left="140.0" top="10.0" />
                                                    </GridPane.margin>
                                                 </Label>
-                                                <Label fx:id="armyOneNumberOfCommanders" text="0" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
+                                                <Label fx:id="armyOneNumberOfCommanders" text="0" GridPane.halignment="LEFT" GridPane.rowIndex="1">
                                                    <GridPane.margin>
-                                                      <Insets bottom="10.0" left="10.0" right="30.0" top="10.0" />
+                                                      <Insets bottom="10.0" left="115.0" right="10.0" top="10.0" />
                                                    </GridPane.margin>
                                                 </Label>
-                                                <Label fx:id="armyOneNumberOfCavalry" text="0" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
+                                                <Label fx:id="armyOneNumberOfCavalry" text="0" GridPane.halignment="LEFT" GridPane.rowIndex="2">
                                                    <GridPane.margin>
-                                                      <Insets bottom="10.0" left="10.0" right="30.0" top="10.0" />
+                                                      <Insets bottom="10.0" left="115.0" right="10.0" top="10.0" />
                                                    </GridPane.margin>
                                                 </Label>
-                                                <Label fx:id="armyOneNumberOfInfantry" text="0" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
+                                                <Label fx:id="armyOneNumberOfInfantry" text="0" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="1">
                                                    <GridPane.margin>
-                                                      <Insets bottom="10.0" right="30.0" top="10.0" />
+                                                      <Insets bottom="10.0" left="60.0" right="10.0" top="10.0" />
                                                    </GridPane.margin>
                                                 </Label>
-                                                <Label fx:id="armyOneNumberOfRanged" text="0" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
+                                                <Label fx:id="armyOneNumberOfRanged" text="0" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="2">
                                                    <GridPane.margin>
-                                                      <Insets bottom="10.0" right="30.0" top="10.0" />
+                                                      <Insets bottom="10.0" left="60.0" right="10.0" top="10.0" />
                                                    </GridPane.margin>
                                                 </Label>
                                                 <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Total number of units:">
@@ -115,22 +92,22 @@
                                                 </Text>
                                                 <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Commander unit:" GridPane.rowIndex="1">
                                                    <GridPane.margin>
-                                                      <Insets bottom="10.0" left="10.0" top="10.0" />
+                                                      <Insets bottom="10.0" left="10.0" top="9.0" />
                                                    </GridPane.margin>
                                                 </Text>
                                                 <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Cavalry units:" GridPane.rowIndex="2">
                                                    <GridPane.margin>
-                                                      <Insets bottom="10.0" left="10.0" top="10.0" />
+                                                      <Insets bottom="10.0" left="10.0" top="9.0" />
                                                    </GridPane.margin>
                                                 </Text>
                                                 <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Infantry units:" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                                    <GridPane.margin>
-                                                      <Insets bottom="10.0" top="10.0" />
+                                                      <Insets bottom="10.0" left="-25.0" top="9.0" />
                                                    </GridPane.margin>
                                                 </Text>
                                                 <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Ranged units:" GridPane.columnIndex="1" GridPane.rowIndex="2">
                                                    <GridPane.margin>
-                                                      <Insets bottom="10.0" top="10.0" />
+                                                      <Insets bottom="10.0" left="-25.0" top="9.0" />
                                                    </GridPane.margin>
                                                 </Text>
                                              </children>
@@ -150,30 +127,79 @@
                               <Font name="System Bold" size="12.0" />
                            </font>
                            <VBox.margin>
-                              <Insets left="10.0" top="20.0" />
+                              <Insets left="10.0" top="30.0" />
                            </VBox.margin>
+                           <effect>
+                              <InnerShadow>
+                                 <input>
+                                    <SepiaTone level="0.2" />
+                                 </input>
+                              </InnerShadow>
+                           </effect>
                         </TitledPane>
-                        <Label fx:id="nameArmyOne" text="[Initialise army from file]" textFill="WHITE">
-                           <VBox.margin>
-                              <Insets left="30.0" right="10.0" top="30.0" />
-                           </VBox.margin>
-                           <font>
-                              <Font name="System Bold" size="18.0" />
-                           </font>
-                        </Label>
-                        <Label text="Units list:" textFill="WHITE">
-                           <VBox.margin>
-                              <Insets left="25.0" right="10.0" top="10.0" />
-                           </VBox.margin>
+                        <Text fill="WHITE" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="2.0" text="Units list:">
                            <font>
                               <Font name="System Bold" size="16.0" />
                            </font>
-                        </Label>
+                           <VBox.margin>
+                              <Insets left="25.0" right="10.0" top="10.0" />
+                           </VBox.margin>
+                        </Text>
                         <ListView fx:id="listViewArmyOneUnits" focusTraversable="false" maxHeight="1.7976931348623157E308" maxWidth="270.0" minHeight="50.0" minWidth="100.0" prefWidth="270.0">
                            <VBox.margin>
-                              <Insets bottom="20.0" left="20.0" right="10.0" top="10.0" />
+                              <Insets bottom="20.0" left="20.0" right="10.0" top="5.0" />
                            </VBox.margin>
+                           <effect>
+                              <InnerShadow>
+                                 <input>
+                                    <SepiaTone level="0.2" />
+                                 </input>
+                              </InnerShadow>
+                           </effect>
                         </ListView>
+                        <Text fill="WHITE" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="2.0" text="Army one filepath:">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets left="25.0" right="10.0" top="10.0" />
+                           </VBox.margin>
+                        </Text>
+                        <TextField fx:id="filePathArmyOne" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="270.0" promptText="Browse for army file" text="path/to/army-file.csv">
+                           <VBox.margin>
+                              <Insets left="20.0" right="10.0" top="5.0" />
+                           </VBox.margin>
+                           <effect>
+                              <InnerShadow>
+                                 <input>
+                                    <SepiaTone level="0.2" />
+                                 </input>
+                              </InnerShadow>
+                           </effect>
+                        </TextField>
+                        <HBox alignment="TOP_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="300.0">
+                           <children>
+                              <Button fx:id="idBtnArmyOneSelectFile" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#btnArmyOneSelectFile" prefHeight="25.0" prefWidth="60.0" text="Browse">
+                                 <HBox.margin>
+                                    <Insets left="10.0" />
+                                 </HBox.margin>
+                                 <effect>
+                                    <InnerShadow />
+                                 </effect>
+                              </Button>
+                              <Button fx:id="idBtnInitialiseArmyOne" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#btnInitialiseArmyOne" prefHeight="25.0" prefWidth="60.0" text="Initialize">
+                                 <HBox.margin>
+                                    <Insets left="5.0" right="10.0" />
+                                 </HBox.margin>
+                                 <effect>
+                                    <InnerShadow />
+                                 </effect>
+                              </Button>
+                           </children>
+                           <VBox.margin>
+                              <Insets bottom="20.0" top="5.0" />
+                           </VBox.margin>
+                        </HBox>
                      </children>
                   </VBox>
                </children>
@@ -186,38 +212,64 @@
                <children>
                   <VBox minWidth="100.0">
                      <children>
-                        <HBox alignment="CENTER" prefHeight="30.0" prefWidth="200.0">
+                        <HBox alignment="CENTER" minHeight="-Infinity" prefHeight="25.0" prefWidth="200.0">
                            <children>
-                              <Label alignment="CENTER" contentDisplay="CENTER" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="30.0" text="Initialize armies" textAlignment="CENTER" textFill="WHITE">
+                              <Text fill="WHITE" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="2.0" text="Initialize armies">
                                  <font>
-                                    <Font name="System Bold" size="20.0" />
+                                    <Font name="System Bold" size="16.0" />
                                  </font>
-                              </Label>
+                              </Text>
                            </children>
                            <VBox.margin>
-                              <Insets top="140.0" />
+                              <Insets top="100.0" />
                            </VBox.margin>
                         </HBox>
-                        <HBox alignment="CENTER" prefHeight="30.0" prefWidth="200.0">
+                        <HBox alignment="CENTER" minHeight="-Infinity" prefHeight="25.0" prefWidth="200.0">
                            <children>
-                              <Label alignment="CENTER" contentDisplay="CENTER" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="30.0" text="and start simulation" textAlignment="CENTER" textFill="WHITE">
+                              <Text fill="WHITE" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="2.0" text="and start simulation">
                                  <font>
-                                    <Font name="System Bold" size="20.0" />
+                                    <Font name="System Bold" size="16.0" />
                                  </font>
-                              </Label>
+                              </Text>
                            </children>
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="40.0" prefWidth="120.0">
                            <children>
+                              <Button fx:id="idBtnReinitialize" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#btnReinitialize" prefHeight="40.0" prefWidth="100.0" text="Initialize">
+                                 <HBox.margin>
+                                    <Insets right="10.0" />
+                                 </HBox.margin>
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                                 <effect>
+                                    <InnerShadow />
+                                 </effect>
+                              </Button>
                               <Button fx:id="idBtnStartBattle" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#btnStartBattle" prefHeight="40.0" prefWidth="120.0" text="Start battle!">
                                  <font>
                                     <Font size="16.0" />
                                  </font>
+                                 <HBox.margin>
+                                    <Insets left="10.0" />
+                                 </HBox.margin>
+                                 <effect>
+                                    <InnerShadow />
+                                 </effect>
                               </Button>
                            </children>
                            <VBox.margin>
-                              <Insets bottom="20.0" top="10.0" />
+                              <Insets bottom="10.0" top="10.0" />
                            </VBox.margin>
+                        </HBox>
+                        <HBox alignment="CENTER" minHeight="-Infinity" prefHeight="40.0" prefWidth="200.0">
+                           <children>
+                              <Text fill="WHITE" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="2.0" text="Choose terrain bonus">
+                                 <font>
+                                    <Font name="System Bold" size="16.0" />
+                                 </font>
+                              </Text>
+                           </children>
                         </HBox>
                         <HBox alignment="CENTER" maxHeight="-Infinity" prefHeight="25.0">
                            <children>
@@ -228,6 +280,9 @@
                                  <font>
                                     <Font size="14.0" />
                                  </font>
+                                 <effect>
+                                    <InnerShadow />
+                                 </effect>
                               </Button>
                               <Button fx:id="idBtnHill" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#btnHill" prefHeight="30.0" prefWidth="80.0" text="Hill">
                                  <HBox.margin>
@@ -236,6 +291,9 @@
                                  <font>
                                     <Font size="14.0" />
                                  </font>
+                                 <effect>
+                                    <InnerShadow />
+                                 </effect>
                               </Button>
                               <Button fx:id="idBtnPlains" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#btnPlains" prefHeight="30.0" prefWidth="80.0" text="Plains">
                                  <HBox.margin>
@@ -244,22 +302,25 @@
                                  <font>
                                     <Font size="14.0" />
                                  </font>
+                                 <effect>
+                                    <InnerShadow />
+                                 </effect>
                               </Button>
                            </children>
                            <VBox.margin>
                               <Insets />
                            </VBox.margin>
                         </HBox>
-                        <HBox alignment="CENTER" prefHeight="30.0">
+                        <HBox prefHeight="30.0">
                            <children>
-                              <Label text="Battle log:" textFill="WHITE">
+                              <Text fill="WHITE" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="2.0" text="Battle log:">
                                  <font>
                                     <Font name="System Bold" size="16.0" />
                                  </font>
                                  <HBox.margin>
-                                    <Insets right="280.0" />
+                                    <Insets left="10.0" right="10.0" />
                                  </HBox.margin>
-                              </Label>
+                              </Text>
                            </children>
                            <VBox.margin>
                               <Insets bottom="10.0" top="20.0" />
@@ -267,7 +328,15 @@
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="350.0">
                            <children>
-                              <TextArea fx:id="textAreaBattleLog" editable="false" focusTraversable="false" maxHeight="1.7976931348623157E308" maxWidth="-Infinity" minHeight="50.0" minWidth="100.0" prefWidth="380.0" promptText="Add units to respective armies and choose terrain before starting simulation." />
+                              <TextArea fx:id="textAreaBattleLog" editable="false" focusTraversable="false" maxHeight="1.7976931348623157E308" maxWidth="-Infinity" minHeight="50.0" minWidth="100.0" prefWidth="380.0" promptText="A log will appear after the simulation is run.">
+                                 <effect>
+                                    <InnerShadow>
+                                       <input>
+                                          <SepiaTone level="0.2" />
+                                       </input>
+                                    </InnerShadow>
+                                 </effect>
+                              </TextArea>
                            </children>
                            <VBox.margin>
                               <Insets bottom="20.0" />
@@ -285,36 +354,14 @@
                <children>
                   <VBox minWidth="-Infinity">
                      <children>
-                        <Label text="Army two filepath:" textFill="WHITE">
-                           <VBox.margin>
-                              <Insets left="10.0" right="10.0" top="10.0" />
-                           </VBox.margin>
+                        <Text fx:id="nameArmyTwo" fill="WHITE" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="3.0" text="[Press &quot;Initialize&quot;-button]">
                            <font>
-                              <Font name="System Bold" size="12.0" />
+                              <Font name="System Bold" size="22.0" />
                            </font>
-                        </Label>
-                        <HBox>
-                           <children>
-                              <TextField fx:id="filePathArmyTwo" prefHeight="25.0" prefWidth="220.0" text="path/to/army/file.csv">
-                                 <HBox.margin>
-                                    <Insets left="10.0" />
-                                 </HBox.margin>
-                              </TextField>
-                              <Hyperlink fx:id="idBtnArmyTwoSelectFile" onAction="#btnArmyTwoSelectFile" pickOnBounds="false" text="Browse">
-                                 <HBox.margin>
-                                    <Insets left="5.0" />
-                                 </HBox.margin>
-                              </Hyperlink>
-                           </children>
                            <VBox.margin>
-                              <Insets bottom="10.0" top="10.0" />
+                              <Insets left="12.0" right="10.0" top="30.0" />
                            </VBox.margin>
-                        </HBox>
-                        <Button fx:id="idBtnInitialiseArmyTwo" mnemonicParsing="false" onAction="#btnInitialiseArmyTwo" text="Initialise army from file">
-                           <VBox.margin>
-                              <Insets bottom="20.0" left="10.0" right="10.0" />
-                           </VBox.margin>
-                        </Button>
+                        </Text>
                         <TitledPane animated="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" prefHeight="116.0" prefWidth="270.0" text="Army overview">
                            <content>
                               <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="90.0" prefWidth="270.0">
@@ -323,8 +370,8 @@
                                        <children>
                                           <GridPane prefHeight="63.0" prefWidth="270.0">
                                              <columnConstraints>
-                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="160.0" minWidth="10.0" prefWidth="160.0" />
-                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="135.0" minWidth="10.0" prefWidth="120.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="180.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="90.0" />
                                              </columnConstraints>
                                              <rowConstraints>
                                                 <RowConstraints maxHeight="65.0" minHeight="30.0" prefHeight="32.0" vgrow="SOMETIMES" />
@@ -332,29 +379,29 @@
                                                 <RowConstraints maxHeight="59.0" minHeight="20.0" prefHeight="21.0" vgrow="SOMETIMES" />
                                              </rowConstraints>
                                              <children>
-                                                <Label fx:id="armyTwoNumberOfUnits" text="0" GridPane.halignment="RIGHT">
+                                                <Label fx:id="armyTwoNumberOfUnits" text="0" GridPane.halignment="LEFT">
                                                    <GridPane.margin>
-                                                      <Insets bottom="15.0" left="10.0" right="10.0" top="10.0" />
+                                                      <Insets bottom="14.0" left="140.0" top="10.0" />
                                                    </GridPane.margin>
                                                 </Label>
-                                                <Label fx:id="armyTwoNumberOfCommanders" text="0" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
+                                                <Label fx:id="armyTwoNumberOfCommanders" text="0" GridPane.halignment="LEFT" GridPane.rowIndex="1">
                                                    <GridPane.margin>
-                                                      <Insets bottom="10.0" left="10.0" right="30.0" top="10.0" />
+                                                      <Insets bottom="10.0" left="115.0" right="10.0" top="10.0" />
                                                    </GridPane.margin>
                                                 </Label>
-                                                <Label fx:id="armyTwoNumberOfCavalry" text="0" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
+                                                <Label fx:id="armyTwoNumberOfCavalry" text="0" GridPane.halignment="LEFT" GridPane.rowIndex="2">
                                                    <GridPane.margin>
-                                                      <Insets bottom="10.0" left="10.0" right="30.0" top="10.0" />
+                                                      <Insets bottom="10.0" left="115.0" right="10.0" top="10.0" />
                                                    </GridPane.margin>
                                                 </Label>
-                                                <Label fx:id="armyTwoNumberOfInfantry" text="0" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
+                                                <Label fx:id="armyTwoNumberOfInfantry" text="0" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="1">
                                                    <GridPane.margin>
-                                                      <Insets bottom="10.0" right="30.0" top="10.0" />
+                                                      <Insets bottom="10.0" left="60.0" right="10.0" top="10.0" />
                                                    </GridPane.margin>
                                                 </Label>
-                                                <Label fx:id="armyTwoNumberOfRanged" text="0" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
+                                                <Label fx:id="armyTwoNumberOfRanged" text="0" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="2">
                                                    <GridPane.margin>
-                                                      <Insets bottom="10.0" right="30.0" top="10.0" />
+                                                      <Insets bottom="10.0" left="60.0" right="10.0" top="10.0" />
                                                    </GridPane.margin>
                                                 </Label>
                                                 <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Total number of units:">
@@ -374,12 +421,12 @@
                                                 </Text>
                                                 <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Infantry units:" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                                    <GridPane.margin>
-                                                      <Insets bottom="10.0" top="10.0" />
+                                                      <Insets bottom="10.0" left="-25.0" top="10.0" />
                                                    </GridPane.margin>
                                                 </Text>
                                                 <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Ranged units:" GridPane.columnIndex="1" GridPane.rowIndex="2">
                                                    <GridPane.margin>
-                                                      <Insets bottom="10.0" top="10.0" />
+                                                      <Insets bottom="10.0" left="-25.0" top="10.0" />
                                                    </GridPane.margin>
                                                 </Text>
                                              </children>
@@ -399,30 +446,79 @@
                               <Font name="System Bold" size="12.0" />
                            </font>
                            <VBox.margin>
-                              <Insets top="20.0" />
+                              <Insets top="30.0" />
                            </VBox.margin>
+                           <effect>
+                              <InnerShadow>
+                                 <input>
+                                    <SepiaTone level="0.2" />
+                                 </input>
+                              </InnerShadow>
+                           </effect>
                         </TitledPane>
-                        <Label fx:id="nameArmyTwo" text="[Initialise army from file]" textFill="WHITE">
-                           <VBox.margin>
-                              <Insets left="20.0" right="10.0" top="30.0" />
-                           </VBox.margin>
-                           <font>
-                              <Font name="System Bold" size="18.0" />
-                           </font>
-                        </Label>
-                        <Label text="Units list:" textFill="WHITE">
-                           <VBox.margin>
-                              <Insets left="15.0" right="10.0" top="10.0" />
-                           </VBox.margin>
+                        <Text fill="WHITE" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="2.0" text="Units list:">
                            <font>
                               <Font name="System Bold" size="16.0" />
                            </font>
-                        </Label>
+                           <VBox.margin>
+                              <Insets left="15.0" right="10.0" top="10.0" />
+                           </VBox.margin>
+                        </Text>
                         <ListView fx:id="listViewArmyTwoUnits" focusTraversable="false" maxHeight="1.7976931348623157E308" maxWidth="270.0" minHeight="50.0" minWidth="100.0" prefWidth="270.0">
                            <VBox.margin>
-                              <Insets bottom="20.0" left="10.0" right="20.0" top="10.0" />
+                              <Insets bottom="20.0" left="10.0" right="20.0" top="5.0" />
                            </VBox.margin>
+                           <effect>
+                              <SepiaTone level="0.2">
+                                 <input>
+                                    <InnerShadow />
+                                 </input>
+                              </SepiaTone>
+                           </effect>
                         </ListView>
+                        <Text fill="WHITE" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="2.0" text="Army two filepath:">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets left="15.0" right="10.0" top="10.0" />
+                           </VBox.margin>
+                        </Text>
+                        <TextField fx:id="filePathArmyTwo" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="270.0" text="path/to/army-file.csv">
+                           <VBox.margin>
+                              <Insets left="10.0" right="20.0" top="5.0" />
+                           </VBox.margin>
+                           <effect>
+                              <InnerShadow>
+                                 <input>
+                                    <SepiaTone level="0.2" />
+                                 </input>
+                              </InnerShadow>
+                           </effect>
+                        </TextField>
+                        <HBox alignment="TOP_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="300.0">
+                           <children>
+                              <Button fx:id="idBtnArmyTwoSelectFile" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#btnArmyTwoSelectFile" prefHeight="25.0" prefWidth="60.0" text="Browse">
+                                 <HBox.margin>
+                                    <Insets left="10.0" />
+                                 </HBox.margin>
+                                 <effect>
+                                    <InnerShadow />
+                                 </effect>
+                              </Button>
+                              <Button fx:id="idBtnInitialiseArmyTwo" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#btnInitialiseArmyTwo" prefHeight="25.0" prefWidth="60.0" text="Initialize">
+                                 <HBox.margin>
+                                    <Insets left="5.0" right="20.0" />
+                                 </HBox.margin>
+                                 <effect>
+                                    <InnerShadow />
+                                 </effect>
+                              </Button>
+                           </children>
+                           <VBox.margin>
+                              <Insets bottom="20.0" top="5.0" />
+                           </VBox.margin>
+                        </HBox>
                      </children>
                   </VBox>
                </children>
@@ -430,14 +526,4 @@
          </children>
       </VBox>
    </children>
-   <stylesheets>
-      <URL value="@css/forest.css" />
-      <URL value="@css/hill.css" />
-      <URL value="@css/plains.css" />
-   </stylesheets>
-   <styleClass>
-      <String fx:value="plains_background" />
-      <String fx:value="hill_background" />
-      <String fx:value="forest_background" />
-   </styleClass>
 </GridPane>

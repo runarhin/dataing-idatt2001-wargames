@@ -11,14 +11,13 @@ import javafx.stage.Stage;
  * MVC View-class which launches the war games' main window/application.
  *
  * @author Runar Indahl
- * @version 3.0
- * @since 2022-05-01
+ * @version 4.0
+ * @since 2022-05-11
  */
 public class WarGamesApp extends Application {
 
-    private static final String VERSION = "3.0";
+    private static final String VERSION = "4.0";
     private static Alert alert;
-    private static Scene scene; //TODO: Test if this have to be set as a getter for changing background.
 
     /**
      * Method loads the application window.
@@ -30,9 +29,9 @@ public class WarGamesApp extends Application {
     public void start(Stage stage) throws Exception {
         FXMLLoader root = new FXMLLoader(
                 WarGamesApp.class.getClassLoader().getResource("war_games_view.fxml"));
-        scene = new Scene(root.load());
+        Scene scene = new Scene(root.load());
 
-        stage.setTitle("War Games   v." + VERSION);
+        stage.setTitle("War Games Simulator   v." + VERSION);
 
         Image icon = new Image("icon_2.png");
         stage.getIcons().add(icon);
@@ -40,7 +39,6 @@ public class WarGamesApp extends Application {
         stage.setScene(scene);
         stage.show();
     }
-
 
     /**
      * Give information.
@@ -62,7 +60,7 @@ public class WarGamesApp extends Application {
      *
      * @param message the message
      */
-    public static void giveError(String message) { //TODO: Is this ever used?
+    public static void giveError(String message) {
         alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle("Error");
         alert.setHeaderText(null);

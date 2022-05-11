@@ -17,7 +17,7 @@ import java.util.ArrayList;
  *
  * @author Runar Indahl
  * @version 3.0
- * @since 2022-04-22
+ * @since 2022-05-09
  */
 public class FileHandler {
 
@@ -75,14 +75,17 @@ public class FileHandler {
      * @return army name.
      * @throws IOException if army name s blank.
      */
-    public static String readArmyNameFromFile(String file) throws IOException {
+    public static String readArmyNameFromFile(String file) throws IOException, IllegalArgumentException {
         if (file.isBlank()) throw new IllegalArgumentException("Parameter 'file' cannot be blank.");
+        if (!file.contains(".csv")) throw new IllegalArgumentException("Parameter 'file' must be of a .csv-format");
 
         String armyName;
         try (BufferedReader br = new BufferedReader((new FileReader(file)))) {
             // Reads the first line in the file which contains the army name.
             armyName = br.readLine();
-            if (armyName.isBlank()) throw new IOException("Army name is blank in the given file.");
+            if (armyName.isBlank()) throw new CorruptedFileException("Army name is blank in the given file.");
+            if (armyName.contains(",") || armyName.contains(";") || armyName.contains(":") || armyName.contains("."))
+                throw new CorruptedFileException("Army name is corrupt in file.");
         }
         return armyName;
     }
@@ -95,7 +98,7 @@ public class FileHandler {
      * @param file path and file name of the file to be read.
      * @throws CorruptedFileException throws exception if the file data is corrupted.
      */
-    public static ArrayList<Unit> readUnitsFromFile(Army army, String file) throws IOException {
+    public static ArrayList<Unit> readUnitsFromFile(Army army, String file) throws IOException, IllegalArgumentException {
         if (army == null) throw new IllegalArgumentException("Parameter for Army class is missing.");
         if (file.isBlank()) throw new IllegalArgumentException("Parameter 'file' cannot be blank.");
         if (!file.contains(".csv")) throw new IllegalArgumentException("Parameter 'file' must be of a .csv-format");
@@ -107,15 +110,18 @@ public class FileHandler {
 
             // Iterates readLine() to the first line, then see if the file contains the correct army.
             String line = br.readLine();
+            if (line.contains(",") || line.contains(";") || line.contains(":") || line.contains("."))
+                throw new CorruptedFileException("Army name is corrupt in file.");
             if (!line.equals(army.getName())) throw new IOException("File refers to the wrong army.");
+
 
             // readLine() then iterates from line 2.
             while ((line = br.readLine()) != null) {
 
                 String[] unit = line.split(",");
                 if (unit.length != 3)
-                    throw new CorruptedFileException("Corrupted data in file:\n    '" + file +
-                            "'\n    In line '" + i + "': does not follow the correct format of three columns.");
+                    throw new CorruptedFileException("Corrupted data in file: '" + file +
+                            "'\n\nIn line " + i + ": does not follow the correct format of three columns.");
 
                 String unitType = unit[0];
                 String unitName = unit[1];
@@ -123,14 +129,14 @@ public class FileHandler {
 
                 if (!(unitType.contains("CommanderUnit") || unitType.contains("CavalryUnit")
                         || unitType.contains("RangedUnit") || unitType.contains("InfantryUnit")))
-                    throw new CorruptedFileException("Corrupted data in file:\n    '" + file +
-                            "'\n    In line '" + i + "': A unit with an invalid unit type occurred in file.");
+                    throw new CorruptedFileException("Corrupted data in file: '" + file +
+                            "'\n\nIn line " + i + ": A unit with an invalid unit type occurred in file.");
                 if (unitName.isBlank())
-                    throw new CorruptedFileException("Corrupted data in file:\n    '" + file +
-                            "'\n    In line '" + i + "': A unit with no name occurred in file.");
+                    throw new CorruptedFileException("Corrupted data in file: '" + file +
+                            "'\n\nIn line " + i + ": A unit with no name occurred in file.");
                 if (unitHealth <= 0)
-                    throw new CorruptedFileException("Corrupted data in file:\n    '" + file +
-                            "'\n    In line '" + i + "': A unit with invalid health occurred in file.");
+                    throw new CorruptedFileException("Corrupted data in file: '" + file +
+                            "'\n\nIn line " + i + ": A unit with invalid health occurred in file.");
 
                 switch (unitType) {
                     case "CommanderUnit" -> importUnitsList.add(new CommanderUnit(unitName, unitHealth));
@@ -152,7 +158,7 @@ public class FileHandler {
      * @see Battle class.
      */
     public static void writeStringBuilderToFile(StringBuilder battleLog, String fileName) throws IOException {
-        if (battleLog.isEmpty()) throw new IOException("Battle log is empty.");
+        if (battleLog.isEmpty()) throw new IOException("Battle log is empty and therefore cannot be written to file.");
 
         String filePath = "src/main/resources/battle-files" + fileName;
         File file = new File(filePath);
