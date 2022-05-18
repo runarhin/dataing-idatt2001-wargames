@@ -59,7 +59,7 @@ public class BattleTest {
             fail();
         } catch (ArmyEmptyOfUnitsException e) {
             assertEquals("The Alliance has no units left to fight in the simulation. " +
-                    "\nPress the \"Initialise army from file\"- or \"Reinitialize\"-button to rebuild the army.",
+                    "\nPress the \"Reinitialize armies\"-, \"Add...\" or \"Add units from file\"-button to rebuild the army.",
                     e.getMessage());
         } catch (IOException e) {
             assertNull(e.getMessage());
