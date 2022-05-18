@@ -35,7 +35,7 @@
                <children>
                   <VBox minWidth="-Infinity">
                      <children>
-                        <Text fx:id="nameArmyOne" fill="WHITE" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="3.0" text="[Press &quot;Initialize&quot;-button]">
+                        <Text fx:id="nameArmyOne" strokeType="OUTSIDE" text="[Press &quot;Initialize&quot;-button]">
                            <font>
                               <Font name="System Bold" size="22.0" />
                            </font>
@@ -137,7 +137,7 @@
                               </InnerShadow>
                            </effect>
                         </TitledPane>
-                        <Text fill="WHITE" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="2.0" text="Units list:">
+                        <Text fx:id="idTextUnitsListArmyOne" strokeType="OUTSIDE" text="Units list:">
                            <font>
                               <Font name="System Bold" size="16.0" />
                            </font>
@@ -159,7 +159,7 @@
                         </ListView>
                         <HBox alignment="TOP_RIGHT" prefHeight="25.0" prefWidth="300.0">
                            <children>
-                              <Button fx:id="idBtnAddUnitsArmyOne" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#btnAddUnitsArmyOne" prefHeight="25.0" prefWidth="70.0" text="Add units">
+                              <Button fx:id="idBtnAddUnitsArmyOne" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#btnAddUnitsArmyOne" prefHeight="25.0" prefWidth="70.0" text="Add...">
                                  <HBox.margin>
                                     <Insets left="10.0" right="12.0" />
                                  </HBox.margin>
@@ -172,7 +172,7 @@
                               <Insets top="5.0" />
                            </VBox.margin>
                         </HBox>
-                        <Text fill="WHITE" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="2.0" text="Army one filepath:">
+                        <Text fx:id="idTextArmyOneFilePath" strokeType="OUTSIDE" text="Army one filepath:">
                            <font>
                               <Font name="System Bold" size="16.0" />
                            </font>
@@ -202,7 +202,7 @@
                                     <InnerShadow />
                                  </effect>
                               </Button>
-                              <Button fx:id="idBtnInitialiseArmyOne" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#btnInitialiseArmyOne" prefHeight="25.0" prefWidth="60.0" text="Initialize">
+                              <Button fx:id="idBtnAddUnitsFromFileArmyOne" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#btnAddUnitsFromFileArmyOne" prefHeight="25.0" prefWidth="120.0" text="Add units from file">
                                  <HBox.margin>
                                     <Insets left="5.0" right="10.0" />
                                  </HBox.margin>
@@ -229,7 +229,7 @@
                      <children>
                         <HBox alignment="CENTER" minHeight="-Infinity" prefHeight="25.0" prefWidth="200.0">
                            <children>
-                              <Text fill="WHITE" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="2.0" text="Initialize armies">
+                              <Text fx:id="idTextInitArmies" strokeType="OUTSIDE" text="Initialize armies">
                                  <font>
                                     <Font name="System Bold" size="16.0" />
                                  </font>
@@ -241,7 +241,7 @@
                         </HBox>
                         <HBox alignment="CENTER" minHeight="-Infinity" prefHeight="25.0" prefWidth="200.0">
                            <children>
-                              <Text fill="WHITE" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="2.0" text="and start simulation">
+                              <Text fx:id="idTextStartSim" strokeType="OUTSIDE" text="and start simulation">
                                  <font>
                                     <Font name="System Bold" size="16.0" />
                                  </font>
@@ -250,7 +250,7 @@
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="40.0" prefWidth="120.0">
                            <children>
-                              <Button fx:id="idBtnReinitialize" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#btnReinitialize" prefHeight="40.0" prefWidth="100.0" text="Initialize">
+                              <Button fx:id="idBtnInitializeArmies" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#btnInitializeArmies" prefHeight="40.0" prefWidth="150.0" text="Initialize armies">
                                  <HBox.margin>
                                     <Insets right="10.0" />
                                  </HBox.margin>
@@ -279,7 +279,7 @@
                         </HBox>
                         <HBox alignment="CENTER" minHeight="-Infinity" prefHeight="40.0" prefWidth="200.0">
                            <children>
-                              <Text fill="WHITE" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="2.0" text="Choose terrain bonus">
+                              <Text fx:id="idTextChooseTerrain" strokeType="OUTSIDE" text="Choose terrain bonus">
                                  <font>
                                     <Font name="System Bold" size="16.0" />
                                  </font>
@@ -328,7 +328,7 @@
                         </HBox>
                         <HBox prefHeight="30.0">
                            <children>
-                              <Text fill="WHITE" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="2.0" text="Battle log:">
+                              <Text fx:id="idTextBattleLog" strokeType="OUTSIDE" text="Battle log:">
                                  <font>
                                     <Font name="System Bold" size="16.0" />
                                  </font>
@@ -369,7 +369,7 @@
                <children>
                   <VBox minWidth="-Infinity">
                      <children>
-                        <Text fx:id="nameArmyTwo" fill="WHITE" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="3.0" text="[Press &quot;Initialize&quot;-button]">
+                        <Text fx:id="nameArmyTwo" strokeType="OUTSIDE" text="[Press &quot;Initialize&quot;-button]">
                            <font>
                               <Font name="System Bold" size="22.0" />
                            </font>
@@ -471,7 +471,7 @@
                               </InnerShadow>
                            </effect>
                         </TitledPane>
-                        <Text fill="WHITE" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="2.0" text="Units list:">
+                        <Text fx:id="idTextUnitsListArmyTwo" strokeType="OUTSIDE" text="Units list:">
                            <font>
                               <Font name="System Bold" size="16.0" />
                            </font>
@@ -493,7 +493,7 @@
                         </ListView>
                         <HBox alignment="TOP_RIGHT" prefHeight="100.0" prefWidth="200.0">
                            <children>
-                              <Button fx:id="idBtnAddUnitsArmyTwo" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#btnAddUnitsArmyTwo" prefHeight="25.0" prefWidth="70.0" text="Add units">
+                              <Button fx:id="idBtnAddUnitsArmyTwo" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#btnAddUnitsArmyTwo" prefHeight="25.0" prefWidth="70.0" text="Add...">
                                  <effect>
                                     <InnerShadow />
                                  </effect>
@@ -506,7 +506,7 @@
                               <Insets top="5.0" />
                            </VBox.margin>
                         </HBox>
-                        <Text fill="WHITE" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="2.0" text="Army two filepath:">
+                        <Text fx:id="idTextArmyTwoFilePath" strokeType="OUTSIDE" text="Army two filepath:">
                            <font>
                               <Font name="System Bold" size="16.0" />
                            </font>
@@ -536,7 +536,7 @@
                                     <InnerShadow />
                                  </effect>
                               </Button>
-                              <Button fx:id="idBtnInitialiseArmyTwo" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#btnInitialiseArmyTwo" prefHeight="25.0" prefWidth="60.0" text="Initialize">
+                              <Button fx:id="idBtnAddUnitsFromFileArmyTwo" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#btnAddUnitsFromFileArmyTwo" prefHeight="25.0" prefWidth="120.0" text="Add units from file">
                                  <HBox.margin>
                                     <Insets left="5.0" right="20.0" />
                                  </HBox.margin>
