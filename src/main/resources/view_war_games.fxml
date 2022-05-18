@@ -19,7 +19,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<GridPane id="idStylesheet" fx:id="idGridPane" stylesheets="@css/forest.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.ntnu.idatt2001.runarin.wargames.frontend.controllers.WarGamesController">
+<GridPane id="idStylesheet" fx:id="idGridPane" stylesheets="@css/forest.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.ntnu.idatt2001.runarin.frontend.controllers.WarGamesController">
    <columnConstraints>
       <ColumnConstraints hgrow="SOMETIMES" minWidth="200.0" prefWidth="300.0" />
       <ColumnConstraints hgrow="SOMETIMES" minWidth="200.0" prefWidth="400.0" />

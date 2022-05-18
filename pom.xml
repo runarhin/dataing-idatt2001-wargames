@@ -75,7 +75,7 @@
                         <id>default-cli</id>
                         <configuration>
                             <!-- Add complete path to main class to use JavaFX-->
-                            <mainClass>edu.ntnu.idatt2001.runarin.wargames.frontend.WarGamesApp</mainClass>
+                            <mainClass>edu.ntnu.idatt2001.runarin.frontend.WarGamesApp</mainClass>
                             <launcher>app</launcher>
                             <jlinkZipName>app</jlinkZipName>
                             <jlinkImageName>app</jlinkImageName>
