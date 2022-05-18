@@ -33,7 +33,7 @@
          <children>
             <HBox alignment="CENTER">
                <children>
-                  <VBox minWidth="-Infinity">
+                  <VBox minWidth="302.0">
                      <children>
                         <Text fx:id="nameArmyOne" strokeType="OUTSIDE" text="[Press &quot;Initialize&quot;-button]">
                            <font>
@@ -221,11 +221,11 @@
             </HBox>
          </children>
       </VBox>
-      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1">
+      <VBox alignment="CENTER" GridPane.columnIndex="1">
          <children>
             <HBox alignment="CENTER">
                <children>
-                  <VBox minWidth="100.0">
+                  <VBox minWidth="380.0">
                      <children>
                         <HBox alignment="CENTER" minHeight="-Infinity" prefHeight="25.0" prefWidth="200.0">
                            <children>
@@ -363,11 +363,11 @@
             </HBox>
          </children>
       </VBox>
-      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="2">
+      <VBox alignment="CENTER" GridPane.columnIndex="2">
          <children>
             <HBox alignment="CENTER">
                <children>
-                  <VBox minWidth="-Infinity">
+                  <VBox minWidth="302.0">
                      <children>
                         <Text fx:id="nameArmyTwo" strokeType="OUTSIDE" text="[Press &quot;Initialize&quot;-button]">
                            <font>

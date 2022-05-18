@@ -40,22 +40,24 @@ public class Battle {
 
     /**
      * Simulates a battle between two armies.
-     * The method randomises which warrior to attack first for every round.
-     * When a warrior dies, it is removed from the armies ArrayList and is
-     * replaced by a new warrior.
-     * The simulation progresses until an army has no units left.
+     * The method randomises which warrior to attack first for every round. When a warrior
+     * dies, it is removed from the army's ArrayList and is replaced by a new warrior.
+     * The simulation progresses until one of the armies has no units left.
      * The battle is logged to the file BattleLog.txt.
      *
      * @return the name of the winning army.
      */
-    public Army simulate(TerrainType terrain) throws ArmyEmptyOfUnitsException {
-
+    public Army simulate(TerrainType terrain) throws ArmyEmptyOfUnitsException, NullPointerException {
+        if (armyOne == null) throw new NullPointerException("Army one is null.");
+        if (armyTwo == null) throw new NullPointerException("Army two is null.");
         if (!armyOne.hasUnits()) throw new ArmyEmptyOfUnitsException(armyOne.getName() +
                 " has no units left to fight in the simulation. " +
-                "\nPress the \"Initialise army from file\"- or \"Reinitialize\"-button to rebuild the army.");
+                "\nPress the \"Reinitialize armies\"-, \"Add...\" " +
+                "or \"Add units from file\"-button to rebuild the army.");
         if (!armyTwo.hasUnits()) throw new ArmyEmptyOfUnitsException(armyTwo.getName() +
                 " has no units left to fight in the simulation. " +
-                "\nPress the \"Initialise army from file\"- or \"Reinitialize\"-button to rebuild the army.");
+                "\nPress the \"Reinitialize armies\"-, \"Add...\" " +
+                "or \"Add units from file\"-button to rebuild the army.");
 
         int roundCount = 0;
         Random rand = new Random();

@@ -63,7 +63,7 @@ public class Army {
     }
 
     /**
-     * Adds a unit to the army list.
+     * Add a unit to the army list.
      *
      * @param unit single unit to be added to the army.
      */
@@ -99,11 +99,11 @@ public class Army {
     }
 
     /**
-     * Returns a deep copy of an armies unit list.
+     * Returns an army's units list.
      *
      * @return ArrayList containing all units enlisted.
      */
-    public ArrayList<Unit> getAllUnits() {
+    public ArrayList<Unit> getUnits() {
         ArrayList<Unit> newUnitsList = new ArrayList<>();
         for (Unit u : this.units) {
             if (u instanceof CommanderUnit) {

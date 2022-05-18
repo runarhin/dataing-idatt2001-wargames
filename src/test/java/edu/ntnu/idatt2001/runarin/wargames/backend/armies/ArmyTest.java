@@ -40,7 +40,7 @@ public class ArmyTest {
         }
         army.addUnit(new CommanderUnit("Gul'dan",180));
 
-        assertEquals(10, army.getAllUnits().size());
+        assertEquals(10, army.getUnits().size());
     }
 
     @Nested
@@ -170,12 +170,12 @@ public class ArmyTest {
             by adding units to the army from the import file.
              */
             try {
-                assertEquals(10, army.getAllUnits().size());
+                assertEquals(10, army.getUnits().size());
 
                 String file = "src/main/resources/test-files/TestArmy-valid.csv";
                 army.addUnitsFromFile(file);
 
-                assertEquals(19, army.getAllUnits().size());
+                assertEquals(19, army.getUnits().size());
                 assertEquals("""
                                 [
                                 Grunt  [100 hp]  InfantryUnit,\s
@@ -197,7 +197,7 @@ public class ArmyTest {
                                 Grunt  [100 hp]  InfantryUnit,\s
                                 Grunt  [100 hp]  InfantryUnit,\s
                                 Grunt  [100 hp]  InfantryUnit]""",
-                        army.getAllUnits().toString());
+                        army.getUnits().toString());
 
             } catch (IOException e) {
                 assertNull(e.getMessage());
@@ -319,7 +319,7 @@ public class ArmyTest {
             Test asserts that units are not added to the army if the file is corrupt.
              */
             try {
-                assertEquals(10, army.getAllUnits().size());
+                assertEquals(10, army.getUnits().size());
                 String file = "src/main/resources/test-files/TestArmy-corrupted-unitHealth.csv";
                 army.addUnitsFromFile(file);
                 fail();
@@ -328,7 +328,7 @@ public class ArmyTest {
                         Corrupted data in file: 'src/main/resources/test-files/TestArmy-corrupted-unitHealth.csv'
                             
                         In line 1: A unit with invalid health occurred in file.""", e.getMessage());
-                assertEquals(10, army.getAllUnits().size());
+                assertEquals(10, army.getUnits().size());
             } catch (IOException e) {
                 assertNull(e.getMessage());
             }
@@ -415,9 +415,9 @@ public class ArmyTest {
             assertTrue(testArmy.hasUnits());
 
             // Number of units in the list:  Expects 2 units to be added and not 1 or 3.
-            assertEquals(2, testArmy.getAllUnits().size());
-            assertNotEquals(1, testArmy.getAllUnits().size());
-            assertNotEquals(3, testArmy.getAllUnits().size());
+            assertEquals(2, testArmy.getUnits().size());
+            assertNotEquals(1, testArmy.getUnits().size());
+            assertNotEquals(3, testArmy.getUnits().size());
         }
 
         @Test
@@ -440,7 +440,7 @@ public class ArmyTest {
             alliance.addUnitsFromList(testArrayList);
 
             // Expects now that the army have 3 units in it.
-            assertEquals(3, alliance.getAllUnits().size());
+            assertEquals(3, alliance.getUnits().size());
         }
 
         @Test
@@ -460,8 +460,8 @@ public class ArmyTest {
 
             horde.remove(testUnit2);
 
-            assertEquals(2, horde.getAllUnits().size());
-            assertFalse(horde.getAllUnits().contains(testUnit2));
+            assertEquals(2, horde.getUnits().size());
+            assertFalse(horde.getUnits().contains(testUnit2));
         }
 
         @Test
@@ -475,17 +475,17 @@ public class ArmyTest {
             for (int i = 0; i < 2; i++) {
                 horde.addUnit(new InfantryUnit("Grunt", 100));
             }
-            assertEquals(2, horde.getAllUnits().size());   // Expects that the army now have 2 units in it.
+            assertEquals(2, horde.getUnits().size());   // Expects that the army now have 2 units in it.
 
             // Removes 1 unit from the army:
             horde.remove(horde.getRandom());
-            assertEquals(1, horde.getAllUnits().size());   // Expects that the army now have 1 unit left.
-            assertFalse(horde.getAllUnits().isEmpty());             // And that the list is not empty.
+            assertEquals(1, horde.getUnits().size());   // Expects that the army now have 1 unit left.
+            assertFalse(horde.getUnits().isEmpty());             // And that the list is not empty.
 
             // Removes the last unit in the army:
             horde.remove(horde.getRandom());
-            assertEquals(0, horde.getAllUnits().size());   // Expects that the army now have no units left.
-            assertTrue(horde.getAllUnits().isEmpty());              // And that the list now is empty.
+            assertEquals(0, horde.getUnits().size());   // Expects that the army now have no units left.
+            assertTrue(horde.getUnits().isEmpty());              // And that the list now is empty.
         }
     }
 
@@ -517,7 +517,7 @@ public class ArmyTest {
         horde.addUnit(new CavalryUnit("Raider", 100));
         horde.addUnit(new CommanderUnit("Gul'dan", 180));
 
-        ArrayList<Unit> testArrayList = horde.getAllUnits();
+        ArrayList<Unit> testArrayList = horde.getUnits();
 
         assertEquals("\nGrunt  [100 hp]  InfantryUnit",
                 testArrayList.get(0).toString());
@@ -578,13 +578,13 @@ public class ArmyTest {
         testArmy.addUnit(new InfantryUnit("SomeUnit",100));
 
         // Expects there to be six units in the army.
-        assertEquals(6, testArmy.getAllUnits().size());
+        assertEquals(6, testArmy.getUnits().size());
 
-        ArrayList<Unit> armyList = testArmy.getAllUnits();
+        ArrayList<Unit> armyList = testArmy.getUnits();
 
         // Expects none of the units to have the same hashCode.
-        for (int i = 0; i < testArmy.getAllUnits().size(); i++) {
-            for (int j = 0; j < testArmy.getAllUnits().size(); j++) {
+        for (int i = 0; i < testArmy.getUnits().size(); i++) {
+            for (int j = 0; j < testArmy.getUnits().size(); j++) {
                 if (i == j) {
                     assertEquals(armyList.get(i).hashCode(), armyList.get(j).hashCode());
                 } else {

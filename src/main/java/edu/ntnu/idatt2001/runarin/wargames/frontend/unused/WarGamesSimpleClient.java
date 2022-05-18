@@ -340,7 +340,7 @@ public class WarGamesSimpleClient {
         int nr = 1;
         if (!armies.isEmpty()) {
             for (Army a : armies.values()) {
-                System.out.println(nr + ". " + a.getName() + ", " + a.getAllUnits().size() + " unit(s).");
+                System.out.println(nr + ". " + a.getName() + ", " + a.getUnits().size() + " unit(s).");
                 nr++;
             }
         }
