@@ -1,22 +1,24 @@
 package edu.ntnu.idatt2001.runarin.wargames.frontend.model;
 
-import edu.ntnu.idatt2001.runarin.wargames.backend.armies.Army;
 import edu.ntnu.idatt2001.runarin.wargames.backend.armies.Battle;
+import edu.ntnu.idatt2001.runarin.wargames.backend.units.TerrainType;
 
 import java.io.File;
 
 /**
  * MVC Model-class for holding values used in the GUI.
+ * This class holds all static data which does not need a listener,
+ * and that can be accessed when called for.
  *
  * @author Runar Indahl
  * @version 4.0
- * @since 2022-05-11
+ * @since 2022-05-18
  */
 public class WarGamesModel {
 
     private static Battle battle;
-    private static Army armyOne;
-    private static Army armyTwo;
+    private static TerrainType terrain;
+    private static ArmySelect armySelect;
     private static File filePathArmyOne;
     private static File filePathArmyTwo;
 
@@ -39,41 +41,40 @@ public class WarGamesModel {
     }
 
     /**
-     * Return the static object army one.
+     * Return the terrain enum.
      *
-     * @return army one, the first out of two armies to battle in the simulation.
-     * @see edu.ntnu.idatt2001.runarin.wargames.frontend.controllers.WarGamesController
+     * @return enum terrain; FOREST, HILL or PLAINS.
      */
-    public static Army getArmyOne() {
-        return armyOne;
+    public static TerrainType getTerrain() {
+        return terrain;
     }
 
     /**
-     * Return the static object army two.
+     * Set the terrain enum.
      *
-     * @return army two, the second out of two armies to battle in the simulation.
-     * @see edu.ntnu.idatt2001.runarin.wargames.frontend.controllers.WarGamesController
+     * @param terrain enum terrain; FOREST, HILL or PLAINS.
      */
-    public static Army getArmyTwo() {
-        return armyTwo;
+    public static void setTerrain(TerrainType terrain) {
+        WarGamesModel.terrain = terrain;
     }
 
     /**
-     * Set an army to function as the first battling army in the simulation.
+     * Return the selected army.
+     * This is used to tell which of the armies to have units added.
      *
-     * @param armyOne the first out of two armies to battle in the simulation.
+     * @return selected army; ARMY_ONE, ARMY_TWO.
      */
-    public static void setArmyOne(Army armyOne) {
-        WarGamesModel.armyOne = armyOne;
+    public static ArmySelect getArmySelect() {
+        return armySelect;
     }
 
     /**
-     * Set an army to function as the second battling army in the simulation.
+     * Set the army to be pointed at.
      *
-     * @param armyTwo the second out of two armies to battle in the simulation.
+     * @param armySelect set army; ARMY_ONE, ARMY_TWO.
      */
-    public static void setArmyTwo(Army armyTwo) {
-        WarGamesModel.armyTwo = armyTwo;
+    public static void setArmySelect(ArmySelect armySelect) {
+        WarGamesModel.armySelect = armySelect;
     }
 
     /**
@@ -95,7 +96,7 @@ public class WarGamesModel {
     }
 
     /**
-     * Sets the file path and -name, to where army one is to be stored.
+     * Set the file path and -name, to where army one is to be stored.
      *
      * @param filePathArmyOne file path and -name for army one.
      */
@@ -104,7 +105,7 @@ public class WarGamesModel {
     }
 
     /**
-     * Sets the file path and -name, to where army two is to be stored.
+     * Set the file path and -name, to where army two is to be stored.
      *
      * @param filePathArmyTwo file path and -name for army two.
      */
