@@ -4,8 +4,7 @@ import edu.ntnu.idatt2001.runarin.backend.units.TerrainType;
 import edu.ntnu.idatt2001.runarin.backend.units.Unit;
 
 /**
- * A class for a cavalry unit.
- * This is a unit with relatively high attack power and also comes with a charge ability.
+ * A cavalry unit with high attack power and a charge ability.
  *
  * @author Runar Indahl
  * @version 3.0
@@ -16,7 +15,6 @@ public class CavalryUnit extends Unit {
 
     /**
      * chargeReady is used to determine if the warrior have attacked a target.
-     * This to calculate the attack bonus.
      */
     private boolean chargeReady = true;
     private static final int BASE_ATTACK = 20;
@@ -45,7 +43,7 @@ public class CavalryUnit extends Unit {
     }
 
     /**
-     * Returns the attack bonus value.
+     * Return attack bonus value.
      * The attack bonus will change as the cavalry unit have ont attacked a target before.
      * The unit have an advantage when fighting on PLAINS, but a handicap when in FOREST.
      *
@@ -68,8 +66,7 @@ public class CavalryUnit extends Unit {
     }
 
     /**
-     * Returns the resist bonus value.
-     * If the unit is fighting in a FOREST the resist bonus will be zero.
+     * Return resist bonus value. If the unit is fighting in a FOREST the resist bonus will be zero.
      *
      * @param terrain deters the terrain the unit is fighting on.
      * @return value of the resist bonus for a cavalry unit.

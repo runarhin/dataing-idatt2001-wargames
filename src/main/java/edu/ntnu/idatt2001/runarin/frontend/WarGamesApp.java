@@ -13,7 +13,7 @@ import java.io.IOException;
 import java.util.Objects;
 
 /**
- * Application-class which launches the war games' main window/application.
+ * Application-class which launches the War Games' main window/application.
  *
  * @author Runar Indahl
  * @version 4.0
@@ -82,8 +82,7 @@ public class WarGamesApp extends Application {
     }
 
     /**
-     * Give information.
-     * Static method that can be called by the controller.
+     * Give information to user by popup window.
      *
      * @param message the message
      */
@@ -96,8 +95,7 @@ public class WarGamesApp extends Application {
     }
 
     /**
-     * Give error.
-     * Static method that can be called by the controller.
+     * Give error message to user by popup window.
      *
      * @param message the message
      */

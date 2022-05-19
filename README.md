@@ -10,7 +10,6 @@ The application was due 24th of May 2022, as a part of the semester assignment i
 To run the program the following is needed:
 - JDK-17 
 - Maven 3.8.4
-- JavaFX
 
 Install the program by downloading the zip-files or by cloning via the following git links:
 - git@gitlab.stud.idi.ntnu.no:runarin/wargames.git
@@ -19,7 +18,7 @@ Install the program by downloading the zip-files or by cloning via the following
 
 ## Documentation
 
-GitLab pages: ???
+GitLab pages: [JavaDoc](https://runarin.pages.stud.idi.ntnu.no/wargames)
 
 
 ## Release 1.0

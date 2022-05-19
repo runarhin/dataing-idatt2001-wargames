@@ -10,8 +10,7 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 /**
- * A unit factory for getting a larger amount of units
- * based on type of unit, name and health value.
+ * A unit factory for getting a large amount of units of the same type, and with the same name and health.
  *
  * @author Runar Indahl
  * @version 3.0
@@ -20,10 +19,10 @@ import java.util.stream.Stream;
 public class UnitFactory {
 
     /**
-     * Returns a unit based on type, name and health.
+     * Return a unit based on type, name and health.
      *
      * @param unitType the enum type of unit; INFANTRY, RANGED, CAVALRY or COMMANDER.
-     * @see UnitType enum class.
+     * @see UnitType enum UnitType containing the type of unit.
      * @param unitName the name  of the unit.
      * @param unitHealth the unit's health.
      * @return a unit based on given type, name and health.
@@ -38,13 +37,13 @@ public class UnitFactory {
     }
 
     /**
-     * Returns an ArrayList containing n number of units of type, name and health.
+     * Return ArrayList containing n number of units of same type, name, and health.
      *
      * @param n the number of units to be generated.
      * @param unitType the enum type of unit; INFANTRY, RANGED, CAVALRY or COMMANDER.
-     * @see UnitType enum class.
-     * @param unitName the name  of the unit.
-     * @param unitHealth the unit's health.
+     * @see UnitType enum UnitType containing the type of units.
+     * @param unitName the name  of the units.
+     * @param unitHealth the units' health.
      * @return a list of n number of units of the same type and with the same name and health.
      */
     public static ArrayList<Unit> getUnitsByType(int n, UnitType unitType, String unitName, int unitHealth) {

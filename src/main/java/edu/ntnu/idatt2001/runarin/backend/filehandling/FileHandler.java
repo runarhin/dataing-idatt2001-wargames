@@ -2,7 +2,6 @@ package edu.ntnu.idatt2001.runarin.backend.filehandling;
 
 import edu.ntnu.idatt2001.runarin.backend.units.specialised.RangedUnit;
 import edu.ntnu.idatt2001.runarin.backend.armies.Army;
-import edu.ntnu.idatt2001.runarin.backend.armies.Battle;
 import edu.ntnu.idatt2001.runarin.backend.exceptions.CorruptedFileException;
 import edu.ntnu.idatt2001.runarin.backend.units.Unit;
 import edu.ntnu.idatt2001.runarin.backend.units.specialised.CavalryUnit;
@@ -22,14 +21,12 @@ import java.util.ArrayList;
 public class FileHandler {
 
     /**
-     * Creates a new, or writes to existing, csv.-file information
-     * about the army and its units to a wanted location.
-     * The file name is the same as the army's name.
+     * Creates a new csv-file, or writes to existing, and writes information about the army
+     * and its units to a wanted location. The file name is the same as the army's name.
      *
      * @param filePath path to where the generated file is to be stored. The file-name
      *                 itself is generated based on the army name.
      * @throws IOException thrown from FileWriter-object.
-     * @see Army class.
      */
     public static void writeArmyToFile(Army army, String filePath) throws IOException {
         if (army == null) throw new IllegalArgumentException("Parameter for Army class is missing.");
@@ -73,7 +70,8 @@ public class FileHandler {
      *
      * @param file path and file name of the file to be read.
      * @return army name.
-     * @throws IOException if army name s blank.
+     * @throws IOException from BufferedReader.
+     * @throws IllegalArgumentException if the file is not in the right format or the file is blank.
      */
     public static String readArmyNameFromFile(String file) throws IOException, IllegalArgumentException {
         if (file.isBlank()) throw new IllegalArgumentException("Parameter 'file' cannot be blank.");
@@ -91,12 +89,12 @@ public class FileHandler {
     }
 
     /**
-     * Reads a file containing units and returns an ArrayList with these units.
-     * Throws CorruptedArmyFileException if the file is corrupt.
-     * Only returns units to the list if there are no corruptions in the file.
+     * Reads an army-file and returns an ArrayList with the army's units.
      *
      * @param file path and file name of the file to be read.
      * @throws CorruptedFileException throws exception if the file data is corrupted.
+     * @throws IOException from BufferedReader.
+     * @throws IllegalArgumentException if the file is not in the right format, the army is missing or the file is blank.
      */
     public static ArrayList<Unit> readUnitsFromFile(Army army, String file) throws IOException, IllegalArgumentException {
         if (army == null) throw new IllegalArgumentException("Parameter for Army class is missing.");
@@ -151,14 +149,15 @@ public class FileHandler {
     }
 
     /**
-     * Writes string from StringBuilder to a .txt-file named BattleLog.txt.
+     * Writes string from StringBuilder to battle log-file.
      *
-     * @param battleLog the battle log in StringBuilder format to be written to a .txt-file.
+     * @param battleLog the battle log in StringBuilder format to be written to a text-file.
+     * @throws IllegalArgumentException if the StringBuilder battle log is empty.
      * @throws IOException thrown from FileWriter-object.
-     * @see Battle class.
      */
     public static void writeStringBuilderToFile(StringBuilder battleLog, String fileName) throws IOException {
-        if (battleLog.isEmpty()) throw new IOException("Battle log is empty and therefore cannot be written to file.");
+        if (battleLog.isEmpty())
+            throw new IllegalArgumentException("Battle log is empty and therefore cannot be written to file.");
 
         String filePath = "src/main/resources/battle-files" + fileName;
         File file = new File(filePath);

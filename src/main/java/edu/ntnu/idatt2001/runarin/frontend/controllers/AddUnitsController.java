@@ -22,6 +22,13 @@ import java.util.ArrayList;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
+/**
+ * Controller class for the popup-view for adding new units to an army.
+ *
+ * @author Runar Indahl
+ * @version 4.0
+ * @since 2022-05-18
+ */
 public class AddUnitsController implements Initializable {
 
     @FXML private TextField infantryName;
@@ -43,7 +50,7 @@ public class AddUnitsController implements Initializable {
     @FXML private BorderPane idBorderPane;
 
     /**
-     * Initializes all relevant and helpful data for the user.
+     * Initializes all relevant and helpful data for the user prior to opening the stage.
      *
      * @param url represents a Uniform Resource Locator
      * @param resourceBundle contains locale-specific objects
@@ -164,7 +171,7 @@ public class AddUnitsController implements Initializable {
     }
 
     /**
-     * Method that sets initial data upon opening the stage.
+     * Method that sets initial data upon opening the stage, depending on what army is set.
      * The initial data is chosen by what is expected to be used when adding units.
      */
     private void initUnitData(String armyName) {

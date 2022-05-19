@@ -4,9 +4,9 @@ import edu.ntnu.idatt2001.runarin.backend.units.TerrainType;
 import edu.ntnu.idatt2001.runarin.backend.units.Unit;
 
 /**
- * A class for a ranged unit.
- * This is a basic ranged unit with normal attack power and armor resistance.
- * It has a benefit of attacking from a range, and therefore takes less damage the first two times it is attacked.
+ * A ranged unit with normal attack power, but lower armor resistance.
+ * It has a benefit of attacking from a range, and therefore takes
+ * less damage the first two times it is attacked.
  *
  * @author Runar Indahl
  * @version 3.0
@@ -16,7 +16,6 @@ public class RangedUnit extends Unit {
 
     /**
      * lastHealth and attacked is used to determine how many times the warrior have been attacked.
-     * This to calculate the resist bonus.
      */
     private int lastHealth = this.health;
     private int attacked = 0;
@@ -46,7 +45,7 @@ public class RangedUnit extends Unit {
     }
 
     /**
-     * Returns the attack bonus value.
+     * Return attack bonus value.
      * This value is used in the parent class method attack(Unit opponent).
      * The unit have an advantage when fighting on HILL terrain, but has a handicap when in FOREST.
      *
@@ -66,7 +65,7 @@ public class RangedUnit extends Unit {
     }
 
     /**
-     * Returns the resist bonus value.
+     * Return resist bonus value.
      * The resist bonus will change as the range between the attacking and the attacked unit decreases.
      * This value is used in the parent class method attack(Unit opponent) for the attacking unit.
      *

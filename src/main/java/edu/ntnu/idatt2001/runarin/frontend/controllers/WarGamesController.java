@@ -31,7 +31,7 @@ import java.util.Objects;
 import java.util.ResourceBundle;
 
 /**
- * MVC Controller class for communicating between the application and the model holding data.
+ * MVC Controller class for communication between the application view and the model holding data.
  *
  * @author Runar Indahl
  * @version 4.0
@@ -84,7 +84,7 @@ public class WarGamesController implements Initializable {
     private static final ArmyWrapper armyTwoWrapper = new ArmyWrapper(new Army("Initial Army Two"));
 
     /**
-     * Initializes all relevant and helpful data for the user.
+     * Initializes all relevant and helpful data for the user prior to opening the stage.
      *
      * @param url represents a Uniform Resource Locator
      * @param resourceBundle contains locale-specific objects

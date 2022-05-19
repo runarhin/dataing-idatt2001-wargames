@@ -18,8 +18,10 @@ public class FileHandlerTest {
             String fileName = "TestBattleLog-empty.txt";
             FileHandler.writeStringBuilderToFile(stringBuilder, fileName);
             fail();
-        } catch (IOException e) {
+        } catch (IllegalArgumentException e) {
             assertEquals("Battle log is empty and therefore cannot be written to file.", e.getMessage());
+        } catch (IOException e) {
+            assertNull(e.getMessage());
         }
     }
 }

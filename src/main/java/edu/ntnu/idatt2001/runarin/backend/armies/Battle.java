@@ -11,8 +11,7 @@ import java.io.IOException;
 import java.util.Random;
 
 /**
- * A class Battle.
- * This class represents a battle between two armies.
+ * A class to simulate a battle between two armies.
  *
  * @author Runar Indahl
  * @version 4.0
@@ -28,10 +27,11 @@ public class Battle {
      *
      * @param armyOne one out of two armies battling for survival.
      * @param armyTwo second out of two armies battling for survival.
+     * @throws IllegalArgumentException thrown if an army is missing, or when an army is set to battle itself.
      */
-    public Battle(Army armyOne, Army armyTwo) throws IOException {
+    public Battle(Army armyOne, Army armyTwo) {
         if (armyOne == null || armyTwo == null)
-            throw new IOException("Two armies must be initialised to run simulation.");
+            throw new IllegalArgumentException("Two armies must be initialised to run simulation.");
         if (armyOne.getName().equals(armyTwo.getName()))
             throw new IllegalArgumentException("An army cannot battle itself. Choose one other army.");
         this.armyOne = armyOne;
@@ -39,15 +39,16 @@ public class Battle {
     }
 
     /**
-     * Simulates a battle between two armies.
-     * The method randomises which warrior to attack first for every round. When a warrior
-     * dies, it is removed from the army's ArrayList and is replaced by a new warrior.
-     * The simulation progresses until one of the armies has no units left.
-     * The battle is logged to the file BattleLog.txt.
+     * Simulates a battle between two armies. The method randomises which warrior to attack first for every
+     * round. When a warrior dies, it is removed from the army's ArrayList and is replaced by a new warrior.
+     * The simulation progresses until one of the armies has no units left and the battle is logged to the
+     * file BattleLog.txt.
      *
      * @return the name of the winning army.
+     * @throws ArmyEmptyOfUnitsException if a simulation is started with an army empty of units.
+     * @throws NullPointerException if an army is null.
      */
-    public Army simulate(TerrainType terrain) throws ArmyEmptyOfUnitsException, NullPointerException {
+    public Army simulate(TerrainType terrain) throws IOException, NullPointerException {
         if (armyOne == null) throw new NullPointerException("Army one is null.");
         if (armyTwo == null) throw new NullPointerException("Army two is null.");
         if (!armyOne.hasUnits()) throw new ArmyEmptyOfUnitsException(armyOne.getName() +
@@ -130,34 +131,25 @@ public class Battle {
                 }
             }
         }
-
         if (!armyOne.hasUnits()) {
             battleLog.append("\n\n  ").append(armyTwo.getName())
                     .append(" wins the battle!"); // Add to log who the winner is.
-            try {
-                FileHandler.writeStringBuilderToFile(battleLog,"/BattleLog.txt");
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            FileHandler.writeStringBuilderToFile(battleLog,"/BattleLog.txt");
             return armyTwo;
         } else {
             battleLog.append("\n\n  ").append(armyOne.getName())
                     .append(" wins the battle!"); // Add to log who the winner is.
-            try {
-                FileHandler.writeStringBuilderToFile(battleLog, "/BattleLog.txt");
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            FileHandler.writeStringBuilderToFile(battleLog, "/BattleLog.txt");
             return armyOne;
         }
     }
 
     /**
-     * Helper method to make the simulate()-method easier to read when randomizing attacks.
+     * Helper method to make the simulate()-method easier to read, as well as logging the status after each attack.
      *
      * @param attacker attacking unit.
      * @param defender defending unit.
-     * @return string of text to be viewed either in terminal, battle log or GUI output window.
+     * @return string of text to be added to the battle log.
      */
     private String clash(Unit attacker, Unit defender, TerrainType terrain) {
         int defenderOldHealth = defender.getHealth();
@@ -169,7 +161,7 @@ public class Battle {
     }
 
     /**
-     * toString-method which return the names of the two clashing armies.
+     * toString-method which return the names of the two battling armies.
      *
      * @return names of the battling armies.
      */

@@ -4,8 +4,7 @@ import edu.ntnu.idatt2001.runarin.backend.units.TerrainType;
 import edu.ntnu.idatt2001.runarin.backend.units.Unit;
 
 /**
- * A class for an infantry unit.
- * This is a basic melee unit with normal attack power and armor resistance.
+ * A basic melee unit with normal attack power and armor resistance.
  *
  * @author Runar Indahl
  * @version 3.0
@@ -40,7 +39,7 @@ public class InfantryUnit extends Unit {
     }
 
     /**
-     * Returns the attack bonus value.
+     * Return attack bonus value.
      * This value is used in the parent class method attack(Unit opponent).
      * The unit have an advantage when fighting in FOREST terrain.
      *
@@ -54,7 +53,7 @@ public class InfantryUnit extends Unit {
     }
 
     /**
-     * Returns the resist bonus value.
+     * Return resist bonus value.
      * This value is used in the parent class method attack(Unit opponent).
      * The unit have an advantage when fighting in FOREST terrain.
      *

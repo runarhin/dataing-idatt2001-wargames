@@ -1,8 +1,7 @@
 package edu.ntnu.idatt2001.runarin.backend.units;
 
 /**
- * An abstract class Unit.
- * The class gives a general description of capabilities inherited by its subclasses.
+ * Abstract superclass Unit provides general capabilities to its subclasses.
  *
  * @author Runar Indahl
  * @version 3.0
@@ -16,7 +15,7 @@ public abstract class Unit {
     protected int armor;
 
     /**
-     * Constructor to the class Unit.
+     * Constructor for class Unit.
      * Unit functions as a superclass for more specialised classes of warriors.
      *
      * @param name description of the type of warrior; Archer, Swordsman, etc.
@@ -37,7 +36,7 @@ public abstract class Unit {
     }
 
     /**
-     * Second constructor to class Unit.
+     * Simplified constructor for class Unit.
      * Unit functions as a superclass for more specialised classes of warriors.
      *
      * @param name description of the type of warrior; Archer, Swordsman, etc.
@@ -52,8 +51,7 @@ public abstract class Unit {
     }
 
     /**
-     * Warrior attacks an opponent.
-     * The opponent will lose health points when attacked,
+     * Warrior attacks an opponent. The opponent will lose health points when attacked,
      * based on the defenders armor and the attackers attack power.
      *
      * @param opponent opponent that loses health points when attacked.
@@ -73,7 +71,7 @@ public abstract class Unit {
     }
 
     /**
-     * Returns the type of warrior
+     * Return type of warrior.
      *
      * @return description of warrior type.
      */
@@ -82,34 +80,34 @@ public abstract class Unit {
     }
 
     /**
-     * Returns the remaining health points of the warrior.
+     * Return remaining health of the warrior.
      *
-     * @return int value of health points for a warrior.
+     * @return int value of health for a warrior.
      */
     public int getHealth() {
         return health;
     }
 
     /**
-     * Returns attack point value for a warrior.
+     * Return attack value for a warrior.
      *
-     * @return int value of attack points.
+     * @return int value of attack.
      */
     public int getAttack() {
         return attack;
     }
 
     /**
-     * Returns the armor point value for a warrior.
+     * Return armor value for a warrior.
      *
-     * @return int value of armor points.
+     * @return int value of armor.
      */
     public int getArmor() {
         return armor;
     }
 
     /**
-     * Reduces the amount of health points for the warrior when it is attacked.
+     * Reduces the amount of health for the warrior when it is attacked.
      * Values below zero will be corrected to zero.
      *
      * @param newHealth number of health points to be reduced for the warrior.
@@ -122,7 +120,7 @@ public abstract class Unit {
     }
 
     /**
-     * Returns the unit type, name and health status of a warrior in toString-format.
+     * Return unit type, name and health status of a warrior in toString-format.
      *
      * @return status of a warrior.
      */

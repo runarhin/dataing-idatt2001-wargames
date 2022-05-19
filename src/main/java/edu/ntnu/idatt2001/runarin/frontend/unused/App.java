@@ -14,6 +14,14 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
+/**
+ * Simple view made to test JavaFX functionality.
+ *
+ * @author Runar Indahl
+ * @version 2.0
+ * @since 2022-04-03
+ * @deprecated
+ */
 public class App extends Application {
 
     private static final String VERSION = "1.0";

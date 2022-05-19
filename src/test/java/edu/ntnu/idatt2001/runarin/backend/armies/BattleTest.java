@@ -23,7 +23,7 @@ public class BattleTest {
             Army alliance = new Army("The Alliance");
             Battle battle = new Battle(null, alliance);
             fail();
-        } catch (IOException e) {
+        } catch (IllegalArgumentException e) {
             assertEquals("Two armies must be initialised to run simulation.", e.getMessage());
         }
     }
@@ -37,7 +37,7 @@ public class BattleTest {
             Army alliance = new Army("The Alliance");
             Battle battle = new Battle(alliance, alliance);
             fail();
-        } catch (IllegalArgumentException | IOException e) {
+        } catch (IllegalArgumentException e) {
             assertEquals("An army cannot battle itself. Choose one other army.", e.getMessage());
         }
     }
@@ -75,11 +75,7 @@ public class BattleTest {
         Army alliance = new Army("The Alliance");
 
         Battle battle = null;
-        try {
-            battle = new Battle(horde, alliance);
-        } catch (IOException e) {
-            assertNull(e.getMessage());
-        }
+        battle = new Battle(horde, alliance);
 
         // Adds x number of grunt units to the  horde army.
         for (int i = 0; i < 3; i++) {

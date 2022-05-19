@@ -13,8 +13,7 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 /**
- * A class Army.
- * This class represents an army with a name and a list of warrior units.
+ * Represents an army with a name and a list of warrior units.
  *
  * @author Runar Indahl
  * @version 4.0
@@ -26,7 +25,7 @@ public class Army {
     private final ArrayList<Unit> units;
 
     /**
-     * Constructor for instantiation the class Army with a given Hashmap list of units.
+     * Constructor for instantiation the class Army with a list of units.
      *
      * @param name name of the faction army.
      * @param units units in the army; Footmen, raiders, knights, etc.
@@ -40,8 +39,7 @@ public class Army {
     }
 
     /**
-     * Constructor for instantiation the class Army.
-     * This simplified Army class initialises a HashMap list for containing all units in an army.
+     * Simplified constructor for instantiation the class Army.
      *
      * @param name name of the faction army.
      */
@@ -72,7 +70,7 @@ public class Army {
     }
 
     /**
-     * Adds a number of units to the army list.
+     * Add a number of units to the army list.
      *
      * @param unitsInput list of units to add to army.
      */
@@ -90,7 +88,7 @@ public class Army {
     }
 
     /**
-     * Returns an indication whether the units-list contains units or not.
+     * Returns a boolean whether the units-list contains units or not.
      *
      * @return false if the list is empty. true if the army list contains units.
      */
@@ -99,7 +97,7 @@ public class Army {
     }
 
     /**
-     * Returns an army's units list.
+     * Returns a deep copy of the army's units list.
      *
      * @return ArrayList containing all units enlisted.
      */
@@ -123,7 +121,6 @@ public class Army {
     }
 
     /**
-     * Returns ArrayList<InfantryUnit>.
      * Streams through the army's units list and filter on instances of infantry units.
      *
      * @return ArrayList containing only infantry units.
@@ -135,7 +132,6 @@ public class Army {
     }
 
     /**
-     * Returns ArrayList<RangedUnit>.
      * Streams through the army's units list and filter on instances of ranged units.
      * @return ArrayList containing only ranged units.
      */
@@ -146,7 +142,6 @@ public class Army {
     }
 
     /**
-     * Returns ArrayList<CavalryUnit>.
      * Streams through the army's units list and filter on instances of cavalry units.
      *
      * @return ArrayList containing only cavalry units.
@@ -158,7 +153,6 @@ public class Army {
     }
 
     /**
-     * Returns ArrayList<CommanderUnit>.
      * Streams through the army's units list and filter on instances of commander units.
      *
      * @return ArrayList containing only commander units.
@@ -170,21 +164,20 @@ public class Army {
     }
 
     /**
-     * Creates a new, or writes to existing, csv.-file information
-     * about the army and its units to a wanted location.
+     * Creates a new CSV-file, or writes to existing file, information about the army to a specified location.
      * The file name is the same as the army's name.
      *
      * @param filePath path to where the file is to be stored. The file-name
      *                 itself is self-generated based on the army name.
      * @throws IOException thrown from FileWriter-object in the FileHandler-class.
-     * @see FileHandler
+     * @see FileHandler handles the files to be written to.
      */
     public void writeArmyToFile(String filePath) throws IOException {
         FileHandler.writeArmyToFile(this, filePath);
     }
 
     /**
-     * Reads a file containing units and adds these to the army.
+     * Add units to army from a CSV-file.
      *
      * @param file path and name to where the file is stored.
      * @throws CorruptedFileException thrown if the file data is corrupted.
@@ -196,10 +189,9 @@ public class Army {
     }
 
     /**
-     * Finds a random number within the range of the units ArrayList and
-     * thereafter finds a random unit by index.
+     * Returns a random unit from the army's units list.
      *
-     * @return random unit in the units ArrayList.
+     * @return random unit from the army.
      */
     public Unit getRandom() {
         Random rand = new Random();
@@ -209,7 +201,7 @@ public class Army {
     }
 
     /**
-     * Returns the name and the number of units of a mighty army.
+     * Returns the name and the number of units of an army.
      *
      * @return army name and its size.
      */
@@ -222,7 +214,7 @@ public class Army {
      * Checks if an army-object is the same object another army-object.
      *
      * @param o object to be compared to.
-     * @return true if the two objects are the same. False if not.
+     * @return true if the two objects are the same, false if not.
      */
     @Override
     public boolean equals(Object o) {

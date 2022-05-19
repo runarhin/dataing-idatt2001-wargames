@@ -78,18 +78,18 @@ public class WarGamesModel {
     }
 
     /**
-     * Return the file path and -name, to where army one is stored.
+     * Return the file path for where army one.
      *
-     * @return file path and -name for army one.
+     * @return file path for army one.
      */
     public static String getFilePathArmyOne() {
         return filePathArmyOne.getPath();
     }
 
     /**
-     * Return the file path and -name, to where army two is stored.
+     * Return the file path for where army two.
      *
-     * @return file path and -name for army two.
+     * @return file path for army two.
      */
     public static String getFilePathArmyTwo() {
         return filePathArmyTwo.getPath();

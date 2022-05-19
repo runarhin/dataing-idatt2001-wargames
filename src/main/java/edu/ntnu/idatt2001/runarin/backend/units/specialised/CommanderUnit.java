@@ -1,9 +1,7 @@
 package edu.ntnu.idatt2001.runarin.backend.units.specialised;
 
 /**
- * A class for a commander unit.
- * This is a commander unit with high attack power.
- * Extends the CavalryUnit class and comes with a charge ability.
+ * A commander unit with high attack power and defence. Extends the CavalryUnit class.
  *
  * @author Runar Indahl
  * @version 3.0

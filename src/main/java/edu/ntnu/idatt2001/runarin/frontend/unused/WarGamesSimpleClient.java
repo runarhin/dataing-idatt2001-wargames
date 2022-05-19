@@ -1,6 +1,5 @@
 package edu.ntnu.idatt2001.runarin.frontend.unused;
 
-import edu.ntnu.idatt2001.runarin.backend.exceptions.ArmyEmptyOfUnitsException;
 import edu.ntnu.idatt2001.runarin.backend.armies.Army;
 import edu.ntnu.idatt2001.runarin.backend.armies.Battle;
 import edu.ntnu.idatt2001.runarin.backend.units.specialised.CavalryUnit;
@@ -13,8 +12,7 @@ import java.util.HashMap;
 import java.util.Scanner;
 
 /**
- * This is a simple War Games-client which allows creating armies and add units to it.
- * This task did not have a clear description and is made out of my own imagination.
+ * Simple client made to simulate core backend functionality in an early stage of the project.
  *
  * It can create an infinite number of armies which is added to a list of armies.
  * A single battle between two armies can be simulated at the time, but the surviving units
@@ -23,6 +21,7 @@ import java.util.Scanner;
  * @author Runar Indahl
  * @version 1.0
  * @since 2022-03-06
+ * @deprecated
  */
 
 public class WarGamesSimpleClient {
@@ -346,13 +345,9 @@ public class WarGamesSimpleClient {
         }
     }
 
-    public Army startABattleBetweenTwoArmies(Army armyOne, Army armyTwo) throws ArmyEmptyOfUnitsException {
+    public Army startABattleBetweenTwoArmies(Army armyOne, Army armyTwo) throws IOException {
         Battle battle = null;
-        try {
-            battle = new Battle(armyOne,armyTwo);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        battle = new Battle(armyOne,armyTwo);
         return battle.simulate(null);
     }
 
