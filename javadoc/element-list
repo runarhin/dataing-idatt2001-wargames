@@ -1,0 +1,10 @@
+module:wargames
+edu.ntnu.idatt2001.runarin.backend.armies
+edu.ntnu.idatt2001.runarin.backend.exceptions
+edu.ntnu.idatt2001.runarin.backend.filehandling
+edu.ntnu.idatt2001.runarin.backend.units
+edu.ntnu.idatt2001.runarin.backend.units.specialised
+edu.ntnu.idatt2001.runarin.frontend
+edu.ntnu.idatt2001.runarin.frontend.controllers
+edu.ntnu.idatt2001.runarin.frontend.model
+edu.ntnu.idatt2001.runarin.frontend.unused
