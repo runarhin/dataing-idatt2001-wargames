@@ -2,10 +2,10 @@ package edu.ntnu.idatt2001.runarin.backend.armies;
 
 import edu.ntnu.idatt2001.runarin.backend.exceptions.ArmyEmptyOfUnitsException;
 import edu.ntnu.idatt2001.runarin.backend.filehandling.FileHandler;
-import edu.ntnu.idatt2001.runarin.backend.units.TerrainType;
-import edu.ntnu.idatt2001.runarin.backend.units.specialised.CavalryUnit;
-import edu.ntnu.idatt2001.runarin.backend.units.specialised.RangedUnit;
-import edu.ntnu.idatt2001.runarin.backend.units.Unit;
+import edu.ntnu.idatt2001.runarin.backend.armies.units.TerrainType;
+import edu.ntnu.idatt2001.runarin.backend.armies.units.specialised.CavalryUnit;
+import edu.ntnu.idatt2001.runarin.backend.armies.units.specialised.RangedUnit;
+import edu.ntnu.idatt2001.runarin.backend.armies.units.Unit;
 
 import java.io.IOException;
 import java.util.Random;

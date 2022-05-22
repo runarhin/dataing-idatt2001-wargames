@@ -1,11 +1,11 @@
 package edu.ntnu.idatt2001.runarin.frontend.controllers;
 
-import edu.ntnu.idatt2001.runarin.backend.units.TerrainType;
+import edu.ntnu.idatt2001.runarin.backend.armies.units.TerrainType;
 import edu.ntnu.idatt2001.runarin.frontend.WarGamesApp;
 import edu.ntnu.idatt2001.runarin.frontend.model.WarGamesModel;
-import edu.ntnu.idatt2001.runarin.backend.units.Unit;
-import edu.ntnu.idatt2001.runarin.backend.units.UnitFactory;
-import edu.ntnu.idatt2001.runarin.backend.units.UnitType;
+import edu.ntnu.idatt2001.runarin.backend.armies.units.Unit;
+import edu.ntnu.idatt2001.runarin.backend.armies.units.UnitFactory;
+import edu.ntnu.idatt2001.runarin.backend.armies.units.UnitType;
 import edu.ntnu.idatt2001.runarin.frontend.model.ArmySelect;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
