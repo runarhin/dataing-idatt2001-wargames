@@ -1,4 +1,4 @@
-package edu.ntnu.idatt2001.runarin.backend.units.specialised;
+package edu.ntnu.idatt2001.runarin.backend.armies.units.specialised;
 
 /**
  * A commander unit with high attack power and defence. Extends the CavalryUnit class.

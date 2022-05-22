@@ -1,7 +1,7 @@
-package edu.ntnu.idatt2001.runarin.backend.units.specialised;
+package edu.ntnu.idatt2001.runarin.backend.armies.units.specialised;
 
-import edu.ntnu.idatt2001.runarin.backend.units.TerrainType;
-import edu.ntnu.idatt2001.runarin.backend.units.Unit;
+import edu.ntnu.idatt2001.runarin.backend.armies.units.TerrainType;
+import edu.ntnu.idatt2001.runarin.backend.armies.units.Unit;
 
 /**
  * A cavalry unit with high attack power and a charge ability.

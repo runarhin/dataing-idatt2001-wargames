@@ -1,7 +1,7 @@
 package edu.ntnu.idatt2001.runarin.frontend.model;
 
 import edu.ntnu.idatt2001.runarin.backend.armies.Army;
-import edu.ntnu.idatt2001.runarin.backend.units.Unit;
+import edu.ntnu.idatt2001.runarin.backend.armies.units.Unit;
 import javafx.beans.property.*;
 import javafx.collections.FXCollections;
 

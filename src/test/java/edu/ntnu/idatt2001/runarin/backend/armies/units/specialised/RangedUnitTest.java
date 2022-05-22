@@ -1,6 +1,6 @@
-package edu.ntnu.idatt2001.runarin.backend.units.specialised;
+package edu.ntnu.idatt2001.runarin.backend.armies.units.specialised;
 
-import edu.ntnu.idatt2001.runarin.backend.units.TerrainType;
+import edu.ntnu.idatt2001.runarin.backend.armies.units.TerrainType;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

@@ -1,7 +1,7 @@
 package edu.ntnu.idatt2001.runarin.frontend.model;
 
 import edu.ntnu.idatt2001.runarin.backend.armies.Battle;
-import edu.ntnu.idatt2001.runarin.backend.units.TerrainType;
+import edu.ntnu.idatt2001.runarin.backend.armies.units.TerrainType;
 
 import java.io.File;
 

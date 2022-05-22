@@ -1,9 +1,9 @@
-package edu.ntnu.idatt2001.runarin.backend.units;
+package edu.ntnu.idatt2001.runarin.backend.armies.units;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.fail;
 
-import edu.ntnu.idatt2001.runarin.backend.units.specialised.InfantryUnit;
+import edu.ntnu.idatt2001.runarin.backend.armies.units.specialised.InfantryUnit;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 

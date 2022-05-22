@@ -1,4 +1,4 @@
-package edu.ntnu.idatt2001.runarin.backend.units;
+package edu.ntnu.idatt2001.runarin.backend.armies.units;
 
 /**
  * Abstract superclass Unit provides general capabilities to its subclasses.
