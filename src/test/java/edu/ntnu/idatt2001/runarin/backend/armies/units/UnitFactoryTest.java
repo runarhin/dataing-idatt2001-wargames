@@ -1,4 +1,4 @@
-package edu.ntnu.idatt2001.runarin.backend.units;
+package edu.ntnu.idatt2001.runarin.backend.armies.units;
 
 import org.junit.jupiter.api.Test;
 

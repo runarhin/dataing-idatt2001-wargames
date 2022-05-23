@@ -7,11 +7,11 @@ import java.util.ArrayList;
 
 import edu.ntnu.idatt2001.runarin.backend.exceptions.CorruptedFileException;
 import edu.ntnu.idatt2001.runarin.backend.filehandling.FileHandler;
-import edu.ntnu.idatt2001.runarin.backend.units.Unit;
-import edu.ntnu.idatt2001.runarin.backend.units.specialised.CavalryUnit;
-import edu.ntnu.idatt2001.runarin.backend.units.specialised.CommanderUnit;
-import edu.ntnu.idatt2001.runarin.backend.units.specialised.InfantryUnit;
-import edu.ntnu.idatt2001.runarin.backend.units.specialised.RangedUnit;
+import edu.ntnu.idatt2001.runarin.backend.armies.units.Unit;
+import edu.ntnu.idatt2001.runarin.backend.armies.units.specialised.CavalryUnit;
+import edu.ntnu.idatt2001.runarin.backend.armies.units.specialised.CommanderUnit;
+import edu.ntnu.idatt2001.runarin.backend.armies.units.specialised.InfantryUnit;
+import edu.ntnu.idatt2001.runarin.backend.armies.units.specialised.RangedUnit;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
