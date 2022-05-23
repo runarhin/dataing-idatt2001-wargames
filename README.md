@@ -18,7 +18,8 @@ Install the program by downloading the zip-files or by cloning via the following
 
 ## Documentation
 
-GitLab pages: [JavaDoc](https://runarin.pages.stud.idi.ntnu.no/wargames)
+GitLab pages: [JavaDoc](https://runarin.pages.stud.idi.ntnu.no/wargames) \
+GitLab repo: [Repository](https://gitlab.stud.idi.ntnu.no/runarin/wargames)
 
 
 ## Release 1.0

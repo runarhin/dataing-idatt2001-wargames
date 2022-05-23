@@ -176,13 +176,13 @@ public class AddUnitsController implements Initializable {
      */
     private void initUnitData(String armyName) {
         infantryHealth.setText("100");
-        infantryAmount.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 1000));
+        infantryAmount.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 999));
 
         rangedHealth.setText("100");
-        rangedAmount.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 1000));
+        rangedAmount.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 999));
 
         cavalryHealth.setText("100");
-        cavalryAmount.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 1000));
+        cavalryAmount.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 999));
 
         commanderHealth.setText("180");
         commanderAmount.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 1));
